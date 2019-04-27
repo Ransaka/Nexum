@@ -1,0 +1,585 @@
+<div class="section section-basic">
+    <div class="container">
+      <h3 class="title">Basic Elements</h3>
+      <div id="buttons">
+          <h4>Buttons</h4>
+          <p class="category">Pick your style</p>
+          <div class="row">
+              <div class="col-md-10">
+                  <button class="btn btn-primary" type="button">Default</button>
+                  <button class="btn btn-primary btn-round" type="button">Round</button>
+                  <button class="btn btn-primary btn-round" type="button">
+                      <i class="now-ui-icons ui-2_favourite-28"></i> With Icon
+                  </button>
+                  <button class="btn btn-primary btn-icon btn-round" type="button">
+                      <i class="now-ui-icons ui-2_favourite-28"></i>
+                  </button>
+                  <button class="btn btn-primary btn-simple btn-round" type="button">Simple</button>
+              </div>
+          </div>
+          <p class="category">Pick your size</p>
+          <div class="row">
+              <div class="col-md-10">
+                  <button class="btn btn-primary btn-sm">Small</button>
+                  <button class="btn btn-primary">Regular</button>
+                  <button class="btn btn-primary btn-lg">Large</button>
+              </div>
+          </div>
+          <p class="category">Pick your color</p>
+          <div class="row">
+              <div class="col-md-10">
+                  <button class="btn">Default</button>
+                  <button class="btn btn-primary">Primary</button>
+                  <button class="btn btn-info">Info</button>
+                  <button class="btn btn-success">Success</button>
+                  <button class="btn btn-warning">Warning</button>
+                  <button class="btn btn-danger">Danger</button>
+                  <button class="btn btn-neutral">Neutral</button>
+              </div>
+          </div>
+          <h4>Links</h4>
+          <div class="row">
+              <div class="col-md-8">
+                  <button class="btn btn-link">Default</button>
+                  <button class="btn btn-link btn-primary ">Primary</button>
+                  <button class="btn btn-link btn-info">Info</button>
+                  <button class="btn btn-link btn-success">Success</button>
+                  <button class="btn btn-link btn-warning">Warning</button>
+                  <button class="btn btn-link btn-danger">Danger</button>
+              </div>
+          </div>
+      </div>
+      <div id="inputs">
+          <h4>Inputs</h4>
+          <p class="category">Form Controls</p>
+          <div class="row">
+              
+              <div class="col-sm-6 col-lg-3">
+                  <div class="form-group has-success">
+                      <input type="text" value="Success" class="form-control form-control-success" />
+                  </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                  <div class="form-group has-danger">
+                      <input type="email" value="Error Input" class="form-control form-control-danger" />
+                  </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                  <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+                    <div class="input-group-prepend" >
+                      <span class="input-group-text">
+                          <i class="fa fa-user-circle"></i>
+                      </span>
+                    </div>
+                      <input type="text" class="form-control" placeholder="Left Font Awesome Icon" (focus)="focus=true" (blur)="focus=false">
+                  </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                  <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
+                      <input type="text" class="form-control" placeholder="Right Nucleo Icon" (focus)="focus1=true" (blur)="focus1=false">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="now-ui-icons users_single-02"></i>
+                        </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row" id="checkRadios">
+        <div class="col-sm-6 col-lg-3">
+            <p class="category">Checkboxes</p>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox">
+                    <span class="form-check-sign"></span>
+                    Unchecked
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" checked>
+                    <span class="form-check-sign"></span>
+                    Checked
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" disabled>
+                    <span class="form-check-sign"></span>
+                    Disabled Unchecked
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" checked disabled>
+                    <span class="form-check-sign"></span>
+                    Disabled Checked
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <p class="category">Radios</p>
+            <div class="form-check form-check-radio">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                    <span class="form-check-sign"></span>
+                    Radio is off
+                </label>
+            </div>
+            <div class="form-check form-check-radio">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" checked>
+                    <span class="form-check-sign"></span>
+                    Radio is on
+                </label>
+            </div>
+            <div class="form-check form-check-radio disabled">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="option3" disabled>
+                    <span class="form-check-sign"></span>
+                    Disabled radio is off
+                </label>
+            </div>
+            <div class="form-check form-check-radio disabled">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="option4" disabled checked>
+                    <span class="form-check-sign"></span>
+                    Disabled radio is on
+                </label>
+            </div>
+        </div>
+          <div class="col-sm-6 col-lg-3">
+              <p class="category">Toggle Buttons</p>
+              <bSwitch
+                  [(ngModel)]="state">
+              </bSwitch>
+              <bSwitch> Toggle is off
+              </bSwitch>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+              <p class="category">Sliders</p>
+              <nouislider class="slider" [min]="0" [max]="100" [step]="1" [(ngModel)]="simpleSlider" [tooltips]="true"></nouislider>
+              <br>
+              <nouislider class="slider slider-primary" [connect]="true" [min]="0" [max]="100" [step]="1" [(ngModel)]="doubleSlider" [tooltips]="true"></nouislider>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="section section-images">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hero-images-container">
+                        <img src="assets/img/hero-image-1.png" alt="">
+                    </div>
+                    <div class="hero-images-container-1">
+                        <img src="assets/img/hero-image-2.png" alt="">
+                    </div>
+                    <div class="hero-images-container-2">
+                        <img src="assets/img/hero-image-3.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs with Background on Card -->
+    <div class="card">
+            <div class="nav-tabs-navigation" data-tabs-color="orange">
+                <div class="nav-tabs-wrapper">
+                    <ngb-tabset [justify]="'center'" class="text-center" >
+                        <ngb-tab title="Home">
+                          <ng-template ngbTabContent>
+                            <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                          </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="Profile">
+                          <ng-template ngbTabContent>
+                              <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+                          </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="Messages">
+                          <ng-template ngbTabContent>
+                              <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                          </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="Settings">
+                            <ng-template ngbTabContent>
+                              <p>
+                                  "I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at."
+                              </p>
+                            </ng-template>
+                        </ngb-tab>
+                    </ngb-tabset>
+                </div>
+            </div>
+          </div>
+
+<!--Dropdown
+      <div class="dropdown button-dropdown">
+        
+        <div ngbDropdown>
+          <a class="dropdown-toggle" ngbDropdownToggle>
+              <span class="button-bar"></span>
+              <span class="button-bar"></span>
+              <span class="button-bar"></span>
+          </a>
+           <div ngbDropdownMenu>
+             <a class="dropdown-header">Dropdown header</a>
+             <a class="dropdown-item" href="#">Action</a>
+             <a class="dropdown-item" href="#">Action</a>
+             <a class="dropdown-item" href="#">Another action</a>
+             <a class="dropdown-item" href="#">Something else here</a>
+             <div class="dropdown-divider"></div>
+             <a class="dropdown-item" href="#">Separated link</a>
+             <div class="dropdown-divider"></div>
+             <a class="dropdown-item" href="#">One more separated link</a>
+           </div>
+        </div>
+      </div>Dropdown-->
+
+      
+      <div class="col-md-10 ml-auto col-xl-6 mr-auto">
+            <p class="category">Tabs with Icons on Card</p>
+            <!-- Nav tabs -->
+
+            <div class="card">
+              <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                      <ngb-tabset [justify]="'center'" class="text-center">
+                          <ngb-tab>
+                            <ng-template ngbTabTitle>
+                              <i class="now-ui-icons objects_umbrella-13"></i> Home
+                            </ng-template>
+                              <ng-template ngbTabContent>
+                                <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                              </ng-template>
+                          </ngb-tab>
+                          <ngb-tab>
+                            <ng-template ngbTabTitle>
+                              <i class="now-ui-icons shopping_cart-simple"></i> Profile
+                            </ng-template>
+                              <ng-template ngbTabContent>
+                                  <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+                              </ng-template>
+                          </ngb-tab>
+                          <ngb-tab>
+                            <ng-template ngbTabTitle>
+                                <i class="now-ui-icons shopping_shop"></i> Messages
+                            </ng-template>
+                              <ng-template ngbTabContent>
+                                  <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                              </ng-template>
+                          </ngb-tab>
+                          <ngb-tab>
+                            <ng-template ngbTabTitle>
+                              <i class="now-ui-icons ui-2_settings-90"></i> Settings
+                            </ng-template>
+                              <ng-template ngbTabContent>
+                                <p>
+                                    "I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at."
+                                </p>
+                              </ng-template>
+                          </ngb-tab>
+                      </ngb-tabset>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="section section-pagination">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Progress Bars</h4>
+                            <div class="progress-container">
+                              <span class="progress-badge">Default</span>
+      
+                              <ngb-progressbar [value]="25"><span class="progress-value">25%</span></ngb-progressbar><br>
+                            </div>
+                            <div class="progress-container progress-primary">
+                                <span class="progress-badge">Primary</span>
+                                <ngb-progressbar [value]="60"><span class="progress-value">60%</span></ngb-progressbar><br>
+                            </div>
+                            <br />
+                            <h4>Navigation Pills</h4>
+                            <ngb-tabset type="pills" class="nav nav-pills nav-pills-primary justify-content-start tab-space nav-pills-just-icons">
+                                <ngb-tab>
+                                  <ng-template ngbTabTitle>
+                                    <i class="far fa-gem"></i>
+                                  </ng-template>
+                                    <ng-template ngbTabContent>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab>
+                                  <ng-template ngbTabTitle>
+                                    <i class="fa fa-thermometer-full"></i>
+                                  </ng-template>
+                                    <ng-template ngbTabContent>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab>
+                                    <ng-template ngbTabTitle>
+                                      <i class="fa fa-suitcase"></i>
+                                    </ng-template>
+                                    <ng-template ngbTabContent>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab [disabled]="true">
+                                    <ng-template ngbTabTitle>
+                                      <i class="fa fa-exclamation"></i>
+                                    </ng-template>
+                                    <ng-template ngbTabContent>
+                                    </ng-template>
+                                </ngb-tab>
+                            </ngb-tabset>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Pagination</h4>
+                            <ngb-pagination [collectionSize]="50" [(page)]="page" aria-label="Default pagination" class="pagination-primary"></ngb-pagination>
+                            <br/>
+                            <ngb-pagination [collectionSize]="50" [(page)]="page2" aria-label="Default pagination"></ngb-pagination>
+                            <br>
+                            <h4>Labels</h4>
+                            <span class="badge badge-default">Default</span>
+                            <span class="badge badge-primary">Primary</span>
+                            <span class="badge badge-success">Success</span>
+                            <span class="badge badge-info">Info</span>
+                            <span class="badge badge-warning">Warning</span>
+                            <span class="badge badge-danger">Danger</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="notifications">
+                    <div class="container">
+                      <h4>Notifications</h4>
+                    </div>
+                    <app-notification></app-notification>
+                </div>
+
+                <div class="section section-javascript" id="javascriptComponents">
+                        <div class="container">
+                            <h3 class="title">Angular Native Components</h3>
+                            <div class="row" id="modals">
+                                <div class="col-md-6">
+                                    <h4>Modaal</h4>
+                                    <ngbd-modal-component></ngbd-modal-component>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Popovers</h4>
+                                    <button type="button" class="btn btn-default" placement="right"
+                                        ngbPopover="Here will be some very useful information about this popover." popoverTitle="Popover on right" popoverClass="popover-primary">
+                                        On right
+                                    </button>
+              
+                                    <button type="button" class="btn btn-default" placement="top"
+                                        ngbPopover="Here will be some very useful information about this popover." popoverTitle="Popover on top">
+                                        On top
+                                    </button>
+              
+                                    <button type="button" class="btn btn-default" placement="left"
+                                        ngbPopover="Here will be some very useful information about this popover." popoverTitle="Popover on left">
+                                        On left
+                                    </button>
+              
+                                    <button type="button" class="btn btn-default" placement="bottom"
+                                        ngbPopover="Here will be some very useful information about this popover." popoverTitle="Popover on bottom">
+                                        On bottom
+                                    </button>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="col-md-6">
+                                    <h4>Datetimepicker</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="datepicker-container">
+                                                <div class="form-group">
+                                                  <input class="form-control datetimepicker" placeholder="06/07/2017"
+                                                       name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" data-color="orange">
+                                                      </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--                 end collapse -->
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Tooltips</h4>
+                                    <button type="button" class="btn btn-default btn-tooltip" placement="right" ngbTooltip="Tooltip on right">
+                                       On right
+                                   </button>
+                                   <button type="button" class="btn btn-default btn-tooltip" placement="left" ngbTooltip="Tooltip on left">
+                                     On left
+                                   </button>
+                                    <button type="button" class="btn btn-default btn-tooltip" placement="top" ngbTooltip="Tooltip on top">
+                                       On top
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-tooltip" placement="bottom" ngbTooltip="Tooltip on bottom">
+                                        On bottom
+                                    </button>
+                                    <div class="clearfix"></div>
+                                    <br>
+                                    <br>
+                                </div>
+                            <!-- </div>
+                          </div> -->
+                        </div>
+              
+                        <div class="section" id="carousel">
+                            <div class="container">
+                                <div class="title">
+                                    <h4>Carousel</h4>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-8">
+                                      <ngb-carousel>
+                                          <ng-template ngbSlide>
+                                            <img class="d-block" src="assets/img/bg1.jpg" alt="First slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Nature, United States</h5>
+                                            </div>
+                                          </ng-template>
+                                          <ng-template ngbSlide>
+                                            <img class="d-block" src="assets/img/bg3.jpg" alt="Second slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Somewhere Beyond, United States</h5>
+                                            </div>
+                                          </ng-template>
+                                          <ng-template ngbSlide>
+                                            <img class="d-block" src="assets/img/bg4.jpg" alt="Third slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Yellowstone National Park, United States</h5>
+                                            </div>
+                                          </ng-template>
+                                      </ngb-carousel>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="content">
+                            <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
+                              </div>
+                                <input type="text" class="form-control" placeholder="First Name..." (focus)="focus=true" (blur)="focus=false" >
+                            </div>
+                            <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus1===true}">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                              </div>
+                                <input type="text" placeholder="Last Name..." class="form-control" (focus)="focus1=true" (blur)="focus1=false"/>
+                            </div>
+                          </div>
+
+                          <div class="container login-page">
+                                <div class="row">
+                                  <div class="col-md-4 content-center ml-auto mr-auto">
+                                      <div class="card card-login card-plain">
+                                          <form class="form" method="" action="">
+                                              <div class="header header-primary text-center">
+                                                  <div class="logo-container">
+                                                      <img src="assets/img/now-logo.png" alt="">
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="footer text-center">
+                                                  <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Get Started</a>
+                                              </div>
+                                              <div class="text-center">
+                                                  <h6>
+                                                      <a href="#pablo" class="link">Create Account</a>
+                                                  </h6>
+                                              </div>
+                                              <div class="text-center">
+                                                  <h6>
+                                                      <a href="#pablo" class="link">Need Help?</a>
+                                                  </h6>
+                                              </div>
+                                          </form>
+                                      </div>
+                                  </div>
+                                </div>
+                                  <div class="col text-center">
+                                      <a [routerLink]="['/examples/login']" class="btn btn-simple btn-round btn-white btn-lg">View Login Page</a>
+                                  </div>
+                              </div>
+
+                              <div class="section section-examples" data-background-color="black">
+                                    <div class="space-50"></div>
+                                    <div class="container text-center">
+                                        <div class="row">
+                                            <div class="col">
+                                                <a [routerLink]="['/examples/landing']">
+                                                    <img src="assets/img/landing.jpg" alt="Image" class="img-raised">
+                                                </a>
+                                                <a [routerLink]="['/examples/landing']" class="btn btn-simple btn-primary btn-round">View Landing Page</a>
+                                            </div>
+                                            <div class="col">
+                                                <a [routerLink]="['/examples/profile']">
+                                                    <img src="assets/img/profile.jpg" alt="Image" class="img-raised">
+                                                </a>
+                                                <a [routerLink]="['/examples/profile']" class="btn btn-simple btn-primary btn-round">View Profile Page</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row text-center mt-5">
+                                        <div class="col-md-8 ml-auto mr-auto">
+                                            <h2>Want more?</h2>
+                                            <h5 class="description">We've just launched
+                                                <a href="https://timcreative.github.io/now-ui-kit-pro-angular/presentation" target="_blank">Now UI Kit PRO Angular</a>. It has a huge number of components, sections and example pages. Start Your Development With A Badass Bootstrap 4 UI Kit.</h5>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a href="https://timcreative.github.io/now-ui-kit-pro-angular/presentation" class="btn btn-neutral btn-round btn-lg" target="_blank">
+                                                <i class="now-ui-icons arrows-1_share-66"></i> Upgrade to PRO
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-md-center">
+                                            <div class="text-center col-md-12 col-lg-8">
+                                                <h3 class="title">Do you love this Bootstrap 4 UI Kit?</h3>
+                                                <h5 class="description">Cause if you do, it can be yours for FREE. Hit the button below to navigate to Creative Tim or Invision where you can find the kit in HTML or Sketch/PSD format. Start a new project or give an old Bootstrap project a new look!</h5>
+                                            </div>
+                                            <div class="text-center col-md-12 col-lg-8">
+                                                <a href="https://www.creative-tim.com/product/now-ui-kit-angular" class="btn btn-primary btn-lg btn-round" role="button">
+                                                    Download Angular
+                                                </a>
+                                                <a href="https://www.invisionapp.com/now" target="_blank" class="btn btn-primary btn-lg btn-simple btn-round" role="button">
+                                                    Download PSD/Sketch
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="section section-download" id="#download-section" data-background-color="black">
+                                                <div class="container">
+                                                    <div class="row justify-content-md-center sharing-area text-center">
+                                                      <div class="text-center col-md-12 col-lg-8">
+                                                        <h3>Thank you for supporting us!</h3>
+                                                      </div>
+                                                      <div class="text-center col-md-12 col-lg-8">
+                                                        <a target="_blank" href="https://www.twitter.com/creativetim" class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip" title="Follow us">
+                                                          <i class="fab fa-twitter"></i>
+                                                        </a>
+                                                        <a target="_blank" href="https://www.facebook.com/creativetim" class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg" rel="tooltip" title="Like us">
+                                                          <i class="fab fa-facebook-square"></i>
+                                                        </a>
+                                                        <a target="_blank" href="https://www.linkedin.com/company-beta/9430489/" class="btn btn-neutral btn-icon btn-linkedin btn-lg btn-round" rel="tooltip" title="Follow us">
+                                                          <i class="fab fa-linkedin"></i>
+                                                        </a>
+                                                        <a target="_blank" href="https://github.com/creativetimofficial/now-ui-kit-angular" class="btn btn-neutral btn-icon btn-github btn-round btn-lg" rel="tooltip" title="Star on Github">
+                                                          <i class="fab fa-github"></i>
+                                                        </a>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                            </div>

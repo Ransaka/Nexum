@@ -1,0 +1,263 @@
+<!--Login-->
+<button class="btn btn-primary btn-lg btn-round" (click)="open(classic,'' , '')">LogIn</button>
+<ng-template #classic let-c="close" let-d="dismiss">
+    
+    <!-- Head -->
+    <div class="modal-header justify-content-center" >
+        <button type="button" class="close" (click)="d('Cross click')">
+            <i class="now-ui-icons ui-1_simple-remove"></i>
+        </button>
+        <h4 class="title title-up">LogIn</h4>
+    </div>
+    <br>
+    <!-- /Head -->
+
+    
+<div class="page-header" filter-color="orange">
+        <div class="container">
+            <div class="col-md-4 content-center">
+                <div class="card card-login card-plain">
+                    <form class="form" method="" action="">
+                        <div class="content">
+
+                          <!-- Username -->
+                          <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
+                            </div>
+                              <input type="text" class="form-control" placeholder="Username" (focus)="focus=true" (blur)="focus=false" >
+                          </div>
+                          <!-- /Username -->
+                        
+                          <!-- Password -->
+                          <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus1===true}">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                            </div>
+                              <input type="password" placeholder="Password" class="form-control" (focus)="focus1=true" (blur)="focus1=false"/>
+                          </div>
+                          <!-- /Password -->
+                        
+                          <!-- Buttons -->
+                          <div class="text-center">
+                                <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="close()" [routerLink]="['/profiles/custprofile']">LogIn</a>
+                            </div>
+                            <div class="pull-left">
+                                <h6>
+                                    <a href="#pablo" class="link">Create Account</a>
+                                </h6>
+                            </div>
+                            <div class="pull-right">
+                                <h6>
+                                    <a href="#pablo" class="link">Forgot Password?</a>
+                                </h6>
+                           </div>
+                            <!-- /Button -->
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!--/Login-->
+
+
+<!--SignIn-->
+<button class="btn btn-primary btn-lg btn-simple btn-round" (click)="open(classic_1,'modal_mini' , 'sm')">
+   SignIn
+</button>
+<ng-template #classic_1 let-c="close" let-d="dismiss">
+
+    <!-- Head -->
+    <div class="modal-header justify-content-center" >
+            <button type="button" class="close" (click)="d('Cross click')">
+                <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+            <h4 class="title title-up">SignIn</h4>
+    </div>
+    <br>
+    <!-- /Head -->
+
+    <!-- SignIn as buttons -->
+    <div class="col-md-6 ">
+        <button class="btn btn-lg btn-round" (click)="open(customer,'Login' , '')" (click)="c()">LogIn as Customer</button> 
+        <button class="btn btn-lg btn-round" (click)="open(seller,'Login' , '')" (click)="c()">LogIn as Seller</button>
+    </div>
+    <!-- /SignIn as buttons -->
+
+
+    <!-- Customer SignIn -->
+    <ng-template #customer let-c="close" let-d="dismiss">
+        <!-- Head -->
+        <div class="modal-header justify-content-center" >
+                <button type="button" class="close" (click)="d('Cross click')">
+                    <i class="now-ui-icons ui-1_simple-remove"></i>
+                </button>
+                    <h4 class="title title-up">SignIn<br><h5>Customer</h5></h4>             
+        </div>
+        <!-- /Head -->
+
+                <div class="container">
+                    <div class="col-md-10 content-center">
+                        <div class="card card-login card-plain">
+                            <form class="form" method="" action="">
+                                <div class="content">
+        
+                                  
+                                    <!-- name -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>First Name</label>
+                                                    <input class="form-control border-input" placeholder="First Name" type="text" >
+                                                </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Last Name</label>
+                                                    <input class="form-control border-input" placeholder="Last Name" type="text" >
+                                                </div>
+                                        </div>
+                                   </div>
+                                  <!-- /name -->
+                                
+                                  <!-- Password -->
+                                  <div class="form-group"><label>Password</label><input class="form-control border-input" placeholder="Password" type="password" ></div>
+                                  <!-- /Password -->
+
+                                  <!-- confirm Password -->
+                                  <div class="form-group"><label>Confirm Password</label><input class="form-control border-input" placeholder="Confirm Password" type="password" ></div>
+                                  <!-- /confirm Password -->
+
+                                  <!-- Email -->
+                                  <div class="form-group"><label>Email</label><input class="form-control border-input" placeholder="Email" type="text" ></div>
+                                  <!-- /Email -->
+
+                                  <!-- Telephone-->
+                                  <div class="form-group"><label>Telephone</label><input class="form-control border-input" placeholder="Telephone Number" type="text" ></div>
+                                  <!-- /Telephone -->
+
+                                 <!-- Address-->
+                                 <div class="row">
+                                    <div class="col-md-10 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Address</label>
+                                            <input class="form-control border-input" placeholder="Line 1" type="text" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-6">
+                                        <div class="form-group">
+                                            <input class="form-control border-input" placeholder="Line 2" type="text" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-6">
+                                        <div class="form-group">
+                                            <input class="form-control border-input" placeholder="City" type="text" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10 col-sm-6">
+                                        <div class="form-group">
+                                            <input class="form-control border-input" placeholder="Province" type="text" >
+                                        </div>
+                                    </div>
+                                 </div>
+                                 <!-- /Address -->
+
+                                
+                                  <!-- Buttons -->
+                                  <div class="text-center">
+                                        <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="close()" [routerLink]="['/profiles/custprofile']">SignIn</a>
+                                    </div>
+                                    <!-- /Button -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    </ng-template>
+    <!-- /Customer SignIn -->
+
+
+
+
+
+
+    <!-- Seller SignIn -->
+    <ng-template #seller let-c="close" let-d="dismiss">
+            <!-- Head -->
+            <div class="modal-header justify-content-center" >
+                    <button type="button" class="close" (click)="d('Cross click')">
+                        <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                        <h4 class="title title-up">SignIn<br><h5>Seller<h6>Shop Details</h6></h5></h4>             
+            </div>
+            <!-- /Head -->
+    
+                    <div class="container">
+                        <div class="col-md-10 content-center">
+                            <div class="card card-login card-plain">
+                                <form class="form" method="" action="">
+                                    <div class="content">
+            
+                                    
+                                      <!-- Shop Name -->
+                                      <div class="form-group"><label>Shop Name</label><input class="form-control border-input" placeholder="Shop Name" type="text" ></div>
+                                      <!-- /Shop Name -->
+
+                                      <!-- Identification Number -->
+                                      <div class="form-group"><label>Identification Number</label><input class="form-control border-input" placeholder="Identification Number" type="text" ></div>
+                                      <!-- /Identification Number -->
+    
+                                      <!-- Email -->
+                                      <div class="form-group"><label>Email</label><input class="form-control border-input" placeholder="Email" type="text" ></div>
+                                      <!-- /Email -->
+    
+                                      <!-- Telephone-->
+                                      <div class="form-group"><label>Telephone</label><input class="form-control border-input" placeholder="Telephone Number" type="text" ></div>
+                                      <!-- /Telephone -->
+    
+                                     <!-- Address-->
+                                     <div class="row">
+                                        <div class="col-md-10 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input class="form-control border-input" placeholder="Line 1" type="text" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control border-input" placeholder="Line 2" type="text" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control border-input" placeholder="City" type="text" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control border-input" placeholder="Province" type="text" >
+                                            </div>
+                                        </div>
+                                     </div>
+                                     <!-- /Address -->
+    
+                                    
+                                      <!-- Buttons -->
+                                      <div class="text-center">
+                                            <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="close()" [routerLink]="['/profiles/sellerprofile']">SignIn</a>
+                                        </div>
+                                        <!-- /Button -->
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+        </ng-template>
+    <!-- /Seller SignIn -->
+
+</ng-template>
+
+<!--SignIn-->
