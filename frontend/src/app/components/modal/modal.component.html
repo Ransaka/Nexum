@@ -88,6 +88,9 @@
     <!-- /SignIn as buttons -->
 
 
+    <!-- Status:
+        authendication and backend DOING
+     -->
     <!-- Customer SignIn -->
     <ng-template #customer let-c="close" let-d="dismiss">
         <!-- Head -->
@@ -111,32 +114,32 @@
                                         <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
                                                     <label>First Name</label>
-                                                    <input class="form-control border-input" placeholder="First Name" type="text" >
+                                                    <input [(ngModel)]="userData.fName" name="fName" class="form-control border-input" placeholder="First Name" type="text" require>
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
                                                     <label>Last Name</label>
-                                                    <input class="form-control border-input" placeholder="Last Name" type="text" >
+                                                    <input [(ngModel)]="userData.lName" name="lName" class="form-control border-input" placeholder="Last Name" type="text" require>
                                                 </div>
                                         </div>
                                    </div>
                                   <!-- /name -->
                                 
                                   <!-- Password -->
-                                  <div class="form-group"><label>Password</label><input class="form-control border-input" placeholder="Password" type="password" ></div>
+                                  <div class="form-group"><label>Password</label><input [(ngModel)]="userData.password" name="password" class="form-control border-input" placeholder="Password" type="password" require></div>
                                   <!-- /Password -->
 
                                   <!-- confirm Password -->
-                                  <div class="form-group"><label>Confirm Password</label><input class="form-control border-input" placeholder="Confirm Password" type="password" ></div>
+                                  <div class="form-group"><label>Confirm Password</label><input [(ngModel)]="userData.cpassword" name="cpassword" class="form-control border-input" placeholder="Confirm Password" type="password" require></div>
                                   <!-- /confirm Password -->
 
                                   <!-- Email -->
-                                  <div class="form-group"><label>Email</label><input class="form-control border-input" placeholder="Email" type="text" ></div>
+                                  <div class="form-group"><label>Email</label><input [(ngModel)]="userData.email" name="email" class="form-control border-input" placeholder="Email" type="text" require></div>
                                   <!-- /Email -->
 
                                   <!-- Telephone-->
-                                  <div class="form-group"><label>Telephone</label><input class="form-control border-input" placeholder="Telephone Number" type="text" ></div>
+                                  <div class="form-group"><label>Telephone</label><input [(ngModel)]="userData.telephone" name="telephone" class="form-control border-input" placeholder="Telephone Number" type="text" require></div>
                                   <!-- /Telephone -->
 
                                  <!-- Address-->
@@ -144,22 +147,22 @@
                                     <div class="col-md-10 col-sm-6">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input class="form-control border-input" placeholder="Line 1" type="text" >
+                                            <input [(ngModel)]="userData.addressl1" name="addressl1" class="form-control border-input" placeholder="Line 1" type="text" require>
                                         </div>
                                     </div>
                                     <div class="col-md-10 col-sm-6">
                                         <div class="form-group">
-                                            <input class="form-control border-input" placeholder="Line 2" type="text" >
+                                            <input [(ngModel)]="userData.addressl2" name="addressl2" class="form-control border-input" placeholder="Line 2" type="text" require>
                                         </div>
                                     </div>
                                     <div class="col-md-10 col-sm-6">
                                         <div class="form-group">
-                                            <input class="form-control border-input" placeholder="City" type="text" >
+                                            <input [(ngModel)]="userData.city" name="city" class="form-control border-input" placeholder="City" type="text" require>
                                         </div>
                                     </div>
                                     <div class="col-md-10 col-sm-6">
                                         <div class="form-group">
-                                            <input class="form-control border-input" placeholder="Province" type="text" >
+                                            <input [(ngModel)]="userData.province" name="province" class="form-control border-input" placeholder="Province" type="text" require>
                                         </div>
                                     </div>
                                  </div>
@@ -168,7 +171,7 @@
                                 
                                   <!-- Buttons -->
                                   <div class="text-center">
-                                        <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="close()" [routerLink]="['/profiles/custprofile']">SignIn</a>
+                                        <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="login()" [routerLink]="['/profiles/custprofile']">SignIn</a>
                                     </div>
                                     <!-- /Button -->
                                 </div>
@@ -180,7 +183,7 @@
     <!-- /Customer SignIn -->
 
 
-
+<!-- pt-5 -->
 
 
 

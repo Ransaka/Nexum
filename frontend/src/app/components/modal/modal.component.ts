@@ -9,7 +9,8 @@ export class NgbdModalBasic {
     closeResult: string;
 
     constructor(private modalService: NgbModal) {}
-
+    
+    userData = {}
 
     open(content, type, modalDimension) {
         if (modalDimension === 'sm' && type === 'modal_mini') {
@@ -43,6 +44,10 @@ export class NgbdModalBasic {
         } else {
             return  `with: ${reason}`;
         }
+    }
+
+    login(){
+        console.log(this.userData)
     }
 
     
