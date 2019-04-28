@@ -1,5 +1,7 @@
+import { AuthService } from './../../auth.service';
 import {Component, Input} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'ngbd-modal-component',
@@ -8,7 +10,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class NgbdModalBasic {
     closeResult: string;
 
-    constructor(private modalService: NgbModal) {}
+    constructor(private modalService: NgbModal, private _auth : AuthService) {}
     
     userData = {}
 
@@ -47,7 +49,11 @@ export class NgbdModalBasic {
     }
 
     login(){
-        console.log(this.userData)
+        this._auth.loginUser(this.userData)
+        .subscribe(
+            res => console.log(res),
+            err => console.log(err)
+        )        
     }
 
     

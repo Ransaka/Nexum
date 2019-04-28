@@ -16,14 +16,14 @@ router.get('/',(req,res)=>{
     res.send('From API router')
 })
 
-router.post('/register',(req,res) => {
+router.post('/signin',(req,res) => {
     let userData = req.body
     let user = new User(userData)
-    user.save((error, registeredUser) => {
+    user.save((error, signIn) => {
         if(error){
             console.log(error)
         }else{
-            res.status(200).send(registeredUser)
+            res.status(200).send(signIn)
         }
     })
 })
