@@ -48,12 +48,13 @@ export class NgbdModalBasic {
         }
     }
 
-    login(){
-        this._auth.loginUser(this.userData)
+    signin(){
+        this._auth.signinUser(this.userData)
         .subscribe(
             res => console.log(res),
             err => console.log(err)
-        )        
+        ) 
+            
     }
 
     

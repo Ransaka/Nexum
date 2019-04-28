@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @Injectable({
@@ -8,10 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AuthService {
 
-  private _loginUrl = "http://localhost:4200/index#button"
+  // Backend url for signin
+  private _signinUrl = "http://localhost:3000/api/signin"
   constructor(private http: HttpClient) { }
 
-  loginUser(user){
-    return this.http.post<any>(this._loginUrl, user)
+  // Http request method
+  /*
+  Returns what the backend sends 
+  */
+  signinUser(user){
+    return this.http.post<any>(this._signinUrl, user)
   }
 }
