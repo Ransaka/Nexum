@@ -67,7 +67,7 @@ export class NgbdModalBasic {
                         
     loginUserData = {}
     login(){
-        this._auth.login(this.userData)
+        this._auth.login(this.loginUserData)
         .subscribe(
             res => console.log(res),
             err => console.log(err)
