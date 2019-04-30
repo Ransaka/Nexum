@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const Seller = require('../models/seller')
+const Log = require('../models/log')
 const mongoose = require('mongoose')
 const db = "mongodb://mihiru:mihiru123@ds147946.mlab.com:47946/nexumdb"
 
@@ -16,10 +18,24 @@ router.get('/',(req,res)=>{
     res.send('From API router')
 })
 
-router.post('/signin',(req,res) => {
+router.post('/custsignin',(req,res) => {
     let userData = req.body
     let user = new User(userData)
     user.save((error, signIn) => {
+        if(error){
+            console.log(error)
+        }else{
+            res.status(200).send(signIn)
+        }
+    })
+})
+
+router.post('/sellersignin',(req,res) => {
+    //extract data from post(req) body
+    let sellerData = req.body
+    let seller = new Seller(sellerData)
+    //save in mongo
+    seller.save((error, signIn) => {
         if(error){
             console.log(error)
         }else{
@@ -33,18 +49,18 @@ router.post('/login', (req, res) => {
     let userData = req.body
 
     // Check if the email address exists
-    User.findOne({ email: userData.email }, (error, user) => {
+    Seller.findOne({ email: userData.email }, (error, user) => {
         if(error){
             console.log(error)
         }else{
             
-           if(!user) {
+           if(!seller) {
                 // If email do not exists.
                 /*
                 Direct the user to the signup page
                 */
                 res.status(401).send('Invalid Email')
-           }else if(user.password !== userData.password){
+           }else if(seller.password !== userData.password){
                 //If password incorrect
                 /*
                 Display a message
@@ -55,7 +71,7 @@ router.post('/login', (req, res) => {
                 /*
                 Direct the user to the profile
                 */
-               res.status(200).send(user)
+               res.status(200).send(seller)
            }
             
         }

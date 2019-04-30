@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
-const custSchema = new Schema({
-    first_name: String,
-    last_name: String,
+const sellerSchema = new Schema({
+    shop_name: String,
+    identification_number: String,
     password: String,
     email: String,
     telephone: String,
@@ -14,4 +14,4 @@ const custSchema = new Schema({
 
 })
 
-module.exports = mongoose.model('user',custSchema,'customer')
+module.exports = mongoose.model('seller',sellerSchema,'seller')

@@ -48,15 +48,33 @@ export class NgbdModalBasic {
         }
     }
 
-    signin(){
-        this._auth.signinUser(this.userData)
+    custsignin(){
+        this._auth.signinCust(this.userData)
         .subscribe(
             res => console.log(res),
             err => console.log(err)
         ) 
-            
     }
 
+    sellerlogin(){
+        this._auth.signinSeller(this.userData)
+        .subscribe(
+            res => console.log(res),
+            err => console.log(err)
+        ) 
+    }
+
+                        
+    loginUserData = {}
+    login(){
+        this._auth.login(this.userData)
+        .subscribe(
+            res => console.log(res),
+            err => console.log(err)
+        ) 
+    }
     
 }
+
+export class ModalComponent { }
 
