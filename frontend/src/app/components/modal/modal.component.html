@@ -13,43 +13,54 @@
     <!-- /Head -->
 
     
-<div class="page-header" filter-color="orange">
+
         <div class="container">
-            <div class="col-md-4 content-center">
+            <div class="col-md-12 content-center">
                 <div class="card card-login card-plain">
                     <form class="form" method="" action="">
                         <div class="content">
-
-                          <!-- Username -->
-                          <div class="form-group"><label>Username</label><input [(ngModel)]="userData.username" name="username" class="form-control border-input" placeholder="username" type="username" require></div>
-                          <!-- /Username -->
-                        
-                         <!-- Password -->
-                         <div class="form-group"><label>Password</label><input [(ngModel)]="userData.password" name="password" class="form-control border-input" placeholder="Password" type="password" require></div>
-                         <!-- /Password -->
-                        
-                          <!-- Buttons -->
-                          <div class="text-center">
-                                <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="login()" [routerLink]="['/profiles/custprofile']">LogIn</a>
+                            <div class="mt-5">
+                                <!-- Username -->
+                                <div class="form-group"><label>Username</label><input [(ngModel)]="userData.username" name="username" class="form-control border-input" placeholder="username" type="username" require></div>
+                                <!-- /Username -->
                             </div>
-                            <div class="pull-left">
-                                <h6>
-                                    <a href="#pablo" class="link">Create Account</a>
-                                </h6>
+                            <div class="mt-5">
+                                <!-- Password -->
+                                <div class="form-group"><label>Password</label><input [(ngModel)]="userData.password" name="password" class="form-control border-input" placeholder="Password" type="password" require></div>
+                                <!-- /Password -->
                             </div>
-                            <div class="pull-right">
-                                <h6>
-                                    <a href="#pablo" class="link">Forgot Password?</a>
-                                </h6>
-                           </div>
-                            <!-- /Button -->
+                            <div class="mt-5">
+                                <!-- Buttons -->
+                                <div class="text-center">
+                                        <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="login()" [routerLink]="['/profiles/custprofile']">LogIn</a>
+                                </div>
+                            </div>
+                            <div class="justify-content-center">
+                                <div class="mt-5 ">
+                                
+                                        <div class="pull-left">
+                                                <h6>
+                                                    <a href="#pablo" class="link">Create Account</a>
+                                                </h6>
+                                            </div>
+                                            <div class="pull-right">
+                                                <h6>
+                                                    <a href="#pablo" class="link">Forgot Password?</a>
+                                        </h6>
+                                    </div>
+                                    <!-- /Button -->     
+                                </div>
+                                
+                            </div>
+                          
+                            
                         </div>
 
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+
 </ng-template>
 <!--/Login-->
 
@@ -71,10 +82,16 @@
     <!-- /Head -->
 
     <!-- SignIn as buttons -->
-    <div class="col-md-6 ">
-        <button class="btn btn-lg btn-round" (click)="open(customer,'Login' , '')" (click)="c()">LogIn as Customer</button> 
-        <button class="btn btn-lg btn-round" (click)="open(seller,'Login' , '')" (click)="c()">LogIn as Seller</button>
+    <div class="col-md-12">
+        <div class="content-center">
+            <button class="btn btn-lg btn-round" (click)="open(customer,'Login' , '')" (click)="c()">LogIn as Customer</button> 
+        </div>
+        <div class="mt-5"></div>
+        <div class="content-center offset-lg-1">
+            <button class="btn btn-lg btn-round" (click)="open(seller,'Login' , '')" (click)="c()">LogIn as Seller</button>
+        </div>
     </div>
+    <div class="mt-5"></div>
     <!-- /SignIn as buttons -->
 
 
@@ -93,7 +110,7 @@
         <!-- /Head -->
 
                 <div class="container">
-                    <div class="col-md-10 content-center">
+                    <div class="col-md-12 content-center">
                         <div class="card card-login card-plain">
                             <form class="form" method="" action="">
                                 <div class="content">
