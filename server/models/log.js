@@ -8,3 +8,4 @@ const logSchema = new Schema({
 })
 
 module.exports = mongoose.model('log',logSchema,'seller')
+// ajsdh
