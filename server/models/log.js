@@ -6,6 +6,4 @@ const logSchema = new Schema({
     password: String,
 
 })
-
 module.exports = mongoose.model('log', logSchema, 'seller')
-// asdasd
