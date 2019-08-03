@@ -1,6 +1,7 @@
 import { AuthService } from './../../auth.service';
 import {Component, Input} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,8 +10,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class NgbdModalBasic {
     closeResult: string;
-
-    constructor(private modalService: NgbModal, private _auth : AuthService) {}
+    loginForm: FormGroup;
+    constructor(private modalService: NgbModal, private _auth : AuthService, private formbuilder: FormBuilder) {}
     
     userData = {}
 
@@ -35,6 +36,12 @@ export class NgbdModalBasic {
             });
         }
 
+    }
+    ngOnInit() {
+        this.loginForm = this.formbuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required]
+        });
     }
 
 

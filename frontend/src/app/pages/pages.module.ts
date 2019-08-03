@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EditDetailsComponent } from './edit-details/edit-details.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [EditDetailsComponent],
   imports: [
     CommonModule
   ]

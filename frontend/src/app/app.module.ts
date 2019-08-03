@@ -2,7 +2,7 @@ import { AuthService } from './auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
@@ -29,6 +29,7 @@ import { HttpClient } from 'selenium-webdriver/http';
         AppRoutingModule,
         ComponentsModule,
         ExamplesModule,
+        ReactiveFormsModule
         
     ],
     providers: [
