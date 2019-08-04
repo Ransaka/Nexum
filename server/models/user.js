@@ -13,5 +13,4 @@ const custSchema = new Schema({
     province: String
 
 })
-
-module.exports = mongoose.model('user',custSchema,'customer')
+module.exports = mongoose.model('user', custSchema, 'customer')
