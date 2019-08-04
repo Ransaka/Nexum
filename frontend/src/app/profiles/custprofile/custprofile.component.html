@@ -1,40 +1,44 @@
 <div class="wrapper">
-  <div class="page-header page-header-small" filter-color="orange">
-      <div class="page-header-image rellax-header" data-rellax-speed="-8" style="background-image: url('assets/img/bg5.jpg') ;">
-      </div>
-      <div class="container">
-          <div class="content-center">
-            <div>
-              <!--Image-->
-              <div class="photo-container">
-                  <img src="assets/img/ryan.jpg" alt="">
-              </div>
-              <!--/Image-->
+    <div class="page-header page-header-small" filter-color="orange">
+        <div class="page-header-image rellax-header" data-rellax-speed="-8"
+            style="background-image: url('assets/img/bg5.jpg') ;">
+        </div>
+        <div class="container">
+            <div class="content-center">
+                <div>
+                    <!--Image-->
+                    <div class="photo-container">
+                        <img src="assets/img/ryan.jpg" alt="">
+                    </div>
+                    <!--/Image-->
 
-              <h3 class="title">Customer Name</h3>
-            </div>
-            
-            <div class="row justify-content-center">
-                  <div class="social-description">
-                        <a href="#button" class="btn btn-primary btn-lg btn-round">Broadcast</a>
-                  </div>
-                  <div class="social-description">
+                    <h3 class="title">Customer Name</h3>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="social-description">
+                        <a class="btn btn-primary btn-lg btn-round" [routerLink]="['/profiles/message']">Broadcast</a>
+                    </div>
+                    <div class="social-description">
                         <a href="#button" class="btn btn-primary btn-lg btn-round">Purchase History</a>
-                  </div>
-                  <div class="social-description">
+                    </div>
+                    <div class="social-description">
                         <a href="#button" class="btn btn-primary btn-lg btn-round">Bookmarks</a>
-                  </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
-      </div>
-  </div>
+        </div>
+    </div>
 
 
-  <div class="section">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                <!--
+
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--
                 <form>
                 <div class="form-group form-inline">
                     Search <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
@@ -79,42 +83,42 @@
 
                 </form>
             -->
-              </div>
-          </div>
-      </div>
-  </div>
-  <footer class="footer footer-default">
-      <div class="container">
-          <nav>
-              <ul>
-                  <li>
-                      <a href="https://www.creative-tim.com">
-                          Creative Tim
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://www.creative-tim.com/about-us">
-                          About Us
-                      </a>
-                  </li>
-                  <li>
-                      <a href="http://blog.creative-tim.com">
-                          Blog
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
-                          MIT License
-                      </a>
-                  </li>
-              </ul>
-          </nav>
-          <div class="copyright">
-              &copy;
-              {{data | date: 'yyyy'}}, Designed by
-              <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-          </div>
-      </div>
-  </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer footer-default">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="https://www.creative-tim.com">
+                            Creative Tim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.creative-tim.com/about-us">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://blog.creative-tim.com">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+                            MIT License
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright">
+                &copy;
+                {{data | date: 'yyyy'}}, Designed by
+                <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </div>
+        </div>
+    </footer>
 </div>

@@ -9,32 +9,25 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HttpClient } from 'selenium-webdriver/http';
+import { MessageComponent } from './profiles/message/message.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        NavbarComponent
-        
-    ],
-    imports: [
-        BrowserAnimationsModule,
-        NgbModule.forRoot(),
-        HttpClientModule,
-        FormsModule,
-        RouterModule,
-        AppRoutingModule,
-        ComponentsModule,
-        ExamplesModule,
-        ReactiveFormsModule
-        
-    ],
-    providers: [
-        AuthService
-    ],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent, NavbarComponent, MessageComponent],
+  imports: [
+    BrowserAnimationsModule,
+    NgbModule.forRoot(),
+    HttpClientModule,
+    FormsModule,
+    RouterModule,
+    AppRoutingModule,
+    ComponentsModule,
+    ExamplesModule,
+    ReactiveFormsModule
+  ],
+  providers: [AuthService],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
