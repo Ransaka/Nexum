@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
     res.send('From API router')
 })
 
+
 router.post('/custsignin', (req, res) => {
     let userData = req.body
     let user = new User(userData)
