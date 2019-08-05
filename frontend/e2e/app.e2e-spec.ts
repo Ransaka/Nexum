@@ -6,6 +6,7 @@ describe('pk2-pro-angular App', () => {
   beforeEach(() => {
     page = new Pk2ProAngularPage();
   });
+  /////////()
 
   it('should display welcome message', () => {
     page.navigateTo();
