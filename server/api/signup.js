@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 
@@ -13,6 +12,7 @@ const User = require('../models/User')
  *
  * @body User data model exept id.
  */
+
 router.post('/signup', (req, res, next) => {
     User.find({
         email: req.body.email
