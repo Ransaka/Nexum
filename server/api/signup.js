@@ -12,6 +12,7 @@ const User = require('../models/User')
  *
  * @body User data model exept id.
  */
+
 router.post('/signup', (req, res, next) => {
     User.find({
         email: req.body.email
