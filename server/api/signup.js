@@ -11,42 +11,6 @@ const User = require('../models/User')
  *
  * Sign up the given user.
  *
- * @body User data model exept id and isAdmin.
- 
-router.post('/signup', [verify.checkDuplicateUserNameOrEmail], function (req, res) {
-    if (!!req.body.username && !!req.body.email && !!req.body.password) {
-        bcrypt.hash(req.body.password, 10).then((hash) => {
-            const user = new User({
-                firstname: req.body.firstname,
-                lastname: req.body.lastname,
-                username: req.body.username,
-                password: hash,
-                email: req.body.email,
-                isAdmin: false
-            })
-            user.save().then(() => {
-                res.status(200).send({
-                    message: 'Success, User created!'
-                })
-            })
-        }).catch(() => {
-            res.status(500).send({
-                message: 'User creation error.'
-            })
-        })
-    } else {
-        res.status(400).send({
-            message: 'Missing fields'
-        })
-    }
-})
-*/
-
-/**
- * Sign up end point.
- *
- * Sign up the given user.
- *
  * @body User data model exept id.
  */
 router.post('/signup', (req, res, next) => {
@@ -83,9 +47,12 @@ router.post('/signup', (req, res, next) => {
                 }
             })
         }
-    }).catch()
-
-
+    }).catch(err => {
+        console.log(err)
+        res.status(500), json({
+            error: err
+        })
+    })
 })
 
 module.exports = router
