@@ -5,7 +5,8 @@ const cors = require('cors')
 
 const PORT = 3000
 const api = require('./routes/api')
-const userRoutes = require('./api/signup')
+const signupRoutes = require('./api/signup')
+const loginRoutes = require('./api/login')
 
 // Initialize the app
 const app = express()
@@ -17,8 +18,8 @@ app.use(bodyParser.json())
 
 // Setup router to the endpoints
 app.use('/api', api)
-app.use('/user', userRoutes)
-
+app.use('/user', signupRoutes)
+app.use('/user', loginRoutes)
 
 app.get('/', function (req, res) {
     res.send("Hello")

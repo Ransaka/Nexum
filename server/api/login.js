@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const mongoose = require('mongoose')
 
 const User = require('../models/User')
 
@@ -14,49 +15,46 @@ const User = require('../models/User')
  * @body User credentials (username and password)
  * @response JWT token
  */
-router.post('/login', function (req, res) {
-    if (!!req.body.username && !!req.body.password) {
-        User.findOne({
-                username: req.body.username
-            })
-            .exec((err, user) => {
-                if (!!err || user == null) {
-                    if (err && err.kind !== 'ObjectId') {
-                        return res.status(500).send({
-                            message: 'Error retrieving User with Username = ' + req.body.username
-                        })
-                    }
-                    return res.status(500).send({
-                        message: 'Username not found'
+router.post('/login', (req, res, next) => {
+    User.findOne({
+            email: req.body.email
+        })
+        .exec()
+        .then(user => {
+            if (user.length < 1) {
+                return res.status(401).json({
+                    message: 'Auth failed'
+                })
+            }
+            bcrypt.compare(req.body.password, user.password, (err, result) => {
+                if (err) {
+                    return res.status(401).json({
+                        message: 'Auth failed'
                     })
                 }
-
-                bcrypt.compare(req.body.password, user.password).then(function (result) {
-                    if (result) {
-                        var token = jwt.sign({
-                            id: user._id,
-                            isAdmin: !!user.isAdmin
-                        }, 'secret@123', {
-                            expiresIn: 86400 // expires in 24 hours
-                        })
-
-                        return res.status(200).send({
-                            auth: true,
-                            accessToken: token,
-                            expiresIn: 86400
-                        })
-                    } else {
-                        return res.status(401).send({
-                            auth: false,
-                            accessToken: null,
-                            message: 'Invalid password'
-                        })
-                    }
+                if (result) {
+                    const token = jwt.sign({
+                        email: user.email,
+                        id: user._id
+                    }, 'secret@123', {
+                        expiresIn: '24h'
+                    })
+                    return res.status(200).json({
+                        message: 'Auth Successful',
+                        token: token
+                    })
+                }
+                return res.status(200).json({
+                    message: 'Auth failed'
                 })
             })
-    } else {
-        res.status(400).send({
-            message: 'Missing fields'
         })
-    }
+        .catch(err => {
+            console.log(err)
+            res.status(500), json({
+                error: err
+            })
+        })
 })
+
+module.exports = router
