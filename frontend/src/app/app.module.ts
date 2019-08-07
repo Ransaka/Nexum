@@ -1,3 +1,4 @@
+import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { AuthService } from './auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { NgModule } from '@angular/core';
@@ -15,7 +16,12 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { MessageComponent } from './profiles/message/message.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, MessageComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    MessageComponent,
+    UserprofileComponent
+  ],
   imports: [
     BrowserAnimationsModule,
     NgbModule.forRoot(),

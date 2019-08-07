@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/User')
-const Seller = require('../models/seller')
-const Log = require('../models/log')
 const mongoose = require('mongoose')
 //require('../dotenv').config()
 const db = "mongodb+srv://nexumuser:" + "nexumuser" + "@nexum-deulb.mongodb.net/test?retryWrites=true&w=majority"
