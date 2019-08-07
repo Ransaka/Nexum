@@ -5,12 +5,21 @@ const cors = require('cors')
 
 const PORT = 3000
 const api = require('./routes/api')
-const app = express()
-app.use(cors())
+const userRoutes = require('./api/signup')
 
+// Initialize the app
+const app = express()
+
+// Setup loggers and data parsers
+app.use(cors())
 app.use(bodyParser.json())
 
+
+// Setup router to the endpoints
 app.use('/api', api)
+app.use('/user', userRoutes)
+
+
 app.get('/', function (req, res) {
     res.send("Hello")
 })
