@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../models/user')
+const User = require('../models/User')
 const Seller = require('../models/seller')
 const Log = require('../models/log')
 const mongoose = require('mongoose')
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 })
 
 
-router.post('/custsignin', (req, res) => {
+/*router.post('/custsignin', (req, res) => {
     let userData = req.body
     let user = new User(userData)
     user.save((error, signIn) => {
@@ -60,27 +60,18 @@ router.post('/login', (req, res) => {
         } else {
 
             if (!seller) {
-                // If email do not exists.
-                /*
-                Direct the user to the signup page
-                */
+
                 res.status(401).send('Invalid Email')
             } else if (seller.password !== userData.password) {
-                //If password incorrect
-                /*
-                Display a message
-                */
+
                 res.status(401).send('Invalid Password')
             } else {
-                // If email exists.
-                /*
-                Direct the user to the profile
-                */
+
                 res.status(200).send(seller)
             }
 
         }
     })
-})
+})*/
 
 module.exports = router
