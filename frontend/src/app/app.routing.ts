@@ -14,6 +14,7 @@ import { CustprofileComponent } from './profiles/custprofile/custprofile.compone
 import { SellerprofileComponent } from './profiles/sellerprofile/sellerprofile.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { MessageComponent } from './profiles/message/message.component';
+import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'profiles/custprofile', component: CustprofileComponent },
   { path: 'profiles/sellerprofile', component: SellerprofileComponent },
   { path: 'components/signin', component: SigninComponent },
-  { path: 'profiles/message', component: MessageComponent }
+  { path: 'profiles/message', component: MessageComponent },
+  { path: 'pages/userprofile', component: UserprofileComponent }
 ];
 
 @NgModule({
