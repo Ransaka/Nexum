@@ -117,8 +117,9 @@
 
                         </div>
                         <!-- /Email -->
+
+                        <!-- Password -->
                         <div class="mt-5">
-                            <!-- Password -->
                             <div class="form-group"><label>Password</label>
                                 <input [(ngModel)]="userData.password" formControlName="password"
                                     class="form-control border-input" placeholder="Password" type="password"
@@ -127,8 +128,23 @@
                                     <div>Password is required</div>
                                 </div>
                             </div>
-                            <!-- /Password -->
                         </div>
+                        <!-- /Password -->
+
+                        <!-- Confirm Password -->
+                        <div class="mt-5">
+                            <div class="form-group"><label>Confirm Password</label>
+                                <input [(ngModel)]="userData.confirmpassword" formControlName="confirmpassword"
+                                    class="form-control border-input" placeholder="Confirmpassword"
+                                    type="confirmpassword"
+                                    [ngClass]="{'is-invalid':signupForm.get('confirmpassword').touched && signupForm.get('confirmpassword').invalid}">
+                                <div class="invalid-feedback">
+                                    <div>Please confirm password</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Confirm Password -->
+
                         <div class="mt-5">
                             <!-- Buttons -->
                             <div class="text-center">
@@ -136,25 +152,6 @@
                                     (click)="signup()" [routerLink]="['/profiles/custprofile']">Signup</a>
                             </div>
                         </div>
-                        <div class="justify-content-center">
-                            <div class="mt-5 ">
-
-                                <div class="pull-left">
-                                    <h6>
-                                        <a href="#pablo" class="link">Create Account</a>
-                                    </h6>
-                                </div>
-                                <div class="pull-right">
-                                    <h6>
-                                        <a href="#pablo" class="link">Forgot Password?</a>
-                                    </h6>
-                                </div>
-                                <!-- /Button -->
-                            </div>
-
-                        </div>
-
-
                     </div>
 
                 </form>
