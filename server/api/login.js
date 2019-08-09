@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
 const User = require('../models/User')
+const Verify = require('../auth/verify')
 
 
 /**
@@ -22,29 +23,29 @@ router.post('/login', (req, res, next) => {
         .then(user => {
             if (user.length < 1) {
                 return res.status(401).json({
-                    message: 'Auth failed'
+                    message: 'Auth failed 1'
                 })
             }
             bcrypt.compare(req.body.password, user.password, (err, result) => {
                 if (err) {
                     return res.status(401).json({
-                        message: 'Auth failed'
+                        message: 'Auth failed 2'
                     })
                 }
                 if (result) {
                     const token = jwt.sign({
                         email: user.email,
                         id: user._id
-                    }, 'secret@123', {
+                    }, 'secret', {
                         expiresIn: '24h'
                     })
                     return res.status(200).json({
                         message: 'Auth Successful',
-                        token: token
+                        token
                     })
                 }
                 return res.status(200).json({
-                    message: 'Auth failed'
+                    message: 'Auth failed 3'
                 })
             })
         })
@@ -55,5 +56,7 @@ router.post('/login', (req, res, next) => {
             })
         })
 })
+
+
 
 module.exports = router

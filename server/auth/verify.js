@@ -60,15 +60,14 @@ const decodeToken = (req, res, next) => {
         })
     }
 
-    jwt.verify(token, config.SECRET, (err, decoded) => {
+    jwt.verify(token, 'secret', (err, decoded) => {
         if (err) {
             return res.status(500).send({
                 auth: false,
                 message: 'Fail to Authentication. Error -> ' + err
             })
         }
-        req.uid = decoded.id
-        req.isAdmin = decoded.isAdmin
+        req.uid = decoded.email
         if (!req.uid) {
             return res.status(401).send({
                 message: 'Invalid user.'
@@ -91,3 +90,7 @@ const checkUser = (req, res, next) => {
 
     next()
 }
+
+const verify = {}
+verify.decodeToken = decodeToken
+module.exports = verify
