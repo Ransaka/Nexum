@@ -1,7 +1,8 @@
-import { AuthService } from './../../auth.service';
+import { AuthService } from '../../Auth/auth.service';
 import { Component, Input } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngbd-modal-component',
@@ -13,46 +14,10 @@ export class NgbdModalBasic {
   signupForm: FormGroup;
   constructor(
     private modalService: NgbModal,
-    private _auth: AuthService,
-    private formbuilder: FormBuilder
+    private auth: AuthService,
+    private formbuilder: FormBuilder,
+    private router: Router
   ) {}
-
-  userData = {};
-
-  /*open(content, type, modalDimension) {
-    if (modalDimension === 'sm' && type === 'modal_mini') {
-      this.modalService
-        .open(content, { windowClass: 'modal-mini modal-primary', size: 'sm' })
-        .result.then(
-          result => {
-            this.closeResult = `Closed with: ${result}`;
-          },
-          reason => {
-            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-          }
-        );
-    } else if (modalDimension == undefined && type === 'Login') {
-      this.modalService
-        .open(content, { windowClass: 'modal-login modal-primary' })
-        .result.then(
-          result => {
-            this.closeResult = `Closed with: ${result}`;
-          },
-          reason => {
-            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-          }
-        );
-    } else {
-      this.modalService.open(content).result.then(
-        result => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        reason => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
-    }
-  }*/
 
   open(content) {
     this.modalService.open(content).result.then(
@@ -88,11 +53,58 @@ export class NgbdModalBasic {
     }
   }
 
-  loginUserData = {};
+  error: string;
+
+  email: String;
+  password: String;
+  confirmpassword: String;
+
+  //Signup
+  signup() {
+    if (
+      this.signupForm.controls['password'].value ==
+      this.signupForm.controls['confirmpassword'].value
+    ) {
+      this.auth
+        .signUp({
+          email: this.signupForm.controls['email'].value,
+          password: this.signupForm.controls['password'].value
+        })
+        .subscribe(
+          () => {
+            this.router.navigate(['/pages/userprofile']);
+          },
+          err => {
+            console.log(err);
+            if (err.error.message) {
+              this.error = err.error.message;
+              window.alert(this.error);
+            }
+          }
+        );
+    } else {
+      window.alert('Unable to confirm the passwords');
+    }
+  }
+
+  //Login
   login() {
-    this._auth
-      .login(this.loginUserData)
-      .subscribe(res => console.log(res), err => console.log(err));
+    const request = {
+      email: this.loginForm.controls['email'].value,
+      password: this.loginForm.controls['password'].value
+    };
+    this.auth.login(request).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigateByUrl('/pages/userprofile');
+      },
+      err => {
+        console.log(err);
+        if (err.error.message) {
+          this.error = err.error.message;
+        }
+      }
+    );
   }
 }
 

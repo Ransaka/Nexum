@@ -1,6 +1,6 @@
 <!--Login-->
-<button class="btn btn-primary btn-lg btn-round" (click)="[open(login,'' , '')]">LogIn</button>
-<ng-template #login let-c="close" let-d="dismiss">
+<button class="btn btn-primary btn-lg btn-round" (click)="[open(loginpop,'' , '')]">LogIn</button>
+<ng-template #loginpop let-c="close" let-d="dismiss">
 
     <!-- Head -->
     <div class="modal-header justify-content-center">
@@ -16,13 +16,13 @@
         <div class="col-md-12 content-center">
             <div class="card card-login card-plain">
                 <form class="form" method="" action="" [formGroup]="loginForm">
-                    <div class="content">
+                    <div class="form-group">
 
                         <!-- Email -->
                         <div class="mt-5">
                             <div class="form-group"><label>Email</label>
-                                <input [(ngModel)]="userData.email" formControlName="email"
-                                    class="form-control border-input" placeholder="email" type="email"
+                                <input [(ngModel)]="email" formControlName="email" class="form-control border-input"
+                                    placeholder="email" type="email"
                                     [ngClass]="{'is-invalid':loginForm.get('email').touched && loginForm.get('email').invalid}">
                                 <div class="invalid-feedback">
                                     <div>Email is required</div>
@@ -34,7 +34,7 @@
                         <!-- Password -->
                         <div class="mt-5">
                             <div class="form-group"><label>Password</label>
-                                <input [(ngModel)]="userData.password" formControlName="password"
+                                <input [(ngModel)]="password" formControlName="password"
                                     class="form-control border-input" placeholder="Password" type="password"
                                     [ngClass]="{'is-invalid':loginForm.get('password').touched && loginForm.get('password').invalid}">
                                 <div class="invalid-feedback">
@@ -48,7 +48,7 @@
                             <!-- Buttons -->
                             <div class="text-center">
                                 <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal"
-                                    (click)="login()" [routerLink]="['/pages/userprofile']">LogIn</a>
+                                    (click)="login()">LogIn</a>
                             </div>
                         </div>
                         <div class="justify-content-center">
@@ -85,8 +85,8 @@
 
 <!--SignUp-->
 
-<button class="btn btn-primary btn-lg btn-simple btn-round" (click)="[open(signup,'' , '')]">SignUp</button>
-<ng-template #signup let-c="close" let-d="dismiss">
+<button class="btn btn-primary btn-lg btn-simple btn-round" (click)="[open(signuppop,'' , '')]">SignUp</button>
+<ng-template #signuppop let-c="close" let-d="dismiss">
 
     <!-- Head -->
     <div class="modal-header justify-content-center">
@@ -107,8 +107,8 @@
                         <!-- /Email -->
                         <div class="mt-5">
                             <div class="form-group"><label>Email</label>
-                                <input [(ngModel)]="userData.email" formControlName="email"
-                                    class="form-control border-input" placeholder="email" type="email"
+                                <input [(ngModel)]="email" formControlName="email" class="form-control border-input"
+                                    placeholder="email" type="email"
                                     [ngClass]="{'is-invalid':signupForm.get('email').touched && signupForm.get('email').invalid}">
                                 <div class="invalid-feedback">
                                     <div>Umail is required</div>
@@ -121,7 +121,7 @@
                         <!-- Password -->
                         <div class="mt-5">
                             <div class="form-group"><label>Password</label>
-                                <input [(ngModel)]="userData.password" formControlName="password"
+                                <input [(ngModel)]="password" formControlName="password"
                                     class="form-control border-input" placeholder="Password" type="password"
                                     [ngClass]="{'is-invalid':signupForm.get('password').touched && signupForm.get('password').invalid}">
                                 <div class="invalid-feedback">
@@ -134,7 +134,7 @@
                         <!-- Confirm Password -->
                         <div class="mt-5">
                             <div class="form-group"><label>Confirm Password</label>
-                                <input [(ngModel)]="userData.confirmpassword" formControlName="confirmpassword"
+                                <input [(ngModel)]="confirmpassword" formControlName="confirmpassword"
                                     class="form-control border-input" placeholder="Confirmpassword"
                                     type="confirmpassword"
                                     [ngClass]="{'is-invalid':signupForm.get('confirmpassword').touched && signupForm.get('confirmpassword').invalid}">
@@ -149,7 +149,7 @@
                             <!-- Buttons -->
                             <div class="text-center">
                                 <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal"
-                                    (click)="signup()" [routerLink]="['/profiles/custprofile']">Signup</a>
+                                    (click)="signup()">Signup</a>
                             </div>
                         </div>
                     </div>

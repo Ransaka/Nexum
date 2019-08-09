@@ -1,3 +1,4 @@
+import { AuthGuard } from './Auth/auth.guard';
 import { ComponentsModule } from './components/components.module';
 import { ProfilesModule } from './profiles/profiles.module';
 import { NgModule } from '@angular/core';
@@ -27,7 +28,10 @@ const routes: Routes = [
   { path: 'profiles/sellerprofile', component: SellerprofileComponent },
   { path: 'components/signin', component: SigninComponent },
   { path: 'profiles/message', component: MessageComponent },
-  { path: 'pages/userprofile', component: UserprofileComponent }
+  {
+    path: 'pages/userprofile',
+    component: UserprofileComponent
+  }
 ];
 
 @NgModule({
