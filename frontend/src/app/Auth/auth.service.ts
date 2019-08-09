@@ -24,9 +24,7 @@ export class AuthService {
 
   // Login user auth
   login(request: SignInRequest) {
-    return this.http
-      .post('http://localhost:3000/user/login', request)
-      .pipe(tap(res => this.setSession(res as SignInResponse)));
+    return this.http.post('http://localhost:3000/user/login', request);
   }
 
   isAuthorized() {
