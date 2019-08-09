@@ -44,7 +44,7 @@ router.post('/login', (req, res, next) => {
                         token
                     })
                 }
-                return res.status(200).json({
+                return res.status(401).json({
                     message: 'Auth failed 3'
                 })
             })

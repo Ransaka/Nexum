@@ -13,15 +13,9 @@ import { ExamplesModule } from './examples/examples.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HttpClient } from 'selenium-webdriver/http';
-import { MessageComponent } from './profiles/message/message.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    MessageComponent,
-    UserprofileComponent
-  ],
+  declarations: [AppComponent, NavbarComponent, UserprofileComponent],
   imports: [
     BrowserAnimationsModule,
     NgbModule.forRoot(),
