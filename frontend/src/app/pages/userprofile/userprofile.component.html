@@ -1,23 +1,27 @@
 <div class="wrapper">
   <div class="page-header page-header-small" filter-color="orange">
+
+    <!-- Profile Banner -->
     <div class="page-header-image rellax-header" data-rellax-speed="-8"
       style="background-image: url('assets/img/bg5.jpg') ;">
     </div>
+
     <div class="container">
       <div class="content-center">
         <div>
-          <!--Image-->
+
+          <!--Profile Image-->
           <div class="photo-container">
             <img src="assets/img/ryan.jpg" alt="">
           </div>
-          <!--/Image-->
+          <!--/Profile Image-->
 
           <h3 class="title">Customer Name</h3>
         </div>
 
         <div class="row justify-content-center">
           <div class="social-description">
-            <a class="btn btn-primary btn-lg btn-round" [routerLink]="['/profiles/message']">Broadcast</a>
+            <a class="btn btn-primary btn-lg btn-round">Broadcast</a>
           </div>
           <div class="social-description">
             <a href="#button" class="btn btn-primary btn-lg btn-round">Purchase History</a>
@@ -29,6 +33,7 @@
 
       </div>
     </div>
+
   </div>
 
 
@@ -40,8 +45,8 @@
           <h3>Recent Broadcasts</h3>
           <form>
             <div class="form-group form-inline">
-              Search <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" />
-              <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+              Search <input class="form-control ml-2" type="text" name="searchTerm">
+
             </div>
 
             <table class="table table-striped">
@@ -68,8 +73,7 @@
             </table>
 
             <div class="d-flex justify-content-between p-2">
-              <ngb-pagination [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
-              </ngb-pagination>
+
 
               <!-- <select class="custom-select" style="width: auto" name="pageSize"
                                     [(ngModel)]="service.pageSize">
@@ -96,8 +100,8 @@
           <h3>Recent Purchases</h3>
           <form>
             <div class="form-group form-inline">
-              Search <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" />
-              <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+              Search <input class="form-control ml-2" type="text" name="searchTerm">
+
             </div>
 
             <table class="table table-striped">
@@ -124,8 +128,7 @@
             </table>
 
             <div class="d-flex justify-content-between p-2">
-              <ngb-pagination [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
-              </ngb-pagination>
+
 
               <!-- <select class="custom-select" style="width: auto" name="pageSize"
                                 [(ngModel)]="service.pageSize">
