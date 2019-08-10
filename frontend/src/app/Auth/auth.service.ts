@@ -27,6 +27,7 @@ export class AuthService {
     return this.http.post<any>('http://localhost:3000/user/login', request);
   }
 
+  //Check for the token availability in local storage
   isLogged() {
     return !!localStorage.getItem('token');
   }
