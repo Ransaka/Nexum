@@ -72,7 +72,7 @@ export class NgbdModalBasic {
         })
         .subscribe(
           () => {
-            this.router.navigate(['/pages/userprofile']);
+            this.router.navigate(['/userprofile']);
           },
           err => {
             console.log(err);
@@ -95,8 +95,8 @@ export class NgbdModalBasic {
     };
     this.auth.login(request).subscribe(
       res => {
-        console.log(res);
-        this.router.navigateByUrl('/pages/userprofile');
+        localStorage.setItem('token', res.token);
+        this.router.navigateByUrl('/userprofile');
       },
       err => {
         console.log(err);

@@ -1,3 +1,4 @@
+import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { ComponentsModule } from './components/components.module';
 import { NgModule } from '@angular/core';
@@ -12,9 +13,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: ComponentsComponent },
   {
-    path: 'pages/userprofile',
-    component: UserprofileComponent
-  }
+    path: 'userprofile',
+    component: UserprofileComponent,
+    canActivate: []
+  },
+  { path: 'userprofile/broadcast', component: BroadcastComponent }
 ];
 
 @NgModule({
@@ -27,3 +30,4 @@ const routes: Routes = [
   exports: []
 })
 export class AppRoutingModule {}
+export const routingComponents = [BroadcastComponent];
