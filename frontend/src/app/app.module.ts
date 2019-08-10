@@ -1,3 +1,5 @@
+import { AuthGuard } from './Auth/auth.guard';
+import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { AuthService } from './auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
@@ -13,14 +15,13 @@ import { ExamplesModule } from './examples/examples.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HttpClient } from 'selenium-webdriver/http';
-import { MessageComponent } from './profiles/message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    MessageComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    BroadcastComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -33,7 +34,7 @@ import { MessageComponent } from './profiles/message/message.component';
     ExamplesModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

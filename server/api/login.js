@@ -41,10 +41,10 @@ router.post('/login', (req, res, next) => {
                     })
                     return res.status(200).json({
                         message: 'Auth Successful',
-                        token
+                        token: token
                     })
                 }
-                return res.status(200).json({
+                return res.status(401).json({
                     message: 'Auth failed 3'
                 })
             })

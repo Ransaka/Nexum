@@ -1,37 +1,23 @@
+import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { ComponentsModule } from './components/components.module';
-import { ProfilesModule } from './profiles/profiles.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ComponentsComponent } from './components/components.component';
-import { LandingComponent } from './examples/landing/landing.component';
-import { LoginComponent } from './examples/login/login.component';
-import { ProfileComponent } from './examples/profile/profile.component';
-import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
-import { CustprofileComponent } from './profiles/custprofile/custprofile.component';
-import { SellerprofileComponent } from './profiles/sellerprofile/sellerprofile.component';
-import { SigninComponent } from './components/signin/signin.component';
-import { MessageComponent } from './profiles/message/message.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: ComponentsComponent },
-  { path: 'nucleoicons', component: NucleoiconsComponent },
-  { path: 'examples/landing', component: LandingComponent },
-  { path: 'examples/login', component: LoginComponent },
-  { path: 'examples/profile', component: ProfileComponent },
-  { path: 'profiles/custprofile', component: CustprofileComponent },
-  { path: 'profiles/sellerprofile', component: SellerprofileComponent },
-  { path: 'components/signin', component: SigninComponent },
-  { path: 'profiles/message', component: MessageComponent },
   {
-    path: 'pages/userprofile',
-    component: UserprofileComponent
-  }
+    path: 'userprofile',
+    component: UserprofileComponent,
+    canActivate: []
+  },
+  { path: 'userprofile/broadcast', component: BroadcastComponent }
 ];
 
 @NgModule({
@@ -39,9 +25,9 @@ const routes: Routes = [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes),
-    ProfilesModule,
     ComponentsModule
   ],
   exports: []
 })
 export class AppRoutingModule {}
+export const routingComponents = [BroadcastComponent];

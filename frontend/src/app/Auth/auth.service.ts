@@ -24,7 +24,11 @@ export class AuthService {
 
   // Login user auth
   login(request: SignInRequest) {
-    return this.http.post('http://localhost:3000/user/login', request);
+    return this.http.post<any>('http://localhost:3000/user/login', request);
+  }
+
+  isLogged() {
+    return !!localStorage.getItem('token');
   }
 
   isAuthorized() {
