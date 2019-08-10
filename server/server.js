@@ -7,6 +7,8 @@ const PORT = 3000
 const api = require('./routes/api')
 const signupRoutes = require('./api/signup')
 const loginRoutes = require('./api/login')
+const usersRouter = require('./api/user')
+
 
 // Initialize the app
 const app = express()
@@ -20,6 +22,8 @@ app.use(bodyParser.json())
 app.use('/api', api)
 app.use('/user', signupRoutes)
 app.use('/user', loginRoutes)
+app.use('/user', usersRouter)
+
 
 app.get('/', function (req, res) {
     res.send("Hello")
