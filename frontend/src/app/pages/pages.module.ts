@@ -5,9 +5,16 @@ import { CommonModule } from '@angular/common';
 import { EditDetailsComponent } from './edit-details/edit-details.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RouterModule } from '@angular/router';
+import { SellerprofileComponent } from './userprofile/sellerprofile/sellerprofile.component';
+import { CustomerprofileComponent } from './Userprofile/customerprofile/customerprofile.component';
 
 @NgModule({
-  declarations: [EditDetailsComponent, UserprofileComponent],
+  declarations: [
+    EditDetailsComponent,
+    UserprofileComponent,
+    SellerprofileComponent,
+    CustomerprofileComponent
+  ],
   imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
 })
 export class PagesModule {}

@@ -37,14 +37,17 @@ router.get('/:id', function (req, res) {
  */
 router.put('/current', function (req, res) {
     User.findById(req.body.uid).then(async (user) => {
+        //Edit firstname
         if (req.body.firstname) {
             user.firstname = req.body.firstname
         }
 
+        // Edit lastname
         if (req.body.lastname) {
             user.lastname = req.body.lastname
         }
 
+        //Edit username
         if (req.body.username) {
             const existingUser = await User.findOne({
                 username: req.body.username
@@ -57,6 +60,7 @@ router.put('/current', function (req, res) {
             user.username = req.body.username
         }
 
+        // Edit email
         if (req.body.email) {
             const existingUser = await User.findOne({
                 email: req.body.email
@@ -80,5 +84,15 @@ router.put('/current', function (req, res) {
         })
     })
 })
+
+/**
+ * Add selling item endpoint.
+ *
+ * Create a new selling item.
+ *
+ * @body .
+ * @role User as Seller
+ */
+router.post('')
 
 module.exports = router
