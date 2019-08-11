@@ -8,14 +8,34 @@ const Verify = require('../auth/verify')
 
 
 /**
- * Broadcast endpoint.
+ * Set broadcast endpoint.
  *
- * Verify given user credentials and provide JWT token.
+ * Publish new broadcast message.
  *
- * @body User credentials (username and password)
- * @response JWT token
+ * @body 
+ * @response 
  */
-router.post('/broadcast', (req, res, next) => {})
+router.post('/broadcast', (req, res, next) => {
+    User.find({
+        _id: req.body.username._id
+    }).exec().then(user => {
+        if (user.length >= 1) {
+            const item = req.body.item
+            item.save().then(result => {
+                    res.status(201).json({
+                        message: 'Item created'
+                    })
+                })
+                .catch(err => {
+                    console.log(err)
+                    res.status(500).json({
+                        error: err
+                    })
+                })
+        }
+    })
+
+})
 
 
 

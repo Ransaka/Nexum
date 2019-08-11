@@ -8,6 +8,7 @@ const api = require('./routes/api')
 const signupRoutes = require('./api/signup')
 const loginRoutes = require('./api/login')
 const usersRouter = require('./api/user')
+const broadcastRouter = require('./api/broadcast')
 
 
 // Initialize the app
@@ -23,6 +24,7 @@ app.use('/api', api)
 app.use('/user', signupRoutes)
 app.use('/user', loginRoutes)
 app.use('/user', usersRouter)
+app.use('/user', broadcastRouter)
 
 
 app.get('/', function (req, res) {

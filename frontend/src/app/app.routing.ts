@@ -8,6 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ComponentsComponent } from './components/components.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
+import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
+import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -15,7 +17,17 @@ const routes: Routes = [
   {
     path: 'userprofile',
     component: UserprofileComponent,
-    canActivate: []
+    canActivate: [],
+    children: [
+      {
+        path: 'customerprofile',
+        component: CustomerprofileComponent
+      },
+      {
+        path: 'sellerprofile',
+        component: SellerprofileComponent
+      }
+    ]
   },
   { path: 'userprofile/broadcast', component: BroadcastComponent }
 ];
