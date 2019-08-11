@@ -85,14 +85,5 @@ router.put('/current', function (req, res) {
     })
 })
 
-/**
- * Add selling item endpoint.
- *
- * Create a new selling item.
- *
- * @body .
- * @role User as Seller
- */
-router.post('')
 
 module.exports = router

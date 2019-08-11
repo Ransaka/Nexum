@@ -21,6 +21,7 @@ const userSchema = new Schema({
     password: String,
     username: String,
     firstname: String,
-    lastname: String
+    lastname: String,
+    broadcasts: []
 })
 module.exports = mongoose.model('User', userSchema, 'user')
