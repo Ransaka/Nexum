@@ -14,6 +14,7 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
+import { SellingComponent } from './selling/selling.component';
 //import { BroadcastComponent } from './broadcast/broadcast.component';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SigninComponent } from './signin/signin.component';
     NucleoiconsComponent,
     NotificationComponent,
     NgbdModalBasic,
-    SigninComponent
+    SigninComponent,
+    SellingComponent
     //BroadcastComponent
   ],
   exports: [ComponentsComponent]
