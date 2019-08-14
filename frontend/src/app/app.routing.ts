@@ -1,3 +1,4 @@
+import { SellingComponent } from './components/selling/selling.component';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { ComponentsModule } from './components/components.module';
@@ -29,7 +30,8 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'userprofile/broadcast', component: BroadcastComponent }
+  { path: 'userprofile/broadcast', component: BroadcastComponent },
+  { path: 'userprofile/selling', component: SellingComponent }
 ];
 
 @NgModule({
