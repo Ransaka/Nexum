@@ -1,9 +1,9 @@
 <!--Login-->
-<button class="btn btn-primary btn-lg btn-round" (click)="[open(classic,'' , '')]" >LogIn</button>
-<ng-template #classic let-c="close" let-d="dismiss">
-    
+<button class="btn btn-primary btn-lg btn-round" (click)="[open(loginpop,'' , '')]">LogIn</button>
+<ng-template #loginpop let-c="close" let-d="dismiss">
+
     <!-- Head -->
-    <div class="modal-header justify-content-center" >
+    <div class="modal-header justify-content-center">
         <button type="button" class="close" (click)="d('Cross click')">
             <i class="now-ui-icons ui-1_simple-remove"></i>
         </button>
@@ -12,280 +12,153 @@
     <br>
     <!-- /Head -->
 
-        <div class="container">
-            <div class="col-md-12 content-center">
-                <div class="card card-login card-plain">
-                    <form class="form" method="" action="" [formGroup]="loginForm">
-                        <div class="content">
-                            <div class="mt-5">
+    <div class="container">
+        <div class="col-md-12 content-center">
+            <div class="card card-login card-plain">
+                <form class="form" method="" action="" [formGroup]="loginForm">
+                    <div class="form-group">
 
-                                <div class="form-group"><label>Username</label>
-                                <input [(ngModel)]="userData.username" formControlName="username" class="form-control border-input" placeholder="username" type="username" [ngClass]="{'is-invalid':loginForm.get('username').touched && loginForm.get('username').invalid}">
+                        <!-- Email -->
+                        <div class="mt-5">
+                            <div class="form-group"><label>Email</label>
+                                <input [(ngModel)]="email" formControlName="email" class="form-control border-input"
+                                    placeholder="email" type="email"
+                                    [ngClass]="{'is-invalid':loginForm.get('email').touched && loginForm.get('email').invalid}">
                                 <div class="invalid-feedback">
-                                    <div>Username is required</div>
+                                    <div>Email is required</div>
                                 </div>
-                                </div>
-                                 
+                            </div>
+                        </div>
+                        <!-- /Email -->
 
-                                <!-- /Username -->
-                            </div>
-                            <div class="mt-5">
-                                <!-- Password -->
-                                <div class="form-group"><label>Password</label>
-                                <input [(ngModel)]="userData.password" formControlName="password" class="form-control border-input" placeholder="Password" type="password" [ngClass]="{'is-invalid':loginForm.get('password').touched && loginForm.get('password').invalid}">
+                        <!-- Password -->
+                        <div class="mt-5">
+                            <div class="form-group"><label>Password</label>
+                                <input [(ngModel)]="password" formControlName="password"
+                                    class="form-control border-input" placeholder="Password" type="password"
+                                    [ngClass]="{'is-invalid':loginForm.get('password').touched && loginForm.get('password').invalid}">
                                 <div class="invalid-feedback">
-                                        <div>Password is required</div>
-                                </div>
-                                </div>
-                                <!-- /Password -->
-                            </div>
-                            <div class="mt-5">
-                                <!-- Buttons -->
-                                <div class="text-center">
-                                        <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="login()" [routerLink]="['/profiles/custprofile']">LogIn</a>
+                                    <div>Password is required</div>
                                 </div>
                             </div>
-                            <div class="justify-content-center">
-                                <div class="mt-5 ">
-                                
-                                        <div class="pull-left">
-                                                <h6>
-                                                    <a href="#pablo" class="link">Create Account</a>
-                                                </h6>
-                                            </div>
-                                            <div class="pull-right">
-                                                <h6>
-                                                    <a href="#pablo" class="link">Forgot Password?</a>
-                                        </h6>
-                                    </div>
-                                    <!-- /Button -->     
-                                </div>
-                                
+                        </div>
+                        <!-- /Password -->
+
+                        <div class="mt-5">
+                            <!-- Buttons -->
+                            <div class="text-center">
+                                <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal"
+                                    (click)="login()">LogIn</a>
                             </div>
-                          
-                            
+                        </div>
+                        <div class="justify-content-center">
+                            <div class="mt-5 ">
+
+                                <div class="pull-left">
+                                    <h6>
+                                        <a href="#pablo" class="link">Create Account</a>
+                                    </h6>
+                                </div>
+                                <div class="pull-right">
+                                    <h6>
+                                        <a href="#pablo" class="link">Forgot Password?</a>
+                                    </h6>
+                                </div>
+                                <!-- /Button -->
+                            </div>
+
                         </div>
 
-                    </form>
-                </div>
+
+                    </div>
+
+                </form>
             </div>
         </div>
+    </div>
 
 </ng-template>
+
 <!--/Login-->
 
 
-<!--SignIn-->
-<button class="btn btn-primary btn-lg btn-simple btn-round" (click)="open(classic_1,'modal_mini' , 'sm')">
-   SignIn
-</button>
-<ng-template #classic_1 let-c="close" let-d="dismiss">
+
+<!--SignUp-->
+
+<button class="btn btn-primary btn-lg btn-simple btn-round" (click)="[open(signuppop,'' , '')]">SignUp</button>
+<ng-template #signuppop let-c="close" let-d="dismiss">
 
     <!-- Head -->
-    <div class="modal-header justify-content-center" >
-            <button type="button" class="close" (click)="d('Cross click')">
-                <i class="now-ui-icons ui-1_simple-remove"></i>
-            </button>
-            <h4 class="title title-up">SignIn</h4>
+    <div class="modal-header justify-content-center">
+        <button type="button" class="close" (click)="d('Cross click')">
+            <i class="now-ui-icons ui-1_simple-remove"></i>
+        </button>
+        <h4 class="title title-up">SignUp</h4>
     </div>
     <br>
     <!-- /Head -->
 
-    <!-- SignIn as buttons -->
-    <div class="col-md-12">
-        <div class="content-center">
-            <button class="btn btn-lg btn-round" (click)="open(customer,'Login' , '')" (click)="c()">LogIn as Customer</button> 
-        </div>
-        <div class="mt-5"></div>
-        <div class="content-center offset-lg-1">
-            <button class="btn btn-lg btn-round" (click)="open(seller,'Login' , '')" (click)="c()">LogIn as Seller</button>
-        </div>
-    </div>
-    <div class="mt-5"></div>
-    <!-- /SignIn as buttons -->
+    <div class="container">
+        <div class="col-md-12 content-center">
+            <div class="card card-signup card-plain">
+                <form class="form" method="" action="" [formGroup]="signupForm">
+                    <div class="content">
 
-
-    <!-- Status:
-        authendication and backend DOING
-     -->
-    <!-- Customer SignIn -->
-    <ng-template #customer let-c="close" let-d="dismiss">
-        <!-- Head -->
-        <div class="modal-header justify-content-center" >
-                <button type="button" class="close" (click)="d('Cross click')">
-                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                </button>
-                    <h4 class="title title-up">SignIn<br><h5>Customer</h5></h4>             
-        </div>
-        <!-- /Head -->
-
-                <div class="container">
-                    <div class="col-md-12 content-center">
-                        <div class="card card-login card-plain">
-                            <form class="form" method="" action="">
-                                <div class="content">
-        
-                                  
-                                    <!-- name -->
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6">
-                                                <div class="form-group">
-                                                    <label>First Name</label>
-                                                    <input [(ngModel)]="userData.fName" name="fName" class="form-control border-input" placeholder="First Name" type="text" require>
-                                                </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Last Name</label>
-                                                    <input [(ngModel)]="userData.lName" name="lName" class="form-control border-input" placeholder="Last Name" type="text" require>
-                                                </div>
-                                        </div>
-                                   </div>
-                                  <!-- /name -->
-                                
-                                  <!-- Password -->
-                                  <div class="form-group"><label>Password</label><input [(ngModel)]="userData.password" name="password" class="form-control border-input" placeholder="Password" type="password" require></div>
-                                  <!-- /Password -->
-
-                                  <!-- confirm Password -->
-                                  <div class="form-group"><label>Confirm Password</label><input [(ngModel)]="userData.cpassword" name="cpassword" class="form-control border-input" placeholder="Confirm Password" type="password" require></div>
-                                  <!-- /confirm Password -->
-
-                                  <!-- Email -->
-                                  <div class="form-group"><label>Email</label><input [(ngModel)]="userData.email" name="email" class="form-control border-input" placeholder="Email" type="text" require></div>
-                                  <!-- /Email -->
-
-                                  <!-- Telephone-->
-                                  <div class="form-group"><label>Telephone</label><input [(ngModel)]="userData.telephone" name="telephone" class="form-control border-input" placeholder="Telephone Number" type="text" require></div>
-                                  <!-- /Telephone -->
-
-                                 <!-- Address-->
-                                 <div class="row">
-                                    <div class="col-md-10 col-sm-6">
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <input [(ngModel)]="userData.addressl1" name="addressl1" class="form-control border-input" placeholder="Line 1" type="text" require>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10 col-sm-6">
-                                        <div class="form-group">
-                                            <input [(ngModel)]="userData.addressl2" name="addressl2" class="form-control border-input" placeholder="Line 2" type="text" require>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10 col-sm-6">
-                                        <div class="form-group">
-                                            <input [(ngModel)]="userData.city" name="city" class="form-control border-input" placeholder="City" type="text" require>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10 col-sm-6">
-                                        <div class="form-group">
-                                            <input [(ngModel)]="userData.province" name="province" class="form-control border-input" placeholder="Province" type="text" require>
-                                        </div>
-                                    </div>
-                                 </div>
-                                 <!-- /Address -->
-
-                                
-                                  <!-- Buttons -->
-                                  <div class="text-center">
-                                        <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="custsignin()" [routerLink]="['/profiles/custprofile']">SignIn</a>
-                                    </div>
-                                    <!-- /Button -->
+                        <!-- /Email -->
+                        <div class="mt-5">
+                            <div class="form-group"><label>Email</label>
+                                <input [(ngModel)]="email" formControlName="email" class="form-control border-input"
+                                    placeholder="email" type="email"
+                                    [ngClass]="{'is-invalid':signupForm.get('email').touched && signupForm.get('email').invalid}">
+                                <div class="invalid-feedback">
+                                    <div>Umail is required</div>
                                 </div>
-                            </form>
+                            </div>
+
                         </div>
-                    </div>
-                </div>
-    </ng-template>
-    <!-- /Customer SignIn -->
+                        <!-- /Email -->
 
+                        <!-- Password -->
+                        <div class="mt-5">
+                            <div class="form-group"><label>Password</label>
+                                <input [(ngModel)]="password" formControlName="password"
+                                    class="form-control border-input" placeholder="Password" type="password"
+                                    [ngClass]="{'is-invalid':signupForm.get('password').touched && signupForm.get('password').invalid}">
+                                <div class="invalid-feedback">
+                                    <div>Password is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Password -->
 
-<!-- pt-5 -->
+                        <!-- Confirm Password -->
+                        <div class="mt-5">
+                            <div class="form-group"><label>Confirm Password</label>
+                                <input [(ngModel)]="confirmpassword" formControlName="confirmpassword"
+                                    class="form-control border-input" placeholder="Confirmpassword"
+                                    type="confirmpassword"
+                                    [ngClass]="{'is-invalid':signupForm.get('confirmpassword').touched && signupForm.get('confirmpassword').invalid}">
+                                <div class="invalid-feedback">
+                                    <div>Please confirm password</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Confirm Password -->
 
-
-
-    <!-- Seller SignIn -->
-    <ng-template #seller let-c="close" let-d="dismiss">
-            <!-- Head -->
-            <div class="modal-header justify-content-center" >
-                    <button type="button" class="close" (click)="d('Cross click')">
-                        <i class="now-ui-icons ui-1_simple-remove"></i>
-                    </button>
-                        <h4 class="title title-up">SignIn<br><h5>Seller<h6>Shop Details</h6></h5></h4>             
-            </div>
-            <!-- /Head -->
-    
-                    <div class="container">
-                        <div class="col-md-10 content-center">
-                            <div class="card card-login card-plain">
-                                <form #sellerSignInForm = "ngForm" class="form" method="" action="" required>
-                                    <div class="content">
-            
-                                    
-                                      <!-- Shop Name -->
-                                      <div class="form-group"><label>Shop Name</label><input class="form-control border-input" placeholder="Shop Name" type="text" required></div>
-                                      <!-- /Shop Name -->
-
-                                      <!-- Identification Number -->
-                                      <div class="form-group"><label>Identification Number</label><input class="form-control border-input" placeholder="Identification Number" type="text" required></div>
-                                      <!-- /Identification Number -->
-
-                                      <!-- Password -->
-                                      <div class="form-group"><label>Password</label><input class="form-control border-input" placeholder="Password" type="password" required></div>
-                                      <!-- /Password -->
-
-                                      <!-- cPassword -->
-                                      <div class="form-group"><label>Confirm Password</label><input class="form-control border-input" placeholder="Confirm Password" type="password" required></div>
-                                      <!-- /cPassword -->
-    
-                                      <!-- Email -->
-                                      <div class="form-group"><label>Email</label><input class="form-control border-input" placeholder="Email" type="text" required></div>
-                                      <!-- /Email -->
-    
-                                      <!-- Telephone-->
-                                      <div class="form-group"><label>Telephone</label><input class="form-control border-input" placeholder="Telephone Number" type="text" required></div>
-                                      <!-- /Telephone -->
-    
-                                     <!-- Address-->
-                                     <div class="row">
-                                        <div class="col-md-10 col-sm-6">
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <input class="form-control border-input" placeholder="Line 1" type="text" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10 col-sm-6">
-                                            <div class="form-group">
-                                                <input class="form-control border-input" placeholder="Line 2" type="text" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10 col-sm-6">
-                                            <div class="form-group">
-                                                <input class="form-control border-input" placeholder="City" type="text" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10 col-sm-6">
-                                            <div class="form-group">
-                                                <input class="form-control border-input" placeholder="Province" type="text" required>
-                                            </div>
-                                        </div>
-                                     </div>
-                                     <!-- /Address -->
-    
-                                    
-                                      <!-- Buttons -->
-                                      <div class="text-center">
-                                            <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="sellerlogin()" [routerLink]="['/profiles/sellerprofile']">SignIn</a>
-                                        </div>
-                                        <!-- /Button -->
-                                    </div>
-                                </form>
+                        <div class="mt-5">
+                            <!-- Buttons -->
+                            <div class="text-center">
+                                <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal"
+                                    (click)="signup()">Signup</a>
                             </div>
                         </div>
                     </div>
-        </ng-template>
-    <!-- /Seller SignIn -->
+
+                </form>
+            </div>
+        </div>
+    </div>
 
 </ng-template>
 
-<!--SignIn-->
+<!--/SignUp-->

@@ -14,28 +14,29 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
+//import { BroadcastComponent } from './broadcast/broadcast.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        NgbModule,
-        NouisliderModule,
-        RouterModule,
-        JwBootstrapSwitchNg2Module,
-        ReactiveFormsModule,
-      ],
-    declarations: [
-        ComponentsComponent,
-        BasicelementsComponent,
-        NavigationComponent,
-        TypographyComponent,
-        NucleoiconsComponent,
-        NotificationComponent,
-        NgbdModalBasic,
-        SigninComponent
-        
-    ],
-    exports:[ ComponentsComponent ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgbModule,
+    NouisliderModule,
+    RouterModule,
+    JwBootstrapSwitchNg2Module,
+    ReactiveFormsModule
+  ],
+  declarations: [
+    ComponentsComponent,
+    BasicelementsComponent,
+    NavigationComponent,
+    TypographyComponent,
+    NucleoiconsComponent,
+    NotificationComponent,
+    NgbdModalBasic,
+    SigninComponent
+    //BroadcastComponent
+  ],
+  exports: [ComponentsComponent]
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
