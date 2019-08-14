@@ -9,6 +9,8 @@ const signupRoutes = require('./api/signup')
 const loginRoutes = require('./api/login')
 const usersRouter = require('./api/user')
 const broadcastRouter = require('./api/broadcast')
+const sellingRouter = require('./api/selling')
+
 
 
 // Initialize the app
@@ -25,6 +27,8 @@ app.use('/user', signupRoutes)
 app.use('/user', loginRoutes)
 app.use('/user', usersRouter)
 app.use('/user', broadcastRouter)
+app.use('/user', sellingRouter)
+
 
 
 app.get('/', function (req, res) {
