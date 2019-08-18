@@ -1,21 +1,66 @@
-<!-- <div class="mt-5">
-    <div ngbDropdown class="dropdown">
-        <a class="nav-link dropdown-toggle" ngbDropdownToggle>
-            <p>
-                Dropdown
-            </p>
-        </a>
-        <div ngbDropdownMenu class="dropdown-menu">
-            <a class="dropdown-item" href="#">Actionn</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+<div class="page-header">
+
+    <div class="container">
+        <div class="col-md-4 content-center">
+            <div class="card card-login card-plain">
+
+
+                <form [formGroup]="broadcast">
+                    <div class="header header-primary text-center"> </div>
+                    <div>
+                        <p>Select category</p>
+                        <select class="btn btn-round btn-neutral custom-select" [(ngModel)]="category"
+                            formControlName="category">
+                            <option *ngFor="let item of categories">{{item}}</option>
+                        </select>
+                    </div>
+                    <div class="content">
+                        <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false"
+                            [(ngModel)]="textMessage" formControlName="textMessage">
+                        </textarea>
+                    </div>
+
+                    <div class="footer text-center">
+                        <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Broadcast</a>
+                    </div>
+                </form>
+
+
+            </div>
         </div>
     </div>
-</div> -->
-
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-icons"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-bar bar1"></span>
-    <span class="navbar-toggler-bar bar2"></span>
-    <span class="navbar-toggler-bar bar3"></span>
-</button>
+    <footer class="footer">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="https://www.creative-tim.com">
+                            Creative Tim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.creative-tim.com/about-us">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://blog.creative-tim.com">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+                            MIT License
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright">
+                &copy;
+                {{data | date: 'yyyy'}}, Designed by
+                <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </div>
+        </div>
+    </footer>
+</div>
