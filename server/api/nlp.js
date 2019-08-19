@@ -23,6 +23,5 @@ function getTags(textMessage) {
     });
 }
 
-getTags("I want a DELL laptop")
 
 module.exports = router;
