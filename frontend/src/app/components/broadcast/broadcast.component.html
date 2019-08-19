@@ -4,12 +4,11 @@
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
 
-
-                <form [formGroup]="broadcast">
+                <form class="form-group" [formGroup]="broadcastForm">
                     <div class="header header-primary text-center"> </div>
                     <div>
                         <p>Select category</p>
-                        <select class="btn btn-round btn-neutral custom-select" [(ngModel)]="category"
+                        <select class="btn btn-round btn-neutral custom-select form-control" [(ngModel)]="category"
                             formControlName="category">
                             <option *ngFor="let item of categories">{{item}}</option>
                         </select>
@@ -21,7 +20,7 @@
                     </div>
 
                     <div class="footer text-center">
-                        <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Broadcast</a>
+                        <a class="btn btn-primary btn-round btn-lg btn-block" (click)="getBroadcast()">Broadcast</a>
                     </div>
                 </form>
 
