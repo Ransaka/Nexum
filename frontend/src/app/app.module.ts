@@ -13,11 +13,14 @@ import { ExamplesModule } from './examples/examples.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HttpClient } from 'selenium-webdriver/http';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+        AdminComponent
+    
         
     ],
     imports: [
