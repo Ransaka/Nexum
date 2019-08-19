@@ -13,6 +13,7 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { CustprofileComponent } from './profiles/custprofile/custprofile.component';
 import { SellerprofileComponent } from './profiles/sellerprofile/sellerprofile.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes =[
@@ -24,8 +25,8 @@ const routes: Routes =[
     { path: 'examples/profile',     component: ProfileComponent },
     { path: 'profiles/custprofile',     component: CustprofileComponent },
     { path: 'profiles/sellerprofile',     component: SellerprofileComponent },
-    { path: 'components/signin',     component: SigninComponent }
-    
+    { path: 'components/signin',     component: SigninComponent },
+    {path: 'profiles/adminprofile', component: AdminComponent}
 ];
 
 @NgModule({
