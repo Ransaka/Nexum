@@ -8,7 +8,9 @@ var request = require('request');
 const User = require('../models/User')
 const Broadcast = require('../models/Broadcast')
 
-function getTags(textMessage) {
+var arr = []
+async function getTags(textMessage) {
+
     var options = {
         port: '3000',
         method: 'POST',
@@ -21,12 +23,14 @@ function getTags(textMessage) {
             text: textMessage
         }
     };
-
-    var res = request(options, function (error, response, body) {
+    await request(options, function (error, response, body) {
         if (error) throw new Error(error);
-        console.log(body)
-        return body
-    });
+        const newData = JSON.parse(body).response.entities;
+        for (var i in newData) {
+            arr.push(newData[i].entityId)
+        }
+        return newData
+    })
 }
 
 /**
@@ -38,15 +42,13 @@ function getTags(textMessage) {
  * @response 
  */
 router.put('/broadcast', (req, res, next) => {
-    var tag = getTags("I want DELL")
-    console.log(tag)
-    console.log("sadasdsad")
+    //let y = getTags("I want DELL laptop")
     User.findById(
             req.body._id
         )
-        .then(async (user) => {
+        .then((user) => {
             const broadcast = new Broadcast({
-                name: tag
+                name: req.body.textMessage
             })
             return user.updateOne({
                 $addToSet: {
@@ -72,32 +74,28 @@ router.put('/broadcast', (req, res, next) => {
  * @body 
  * @response 
  */
-// router.get('/broadcast', (req, res, next) => {
-//     User.findById(
-//             req.body._id
-//         )
-//         .then(async (user) => {
-//             const broadcast = new Broadcast({
-//                 name: req.body.item
-//             })
-//             return user.updateOne({
-//                 $addToSet: {
-//                     broadcasts: broadcast
-//                 }
-//             }).then(() => {
-//                 res.status(200).send({
-//                     message: 'Item added to broadcast'
-//                 })
-//             })
-//         }).catch(() => {
-//             res.status(500).send({
-//                 message: 'Item adding error.'
-//             })
-//         })
-// })
-
-
-
-
+router.get('/broadcast', (req, res, next) => {
+    User.findById(
+            req.body._id
+        )
+        .then(async (user) => {
+            const broadcast = new Broadcast({
+                name: req.body.item
+            })
+            return user.updateOne({
+                $addToSet: {
+                    broadcasts: broadcast
+                }
+            }).then(() => {
+                res.status(200).send({
+                    message: 'Item added to broadcast'
+                })
+            })
+        }).catch(() => {
+            res.status(500).send({
+                message: 'Item adding error.'
+            })
+        })
+})
 
 module.exports = router

@@ -8,9 +8,9 @@ const Selling = require('../models/Selling')
 
 
 /**
- * Set broadcast endpoint.
+ * Set selling endpoint.
  *
- * Publish new broadcast message.
+ * Publish new selling message.
  *
  * @body 
  * @response 
