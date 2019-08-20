@@ -5,17 +5,32 @@ const cors = require('cors')
 
 const PORT = 3000
 const api = require('./routes/api')
-const app = express()
-app.use(cors())
+const signupRoutes = require('./api/signup')
+const loginRoutes = require('./api/login')
+const usersRouter = require('./api/user')
+const broadcastRouter = require('./api/broadcast')
 
+
+// Initialize the app
+const app = express()
+
+// Setup loggers and data parsers
+app.use(cors())
 app.use(bodyParser.json())
 
-app.use('/api',api)
-app.get('/',function(req, res){
+
+// Setup router to the endpoints
+app.use('/api', api)
+app.use('/user', signupRoutes)
+app.use('/user', loginRoutes)
+app.use('/user', usersRouter)
+app.use('/user', broadcastRouter)
+
+
+app.get('/', function (req, res) {
     res.send("Hello")
 })
 
-app.listen(PORT, function(req,res){
-    console.log('Server running on port ' + PORT)
+app.listen(PORT, function (req, res) {
+    console.log('Server on port ' + PORT)
 })
-
