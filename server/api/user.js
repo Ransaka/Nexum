@@ -18,10 +18,8 @@ router.get('/:id', function (req, res) {
                 message: 'Error retrieving User with id:' + req.params['id']
             })
         }
-
         // Remove password attribute from the user
         user.password = undefined
-
         res.status(200).send(user)
     })
 })

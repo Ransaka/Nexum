@@ -15,7 +15,7 @@ const Selling = require('../models/Selling')
  * @body 
  * @response 
  */
-router.put('/selling', (req, res, next) => {
+router.put('/addselling', (req, res, next) => {
     User.findById(
             req.body._id
         )
@@ -37,6 +37,53 @@ router.put('/selling', (req, res, next) => {
                 message: 'Item adding error.'
             })
         })
+})
+
+/**
+ * Get all selling items endpoint.
+ *
+ * Get the user selling for the given user id.
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.get('/:id', function (req, res) {
+    User.findById(req.params['id']).exec((err, user) => {
+        if (err || user == null) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id:' + req.params['id']
+            })
+        }
+        // Remove password attribute from the user
+        user.password = undefined
+        res.status(200).send(user.selling)
+    })
+})
+
+/**
+ * Remove selling endpoint.
+ *
+ * Remove selling for the given user id.
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.post('/item', function (req, res) {
+    User.findById(req.body._id).exec((err, user) => {
+        if (err || user == null) {
+            return res.status(500).send({
+                message: 'Error removing item:' + req.body.item
+            })
+        }
+        Selling.remove({
+            name: req.body.item
+        }).exec().then(result => {
+            res.status(200).json(result)
+        })
+
+    })
 })
 
 module.exports = router
