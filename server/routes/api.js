@@ -3,7 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose')
 //require('../dotenv').config()
 const db = "mongodb+srv://nexumuser:" + "nexumuser" + "@nexum-deulb.mongodb.net/test?retryWrites=true&w=majority"
-
+mongoose.Promise = global.Promise
 // Connect to mongodb server
 mongoose.connect(db, err => {
     if (err) {
@@ -12,5 +12,7 @@ mongoose.connect(db, err => {
         console.log('connected to database')
     }
 })
+
+
 
 module.exports = router
