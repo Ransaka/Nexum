@@ -96,4 +96,26 @@ router.post('/edit', upload.single('userImage'), function (req, res) {
 })
 
 
+/**
+ * Remove User current endpoint.
+ *
+ * Remove the given user of the authenticated user.
+ *
+ * @body User data model exept id, password and isAdmin.
+ * @role User
+ */
+router.delete('/delete/:id', (req, res, next) => {
+    User.remove({
+        _id: req.params.id
+    }).exec().then(result => {
+        res.status(200).json({
+            message: 'User Deleted'
+        })
+    }).catch(() => {
+        res.status(500).send({
+            message: 'User deletion error.'
+        })
+    })
+})
+
 module.exports = router
