@@ -14,7 +14,6 @@ import { ExamplesModule } from './examples/examples.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HttpClient } from 'selenium-webdriver/http';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 
