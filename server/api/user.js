@@ -17,14 +17,14 @@ const upload = multer({
 /**
  * User get user by id endpoint.
  *
- * Get the user for the given user id.
+ * Get the user details for the given user id.
  *
  * @param id
  * @role Admin
  * @response User of the given id
  */
 router.get('/:id', function (req, res) {
-    User.findById(req.params['id']).exec((err, user) => {
+    User.findById(req.params['id']).select('email').exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
                 message: 'Error retrieving User with id:' + req.params['id']
