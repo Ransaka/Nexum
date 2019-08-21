@@ -41,7 +41,7 @@ async function getTags(textMessage) {
  * @body 
  * @response 
  */
-router.put('/broadcast', (req, res, next) => {
+router.put('/', (req, res, next) => {
     //let y = getTags("I want DELL laptop")
     User.findById(
             req.body._id
@@ -66,36 +66,27 @@ router.put('/broadcast', (req, res, next) => {
         })
 })
 
+
 /**
- * Get broadcast endpoint.
+ * User get user broadcasts by id endpoint.
  *
- * Get a broadcast based on the item.
+ * Get the user broadcasts for the given user id.
  *
- * @body 
- * @response 
+ * @param id
+ * @role Admin
+ * @response User of the given id
  */
-router.get('/broadcast', (req, res, next) => {
-    User.findById(
-            req.body._id
-        )
-        .then(async (user) => {
-            const broadcast = new Broadcast({
-                name: req.body.item
+router.get('/:id', function (req, res) {
+    User.findById(req.params['id']).exec((err, user) => {
+        if (err || user == null) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id:' + req.params['id']
             })
-            return user.updateOne({
-                $addToSet: {
-                    broadcasts: broadcast
-                }
-            }).then(() => {
-                res.status(200).send({
-                    message: 'Item added to broadcast'
-                })
-            })
-        }).catch(() => {
-            res.status(500).send({
-                message: 'Item adding error.'
-            })
-        })
+        }
+        // Remove password attribute from the user
+        user.password = undefined
+        res.status(200).send(user.broadcasts)
+    })
 })
 
 module.exports = router
