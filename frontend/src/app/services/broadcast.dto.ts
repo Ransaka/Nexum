@@ -1,4 +1,4 @@
 export interface Broadcast {
-  _id: string;
-  name?: string;
+  category?: string;
+  textMessage?: string;
 }

@@ -17,14 +17,14 @@ const upload = multer({
 /**
  * User get user by id endpoint.
  *
- * Get the user for the given user id.
+ * Get the user details for the given user id.
  *
  * @param id
  * @role Admin
  * @response User of the given id
  */
 router.get('/:id', function (req, res) {
-    User.findById(req.params['id']).exec((err, user) => {
+    User.findById(req.params['id']).select('email').exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
                 message: 'Error retrieving User with id:' + req.params['id']
@@ -95,5 +95,27 @@ router.post('/edit', upload.single('userImage'), function (req, res) {
     })
 })
 
+
+/**
+ * Remove User current endpoint.
+ *
+ * Remove the given user of the authenticated user.
+ *
+ * @body User data model exept id, password and isAdmin.
+ * @role User
+ */
+router.delete('/delete/:id', (req, res, next) => {
+    User.remove({
+        _id: req.params.id
+    }).exec().then(result => {
+        res.status(200).json({
+            message: 'User Deleted'
+        })
+    }).catch(() => {
+        res.status(500).send({
+            message: 'User deletion error.'
+        })
+    })
+})
 
 module.exports = router
