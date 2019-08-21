@@ -1,6 +1,18 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/User')
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'upload')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
+const upload = multer({
+    storage: storage
+})
 
 /**
  * User get user by id endpoint.
@@ -33,7 +45,7 @@ router.get('/:id', function (req, res) {
  * @body User data model exept id, password and isAdmin.
  * @role User
  */
-router.put('/current', function (req, res) {
+router.post('/edit', upload.single('userImage'), function (req, res) {
     User.findById(req.body.uid).then(async (user) => {
         //Edit firstname
         if (req.body.firstname) {
