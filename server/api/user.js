@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/User')
 const multer = require('multer')
+const checkAuth = require('../auth/check-auth')
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'upload')
@@ -23,7 +25,7 @@ const upload = multer({
  * @role Admin
  * @response User of the given id
  */
-router.get('/:id', function (req, res) {
+router.get('/:id', checkAuth, function (req, res) {
     User.findById(req.params['id']).select('email').exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
@@ -45,7 +47,7 @@ router.get('/:id', function (req, res) {
  * @body User data model exept id, password and isAdmin.
  * @role User
  */
-router.post('/edit', upload.single('userImage'), function (req, res) {
+router.post('/edit', checkAuth, upload.single('userImage'), function (req, res) {
     User.findById(req.body.uid).then(async (user) => {
         //Edit firstname
         if (req.body.firstname) {
@@ -104,7 +106,7 @@ router.post('/edit', upload.single('userImage'), function (req, res) {
  * @body User data model exept id, password and isAdmin.
  * @role User
  */
-router.delete('/delete/:id', (req, res, next) => {
+router.delete('/delete/:id', checkAuth, (req, res, next) => {
     User.remove({
         _id: req.params.id
     }).exec().then(result => {

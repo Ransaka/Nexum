@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt')
 
 const User = require('../models/User')
 const Selling = require('../models/Selling')
+const checkAuth = require('../auth/check-auth')
 
 
 /**
@@ -15,7 +16,7 @@ const Selling = require('../models/Selling')
  * @body 
  * @response 
  */
-router.put('/addselling', (req, res, next) => {
+router.put('/addselling', checkAuth, (req, res, next) => {
     User.findById(
             req.body._id
         )
@@ -48,7 +49,7 @@ router.put('/addselling', (req, res, next) => {
  * @role Admin
  * @response User of the given id
  */
-router.get('/:id', function (req, res) {
+router.get('/:id', checkAuth, function (req, res) {
     User.findById(req.params['id']).exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
@@ -70,7 +71,7 @@ router.get('/:id', function (req, res) {
  * @role Admin
  * @response User of the given id
  */
-router.post('/item', function (req, res) {
+router.post('/item', checkAuth, function (req, res) {
     User.findById(req.body._id).exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
