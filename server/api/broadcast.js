@@ -7,6 +7,7 @@ var request = require('request');
 
 const User = require('../models/User')
 const Broadcast = require('../models/Broadcast')
+const checkAuth = require('../auth/check-auth')
 
 var arr = []
 async function getTags(textMessage) {
@@ -41,7 +42,7 @@ async function getTags(textMessage) {
  * @body 
  * @response 
  */
-router.put('/', (req, res, next) => {
+router.put('/', checkAuth, (req, res, next) => {
     //let y = getTags("I want DELL laptop")
     User.findById(
             req.body._id
@@ -76,7 +77,7 @@ router.put('/', (req, res, next) => {
  * @role Admin
  * @response User of the given id
  */
-router.get('/:id', function (req, res) {
+router.get('/:id', checkAuth, function (req, res) {
     User.findById(req.params['id']).exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
