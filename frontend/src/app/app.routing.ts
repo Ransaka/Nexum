@@ -19,7 +19,6 @@ const routes: Routes = [
   {
     path: 'userprofile',
     component: UserprofileComponent,
-    canActivate: [],
     children: [
       {
         path: 'customerprofile',

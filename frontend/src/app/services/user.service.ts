@@ -15,7 +15,11 @@ export class UserService {
 
   // Get current user
   getUser(id) {
-    return this.http.get('http://localhost:3000/user/' + id);
+    return this.http.get('http://localhost:3000/user/' + id).pipe(
+      first(),
+      map(res => res as User),
+      tap(user => this.setUser(user))
+    );
   }
 
   collectCurrent(): Observable<User> {

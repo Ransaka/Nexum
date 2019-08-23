@@ -11,21 +11,24 @@ import { User } from './../../../services/user.dto';
 export class CustomerprofileComponent implements OnInit {
   constructor(
     private _broadcastservice: BroadcastService,
-    private _userService: UserService
+    private _userservice: UserService
   ) {}
 
   id: String = '5d4a8b5d7e6ecf5efcb9a65a';
   broadcastArray = [];
-  user: User;
+  current_user: User;
+
   ngOnInit() {
     this.getBroadcasts(this.id);
     this.getUser(this.id);
+    console.log(this.current_user);
   }
 
-  //Get user details
-  private getUser(id: String) {
-    this._userService.getUser(id).subscribe(data => (this.user = data));
-    console.log(this.user);
+  // Get user details
+  getUser(id: String) {
+    return this._userservice
+      .getUser(id)
+      .subscribe(res => (this.current_user = res));
   }
 
   // Get all broadcasts
