@@ -1,10 +1,12 @@
 export interface User {
-  _id?: string;
+  _id: string;
+  email: string;
+  password?: String;
+  username?: string;
   firstname?: string;
   lastname?: string;
-  username?: string;
-  isAdmin?: boolean;
-  email?: string;
-  tel?: string;
-  address?: string;
+  broadcast?: Array<Object>;
+  selling?: Array<Object>;
+  overallrating?: Number;
+  ratings?: Array<Object>;
 }

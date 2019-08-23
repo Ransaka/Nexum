@@ -25,7 +25,7 @@ const upload = multer({
  * @role Admin
  * @response User of the given id
  */
-router.get('/:id', checkAuth, function (req, res) {
+router.get('/:id', function (req, res) {
     User.findById(req.params['id']).select('email').exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({

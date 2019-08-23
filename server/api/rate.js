@@ -68,5 +68,25 @@ router.post('/remove', function (req, res) {
     })
 })
 
+/**
+ * User get user broadcasts by id endpoint.
+ *
+ * Get the user broadcasts for the given user id.
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.get('/:id', function (req, res) {
+    User.findById(req.params['id']).exec((err, user) => {
+        if (err || user == null) {
+            return res.status(500).send({
+                message: 'Error retrieving ratings'
+            })
+        }
+        res.status(200).send(user.ratings)
+    })
+})
+
 
 module.exports = router
