@@ -22,7 +22,12 @@ const userSchema = new Schema({
     username: String,
     firstname: String,
     lastname: String,
+
     broadcasts: [],
-    selling: []
+    selling: [],
+
+    overallrate: Number,
+    ratings: []
+
 })
 module.exports = mongoose.model('User', userSchema, 'user')
