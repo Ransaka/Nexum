@@ -1,18 +1,18 @@
 const mongoose = require('mongoose')
 
 /**
- * Data model for Selling Item.
+ * Data model for Review.
  */
 
 const Schema = mongoose.Schema
-const SellingItemSchema = new Schema({
+const reviewSchema = new Schema({
     _id: {
         type: mongoose.Schema.Types.ObjectId,
         createIndex: true,
         required: true,
         auto: true
     },
-    name: String,
-    date: Date
+    Rate: Number,
+    content: String
 })
-module.exports = mongoose.model('SellingItem', SellingItemSchema, 'sellingItem')
+module.exports = mongoose.model('Review', reviewSchema, 'review')
