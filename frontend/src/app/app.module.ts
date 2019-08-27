@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
+import { AdminComponent} from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
     UserprofileComponent,
     BroadcastComponent,
     CustomerprofileComponent,
-    SellerprofileComponent
+    SellerprofileComponent,
+    AdminComponent
   ],
   imports: [
     BrowserAnimationsModule,
