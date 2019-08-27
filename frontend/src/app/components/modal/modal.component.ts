@@ -109,6 +109,13 @@ export class NgbdModalBasic {
       }
     );
   }
+
+  //Signout
+  signOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('current_user');
+    //this.user.removeCurrent();
+  }
 }
 
 export class ModalComponent {}
