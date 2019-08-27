@@ -1,3 +1,5 @@
+import { RatingsComponent } from './components/ratings/ratings.component';
+import { SellingComponent } from './components/selling/selling.component';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { ComponentsModule } from './components/components.module';
@@ -17,7 +19,6 @@ const routes: Routes = [
   {
     path: 'userprofile',
     component: UserprofileComponent,
-    canActivate: [],
     children: [
       {
         path: 'customerprofile',
@@ -29,7 +30,9 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'userprofile/broadcast', component: BroadcastComponent }
+  { path: 'userprofile/broadcast', component: BroadcastComponent },
+  { path: 'userprofile/selling', component: SellingComponent },
+  { path: 'userprofile/RatingsComponent', component: RatingsComponent }
 ];
 
 @NgModule({
