@@ -1,7 +1,7 @@
 import { AuthGuard } from './Auth/auth.guard';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
-import { AuthService } from './auth.service';
+import { AuthService } from './Auth/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
