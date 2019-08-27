@@ -1,3 +1,4 @@
+import { AuthGuard } from './Auth/auth.guard';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { AuthService } from './auth.service';
@@ -13,12 +14,18 @@ import { ExamplesModule } from './examples/examples.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HttpClient } from 'selenium-webdriver/http';
-
-import { AdminComponent } from './admin/admin.component';
+import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
+import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, AdminComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    UserprofileComponent,
+    BroadcastComponent,
+    CustomerprofileComponent,
+    SellerprofileComponent
+  ],
   imports: [
     BrowserAnimationsModule,
     NgbModule.forRoot(),
@@ -30,7 +37,7 @@ import { AdminComponent } from './admin/admin.component';
     ExamplesModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
