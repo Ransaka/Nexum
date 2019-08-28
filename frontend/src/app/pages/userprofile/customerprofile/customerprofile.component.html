@@ -1,0 +1,182 @@
+<div class="wrapper">
+  <div class="page-header page-header-small" filter-color="orange">
+
+    <!-- Profile Banner -->
+    <div class="page-header-image rellax-header" data-rellax-speed="-8"
+      style="background-image: url('assets/img/bg5.jpg') ;">
+    </div>
+
+
+    <div class="container">
+      <div class="content-center">
+        <div>
+
+          <!--Profile Image-->
+          <div class="photo-container">
+            <img _ngcontent-c6="" alt="Thumbnail Image" class="rounded-circle img-raised  w-25 p-3"
+              src="assets/img/ryan.jpg">
+          </div>
+          <!--/Profile Image-->
+
+          <h3 class="title">{{current_user?.email}}</h3>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="social-description">
+            <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/broadcast">Broadcast</a>
+          </div>
+          <div class="social-description">
+            <a href="#button" class="btn btn-primary btn-lg btn-round">Purchase History</a>
+          </div>
+          <div class="social-description">
+            <a href="#button" class="btn btn-primary btn-lg btn-round">Bookmarks</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Broadcast Table -->
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Recent Broadcasts</h3>
+          <form>
+            <div class="form-group form-inline">
+              Search <input class="form-control ml-2" type="text" name="searchTerm">
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Number</th>
+                  <th scope="col" sortable="name" (sort)="onSort($event)">Shop Name</th>
+                  <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
+                  <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
+                  <th scope="col">Finalize</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between p-2">
+
+
+              <!-- <select class="custom-select" style="width: auto" name="pageSize"
+                                    [(ngModel)]="service.pageSize">
+                                    <option [ngValue]="2">2 items per page</option>
+                                    <option [ngValue]="4">4 items per page</option>
+                                    <option [ngValue]="6">6 items per page</option>
+                                </select> -->
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Broadcast Table -->
+
+
+  <!-- Recent Table -->
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Recent Purchases</h3>
+          <form>
+            <div class="form-group form-inline">
+              Search <input class="form-control ml-2" type="text" name="searchTerm">
+
+            </div>
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Number</th>
+                  <th scope="col" sortable="name" (sort)="onSort($event)">Shop Name</th>
+                  <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
+                  <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
+                  <th scope="col">Finalize</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                  <td scope="row">BC</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between p-2">
+
+
+              <!-- <select class="custom-select" style="width: auto" name="pageSize"
+                                [(ngModel)]="service.pageSize">
+                                <option [ngValue]="2">2 items per page</option>
+                                <option [ngValue]="4">4 items per page</option>
+                                <option [ngValue]="6">6 items per page</option>
+                            </select> -->
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Recent Table -->
+
+
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="https://www.creative-tim.com">
+              Creative Tim
+            </a>
+          </li>
+          <li>
+            <a href="https://www.creative-tim.com/about-us">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="http://blog.creative-tim.com">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+              MIT License
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        &copy;
+        {{data | date: 'yyyy'}}, Designed by
+        <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+      </div>
+    </div>
+  </footer>
+</div>

@@ -19,7 +19,15 @@ const userSchema = new Schema({
         match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     },
     password: String,
+    username: String,
     firstname: String,
-    lastname: String
+    lastname: String,
+
+    broadcasts: [],
+    selling: [],
+
+    overallrate: Number,
+    ratings: []
+
 })
 module.exports = mongoose.model('User', userSchema, 'user')

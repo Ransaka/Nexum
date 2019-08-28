@@ -38,6 +38,7 @@ export class NgbdModalBasic {
 
     this.signupForm = this.formbuilder.group({
       email: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required],
       confirmpassword: ['', Validators.required]
     });
@@ -56,6 +57,7 @@ export class NgbdModalBasic {
   error: string;
 
   email: String;
+  username: String;
   password: String;
   confirmpassword: String;
 
@@ -68,11 +70,12 @@ export class NgbdModalBasic {
       this.auth
         .signUp({
           email: this.signupForm.controls['email'].value,
+          username: this.signupForm.controls['username'].value,
           password: this.signupForm.controls['password'].value
         })
         .subscribe(
           () => {
-            this.router.navigate(['/userprofile']);
+            this.router.navigate(['/userprofile/customerprofile']);
           },
           err => {
             console.log(err);
@@ -96,7 +99,7 @@ export class NgbdModalBasic {
     this.auth.login(request).subscribe(
       res => {
         localStorage.setItem('token', res.token);
-        this.router.navigateByUrl('/userprofile');
+        this.router.navigateByUrl('/userprofile/customerprofile');
       },
       err => {
         console.log(err);
