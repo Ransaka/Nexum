@@ -142,12 +142,40 @@
                   remaining
                   essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
                 </p>
-                <p>
+                <!-- <p>
                   <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-                </p>
+                </p> -->
+                <div>
+                  
+                  <div class="messages">
+                    <h4>Messages</h4>
+                    <div class="message" *ngFor="let message of messages">
+                      <div class="pic">
+                        <img src="/assets/man.svg" alt="profile-img">
+                      </div>
+                      <div class="message-text">
+                        <span>{{message.name}}</span>
+                        <p>{{message.text}}</p>
+                      </div>
+                    </div>
+                  </div>
+                <div>
+                  <div class="input-area">
+                    <form (submit)="sendMessage()" name="messageForm" #messageForm="ngForm">
+                      <div>
+                        <input type="text" placeholder="Your name" name="name" id="name" [(ngModel)]="message.name"><br><br>
+                        <textarea type="text" placeholder="Your message" name="message" id="message" [(ngModel)]="message.text" rows="5"></textarea><br>
+                      </div>
+                      <button>
+                        <span data-feather="send">send reply</span>
+                      </button>
+                    </form>
+                  </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="card card-inner">
+            <!-- <div class="card card-inner">
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-2">
@@ -168,7 +196,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>
