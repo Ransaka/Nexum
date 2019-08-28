@@ -28,8 +28,8 @@
               "src/assets/css/demo.css"
             ],
             "scripts": [
-              "node_modules/rellax/rellax.min.js"
-
+              "node_modules/rellax/rellax.min.js",
+              "../node_modules/pusher-js/dist/web/pusher.min.js"
             ]
             
           },
@@ -79,8 +79,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
-              "node_modules/rellax/rellax.min.js"
-              
+              "node_modules/rellax/rellax.min.js",
+              "../node_modules/pusher-js/dist/web/pusher.min.js"
                 
               
             ],
