@@ -1,4 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../Auth/auth.service';
+
 import {
   Location,
   LocationStrategy,
@@ -14,15 +17,27 @@ export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
 
-  constructor(public location: Location, private element: ElementRef) {
+  constructor(
+    public location: Location,
+    private element: ElementRef,
+    private router: Router,
+    private _auth: AuthService
+  ) {
     this.sidebarVisible = false;
   }
 
   currentUser: String;
+
   ngOnInit() {
     this.currentUser = 'customer';
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+  }
+
+  logout() {
+    this._auth.signOut();
+    this.currentUser = null;
+    this.router.navigate(['/']);
   }
 
   changeUser() {

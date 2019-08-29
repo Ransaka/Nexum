@@ -24,7 +24,16 @@ export class AuthService {
 
   // Login user auth
   login(request: SignInRequest) {
-    return this.http.post<any>('http://localhost:3000/user/login', request);
+    var x = this.http.post<any>('http://localhost:3000/user/login', request);
+    console.log(x);
+    return x;
+  }
+
+  //SignOut
+  signOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('current_user');
+    this.userService.removeCurrent();
   }
 
   //Check for the token availability in local storage

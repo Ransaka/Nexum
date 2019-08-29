@@ -111,12 +111,25 @@
                                     placeholder="email" type="email"
                                     [ngClass]="{'is-invalid':signupForm.get('email').touched && signupForm.get('email').invalid}">
                                 <div class="invalid-feedback">
-                                    <div>Umail is required</div>
+                                    <div>Email is required</div>
                                 </div>
                             </div>
 
                         </div>
                         <!-- /Email -->
+
+                        <!-- Username -->
+                        <div class="mt-5">
+                            <div class="form-group"><label>Username</label>
+                                <input [(ngModel)]="username" formControlName="username"
+                                    class="form-control border-input" placeholder="Username" type="text"
+                                    [ngClass]="{'is-invalid':signupForm.get('username').touched && signupForm.get('username').invalid}">
+                                <div class="invalid-feedback">
+                                    <div>Username is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Username -->
 
                         <!-- Password -->
                         <div class="mt-5">
@@ -135,8 +148,7 @@
                         <div class="mt-5">
                             <div class="form-group"><label>Confirm Password</label>
                                 <input [(ngModel)]="confirmpassword" formControlName="confirmpassword"
-                                    class="form-control border-input" placeholder="Confirmpassword"
-                                    type="confirmpassword"
+                                    class="form-control border-input" placeholder="Confirmpassword" type="password"
                                     [ngClass]="{'is-invalid':signupForm.get('confirmpassword').touched && signupForm.get('confirmpassword').invalid}">
                                 <div class="invalid-feedback">
                                     <div>Please confirm password</div>

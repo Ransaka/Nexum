@@ -13,6 +13,19 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  // Get current user
+  getUser(id) {
+    return this.http.get('http://localhost:3000/user/' + id).pipe(
+      first(),
+      map(res => res as User),
+      tap(user => this.setUser(user))
+    );
+  }
+
+  removeCurrent() {
+    this.removeUser();
+  }
+
   collectCurrent(): Observable<User> {
     return this.http.get(this.currentUrl).pipe(
       first(),
