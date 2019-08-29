@@ -22,6 +22,10 @@ export class UserService {
     );
   }
 
+  removeCurrent() {
+    this.removeUser();
+  }
+
   collectCurrent(): Observable<User> {
     return this.http.get(this.currentUrl).pipe(
       first(),
