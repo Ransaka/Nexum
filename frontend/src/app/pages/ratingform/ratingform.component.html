@@ -1,3 +1,79 @@
-<p>
-  ratingform works!
-</p>
+<br>
+<br>
+<br>
+<br>
+<div class="container mt-5">
+     
+     
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Selling Item</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+         <tr>
+          <td>DELL i5 laptop</td>
+          <td>
+              <ngb-rating [(rate)]="currentRate1">
+                  <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                  </ng-template>
+                </ngb-rating>
+                <hr>
+                <pre>Rate: <b>{{currentRate1}}</b></pre>
+          </td>
+        </tr>
+         <tr>
+          <td> Hp laptop i7</td>
+          <td>
+              <ngb-rating [(rate)]="currentRate2">
+                  <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                  </ng-template>
+                </ngb-rating>
+                <hr>
+                <pre>Rate: <b>{{currentRate2}}</b></pre>
+          </td>
+        </tr>
+        <tr>
+          <td>AZUS i7</td>
+          <td>
+              <ngb-rating [(rate)]="currentRate3">
+                  <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                  </ng-template>
+                </ngb-rating>
+                <hr>
+                <pre>Rate: <b>{{currentRate3}}</b></pre>
+          </td>
+        </tr>
+         <tr>
+          <td>Panasonic TV</td>
+          <td>
+              <ngb-rating [(rate)]="currentRate4">
+                  <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                  </ng-template>
+                </ngb-rating>
+                <hr>
+                <pre>Rate: <b>{{currentRate4}}</b></pre>
+          </td>
+        </tr>
+        <tr>
+          <td>SAMSUNG J2 prime phone</td>
+          <td>
+              <ngb-rating [(rate)]="currentRate5">
+                  <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                  </ng-template>
+                </ngb-rating>
+                <hr>
+                <pre>Rate: <b>{{currentRate5}}</b></pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
