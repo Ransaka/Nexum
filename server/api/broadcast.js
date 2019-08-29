@@ -10,8 +10,8 @@ const Broadcast = require('../models/Broadcast')
 const checkAuth = require('../auth/check-auth')
 
 var arr = []
-async function getTags(textMessage) {
 
+function getTags(textMessage) {
     var options = {
         port: '3000',
         method: 'POST',
@@ -24,14 +24,42 @@ async function getTags(textMessage) {
             text: textMessage
         }
     };
-    await request(options, function (error, response, body) {
+    request(options, function (error, response, body) {
         if (error) throw new Error(error);
         const newData = JSON.parse(body).response.entities;
         for (var i in newData) {
             arr.push(newData[i].entityId)
         }
-        return newData
+        var x = newData
+
     })
+}
+
+function getTag(textMessage) {
+    return new Promise(resolve => {
+        var options = {
+            port: '3000',
+            method: 'POST',
+            url: 'https://api.textrazor.com/',
+            headers: {
+                'x-textrazor-key': '51283272e5ba478c5f9e10da3b2695082f057f88f06928e825e0d94f'
+            },
+            form: {
+                extractors: 'entities',
+                text: textMessage
+            }
+        };
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            const newData = JSON.parse(body).response.entities;
+            for (var i in newData) {
+                arr.push(newData[i].entityId)
+            }
+            var x = newData
+            return x
+        })
+        resolve(textMessage);
+    });
 }
 
 /**
@@ -42,14 +70,14 @@ async function getTags(textMessage) {
  * @body 
  * @response 
  */
-router.put('/', checkAuth, (req, res, next) => {
-    //let y = getTags("I want DELL laptop")
-    User.findById(
+router.put('/', (req, res, next) => {
+    getTag("I want a DELL laptop").then((tags) =>
+        User.findById(
             req.body._id
         )
         .then((user) => {
             const broadcast = new Broadcast({
-                name: req.body.textMessage
+                name: textMessage
             })
             return user.updateOne({
                 $addToSet: {
@@ -64,7 +92,7 @@ router.put('/', checkAuth, (req, res, next) => {
             res.status(500).send({
                 message: 'Item adding error.'
             })
-        })
+        }))
 })
 
 

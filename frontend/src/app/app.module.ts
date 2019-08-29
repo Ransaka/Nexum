@@ -18,10 +18,8 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { AdminComponent } from './admin/admin.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
-import { AdminComponent} from './admin/admin.component';
 
 @NgModule({
-
   declarations: [
     AppComponent,
     NavbarComponent,
