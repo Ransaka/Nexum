@@ -1,3 +1,4 @@
+import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
 import { SellingComponent } from './components/selling/selling.component';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
   },
   { path: 'userprofile/broadcast', component: BroadcastComponent },
   { path: 'userprofile/selling', component: SellingComponent },
-  { path: 'userprofile/RatingsComponent', component: RatingsComponent }
+  { path: 'userprofile/RatingsComponent', component: RatingsComponent },
+  { path: 'userprofile/admin', component: AdminprofileComponent }
 ];
 
 @NgModule({

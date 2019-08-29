@@ -7,13 +7,15 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RouterModule } from '@angular/router';
 import { SellerprofileComponent } from './userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './Userprofile/customerprofile/customerprofile.component';
+import { AdminprofileComponent } from './userprofile/adminprofile/adminprofile.component';
 
 @NgModule({
   declarations: [
     EditDetailsComponent,
     UserprofileComponent,
     SellerprofileComponent,
-    CustomerprofileComponent
+    CustomerprofileComponent,
+    AdminprofileComponent
   ],
   imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
 })
