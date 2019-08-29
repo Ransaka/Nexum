@@ -12,6 +12,7 @@ import { ComponentsComponent } from './components/components.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
+import { RatingformComponent } from './pages/ratingform/ratingform.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -27,13 +28,18 @@ const routes: Routes = [
       {
         path: 'sellerprofile',
         component: SellerprofileComponent
+      },
+      {
+        path: 'userprofile/sellerprofile/ratingform',
+        component: RatingformComponent
       }
     ]
   },
   { path: 'userprofile/broadcast', component: BroadcastComponent },
   { path: 'userprofile/selling', component: SellingComponent },
-  { path: 'userprofile/RatingsComponent', component: RatingsComponent }
-];
+  { path: 'userprofile/RatingsComponent', component: RatingsComponent },
+  { path: 'userprofile/sellerprofile/ratingform', component: RatingformComponent }
+]
 
 @NgModule({
   imports: [

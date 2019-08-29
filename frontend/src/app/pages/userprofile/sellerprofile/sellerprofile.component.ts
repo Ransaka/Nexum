@@ -21,7 +21,7 @@ export class SellerprofileComponent implements OnInit {
   sendMessage() {
     if (this.message.text !== '' && this.message.name !== '') {
       this.http
-        .post(`http://localhost:4000/messages`, this.message)
+        .post(`http://localhost:4200/messages`, this.message)
         .subscribe((res: Message) => {
           this.onSendMessage.emit(res);
           this.message = {

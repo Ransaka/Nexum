@@ -8,12 +8,15 @@ import { RouterModule } from '@angular/router';
 import { SellerprofileComponent } from './userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './Userprofile/customerprofile/customerprofile.component';
 
+import { RatingformComponent } from './ratingform/ratingform.component';
+
 @NgModule({
   declarations: [
     EditDetailsComponent,
     UserprofileComponent,
     SellerprofileComponent,
-    CustomerprofileComponent
+    CustomerprofileComponent,    
+    RatingformComponent
   ],
   imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
 })
