@@ -17,6 +17,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import {RatingformComponent} from './pages/ratingform/ratingform.component';
+import { BarRatingModule } from "ngx-bar-rating";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {RatingformComponent} from './pages/ratingform/ratingform.component';
     AppRoutingModule,
     ComponentsModule,
     ExamplesModule,
+    BarRatingModule,
     ReactiveFormsModule
   ],
   providers: [AuthService, AuthGuard],
