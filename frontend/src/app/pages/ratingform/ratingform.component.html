@@ -3,11 +3,21 @@
       <div class="col-md-4">
         <section>
           <b>Please enter your rating</b>
-          <bar-rating [(rate)]="cssRate" [max]="5"></bar-rating>
+          <div class="row">
+              <div class="col-sm-12">
+                  <ul class="list-inline rating-list" 
+                      *ngFor="let star of stars" style="display: inline-block" >
+                        <li (click)="countStar(star)"
+                            [ngClass]="{'selected': ( selectedValue >=star)}">
+                          <i class="fa fa-star"></i>
+                        </li> 
+                  </ul>
+              </div>
+            </div>
         </section>
       <br>
       </div>
-    <div class="row" style="padding-top: 15%;">
+     <div class="row" style="padding-top: 15%;">
         <form novalidate [formGroup]="feedbackForm" (ngSubmit)="submitFeedbackForm()">
             <section class="customer-name">
               <h4>Full Name</h4>
@@ -111,7 +121,7 @@
             <button type="button" (click)="clearForm()">Clear Form</button> 
           </form> 
     </div>
-        
+         
          
     </div>
 </div>

@@ -8,13 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RatingformComponent implements OnInit {
 
-  formRating=0;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  //formRating=0;
+  stars: number[] = [1, 2, 3, 4, 5];
+    selectedValue: number;
+  
+    constructor() { }
+    
+    ngOnInit() {
+    }
+    
+    countStar(star: number) {
+      this.selectedValue = star;
+      console.log('Value of star', star);}
+      
 }
  
  
