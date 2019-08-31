@@ -26,7 +26,7 @@
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                             <button ngbDropdownItem>Edit Profile</button>
                             <button ngbDropdownItem>Settings</button>
-                            <button ngbDropdownItem>Sign Out</button>
+                            <button ngbDropdownItem (click)="logout()">Sign Out</button>
                         </div>
                     </div>
                     <button *ngIf="[(currentUser)]=='customer'" class="btn btn-primary btn-round" type="button"

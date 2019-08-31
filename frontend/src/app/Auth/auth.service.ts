@@ -29,6 +29,13 @@ export class AuthService {
     return x;
   }
 
+  //SignOut
+  signOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('current_user');
+    this.userService.removeCurrent();
+  }
+
   //Check for the token availability in local storage
   isLogged() {
     return !!localStorage.getItem('token');

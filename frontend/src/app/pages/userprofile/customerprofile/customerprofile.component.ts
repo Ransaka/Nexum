@@ -21,7 +21,6 @@ export class CustomerprofileComponent implements OnInit {
   ngOnInit() {
     this.getBroadcasts(this.id);
     this.getUser(this.id);
-    console.log(this.current_user);
   }
 
   // Get user details
