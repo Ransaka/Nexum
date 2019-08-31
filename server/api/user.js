@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/User')
 const multer = require('multer')
 const checkAuth = require('../auth/check-auth')
+const verify = require('../auth/verify')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -14,6 +15,31 @@ const storage = multer.diskStorage({
 })
 const upload = multer({
     storage: storage
+})
+
+/**
+ * Users get current endpoint.
+ *
+ * Get user details of authenticated user.
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.get('/current', verify.decodeToken, function (req, res) {
+    User.findById(req.uid).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: ' + req.uid
+            })
+        }
+        // Remove password attribute from the user
+        user.password = undefined
+        // var details = {
+        //     username: user.username,
+        //     email: user.email
+        // }
+        res.status(200).send(user)
+    })
 })
 
 /**

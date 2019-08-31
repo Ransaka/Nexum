@@ -1,3 +1,5 @@
+import { EditprofileComponent } from './pages/editprofile/editprofile.component';
+import { AuthGuard } from './Auth/auth.guard';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { AuthService } from './Auth/auth.service';
@@ -13,6 +15,7 @@ import { ExamplesModule } from './examples/examples.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+<<<<<<< HEAD
 
 //import { HttpClient } from 'selenium-webdriver/http';
 
@@ -28,9 +31,13 @@ import { AdminComponent } from './admin/admin.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 //import { AdminComponent} from './admin/admin.component';
+=======
+import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
+import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
+import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
+>>>>>>> master
 
 @NgModule({
-
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -38,7 +45,8 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
     BroadcastComponent,
     CustomerprofileComponent,
     SellerprofileComponent,
-    AdminComponent
+    AdminprofileComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -51,7 +59,7 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
     ExamplesModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

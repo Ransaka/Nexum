@@ -1,3 +1,5 @@
+import { EditprofileComponent } from './pages/editprofile/editprofile.component';
+import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
 import { SellingComponent } from './components/selling/selling.component';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
@@ -12,7 +14,6 @@ import { ComponentsComponent } from './components/components.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
-import { AdminComponent} from './admin/admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -28,16 +29,14 @@ const routes: Routes = [
       {
         path: 'sellerprofile',
         component: SellerprofileComponent
-      },
-      {
-        path: 'adminprofile',
-        component: AdminComponent
       }
     ]
   },
   { path: 'userprofile/broadcast', component: BroadcastComponent },
   { path: 'userprofile/selling', component: SellingComponent },
-  { path: 'userprofile/RatingsComponent', component: RatingsComponent }
+  { path: 'userprofile/RatingsComponent', component: RatingsComponent },
+  { path: 'userprofile/admin', component: AdminprofileComponent },
+  { path: 'userprofile/edit', component: EditprofileComponent }
 ];
 
 @NgModule({

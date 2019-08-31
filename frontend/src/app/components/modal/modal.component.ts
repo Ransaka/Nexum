@@ -98,7 +98,6 @@ export class NgbdModalBasic {
     };
     this.auth.login(request).subscribe(
       res => {
-        localStorage.setItem('token', res.token);
         this.router.navigateByUrl('/userprofile/customerprofile');
       },
       err => {
