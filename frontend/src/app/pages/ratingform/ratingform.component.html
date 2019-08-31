@@ -1,27 +1,13 @@
-<div class="stars container" style="padding-top: 15%;">
-    <div class="row" >
-      <div class="col-md-4">
-        <section>
-          <b>Please enter your rating</b>
-          <div class="row">
-              <div class="col-sm-12">
-                  <ul class="list-inline rating-list" 
-                      *ngFor="let star of stars" style="display: inline-block" >
-                        <li (click)="countStar(star)"
-                            [ngClass]="{'selected': ( selectedValue >=star)}">
-                          <i class="fa fa-star"></i>
-                        </li> 
-                  </ul>
-              </div>
-            </div>
-        </section>
-      <br>
-      </div>
-     <div class="row" style="padding-top: 15%;">
+<body>   
+     <div class="row" style="padding-top: 15%;padding-left: 20%" >
+             
         <form novalidate [formGroup]="feedbackForm" (ngSubmit)="submitFeedbackForm()">
+            <h2 style="font-style: oblique">Customer feedback Form</h2>
+           
             <section class="customer-name">
               <h4>Full Name</h4>
-              <input type="text" placeholder="Enter your name here" formControlName="customerName">
+              <hr style="color:blanchedalmond;">
+              <input type="text" placeholder="Enter your name here" formControlName="customerName" >
               <div *ngIf="customerNameChanged" class="errors">
                 <i>{{customerNameControl.value}}</i> is not a valid name
               </div>
@@ -39,6 +25,7 @@
             </section>
             <section class="gender">
               <h4>Gender</h4>
+              <hr>
               <ul>
                 <li>
                   <input id="genderMale" type="radio" name="gender" value="Male" formControlName="gender">
@@ -52,6 +39,7 @@
             </section>
             <section class="product-purchased">
               <h4>Product purchased</h4>
+              <hr>
               <label>I own a:</label>
               <select formControlName="productPurchased">
                 <option value=""></option>
@@ -62,53 +50,17 @@
               </select> 
             </section>
               
-              <section>
-                <h4>Product quality</h4>
-                <ul>
-                  <li>
-                    <input id="productQualityAwesome" name="productquality"type="radio" value="Awesome" formControlName="productQuality">
-                    <label for="productQualityAwesome">Awesome</label>
-                  </li>
-                  <li>
-                    <input id="productQualityGood" name="productquality"type="radio" value="Good" formControlName="productQuality">
-                    <label for="productQualityGood">Good</label>
-                  </li>
-                  <li>
-                    <input id="productQualityWorst" name="productquality" type="radio" value="Worst" formControlName="productQuality">
-                    <label for="productQualityWorst">Worst</label>
-                  </li>
-                </ul>
-                <div *ngIf="feedbackForm.errors" class="errors">
-                  <div *ngIf="feedbackForm.errors.relationFail">
-                    Can't give feedback<br> for old product.
-                  </div>
-                </div>
-              </section>
-              <section formGroupName="delivery">
-                <h4>Delivery</h4>
-                <ul>
-                  <li>
-                    <input id="delOnTime" type="checkbox" formControlName="delOnTime">
-                    <label for="delOnTime">On time?</label>
-                  </li>
-                  <li>
-                    <input id="damagedProduct" type="checkbox" formControlName="damagedProduct">
-                    <label for="damagedProduct">Damaged product?</label>
-                  </li>
-                  <li>
-                    <input id="extraCharge" type="checkbox" formControlName="extraCharge">
-                    <label for="extraCharge">Extra charge?</label>
-                  </li>
-                </ul>
-              </section>
+               
                
              
             <section>
               <h4>Any Suggestions?</h4>
+              <hr>
               <textarea formControlName="suggestions"></textarea>
             </section>
             <section class="more-feedbacks" formArrayName="morefeedbacks">
               <h4>More feedback?</h4>
+              <hr >
               <ul>
                 <li *ngFor="let item of morefeedbacksControls.controls; let i = index">
                   <input type="text" formControlName="{{i}}">
@@ -117,13 +69,34 @@
               </ul>
               <button type="button" (click)="addMoreFeedback()">Add a Feedback</button>
             </section>
+            <div class="stars container">
+                <div class="row" >
+                  <div class="col-md-10">
+                    <section>
+                      <h4>Please enter your rating</h4>
+                      <div class="row">
+                          <div class="col-sm-12">
+                              <ul class="list-inline rating-list" 
+                                  *ngFor="let star of stars" style="display: inline-block" >
+                                    <li (click)="countStar(star)"
+                                        [ngClass]="{'selected': ( selectedValue >=star)}">
+                                      <i class="fa fa-star"></i>
+                                    </li> 
+                              </ul>
+                          </div>
+                        </div>
+                    </section>
+                  <br>
+                  </div>
+                </div>
+              </div>
             <button type="submit" [disabled]='!feedbackForm.valid'>Submit Feedback</button>
             <button type="button" (click)="clearForm()">Clear Form</button> 
           </form> 
     </div>
+  </body> 
          
          
-    </div>
-</div>
+    
       
       
