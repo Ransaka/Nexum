@@ -34,11 +34,11 @@ router.get('/current', verify.decodeToken, function (req, res) {
         }
         // Remove password attribute from the user
         user.password = undefined
-        var details = {
-            username: user.username,
-            email: user.email
-        }
-        res.status(200).send(details)
+        // var details = {
+        //     username: user.username,
+        //     email: user.email
+        // }
+        res.status(200).send(user)
     })
 })
 
