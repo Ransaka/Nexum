@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { SellerprofileComponent } from './userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './Userprofile/customerprofile/customerprofile.component';
 import { AdminprofileComponent } from './userprofile/adminprofile/adminprofile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AdminprofileComponent } from './userprofile/adminprofile/adminprofile.c
     UserprofileComponent,
     SellerprofileComponent,
     CustomerprofileComponent,
-    AdminprofileComponent
+    AdminprofileComponent,
+    EditprofileComponent
   ],
   imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
 })

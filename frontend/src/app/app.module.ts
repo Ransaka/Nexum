@@ -1,3 +1,4 @@
+import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
@@ -26,7 +27,8 @@ import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminpro
     BroadcastComponent,
     CustomerprofileComponent,
     SellerprofileComponent,
-    AdminprofileComponent
+    AdminprofileComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserAnimationsModule,

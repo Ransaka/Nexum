@@ -40,6 +40,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  editprofile() {
+    this._auth.signOut();
+    this.currentUser = null;
+    this.router.navigate(['/userprofile/edit']);
+  }
+
   changeUser() {
     if (this.currentUser == 'customer') {
       this.currentUser = 'seller';
