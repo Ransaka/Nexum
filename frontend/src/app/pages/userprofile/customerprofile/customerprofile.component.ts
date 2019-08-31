@@ -14,19 +14,17 @@ export class CustomerprofileComponent implements OnInit {
     private _userservice: UserService
   ) {}
 
-  id: String = '5d4a8b5d7e6ecf5efcb9a65a';
   broadcastArray = [];
   current_user: User;
 
   ngOnInit() {
-    this.getBroadcasts(this.id);
-    this.getUser(this.id);
+    this.getUser();
   }
 
   // Get user details
-  getUser(id: String) {
+  getUser() {
     return this._userservice
-      .getUser(id)
+      .collectCurrent()
       .subscribe(res => (this.current_user = res));
   }
 

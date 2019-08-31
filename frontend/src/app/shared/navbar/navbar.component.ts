@@ -75,7 +75,7 @@ export class NavbarComponent implements OnInit {
     if (this.sidebarVisible === false) {
       this.sidebarOpen();
     } else {
-      this.sidebarClose();
+      //this.sidebarClose();
     }
   }
 

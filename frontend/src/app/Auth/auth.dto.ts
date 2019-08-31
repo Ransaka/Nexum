@@ -5,7 +5,7 @@ export interface SignInRequest {
 
 export interface SignInResponse {
   auth: boolean;
-  accessToken: string;
+  token: string;
   expiresIn: string;
 }
 
