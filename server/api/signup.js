@@ -12,7 +12,6 @@ const User = require('../models/User')
  *
  * @body User data model exept id.
  */
-
 router.post('/signup', (req, res, next) => {
     User.find({
         email: req.body.email
@@ -37,6 +36,7 @@ router.post('/signup', (req, res, next) => {
                             res.status(201).json({
                                 message: 'User created'
                             })
+                            console.log(user)
                         })
                         .catch(err => {
                             console.log(err)
