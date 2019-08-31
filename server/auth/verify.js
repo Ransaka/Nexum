@@ -67,7 +67,7 @@ const decodeToken = (req, res, next) => {
                 message: 'Fail to Authentication. Error -> ' + err
             })
         }
-        req.uid = decoded.email
+        req.uid = decoded.id
         if (!req.uid) {
             return res.status(401).send({
                 message: 'Invalid user.'

@@ -24,9 +24,13 @@ export class AuthService {
 
   // Login user auth
   login(request: SignInRequest) {
-    var x = this.http.post<any>('http://localhost:3000/user/login', request);
-    console.log(x);
-    return x;
+    return this.http
+      .post<any>('http://localhost:3000/user/login', request)
+      .pipe(
+        tap(res => this.setSession(res as SignInResponse)),
+        shareReplay(),
+        flatMap(() => this.userService.collectCurrent())
+      );
   }
 
   //SignOut
@@ -36,20 +40,12 @@ export class AuthService {
     this.userService.removeCurrent();
   }
 
-  //Check for the token availability in local storage
-  isLogged() {
-    return !!localStorage.getItem('token');
-  }
-
-  isAuthorized() {
-    return moment().isBefore(this.getExpiration());
-  }
-
+  // Set session
   private setSession(response: SignInResponse) {
-    console.log(response.accessToken);
+    //console.log(response.token);
     const expiresAt = moment().add(response.expiresIn, 'second');
 
-    localStorage.setItem('jwt_token', response.accessToken);
+    localStorage.setItem('jwt_token', response.token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
   }
 
@@ -57,5 +53,14 @@ export class AuthService {
     const expiration = localStorage.getItem('expires_at');
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
+  }
+
+  //Check for the token availability in local storage
+  isLogged() {
+    return !!localStorage.getItem('token');
+  }
+
+  isAuthorized() {
+    return moment().isBefore(this.getExpiration());
   }
 }

@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpHeaders
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, first, tap } from 'rxjs/operators';
 import { User } from './user.dto';
@@ -9,7 +13,7 @@ import { User } from './user.dto';
 })
 export class UserService {
   //Api endpoint
-  private currentUrl = 'http://localhost:3000/users';
+  private currentUrl = 'http://localhost:3000/user/current';
 
   constructor(private http: HttpClient) {}
 
@@ -26,12 +30,19 @@ export class UserService {
     this.removeUser();
   }
 
+  // Get current user
   collectCurrent(): Observable<User> {
-    return this.http.get(this.currentUrl).pipe(
-      first(),
-      map(res => res as User),
-      tap(user => this.setUser(user))
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('jwt_token')
     );
+    return this.http
+      .get('http://localhost:3000/user/current', { headers })
+      .pipe(
+        first(),
+        map(res => res as User),
+        tap(user => this.setUser(user))
+      );
   }
 
   private setUser(response: User) {

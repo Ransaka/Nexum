@@ -1,3 +1,4 @@
+import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
+import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
     UserprofileComponent,
     BroadcastComponent,
     CustomerprofileComponent,
-    SellerprofileComponent
+    SellerprofileComponent,
+    AdminprofileComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserAnimationsModule,
