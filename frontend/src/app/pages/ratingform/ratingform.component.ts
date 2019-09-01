@@ -19,7 +19,6 @@ export class RatingformComponent implements OnInit {
     customerNameControl;
 
     constructor(private formBuilder: FormBuilder, private rateing: RatingformService, private router: Router) {
-      this.buildFeedbackForm();
      }
 
     ngOnInit() {
@@ -31,6 +30,7 @@ export class RatingformComponent implements OnInit {
 
     sendrating(){
       const request = {
+        
         rate: this.selectedValue,
         review: this.ratingForm.controls['review'].value
       }
@@ -40,42 +40,19 @@ export class RatingformComponent implements OnInit {
 
     }
 
-    tvItem = {
-      brand: 'videocon',
-      color: 'blue'
-    };
-  
-    buildFeedbackForm() {
-      this.ratingForm = this.formBuilder.group({
-        customerName: this.formBuilder.control(null, [Validators.required, Validators.minLength(6)]), 
-        productPurchased: this.formBuilder.control(null),
-        gender: this.formBuilder.control(null),
-        email :this.formBuilder.control(null),
-        morefeedbacks: this.formBuilder.array([
-          this.formBuilder.control(null)
-        ]) 
-      }, ); 
-      this.morefeedbacksControls = this.ratingForm.get('morefeedbacks') as FormArray;
-      this.customerNameControl = this.ratingForm.get('customerName');
-      this.customerNameControl.valueChanges.subscribe(data => {
-      this.customerNameChanged = data && data.toUpperCase().trim() === "TESTING";
-      });
-    }
-    addMoreFeedback() {
-      this.morefeedbacksControls.push(this.formBuilder.control(null));
-    }
-    deleteMoreFeedback(index) {
-      this.morefeedbacksControls.removeAt(index);
-    }
+
     clearForm() {
       this.ratingForm.reset(); 
     }
+
     submitFeedbackForm() {
       console.log(this.ratingForm.value);
     }
+
     countStar(star: number) {
       this.selectedValue = star;
-      console.log('Value of star', star);}
+      //console.log('Value of star', star);
+    }
       
 }
  

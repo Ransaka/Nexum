@@ -1,108 +1,47 @@
 <body>   
      <div class="row" style="padding-top: 15%;padding-left: 10%" >
              
-        <form novalidate [formGroup]="feedbackForm" (ngSubmit)="submitFeedbackForm()">
-            <h2 style="font-style: oblique">Customer feedback Form</h2>
-           
-            <section class="customer-name">
-              <h4>Full Name</h4>
-              <hr style="color:blanchedalmond;">
-              <input type="text" placeholder="Enter your name here" formControlName="customerName" >
-              <div *ngIf="customerNameChanged" class="errors">
-                <i>{{customerNameControl.value}}</i> is not a valid name
-              </div>
-              <div *ngIf="!customerNameChanged && customerNameControl.value && !customerNameControl.errors">
-                Welcome {{customerNameControl.value}}
-              </div>
-              <div *ngIf="customerNameControl.errors" class="errors">
-                <div *ngIf="customerNameControl.errors.required">
-                  Please enter your name. This is a mandatory field.
-                </div>  
-                <div *ngIf="customerNameControl.errors.minlength">
-                  Please enter atleast {{customerNameControl.errors.minlength.requiredLength}} characters
-                </div>  
-              </div>
-            </section>
-            <section class="email">
-              <h4>Email Address</h4>
-              <hr>
-              <ul>
-                <li>
-                  <input id="email" type="text" name="email" value="" >
-                  
-                </li>
-                 
-              </ul>
-            </section>
-            <section class="gender">
-              <h4>Gender</h4>
-              <hr>
-              <ul>
-                <li>
-                  <input id="genderMale" type="radio" name="gender" value="Male" formControlName="gender">
-                  <label for="genderMale">Male</label>
-                </li>
-                <li>
-                  <input id="genderFemale" type="radio" name="gender" value="Female" formControlName="gender">
-                  <label for="genderFemale">Female</label>
-                </li>
-              </ul>
-            </section>
-            <section class="product-purchased">
-              <h4>Product purchased</h4>
-              <hr>
-              <label>I own a:</label>
-              <select formControlName="productPurchased">
-                <option value=""></option>
-                <option value="Refrigerator">Refrigerator</option>
-                <option value="Washing Machine">Washing Machine</option>
-                <option Value="tvItem">Telivision</option>
-                <option value="Old Washing Machine">Washing Machine</option>
-              </select> 
-            </section>
-              
-               
-               
-             
-            <section>
-              <h4>Any Suggestions?</h4>
-              <hr>
-              <textarea formControlName="review"></textarea>
-            </section>
-            <section class="more-feedbacks" formArrayName="morefeedbacks">
-              <h4>More feedback?</h4>
-              <hr >
-              <ul>
-                <li *ngFor="let item of morefeedbacksControls.controls; let i = index">
-                  <input type="text" formControlName="{{i}}">
-                  <button type="button" title="Delete Feedback" (click)="deleteMoreFeedback(i)">Delete</button>
-                </li>
-              </ul>
-              <button type="button" (click)="addMoreFeedback()">Add a Feedback</button>
-            </section>
+        <form novalidate [formGroup]="ratingForm" (ngSubmit)="submitFeedbackForm()">
+
+            <h2>Rate and Review Form</h2>
             <div class="stars container">
-                <div class="row" >
-                  <div class="col-md-10">
-                    <section>
-                      <h4>Please enter your rating</h4>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <ul class="list-inline rating-list" 
-                                  *ngFor="let star of stars" style="display: inline-block" >
-                                    <li (click)="countStar(star)"
-                                        [ngClass]="{'selected': ( selectedValue >=star)}">
-                                      <i class="fa fa-star"></i>
-                                    </li> 
-                              </ul>
-                          </div>
+              <div class="row" >
+                <div class="col-md-10">
+
+                <!-- Stars -->
+                  <div class="mt-5">
+                    <h4>Please enter your rating</h4>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="list-inline rating-list" 
+                                *ngFor="let star of stars" style="display: inline-block" >
+                                  <li (click)="countStar(star)"
+                                      [ngClass]="{'selected': ( selectedValue >=star)}">
+                                    <i class="fa fa-star"></i>
+                                  </li> 
+                            </ul>
                         </div>
-                    </section>
-                  <br>
-                  </div>
+                      </div>
+                    </div>
+                    <!-- /Stars -->
+
+                    <h4>Please enter your review</h4>
+                    <div class="content">
+                        <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false"
+                            [(ngModel)]="textMessage" formControlName="review">
+                        </textarea>
+                    </div>
+                    <div class="row">
+                    <div class="footer text-center">
+                        <a class="btn btn-primary btn-round btn-lg btn-block" (click)="sendrating()">Send</a>
+                    </div>
+                      <div class="footer text-center">
+                          <a class="btn btn-primary btn-round btn-lg btn-block" (click)="clearForm()">Clear Form</a>
+                      </div>
+                    </div>
                 </div>
               </div>
-            <button type="submit" [disabled]='!feedbackForm.valid'>Submit Feedback</button>
-            <button type="button" (click)="clearForm()">Clear Form</button> 
+            </div>          
           </form> 
     </div>
   </body> 

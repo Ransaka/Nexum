@@ -8,9 +8,8 @@ export class RatingformService {
 
   constructor(private http: HttpClient) { }
 
-  sendRating(data: Rating) {
-    console.log(data);
-    return this.http.post('http://localhost:3000/user/rate/create' ,data);
+  sendRating(request: Rating) {
+    return this.http.post('http://localhost:3000/user/rate/create' ,request);
   }
 }
 
