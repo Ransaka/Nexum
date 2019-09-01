@@ -1,5 +1,5 @@
 <body>   
-     <div class="row" style="padding-top: 15%;padding-left: 20%" >
+     <div class="row" style="padding-top: 15%;padding-left: 10%" >
              
         <form novalidate [formGroup]="feedbackForm" (ngSubmit)="submitFeedbackForm()">
             <h2 style="font-style: oblique">Customer feedback Form</h2>
@@ -22,6 +22,17 @@
                   Please enter atleast {{customerNameControl.errors.minlength.requiredLength}} characters
                 </div>  
               </div>
+            </section>
+            <section class="email">
+              <h4>Email Address</h4>
+              <hr>
+              <ul>
+                <li>
+                  <input id="email" type="text" name="email" value="" >
+                  
+                </li>
+                 
+              </ul>
             </section>
             <section class="gender">
               <h4>Gender</h4>
@@ -46,7 +57,7 @@
                 <option value="Refrigerator">Refrigerator</option>
                 <option value="Washing Machine">Washing Machine</option>
                 <option Value="tvItem">Telivision</option>
-                <option value="Old Washing Machine">Old Washing Machine</option>
+                <option value="Old Washing Machine">Washing Machine</option>
               </select> 
             </section>
               
@@ -56,7 +67,7 @@
             <section>
               <h4>Any Suggestions?</h4>
               <hr>
-              <textarea formControlName="suggestions"></textarea>
+              <textarea formControlName="review"></textarea>
             </section>
             <section class="more-feedbacks" formArrayName="morefeedbacks">
               <h4>More feedback?</h4>
