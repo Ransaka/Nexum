@@ -50,22 +50,29 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Number</th>
-                  <th scope="col" sortable="name" (sort)="onSort($event)">Shop Name</th>
+                  <th scope="col">ID</th>
                   <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
                   <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
                   <th scope="col">Finalize</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Remove</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let x of current_user?.broadcasts">
+                  <td>{{x._id | slice:-4 }}</td>
+                  <td>{{x.name }}</td>
                   <td scope="row">BC</td>
-                  <td scope="row">BC</td>
-                  <td scope="row">BC</td>
-                  <td scope="row">BC</td>
-                  <td scope="row">BC</td>
-                  <td scope="row">BC</td>
+                  <td scope="row">
+                    <div class="social-description">
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm">A</a>
+                    </div>
+                  </td>
+                  <td scope="row">
+                    <div class="social-description">
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i _ngcontent-c3=""
+                          class="now-ui-icons ui-1_simple-remove"></i></a>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>

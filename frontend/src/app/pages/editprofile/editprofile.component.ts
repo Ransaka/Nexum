@@ -32,9 +32,12 @@ export class EditprofileComponent implements OnInit {
     this.getUser();
   }
 
+  // Get user details
   getUser() {
     return this._userservice
       .collectCurrent()
       .subscribe(res => (this.current_user = res));
   }
+
+  //Set user details
 }

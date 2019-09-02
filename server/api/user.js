@@ -73,7 +73,7 @@ router.get('/:id', function (req, res) {
  * @body User data model exept id, password and isAdmin.
  * @role User
  */
-router.post('/edit', checkAuth, upload.single('userImage'), function (req, res) {
+router.post('/edit', verify.decodeToken, /*upload.single('userImage')*/ function (req, res) {
     User.findById(req.body.uid).then(async (user) => {
         //Edit firstname
         if (req.body.firstname) {
@@ -109,6 +109,26 @@ router.post('/edit', checkAuth, upload.single('userImage'), function (req, res) 
                 })
             }
             user.email = req.body.email
+        }
+
+        // Edit Telephone
+        /*if (req.body.telephone) {
+            user.telephone = req.body.telephone
+        }*/
+
+        // Edit Address Line 1
+        if (req.body.line1) {
+            user.line1 = req.body.line1
+        }
+
+        // Edit Address Line 2
+        if (req.body.line2) {
+            user.line2 = req.body.line2
+        }
+
+        // Edit Address Line 3
+        if (req.body.line3) {
+            user.line2 = req.body.line2
         }
 
         return user.save().then(() => {
