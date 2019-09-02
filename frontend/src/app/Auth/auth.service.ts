@@ -28,6 +28,7 @@ export class AuthService {
     console.log(x);
     return x;
   }
+   
 
   //Check for the token availability in local storage
   isLogged() {

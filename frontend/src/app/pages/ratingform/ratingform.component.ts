@@ -14,15 +14,14 @@ export class RatingformComponent implements OnInit {
     stars: number[] = [1, 2, 3, 4, 5];
     selectedValue: number;
     ratingForm: FormGroup; 
-    morefeedbacksControls: FormArray;
-    customerNameChanged: boolean = false;
-    customerNameControl;
+     
 
     constructor(private formBuilder: FormBuilder, private rateing: RatingformService, private router: Router) {
      }
 
     ngOnInit() {
       this.ratingForm =  this.formBuilder.group({
+    
         rate:['',Validators.required],
         review:['']
       });
@@ -51,7 +50,7 @@ export class RatingformComponent implements OnInit {
 
     countStar(star: number) {
       this.selectedValue = star;
-      //console.log('Value of star', star);
+     // console.log('Value of star', star);
     }
       
 }
