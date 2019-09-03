@@ -32,8 +32,7 @@ export class UserService {
 
   private setUser(response: User) {
     localStorage.setItem('current_user', JSON.stringify(response));
-  }
-
+  } 
   private removeUser() {
     localStorage.removeItem('current_user');
   }

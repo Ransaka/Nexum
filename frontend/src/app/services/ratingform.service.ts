@@ -9,7 +9,10 @@ export class RatingformService {
   constructor(private http: HttpClient) { }
 
   sendRating(request: Rating) {
-    return this.http.post('http://localhost:3000/user/rate/create' ,request);
+    return this.http.put('http://localhost:3000/user/rate/create' ,request);
   }
+  getRatings(userId) {
+    return this.http.get<any>('http://localhost:3000/user/rate/${userId}');
+    }
 }
 
