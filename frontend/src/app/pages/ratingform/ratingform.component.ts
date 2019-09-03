@@ -18,18 +18,20 @@ export class RatingformComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder, private rateing: RatingformService, private router: Router) {
      }
+     
 
     ngOnInit() {
       this.ratingForm =  this.formBuilder.group({
-    
+        _id: localStorage.getItem('current_user._id'), 
         rate:['',Validators.required],
         review:['']
       });
     }
 
-    sendrating(){
+    sendrating() {
+      
       const request = {
-        
+        _id: localStorage.getItem('current_user._id'),
         rate: this.selectedValue,
         review: this.ratingForm.controls['review'].value
       }
