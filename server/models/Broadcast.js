@@ -12,6 +12,7 @@ const broadcastSchema = new Schema({
         required: true,
         auto: true
     },
-    item: String
+    product: String,
+    tags: String
 })
 module.exports = mongoose.model('Broadcast', broadcastSchema, 'broadcast')

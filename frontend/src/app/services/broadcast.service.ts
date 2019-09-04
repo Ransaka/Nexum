@@ -9,9 +9,10 @@ import { Broadcast } from './broadcast.dto';
 export class BroadcastService {
   constructor(private http: HttpClient) {}
 
-  sendBroadcast(message: Broadcast) {
-    console.log(message);
-    return this.http.post('http://localhost:3000/user/broadcast', message);
+  //Sending broadcast message to the backend
+  sendBroadcast(broadcast: Broadcast) {
+    console.log(broadcast);
+    return this.http.post('http://localhost:3000/user/broadcast', broadcast);
   }
 
   getBroadcast(id): Observable<Broadcast[]> {

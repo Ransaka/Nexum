@@ -42,14 +42,15 @@ async function getTags(textMessage) {
  * @body 
  * @response 
  */
-router.put('/', checkAuth, (req, res, next) => {
-    //let y = getTags("I want DELL laptop")
+router.put('/new', (req, res, next) => {
+    getTags("I want DELL laptop")
     User.findById(
             req.body._id
         )
         .then((user) => {
             const broadcast = new Broadcast({
-                name: req.body.textMessage
+                product: req.body.product,
+                tags: req.body.textMessage
             })
             return user.updateOne({
                 $addToSet: {
@@ -67,6 +68,32 @@ router.put('/', checkAuth, (req, res, next) => {
         })
 })
 
+/**
+ * Remove broadcast endpoint.
+ *
+ * Remove broadcast for the given user id.
+ *
+ * _id -> UserId
+ * rate_id -> RateId 
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.post('/remove', function (req, res) {
+    User.findById(req.body._id).exec((err, user) => {
+        if (err || user == null) {
+            return res.status(500).send({
+                message: 'Error removing broadcast'
+            })
+        }
+        Broadcast.remove({
+            _id: req.body.broadcast_id
+        }).exec().then(result => {
+            res.status(200).json(result)
+        })
+
+    })
+})
 
 /**
  * User get user broadcasts by id endpoint.
