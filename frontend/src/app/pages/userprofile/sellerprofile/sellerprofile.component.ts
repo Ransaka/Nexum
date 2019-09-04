@@ -20,7 +20,7 @@ export class SellerprofileComponent implements OnInit {
   starThreePer: number;
   starTwoPer: number;
   starOnePer: number;
-
+  
   constructor(private http: HttpClient, private rateing: RatingformService) {
     this.highestRate = 0;
     this.totalRates = 0;
@@ -29,7 +29,7 @@ export class SellerprofileComponent implements OnInit {
     this.starThreePer = 0;
     this.starTwoPer = 0;
     this.starOnePer = 0;
-
+     
 
   }
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
@@ -64,7 +64,7 @@ export class SellerprofileComponent implements OnInit {
 
         console.log(res);
         this.calcRatings(res);
-
+         
       },
       (err) => {
 
@@ -133,5 +133,5 @@ export class SellerprofileComponent implements OnInit {
 
     }
   }
-
+   
 }
