@@ -10,7 +10,8 @@ export interface Message {
 @Component({
   selector: 'app-sellerprofile',
   templateUrl: './sellerprofile.component.html',
-  styleUrls: ['./sellerprofile.component.scss']
+  styleUrls: ['./sellerprofile.component.scss'],
+   
 })
 export class SellerprofileComponent implements OnInit {
   highestRate: number;
@@ -20,7 +21,15 @@ export class SellerprofileComponent implements OnInit {
   starThreePer: number;
   starTwoPer: number;
   starOnePer: number;
-  
+  review:string;
+  date:Date;
+  textAreasList:any = [];
+   
+    addTextarea(){        
+        this.textAreasList.push('text_area'+ (this.textAreasList.length + 1));
+    }
+    
+     
   constructor(private http: HttpClient, private rateing: RatingformService) {
     this.highestRate = 0;
     this.totalRates = 0;
@@ -28,9 +37,9 @@ export class SellerprofileComponent implements OnInit {
     this.starFourPer = 0;
     this.starThreePer = 0;
     this.starTwoPer = 0;
-    this.starOnePer = 0;
-     
-
+    this.starOnePer = 0; 
+     this.review=null;
+     this.date;
   }
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
@@ -54,6 +63,7 @@ export class SellerprofileComponent implements OnInit {
   ngOnInit() {
     feather.replace();
     this.getRatings();
+    
   }
 
   getRatings() {
@@ -64,7 +74,7 @@ export class SellerprofileComponent implements OnInit {
 
         console.log(res);
         this.calcRatings(res);
-         
+        this.viewReview(res); 
       },
       (err) => {
 
@@ -133,5 +143,10 @@ export class SellerprofileComponent implements OnInit {
 
     }
   }
-   
+  viewReview(ratings){
+    for (let j= 0; j < ratings.length; j++) {
+      this.review= ratings[j].review;
+      this.date=ratings[j].date;
+    }
+  }
 }

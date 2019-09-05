@@ -132,24 +132,33 @@
               </div>
             </div>
           </div>
+         
           <div class="card-body col-xs-10 col-md-10">
             <div class="row">
               <div class="col-md-2">
                 <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
-                <p class="text-secondary text-center">15 Minutes Ago</p>
+                <p class="text-secondary text-center">{{this.date}}</p>
                 
               </div>
               <div class="col-md-10">
                 <div class="clearfix"></div>
-                <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting,
-                  remaining
-                  essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                </p>
-                <p>
+                  
+                   
+          
+                 {{this.review}}<br><br>
+                 
+                <!-- <p>
                   <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-                </p>
+                </p> -->
                  <!-- wenas karanna -->
-            
+                 <button (click)="addTextarea()">Add Textarea</button>
+                 <form>
+                     <div *ngFor="let textarea of textAreasList; let textarea_index= index" >
+                         <textarea name="{{textarea}}"rows="4" cols="50"[(ngModel)] = "str" ></textarea>
+                          
+                         
+                     </div>
+                 </form>
               <div class="card card-inner">
               <div class="card-body">
                 <div class="row">
