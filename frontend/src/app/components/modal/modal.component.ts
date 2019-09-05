@@ -19,7 +19,7 @@ export class NgbdModalBasic {
     private router: Router
   ) {}
 
-  open(content) {
+  open(content) { 
     this.modalService.open(content).result.then(
       result => {
         this.closeResult = `Closed with: ${result}`;
