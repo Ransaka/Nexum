@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, shareReplay, flatMap, map } from 'rxjs/operators';
-import { SignInResponse, SignInRequest, SignUpRequest } from './auth.dto';
+import { SignInResponse, SignInRequest, SignUpRequest,NewComplain } from './auth.dto';
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
 
@@ -63,4 +63,15 @@ export class AuthService {
   isAuthorized() {
     return moment().isBefore(this.getExpiration());
   }
+
+
+  //make new complain
+  makeComplain(complain:NewComplain){
+    console.log("at service file 1"+ JSON.stringify(complain))
+
+    return this.http
+    .post('http://localhost:3000/user/rate/create', complain)
+    .pipe(map(res => this.ApiResponse))
+  }
+  // eof make new complain
 }

@@ -14,6 +14,8 @@ import { ComponentsComponent } from './components/components.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
+import { ComplainsComponent } from './pages/complains/complains.component';
+import {CustComplainComponent} from './pages/cust-complain/cust-complain.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -36,7 +38,9 @@ const routes: Routes = [
   { path: 'userprofile/selling', component: SellingComponent },
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },
   { path: 'userprofile/admin', component: AdminprofileComponent },
-  { path: 'userprofile/edit', component: EditprofileComponent }
+  { path: 'userprofile/edit', component: EditprofileComponent },
+  { path: 'pages/complains', component: ComplainsComponent },
+  { path: 'pages/newcomplain', component: CustComplainComponent }
 ];
 
 @NgModule({
