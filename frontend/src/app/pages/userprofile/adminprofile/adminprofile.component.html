@@ -18,7 +18,7 @@
 
         <div class="row justify-content-center">
           <div class="social-description">
-            <a href="#button" class="btn btn-primary btn-lg btn-round">View Messages</a>
+            <a [routerLink]="['/pages/complains']" routerLinkActive="router-link-active"  class="btn btn-primary btn-lg btn-round">View Messages</a>
           </div>
           <div class="social-description">
             <a href="#button" class="btn btn-primary btn-lg btn-round">Site Settings</a>
@@ -40,24 +40,23 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <!--<form>
-                              <div class="form-group form-inline">
+          <form>
+                              <!-- <div class="form-group form-inline">
                                   Search <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
                                   <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
-                              </div>
-              
+                              </div> -->
+                              <h2>Recent Complains</h2>
                               <table class="table table-striped">
                                   <thead>
                                       <tr>
                                           <th scope="col">Number</th>
                                           <th scope="col" sortable="name" (sort)="onSort($event)">Customer Name</th>
                                           <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
-                                          <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
-                                          <th scope="col">Finalize</th>
-                                          <th scope="col">Action</th>
+                                          <th scope="col" sortable="message" (sort)="onSort($event)">Complain</th>
+
                                       </tr>
                                   </thead>
-                                  <tbody>
+                                  <!-- <tbody>
                                   <tr *ngFor="let country of countries$ | async">
                                       <th scope="row">{{ country.id }}</th>
                                           <td>
@@ -67,9 +66,8 @@
                                       <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight></td>
                                       <td><ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight></td>
                                   </tr>
-                                  </tbody>
+                                  </tbody> -->
                               </table>
-              
                               <div class="d-flex justify-content-between p-2">
                                   <ngb-pagination
                                   [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
@@ -82,13 +80,13 @@
                                   </select>
                               </div>
               
-                              </form>-->
+                              </form>
 
         </div>
       </div>
     </div>
   </div>
-  <div class="section">
+  <!-- <div class="section">
     <div class="col">
       <div class="col-md-8 ml-auto mr-auto">
         <div class="media-area">
@@ -140,9 +138,9 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
 
-  <div class="section">
+  <!-- <div class="section">
     <div class="col-md-8 ml-auto mr-auto">
       <div class="media-area">
         <h3>Reviews</h3>
@@ -193,4 +191,4 @@
       </div>
     </div>
   </footer>
-</div>
+</div> -->

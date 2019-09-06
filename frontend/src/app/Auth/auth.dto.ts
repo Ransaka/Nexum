@@ -14,3 +14,8 @@ export interface SignUpRequest {
   username: string;
   password: string;
 }
+
+export interface NewComplain {
+  id:string;
+  complain:string;
+}

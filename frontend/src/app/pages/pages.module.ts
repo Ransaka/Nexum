@@ -9,6 +9,8 @@ import { SellerprofileComponent } from './userprofile/sellerprofile/sellerprofil
 import { CustomerprofileComponent } from './Userprofile/customerprofile/customerprofile.component';
 import { AdminprofileComponent } from './userprofile/adminprofile/adminprofile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { ComplainsComponent } from './complains/complains.component';
+import { CustComplainComponent } from './cust-complain/cust-complain.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     SellerprofileComponent,
     CustomerprofileComponent,
     AdminprofileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    ComplainsComponent,
+    CustComplainComponent
   ],
   imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
 })

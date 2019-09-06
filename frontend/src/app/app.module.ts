@@ -8,7 +8,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
+
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
@@ -18,6 +19,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
+import { ComplainsComponent } from './pages/complains/complains.component';
+import {CustComplainComponent} from './pages/cust-complain/cust-complain.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminpro
     CustomerprofileComponent,
     SellerprofileComponent,
     AdminprofileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    ComplainsComponent,
+    CustComplainComponent
   ],
   imports: [
     BrowserAnimationsModule,
