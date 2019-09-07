@@ -23,12 +23,24 @@
   <div class="section">
     <div class="container">
 
-      <div class="social-description align-left">
-        <a href="#button" class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/customerprofile">Back</a>
-      </div>
+    </div>
 
+    <div class="container">
       <form class="form" method="" action="" [formGroup]="editForm">
         <h3>Edit your details</h3>
+
+        <div class="col-xs-12 col-md-8 col-lg-8">
+          <div class="form-group"><label>Firstname</label>
+            <input [(ngModel)]="firstname" formControlName="firstname" class="form-control border-input"
+              placeholder="{{current_user?.firstname}}" type="text">
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-8 col-lg-8">
+          <div class="form-group"><label>Lastname</label>
+            <input [(ngModel)]="lastname" formControlName="lastname" class="form-control border-input"
+              placeholder="{{current_user?.lastname}}" type="text">
+          </div>
+        </div>
         <div class="col-xs-12 col-md-8 col-lg-8">
           <div class="form-group"><label>Username</label>
             <input [(ngModel)]="username" formControlName="username" class="form-control border-input"
@@ -59,7 +71,12 @@
           </div>
         </div>
 
-        <hr>
+        <div class="col-xs-12 col-md-8 col-lg-8">
+          <div class="form-group"><label>NIC</label>
+            <input [(ngModel)]="nic" formControlName="nic" class="form-control border-input"
+              placeholder="{{current_user?.nic}}" type="text">
+          </div>
+        </div>
 
         <div class="col-xs-12 col-md-8 col-lg-8">
           <div class="form-group"><label>Telephone Number</label>
@@ -70,17 +87,28 @@
 
         <div class="col-xs-12 col-md-8 col-lg-8">
           <div class="form-group"><label>Address</label>
-            <input [(ngModel)]="line1" formControlName="line1" class="form-control border-input" placeholder=""
-              type="text">
+            <input [(ngModel)]="line1" formControlName="line1" class="form-control border-input"
+              placeholder="{{current_user?.line1}}" type="text">
           </div>
           <div class="form-group">
-            <input [(ngModel)]="line2" formControlName="line2" class="form-control border-input" placeholder=""
-              type="text">
+            <input [(ngModel)]="line2" formControlName="line2" class="form-control border-input"
+              placeholder="{{current_user?.line2}}" type="text">
           </div>
           <div class="form-group">
-            <input [(ngModel)]="line3" formControlName="line3" class="form-control border-input" placeholder=""
-              type="text">
+            <input [(ngModel)]="line3" formControlName="line3" class="form-control border-input"
+              placeholder="{{current_user?.line3}}" type="text">
           </div>
+
+          <div class="row">
+            <div class="social-description text-center">
+              <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/customerprofile">Back</a>
+            </div>
+            <div class="social-description text-center ">
+              <a class="btn btn-primary btn-lg btn-round" (click)="updateUser()">Save</a>
+            </div>
+
+          </div>
+
         </div>
       </form>
     </div>

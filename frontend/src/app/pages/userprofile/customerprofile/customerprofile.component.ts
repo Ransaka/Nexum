@@ -2,6 +2,8 @@ import { UserService } from './../../../services/user.service';
 import { BroadcastService } from './../../../services/broadcast.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from './../../../services/user.dto';
+import { Broadcast } from './../../../services/broadcast.dto';
+import { SelectMultipleControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-customerprofile',
@@ -14,11 +16,12 @@ export class CustomerprofileComponent implements OnInit {
     private _userservice: UserService
   ) {}
 
-  broadcastArray = [];
+  broadcastArray: Broadcast[];
   current_user: User;
 
   ngOnInit() {
     this.getUser();
+    this.getBroadcasts();
   }
 
   // Get user details
@@ -29,10 +32,9 @@ export class CustomerprofileComponent implements OnInit {
   }
 
   // Get all broadcasts
-  private getBroadcasts(id: String) {
+  getBroadcasts() {
     this._broadcastservice
-      .getBroadcast(id)
-      .subscribe(data => (this.broadcastArray = data));
-    console.log(this.broadcastArray);
+      .getBroadcast()
+      .subscribe(data => (this.broadcastArray = data as Broadcast[]));
   }
 }

@@ -1,7 +1,11 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Broadcast } from './broadcast.dto';
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpHeaders
+} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +19,16 @@ export class BroadcastService {
     return this.http.post('http://localhost:3000/user/broadcast', broadcast);
   }
 
-  getBroadcast(id): Observable<Broadcast[]> {
+  getBroadcast(): Observable<Broadcast[]> {
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('jwt_token')
+    );
     return this.http.get<Broadcast[]>(
-      'http://localhost:3000/user/broadcast/' + id
+      'http://localhost:3000/user/broadcast/all',
+      {
+        headers
+      }
     );
   }
 }

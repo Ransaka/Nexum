@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-var request = require('request');
+var request = require('request')
+const verify = require('../auth/verify')
 
 
 const User = require('../models/User')
@@ -95,25 +96,28 @@ router.post('/remove', function (req, res) {
     })
 })
 
+
 /**
- * User get user broadcasts by id endpoint.
+ * Get all the elements of broadcast array reversed
  *
- * Get the user broadcasts for the given user id.
+ * 
  *
- * @param id
- * @role Admin
- * @response User of the given id
+ * @role User
+ * @response User of the authenicated user
  */
-router.get('/:id', checkAuth, function (req, res) {
-    User.findById(req.params['id']).exec((err, user) => {
-        if (err || user == null) {
+router.get('/all', verify.decodeToken, function (req, res) {
+    User.findById(req.uid).exec((err, user) => {
+        if (err) {
             return res.status(500).send({
-                message: 'Error retrieving User with id:' + req.params['id']
+                message: 'Error retrieving User with id: ' + req.uid
             })
         }
         // Remove password attribute from the user
         user.password = undefined
-        res.status(200).send(user.broadcasts)
+        var broadcast = {
+            broadcast: user.broadcasts.reverse()
+        }
+        res.status(200).send(broadcast)
     })
 })
 
