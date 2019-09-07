@@ -26,6 +26,17 @@ export class UserService {
     );
   }
 
+  //Update current user
+  updatetUser(user: User) {
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('jwt_token')
+    );
+    return this.http.put<any>('http://localhost:3000/user/edit', user, {
+      headers
+    });
+  }
+
   removeCurrent() {
     this.removeUser();
   }
