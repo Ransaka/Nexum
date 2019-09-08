@@ -11,6 +11,7 @@ import { AdminprofileComponent } from './userprofile/adminprofile/adminprofile.c
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { ComplainsComponent } from './complains/complains.component';
 import { CustComplainComponent } from './cust-complain/cust-complain.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,12 @@ import { CustComplainComponent } from './cust-complain/cust-complain.component';
     ComplainsComponent,
     CustComplainComponent
   ],
-  imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    NouisliderModule,
+    NgbModule,
+    FileUploadModule
+  ]
 })
 export class PagesModule {}

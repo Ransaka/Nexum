@@ -19,7 +19,7 @@ export class NgbdModalBasic {
     private router: Router
   ) {}
 
-  open(content) { 
+  open(content) {
     this.modalService.open(content).result.then(
       result => {
         this.closeResult = `Closed with: ${result}`;
@@ -75,7 +75,24 @@ export class NgbdModalBasic {
         })
         .subscribe(
           () => {
-            this.router.navigate(['/userprofile/customerprofile']);
+            this.auth
+              .login({
+                email: this.signupForm.controls['email'].value,
+                password: this.signupForm.controls['password'].value
+              })
+              .subscribe(
+                res => {
+                  this.router.navigateByUrl(
+                    '/userprofile/customerprofile/edit'
+                  );
+                },
+                err => {
+                  console.log(err);
+                  if (err.error.message) {
+                    this.error = err.error.message;
+                  }
+                }
+              );
           },
           err => {
             console.log(err);

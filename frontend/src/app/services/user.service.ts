@@ -29,8 +29,8 @@ export class UserService {
   //Update current user
   updatetUser(user: User) {
     const headers = new HttpHeaders().set(
-      'x-access-token',
-      localStorage.getItem('jwt_token')
+      'uid',
+      localStorage.getItem('current_user')
     );
     return this.http.put<any>('http://localhost:3000/user/edit', user, {
       headers
@@ -57,7 +57,7 @@ export class UserService {
   }
 
   private setUser(response: User) {
-    localStorage.setItem('current_user', JSON.stringify(response));
+    localStorage.setItem('current_user', response._id);
   }
 
   private removeUser() {

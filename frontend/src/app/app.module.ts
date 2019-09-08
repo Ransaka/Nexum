@@ -8,7 +8,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -20,7 +21,7 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { ComplainsComponent } from './pages/complains/complains.component';
-import {CustComplainComponent} from './pages/cust-complain/cust-complain.component'
+import { CustComplainComponent } from './pages/cust-complain/cust-complain.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {CustComplainComponent} from './pages/cust-complain/cust-complain.compone
     AppRoutingModule,
     ComponentsModule,
     ExamplesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FileUploadModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

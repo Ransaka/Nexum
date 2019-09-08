@@ -11,7 +11,7 @@
           <!--Profile Image-->
           <div class="photo-container">
             <img _ngcontent-c6="" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
-              src="assets/img/ryan.jpg">
+              (click)="[open(changeProfPic,'' , '')]" src="assets/img/ryan.jpg">
           </div>
           <h2>{{current_user?.username}}</h2>
           <!--/Profile Image-->
@@ -19,6 +19,42 @@
       </div>
     </div>
   </div>
+
+  <!-- Popup -->
+  <ng-template #changeProfPic let-c="close" let-d="dismiss">
+
+    <div class="modal-header justify-content-center">
+      <button type="button" class="close" (click)="d('Cross click')">
+        <i class="now-ui-icons ui-1_simple-remove"></i>
+      </button>
+      <h5 class="">Change you Profile Picture</h5>
+    </div>
+    <div class="mt-5">
+      <div class="container">
+        <div class="col-md-12 content-center">
+          <div class="card card-login card-plain">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 offset-md-1">
+                  <div class="form-group">
+                    <input type="file" (change)="onFileSelected($event)" name="fileUpload" id="fileUpload">
+                  </div>
+                  <img _ngcontent-c6="" alt="Thumbnail Image" class=" w-1000" src="assets/img/ryan.jpg">
+
+                  <div class="form-group">
+                    <button class="btn btn-primary" (click)="onpload()">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5"></div>
+    </div>
+
+  </ng-template>
+  <!-- /Popup -->
 
   <div class="section">
     <div class="container">
@@ -108,6 +144,8 @@
             </div>
 
           </div>
+
+
 
         </div>
       </form>
