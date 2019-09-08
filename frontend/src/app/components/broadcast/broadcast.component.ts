@@ -29,7 +29,7 @@ export class BroadcastComponent implements OnInit {
   textMessage: string;
   categories = ['Electronics', 'Vehicles', 'Books', 'Other'];
 
-  getBroadcast() {
+  newBroadcast() {
     this._broadcast
       .sendBroadcast({
         category: this.broadcastForm.controls['category'].value,

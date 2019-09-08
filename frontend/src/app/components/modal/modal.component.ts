@@ -82,9 +82,7 @@ export class NgbdModalBasic {
               })
               .subscribe(
                 res => {
-                  this.router.navigateByUrl(
-                    '/userprofile/customerprofile/edit'
-                  );
+                  this.router.navigateByUrl('/userprofile/edit');
                 },
                 err => {
                   console.log(err);
