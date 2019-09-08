@@ -15,8 +15,16 @@ export class BroadcastService {
 
   //Sending broadcast message to the backend
   sendBroadcast(broadcast: Broadcast) {
+    const headers = new HttpHeaders().set(
+      'uid',
+      localStorage.getItem('current_user')
+    );
     console.log(broadcast);
-    return this.http.post('http://localhost:3000/user/broadcast', broadcast);
+    return this.http.put(
+      'http://localhost:3000/user/broadcast/new',
+      broadcast,
+      { headers }
+    );
   }
 
   getBroadcast(): Observable<Broadcast[]> {

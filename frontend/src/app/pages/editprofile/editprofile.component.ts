@@ -1,8 +1,11 @@
+import { HttpClient } from '@angular/common/http';
+import { FileUploader, FileSelectDirective } from 'ng2-file-upload';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'app/services/user.service';
 import { User } from './../../services/user.dto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-editprofile',
@@ -10,14 +13,56 @@ import { Router } from '@angular/router';
   styleUrls: ['./editprofile.component.scss']
 })
 export class EditprofileComponent implements OnInit {
+  uploader: FileUploader = new FileUploader({
+    url: 'http://localhost:3000/user/upload'
+  });
+
   editForm: FormGroup;
   constructor(
     private _userservice: UserService,
     private formbuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private http: HttpClient,
+    private modalService: NgbModal
   ) {}
 
+  onFileSelected(event) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+  }
+
+  selectedFile: File = null;
+  onUpload() {
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http
+      .post('http://localhost:3000/user/upload', fd)
+      .subscribe(res => console.log(res));
+  }
+
   current_user: User;
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  closeResult: string;
+  open(content) {
+    this.modalService.open(content).result.then(
+      result => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      reason => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
 
   ngOnInit() {
     this.editForm = this.formbuilder.group({
@@ -36,7 +81,6 @@ export class EditprofileComponent implements OnInit {
 
     this.getUser();
   }
-  _id = '5d4a8b5d7e6ecf5efcb9a65a';
   // Get user details
   getUser() {
     return this._userservice
@@ -46,7 +90,6 @@ export class EditprofileComponent implements OnInit {
 
   updateUser() {
     const request = {
-      uid: this._id,
       firstname: this.editForm.controls['firstname'].value,
       lastname: this.editForm.controls['lastname'].value,
       username: this.editForm.controls['username'].value,
@@ -61,7 +104,7 @@ export class EditprofileComponent implements OnInit {
     };
     return this._userservice
       .updatetUser(request)
-      .subscribe(res => this.router.navigate(['/userprofile/customerprofile']));
+      .subscribe(() => this.router.navigate(['/userprofile/customerprofile']));
   }
 
   //Set user details

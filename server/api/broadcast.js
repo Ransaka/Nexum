@@ -46,11 +46,12 @@ async function getTags(textMessage) {
 router.put('/new', (req, res, next) => {
     getTags("I want DELL laptop")
     User.findById(
-            req.body._id
+            req.headers.uid
         )
         .then((user) => {
             const broadcast = new Broadcast({
                 product: req.body.product,
+                category: req.body.category,
                 tags: req.body.textMessage
             })
             return user.updateOne({

@@ -15,7 +15,7 @@ import { UserprofileComponent } from './pages/userprofile/userprofile.component'
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { ComplainsComponent } from './pages/complains/complains.component';
-import {CustComplainComponent} from './pages/cust-complain/cust-complain.component'
+import { CustComplainComponent } from './pages/cust-complain/cust-complain.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -28,13 +28,14 @@ const routes: Routes = [
         path: 'customerprofile',
         component: CustomerprofileComponent
       },
+      { path: 'broadcast', component: BroadcastComponent },
       {
         path: 'sellerprofile',
         component: SellerprofileComponent
       }
     ]
   },
-  { path: 'userprofile/broadcast', component: BroadcastComponent },
+
   { path: 'userprofile/selling', component: SellingComponent },
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },
   { path: 'userprofile/admin', component: AdminprofileComponent },
