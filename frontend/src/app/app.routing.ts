@@ -47,8 +47,10 @@ const routes: Routes = [
 
   { path: 'userprofile/selling', component: SellingComponent },
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },
-  { path: 'userprofile/sellerprofile/ratingform', component: RatingformComponent }
-]
+  {
+    path: 'userprofile/sellerprofile/ratingform',
+    component: RatingformComponent
+  },
   { path: 'userprofile/admin', component: AdminprofileComponent },
   { path: 'userprofile/edit', component: EditprofileComponent },
   { path: 'pages/complains', component: ComplainsComponent },
