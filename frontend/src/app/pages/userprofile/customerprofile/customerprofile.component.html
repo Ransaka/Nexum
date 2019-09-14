@@ -18,7 +18,7 @@
           </div>
           <!--/Profile Image-->
 
-          <h3 class="title">{{current_user?.email}}</h3>
+          <h3 class="title">{{current_user?.username}}</h3>
         </div>
 
         <div class="row justify-content-center">
@@ -26,11 +26,13 @@
             <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/broadcast">Broadcast</a>
           </div>
           <div class="social-description">
-            <a href="#button" class="btn btn-primary btn-lg btn-round">Purchase History</a>
+            <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/purchasehistory">Purchase
+              History</a>
           </div>
           <div class="social-description">
-            <a href="#button" class="btn btn-primary btn-lg btn-round">Bookmarks</a>
+            <a href="#button" class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/bookmarks">Bookmarks</a>
           </div>
+
         </div>
       </div>
     </div>
@@ -50,22 +52,37 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Number</th>
-                  <th scope="col" sortable="name" (sort)="onSort($event)">Shop Name</th>
+                  <th scope="col">ID</th>
                   <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
                   <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
                   <th scope="col">Finalize</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Remove</th>
+                  <th scope="col">Report</th>
+
+                  <!-- current_user?.broadcasts -->
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td scope="row">BC</td>
-                  <td scope="row">BC</td>
-                  <td scope="row">BC</td>
-                  <td scope="row">BC</td>
-                  <td scope="row">BC</td>
-                  <td scope="row">BC</td>
+                <tr *ngFor="let x of broadcastArray.broadcast.slice(0,5)">
+                  <td>{{x._id | slice:-4}}</td>
+                  <td>{{x.product}}</td>
+                  <td scope="row">{{x.tags}}</td>
+                  <td scope="row">
+                    <div class="social-description">
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm">A</a>
+                    </div>
+                  </td>
+                  <td scope="row">
+                    <div class="social-description">
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i _ngcontent-c3=""
+                          class="now-ui-icons ui-1_simple-remove"></i></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="social-description">
+                      <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">C</a>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -83,6 +100,9 @@
 
           </form>
 
+        </div>
+        <div class="social-description">
+          <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/admin">Admin profile test</a>
         </div>
       </div>
     </div>
@@ -137,6 +157,16 @@
             </div>
 
           </form>
+
+
+
+
+
+
+
+
+
+
 
         </div>
       </div>

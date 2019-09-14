@@ -19,18 +19,21 @@ export class BroadcastComponent implements OnInit {
   ngOnInit() {
     this.broadcastForm = this._formbuilder.group({
       category: ['', Validators.required],
-      textMessage: ['', Validators.required]
+      product: ['', Validators.required],
+      textMessage: ['']
     });
   }
   error: string;
   category: string;
+  product: String;
   textMessage: string;
-  categories = ['Electronics', 'Vehicles', 'Books'];
+  categories = ['Electronics', 'Vehicles', 'Books', 'Other'];
 
-  getBroadcast() {
+  newBroadcast() {
     this._broadcast
       .sendBroadcast({
         category: this.broadcastForm.controls['category'].value,
+        product: this.broadcastForm.controls['product'].value,
         textMessage: this.broadcastForm.controls['textMessage'].value
       })
       .subscribe(

@@ -7,6 +7,11 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RouterModule } from '@angular/router';
 import { SellerprofileComponent } from './userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './Userprofile/customerprofile/customerprofile.component';
+import { AdminprofileComponent } from './userprofile/adminprofile/adminprofile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { ComplainsComponent } from './complains/complains.component';
+import { CustComplainComponent } from './cust-complain/cust-complain.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { RatingformComponent } from './ratingform/ratingform.component';
 
@@ -17,7 +22,18 @@ import { RatingformComponent } from './ratingform/ratingform.component';
     SellerprofileComponent,
     CustomerprofileComponent,    
     RatingformComponent
+    CustomerprofileComponent,
+    AdminprofileComponent,
+    EditprofileComponent,
+    ComplainsComponent,
+    CustComplainComponent
   ],
-  imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    NouisliderModule,
+    NgbModule,
+    FileUploadModule
+  ]
 })
 export class PagesModule {}

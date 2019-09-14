@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-var request = require('request');
+var request = require('request')
+const verify = require('../auth/verify')
 
 
 const User = require('../models/User')
@@ -42,14 +43,16 @@ async function getTags(textMessage) {
  * @body 
  * @response 
  */
-router.put('/', checkAuth, (req, res, next) => {
-    //let y = getTags("I want DELL laptop")
+router.put('/new', (req, res, next) => {
+    getTags("I want DELL laptop")
     User.findById(
-            req.body._id
+            req.headers.uid
         )
         .then((user) => {
             const broadcast = new Broadcast({
-                name: req.body.textMessage
+                product: req.body.product,
+                category: req.body.category,
+                tags: req.body.textMessage
             })
             return user.updateOne({
                 $addToSet: {
@@ -67,26 +70,55 @@ router.put('/', checkAuth, (req, res, next) => {
         })
 })
 
-
 /**
- * User get user broadcasts by id endpoint.
+ * Remove broadcast endpoint.
  *
- * Get the user broadcasts for the given user id.
+ * Remove broadcast for the given user id.
  *
+ * _id -> UserId
+ * rate_id -> RateId 
  * @param id
  * @role Admin
  * @response User of the given id
  */
-router.get('/:id', checkAuth, function (req, res) {
-    User.findById(req.params['id']).exec((err, user) => {
+router.post('/remove', function (req, res) {
+    User.findById(req.body._id).exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
-                message: 'Error retrieving User with id:' + req.params['id']
+                message: 'Error removing broadcast'
+            })
+        }
+        Broadcast.remove({
+            _id: req.body.broadcast_id
+        }).exec().then(result => {
+            res.status(200).json(result)
+        })
+
+    })
+})
+
+
+/**
+ * Get all the elements of broadcast array reversed
+ *
+ * 
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.get('/all', verify.decodeToken, function (req, res) {
+    User.findById(req.uid).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: ' + req.uid
             })
         }
         // Remove password attribute from the user
         user.password = undefined
-        res.status(200).send(user.broadcasts)
+        var broadcast = {
+            broadcast: user.broadcasts.reverse()
+        }
+        res.status(200).send(broadcast)
     })
 })
 

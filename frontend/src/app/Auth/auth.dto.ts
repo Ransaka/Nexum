@@ -5,7 +5,7 @@ export interface SignInRequest {
 
 export interface SignInResponse {
   auth: boolean;
-  accessToken: string;
+  token: string;
   expiresIn: string;
 }
 
@@ -13,4 +13,9 @@ export interface SignUpRequest {
   email: string;
   username: string;
   password: string;
+}
+
+export interface NewComplain {
+  id:string;
+  complain:string;
 }

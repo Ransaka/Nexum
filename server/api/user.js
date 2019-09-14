@@ -3,8 +3,10 @@ const router = express.Router()
 const User = require('../models/User')
 const multer = require('multer')
 const checkAuth = require('../auth/check-auth')
+const verify = require('../auth/verify')
+const bcrypt = require('bcrypt')
 
-const storage = multer.diskStorage({
+const store = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'upload')
     },
@@ -13,8 +15,48 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({
-    storage: storage
+    storage: store
 })
+
+
+
+
+/**
+ * Users get current endpoint.
+ *
+ * Get user details of authenticated user.
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.get('/current', verify.decodeToken, function (req, res) {
+    User.findById(req.uid).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: ' + req.uid
+            })
+        }
+        // Remove password attribute from the user
+        user.password = undefined
+        var details = {
+            _id: user._id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            username: user.username,
+            email: user.email,
+            nic: user.nic,
+            telephone: user.telephone,
+            line1: user.line1,
+            line2: user.line2,
+            line3: user.line3
+        }
+        res.status(200).send(details)
+    })
+})
+
+
+
+
 
 /**
  * User get user by id endpoint.
@@ -26,7 +68,7 @@ const upload = multer({
  * @response User of the given id
  */
 router.get('/:id', function (req, res) {
-    User.findById(req.params['id']).select('email').exec((err, user) => {
+    User.findById(req.uid).select('email').exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
                 message: 'Error retrieving User with id:' + req.params['id']
@@ -40,6 +82,31 @@ router.get('/:id', function (req, res) {
 
 
 /**
+ * Remove User current endpoint.
+ *
+ * Remove the given user of the authenticated user.
+ *
+ * @body User data model exept id, password and isAdmin.
+ * @role User
+ */
+router.delete('/delete/:id', checkAuth, (req, res, next) => {
+    User.remove({
+        _id: req.params.id
+    }).exec().then(result => {
+        res.status(200).json({
+            message: 'User Deleted'
+        })
+    }).catch(() => {
+        res.status(500).send({
+            message: 'User deletion error.'
+        })
+    })
+})
+
+
+
+
+/**
  * Users update current endpoint.
  *
  * Update the given attributes of the authenticated user.
@@ -47,8 +114,14 @@ router.get('/:id', function (req, res) {
  * @body User data model exept id, password and isAdmin.
  * @role User
  */
-router.post('/edit', checkAuth, upload.single('userImage'), function (req, res) {
-    User.findById(req.body.uid).then(async (user) => {
+router.put('/edit', upload.single('profilePic'), function (req, res) {
+    User.findById(req.headers.uid).exec(async (err, user) => {
+        if (err || user == null) {
+            return res.status(500).send({
+                message: 'Error updating User with id: ' + req.headers.uid
+            })
+        }
+        console.log(req.df)
         //Edit firstname
         if (req.body.firstname) {
             user.firstname = req.body.firstname
@@ -85,37 +158,54 @@ router.post('/edit', checkAuth, upload.single('userImage'), function (req, res) 
             user.email = req.body.email
         }
 
-        return user.save().then(() => {
+        // Edit NIC
+        if (req.body.nic) {
+            user.nic = req.body.nic
+        }
+
+        // Edit Telephone
+        if (req.body.telephone) {
+            user.telephone = req.body.telephone
+        }
+
+        // Edit Address Line 1
+        if (req.body.line1) {
+            user.line1 = req.body.line1
+        }
+
+        // Edit Address Line 2
+        if (req.body.line2) {
+            user.line2 = req.body.line2
+        }
+
+        // Edit Address Line 3
+        if (req.body.line3) {
+            user.line2 = req.body.line2
+        }
+
+        user.save().then(() => {
             res.status(200).send({
                 message: 'Success, User updated!'
             })
-        })
-    }).catch(() => {
-        res.status(500).send({
-            message: 'User update error.'
+        }).catch(() => {
+            res.status(500).send({
+                message: 'User update error.'
+            })
         })
     })
 })
 
-
-/**
- * Remove User current endpoint.
- *
- * Remove the given user of the authenticated user.
- *
- * @body User data model exept id, password and isAdmin.
- * @role User
- */
-router.delete('/delete/:id', checkAuth, (req, res, next) => {
-    User.remove({
-        _id: req.params.id
-    }).exec().then(result => {
-        res.status(200).json({
-            message: 'User Deleted'
-        })
-    }).catch(() => {
-        res.status(500).send({
-            message: 'User deletion error.'
+// Upload a profile image
+router.post('/upload', upload.single('profilePic'), function (req, res, next) {
+    upload(req, res, function (err) {
+        if (err) {
+            return res.status(501).json({
+                error: err
+            })
+        }
+        return res.json({
+            originalname: req.file.originalname,
+            uploadname: req.file.filename
         })
     })
 })

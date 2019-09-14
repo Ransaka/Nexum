@@ -75,7 +75,22 @@ export class NgbdModalBasic {
         })
         .subscribe(
           () => {
-            this.router.navigate(['/userprofile/customerprofile']);
+            this.auth
+              .login({
+                email: this.signupForm.controls['email'].value,
+                password: this.signupForm.controls['password'].value
+              })
+              .subscribe(
+                res => {
+                  this.router.navigateByUrl('/userprofile/edit');
+                },
+                err => {
+                  console.log(err);
+                  if (err.error.message) {
+                    this.error = err.error.message;
+                  }
+                }
+              );
           },
           err => {
             console.log(err);

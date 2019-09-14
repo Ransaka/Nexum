@@ -22,6 +22,14 @@ const userSchema = new Schema({
     username: String,
     firstname: String,
     lastname: String,
+    telephone: String,
+
+    //address
+    line1: String,
+    line2: String,
+    line3: String,
+
+    nic: String,
 
     broadcasts: [],
     selling: [],
