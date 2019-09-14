@@ -57,6 +57,8 @@ export class UserService {
   }
 
   private setUser(response: User) {
+    localStorage.setItem('current_user', JSON.stringify(response));
+  } 
     localStorage.setItem('current_user', response._id);
   }
 
