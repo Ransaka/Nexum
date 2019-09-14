@@ -1,3 +1,4 @@
+import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
@@ -16,6 +17,7 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { ComplainsComponent } from './pages/complains/complains.component';
 import { CustComplainComponent } from './pages/cust-complain/cust-complain.component';
+import { PurchasehistoryComponent } from './components/purchasehistory/purchasehistory.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -41,7 +43,9 @@ const routes: Routes = [
   { path: 'userprofile/admin', component: AdminprofileComponent },
   { path: 'userprofile/edit', component: EditprofileComponent },
   { path: 'pages/complains', component: ComplainsComponent },
-  { path: 'pages/newcomplain', component: CustComplainComponent }
+  { path: 'pages/newcomplain', component: CustComplainComponent },
+  { path: 'userprofile/purchasehistory', component: PurchasehistoryComponent },
+  { path: 'userprofile/bookmarks', component: BookmarksComponent }
 ];
 
 @NgModule({
