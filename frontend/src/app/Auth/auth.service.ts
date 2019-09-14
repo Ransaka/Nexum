@@ -32,13 +32,7 @@ export class AuthService {
         flatMap(() => this.userService.collectCurrent())
       );
   }
-
-  //SignOut
-  signOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('current_user');
-    this.userService.removeCurrent();
-  }
+   
 
   // Set session
   private setSession(response: SignInResponse) {

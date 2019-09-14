@@ -13,11 +13,15 @@ import { ComplainsComponent } from './complains/complains.component';
 import { CustComplainComponent } from './cust-complain/cust-complain.component';
 import { FileUploadModule } from 'ng2-file-upload';
 
+import { RatingformComponent } from './ratingform/ratingform.component';
+
 @NgModule({
   declarations: [
     EditDetailsComponent,
     UserprofileComponent,
     SellerprofileComponent,
+    CustomerprofileComponent,    
+    RatingformComponent
     CustomerprofileComponent,
     AdminprofileComponent,
     EditprofileComponent,

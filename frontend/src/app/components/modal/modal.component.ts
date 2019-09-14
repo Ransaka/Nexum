@@ -113,6 +113,8 @@ export class NgbdModalBasic {
     };
     this.auth.login(request).subscribe(
       res => {
+        localStorage.setItem('token', res.token);
+        localStorage.getItem('current_user._id');
         this.router.navigateByUrl('/userprofile/customerprofile');
       },
       err => {
@@ -122,13 +124,6 @@ export class NgbdModalBasic {
         }
       }
     );
-  }
-
-  //Signout
-  signOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('current_user');
-    //this.user.removeCurrent();
   }
 }
 
