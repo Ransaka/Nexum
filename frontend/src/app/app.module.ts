@@ -27,7 +27,6 @@ import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminpro
 import { ComplainsComponent } from './pages/complains/complains.component';
 import { CustComplainComponent } from './pages/cust-complain/cust-complain.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,14 +35,11 @@ import { CustComplainComponent } from './pages/cust-complain/cust-complain.compo
     BroadcastComponent,
     CustomerprofileComponent,
     SellerprofileComponent,
-
-    RatingformComponent
-
+    RatingformComponent,
     AdminprofileComponent,
     EditprofileComponent,
     ComplainsComponent,
     CustComplainComponent
-
   ],
   imports: [
     BrowserAnimationsModule,
@@ -55,12 +51,11 @@ import { CustComplainComponent } from './pages/cust-complain/cust-complain.compo
     ComponentsModule,
     ExamplesModule,
 
-    ReactiveFormsModule
+    ReactiveFormsModule,
     // VoteService,
 
     ReactiveFormsModule,
     FileUploadModule
-
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
