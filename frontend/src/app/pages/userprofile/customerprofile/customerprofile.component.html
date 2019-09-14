@@ -63,9 +63,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let x of broadcastArray">
-                  <td>{{x._id}}</td>
-                  <td>{{x.name}}</td>
+                <tr *ngFor="let x of broadcastArray.broadcast.slice(0,5)">
+                  <td>{{x._id | slice:-4}}</td>
+                  <td>{{x.product}}</td>
                   <td scope="row">{{x.tags}}</td>
                   <td scope="row">
                     <div class="social-description">
