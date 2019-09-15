@@ -26,13 +26,11 @@
             <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/broadcast">Broadcast</a>
           </div>
           <div class="social-description">
-            <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/purchasehistory">Purchase
-              History</a>
+            <a href="#button" class="btn btn-primary btn-lg btn-round">Purchase History</a>
           </div>
           <div class="social-description">
-            <a href="#button" class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/bookmarks">Bookmarks</a>
+            <a href="#button" class="btn btn-primary btn-lg btn-round">Bookmarks</a>
           </div>
-
         </div>
       </div>
     </div>
@@ -57,15 +55,12 @@
                   <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
                   <th scope="col">Finalize</th>
                   <th scope="col">Remove</th>
-                  <th scope="col">Report</th>
-
-                  <!-- current_user?.broadcasts -->
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let x of broadcastArray.broadcast.slice(0,5)">
+                <tr *ngFor="let x of current_user?.broadcasts.slice(0, 5)">
                   <td>{{x._id | slice:-4}}</td>
-                  <td>{{x.product}}</td>
+                  <td>{{x.name}}</td>
                   <td scope="row">{{x.tags}}</td>
                   <td scope="row">
                     <div class="social-description">
@@ -76,11 +71,6 @@
                     <div class="social-description">
                       <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i _ngcontent-c3=""
                           class="now-ui-icons ui-1_simple-remove"></i></a>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="social-description">
-                      <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">C</a>
                     </div>
                   </td>
                 </tr>
@@ -157,6 +147,7 @@
             </div>
 
           </form>
+
         </div>
       </div>
     </div>

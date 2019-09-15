@@ -9,31 +9,16 @@ import { SellerprofileComponent } from './userprofile/sellerprofile/sellerprofil
 import { CustomerprofileComponent } from './Userprofile/customerprofile/customerprofile.component';
 import { AdminprofileComponent } from './userprofile/adminprofile/adminprofile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
-import { ComplainsComponent } from './complains/complains.component';
-import { CustComplainComponent } from './cust-complain/cust-complain.component';
-import { FileUploadModule } from 'ng2-file-upload';
-
-import { RatingformComponent } from './ratingform/ratingform.component';
 
 @NgModule({
   declarations: [
     EditDetailsComponent,
     UserprofileComponent,
     SellerprofileComponent,
-    CustomerprofileComponent,    
-    RatingformComponent
     CustomerprofileComponent,
     AdminprofileComponent,
-    EditprofileComponent,
-    ComplainsComponent,
-    CustComplainComponent
+    EditprofileComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    NouisliderModule,
-    NgbModule,
-    FileUploadModule
-  ]
+  imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
 })
 export class PagesModule {}

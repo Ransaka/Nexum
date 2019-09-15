@@ -75,22 +75,7 @@ export class NgbdModalBasic {
         })
         .subscribe(
           () => {
-            this.auth
-              .login({
-                email: this.signupForm.controls['email'].value,
-                password: this.signupForm.controls['password'].value
-              })
-              .subscribe(
-                res => {
-                  this.router.navigateByUrl('/userprofile/edit');
-                },
-                err => {
-                  console.log(err);
-                  if (err.error.message) {
-                    this.error = err.error.message;
-                  }
-                }
-              );
+            this.router.navigate(['/userprofile/customerprofile']);
           },
           err => {
             console.log(err);
@@ -113,8 +98,6 @@ export class NgbdModalBasic {
     };
     this.auth.login(request).subscribe(
       res => {
-        localStorage.setItem('token', res.token);
-        localStorage.getItem('current_user._id');
         this.router.navigateByUrl('/userprofile/customerprofile');
       },
       err => {
@@ -124,6 +107,13 @@ export class NgbdModalBasic {
         }
       }
     );
+  }
+
+  //Signout
+  signOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('current_user');
+    //this.user.removeCurrent();
   }
 }
 
