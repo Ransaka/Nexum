@@ -15,6 +15,9 @@ import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
 import { SellingComponent } from './selling/selling.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.component';
+import { BookmarksComponent } from './bookmarks/bookmarks.component';
 //import { BroadcastComponent } from './broadcast/broadcast.component';
 
 @NgModule({
@@ -36,7 +39,10 @@ import { SellingComponent } from './selling/selling.component';
     NotificationComponent,
     NgbdModalBasic,
     SigninComponent,
-    SellingComponent
+    SellingComponent,
+    RatingsComponent,
+    PurchasehistoryComponent,
+    BookmarksComponent
     //BroadcastComponent
   ],
   exports: [ComponentsComponent]

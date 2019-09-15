@@ -1,56 +1,30 @@
-<div class="page-header" filter-color="orange">
-  <div class="page-header-image" style="background-image:url(assets/img/bg6.jpg)"></div>
+
+<div class="page-header">
+
   <div class="container">
     <div class="col-md-4 content-center">
       <div class="card card-login card-plain">
-          <form class="form" method="" action="" [formGroup]="employeeForm">
 
-              <div ngbDropdown>
-                  <button class="btn btn-primary btn-simple btn-round btn-neutral" id="dropdownBasic1"
-                      type="button" ngbDropdownToggle>
-                      <i class="now-ui-icons shopping_box"></i> Product Category
-                  </button>
-                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                      <button ngbDropdownItem (click)="selectTheType('Laptops')">Electronics</button>
-                      <button ngbDropdownItem (click)="selectTheType('Televisions')">Stationaries</button>
-                      <button ngbDropdownItem (click)="selectTheType('Hometheatres')">Home essentials</button>
-                      <button ngbDropdownItem (click)="selectTheType('Vehicles')">Vehicles</button>
-                      <button ngbDropdownItem (click)="selectTheType('Vehicles')">Pharmacy goods</button>
-                      <button ngbDropdownItem (click)="selectTheType('Other')">Other</button>
-                  </div>
-              </div>
+        <form class="form-group" [formGroup]="sellingForm">
+          <div class="header header-primary text-center"> </div>
+          <div>
+            <p>Select category</p>
+            <select class="btn btn-round btn-neutral custom-select form-control" [(ngModel)]="category"
+              formControlName="category">
+              <option *ngFor="let item of categories">{{item}}</option>
+            </select>
+          </div>
+          <div class="content">
+            <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false"
+              [(ngModel)]="textMessage" formControlName="textMessage">
+                        </textarea>
+          </div>
 
-              <div>
-                  <input type="file" (change)="getTheImage($event)" class="btn btn-primary btn-round btn-neutral btn-simple btn-small" >
-              </div>
+          <div class="footer text-center">
+            <a class="btn btn-primary btn-round btn-lg btn-block" (click)="sell()">Sell</a>
+          </div>
+        </form>
 
-              <div class="content">
-                <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">
-                  <div class="input-group-prepend">
-                      <span class="input-group-text">  <i class="now-ui-icons files_paper"></i></span>
-                  </div>
-                    <input type="text" class="form-control" placeholder="Further details..." (focus)="focus=true" (blur)="focus=false" >
-                </div>
-              </div>
-              <div class="footer text-center">
-
-                  <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Sell</a>
-
-              </div>
-              <div class="pull-left">
-                  <h6>
-                      <a href="#pablo" class="link">Create Account</a>
-                  </h6>
-              </div>
-              <div class="pull-right">
-                  <h6>
-                      <a href="#pablo" class="link">Need Help?</a>
-                  </h6>
-
-              </div>
-              
-          </form>
-          
       </div>
     </div>
   </div>

@@ -24,16 +24,15 @@
                             <i class="now-ui-icons users_single-02"></i> Profile
                         </button>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                            <button ngbDropdownItem>Edit Profile</button>
+                            <button ngbDropdownItem (click)="editprofile()">Edit Profile</button>
                             <button ngbDropdownItem>Settings</button>
                             <button ngbDropdownItem>Sign Out</button>
                         </div>
-                        <button *ngIf="[(currentUser)]=='customer'" class="btn btn-primary btn-round" type="button"
-                            routerLink="/userprofile/sellerprofile" (click)="changeUser()">Switch to Seller</button>
-                        <button *ngIf="[(currentUser)]=='seller'" class="btn btn-primary btn-round" type="button"
-                            routerLink="/userprofile/customerprofile" (click)="changeUser()">Switch to Customer</button>
-
                     </div>
+                    <button *ngIf="[(currentUser)]=='customer'" class="btn btn-primary btn-round" type="button"
+                        routerLink="/userprofile/sellerprofile" (click)="changeUser()">Switch to Seller</button>
+                    <button *ngIf="[(currentUser)]=='seller'" class="btn btn-primary btn-round" type="button"
+                        routerLink="/userprofile/customerprofile" (click)="changeUser()">Switch to Customer</button>
 
                 </div>
             </ul>

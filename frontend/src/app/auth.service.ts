@@ -12,6 +12,7 @@ export class AuthService {
   private _signinUrlSeller = "http://localhost:3000/api/sellersignin"
 
   private _loginUrl = "http://localhost:3000/api/login"
+   
 
   constructor(private http: HttpClient) { }
 
@@ -30,5 +31,6 @@ export class AuthService {
   login(log){
     return this.http.post<any>(this._loginUrl, log)
   }
+   
 
 }

@@ -1,63 +1,47 @@
 
-<div class="page-header" filter-color="orange">
-    <div class="page-header-image" style="background-image:url(assets/img/bg7.jpg)"></div>
+<div class="page-header">
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
-                <form class="form" method="" action="">
+                <h1>Broadcast Form</h1>
+                <form class="form-group" [formGroup]="broadcastForm">
+                    <div class="header header-primary text-center"> </div>
 
-                    <div ngbDropdown>
-                        <button class="btn btn-primary btn-simple btn-round btn-neutral" id="dropdownBasic1"
-                            type="button" ngbDropdownToggle>
-                            <i class="now-ui-icons users_single-02"></i> Product Type
-                        </button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                            <button ngbDropdownItem>Laptop</button>
-                            <button ngbDropdownItem>Televisions</button>
-                            <button ngbDropdownItem>Hometheatres</button>
-                            <button ngbDropdownItem>Other</button>
+                    <div class="mt-5">
+                        <div class="form-group"><label>Product</label>
+                            <input [(ngModel)]="product" formControlName="product" class="form-control border-input"
+                                placeholder="Enter the product you want" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="mt-5">
+                        <p>Select category</p>
+                        <select class="btn btn-round btn-neutral custom-select form-control" [(ngModel)]="category"
+                            formControlName="category">
+                            <option *ngFor="let item of categories">{{item}}</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-5">
+                        <div class="content"><label>Product</label>
+                            <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false"
+                                [(ngModel)]="textMessage" formControlName="textMessage">
+                        </textarea>
                         </div>
                     </div>
 
-                    <div class="header header-primary text-center">
-                    </div>
-
-                    <div class="form-check form-check-radio black">     
-                    </div>
-                    
-                    <div>
-                        <input type="file" (change)="getTheImage($event)" class="btn btn-primary btn-round btn-neutral btn-simple btn-small" >
-                    </div>
-  
-                    <div class="content">
-                      <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
-                        </div>
-                          <input type="text" class="form-control" placeholder="Further details..." (focus)="focus=true" (blur)="focus=false" >
-                      </div>
-                    </div>
                     <div class="footer text-center">
-
-                        <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Broadcast</a>
-
-                    </div>
-                    <div class="pull-left">
-                        <h6>
-                            <a href="#pablo" class="link">Create Account</a>
-                        </h6>
-                    </div>
-                    <div class="pull-right">
-                        <h6>
-                            <a href="#pablo" class="link">Need Help?</a>
-                        </h6>
-
+                        <a class="btn btn-primary btn-round btn-lg btn-block" (click)="newBroadcast()">Broadcast</a>
                     </div>
                     
                 </form>
+
             </div>
         </div>
     </div>
+
+
     <footer class="footer">
         <div class="container">
             <nav>
@@ -86,12 +70,11 @@
             </nav>
             <div class="copyright">
                 &copy;
-              {{data | date: 'yyyy'}}, Designed by
+                {{data | date: 'yyyy'}}, Designed by
                 <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
                 <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
             </div>
         </div>
         <!-- commented -->
     </footer>
-  </div>
-  
+</div>

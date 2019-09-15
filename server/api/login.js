@@ -21,15 +21,15 @@ router.post('/login', (req, res, next) => {
         })
         .exec()
         .then(user => {
-            if (user.length <= 1) {
+            if (user.length < 1) {
                 return res.status(401).json({
-                    message: 'Auth failed 1'
+                    message: 'Auth failed'
                 })
             }
             bcrypt.compare(req.body.password, user.password, (err, result) => {
                 if (err) {
                     return res.status(401).json({
-                        message: 'Auth failed 2'
+                        message: 'Auth failed'
                     })
                 }
                 if (result) {
@@ -41,11 +41,12 @@ router.post('/login', (req, res, next) => {
                     })
                     return res.status(200).json({
                         message: 'Auth Successful',
-                        token: token
+                        token: token,
+                        user: user
                     })
                 }
                 return res.status(401).json({
-                    message: 'Auth failed 3'
+                    message: 'Auth failed'
                 })
             })
         })

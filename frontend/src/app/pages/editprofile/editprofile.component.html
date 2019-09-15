@@ -1,0 +1,188 @@
+<div class="wrapper">
+  <div class="page-header page-header-small" filter-color="orange">
+    <!-- Profile Banner -->
+    <div class="page-header-image rellax-header" data-rellax-speed="-8"
+      style="background-image: url('assets/img/bg5.jpg') ;">
+    </div>
+
+    <div class="container">
+      <div class="content-center">
+        <div>
+          <!--Profile Image-->
+          <div class="photo-container">
+            <img _ngcontent-c6="" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
+              (click)="[open(changeProfPic,'' , '')]" src="assets/img/ryan.jpg">
+          </div>
+          <h2>{{current_user?.username}}</h2>
+          <!--/Profile Image-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <ng-template #changeProfPic let-c="close" let-d="dismiss">
+
+    <div class="modal-header justify-content-center">
+      <button type="button" class="close" (click)="d('Cross click')">
+        <i class="now-ui-icons ui-1_simple-remove"></i>
+      </button>
+      <h5 class="">Change you Profile Picture</h5>
+    </div>
+    <div class="mt-5">
+      <div class="container">
+        <div class="col-md-12 content-center">
+          <div class="card card-login card-plain">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 offset-md-1">
+                  <div class="form-group">
+                    <input type="file" (change)="onFileSelected($event)" name="fileUpload" id="fileUpload">
+                  </div>
+                  <img _ngcontent-c6="" alt="Thumbnail Image" class=" w-1000" src="assets/img/ryan.jpg">
+
+                  <div class="form-group">
+                    <button class="btn btn-primary" (click)="onpload()">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5"></div>
+    </div>
+
+  </ng-template>
+  <!-- /Popup -->
+
+  <div class="section">
+    <div class="container">
+      <div class="col-md-10 ml-auto mr-auto">
+        <form class="form" method="" action="" [formGroup]="editForm">
+          <h3>Edit your details</h3>
+
+          <div class="col-xs-12 col-md-8 col-lg-8">
+            <div class="form-group"><label>Firstname</label>
+              <input [(ngModel)]="firstname" formControlName="firstname" class="form-control border-input"
+                placeholder="{{current_user?.firstname}}" type="text">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-8 col-lg-8">
+            <div class="form-group"><label>Lastname</label>
+              <input [(ngModel)]="lastname" formControlName="lastname" class="form-control border-input"
+                placeholder="{{current_user?.lastname}}" type="text">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-8 col-lg-8">
+            <div class="form-group"><label>Username</label>
+              <input [(ngModel)]="username" formControlName="username" class="form-control border-input"
+                placeholder="{{current_user?.username}}" type="text">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-8 col-lg-8">
+            <div class="form-group"><label>Email</label>
+              <input [(ngModel)]="email" formControlName="email" class="form-control border-input"
+                placeholder="{{current_user?.email}}" type="email">
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-sm-6 col-lg-4">
+                <div class="form-group"><label>Password</label>
+                  <input [(ngModel)]="password" formControlName="password" class="form-control" placeholder="Password"
+                    type="password" value="">
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="form-group"><label>Confirm Password</label>
+                  <input [(ngModel)]="cpassword" formControlName="cpassword" class="form-control"
+                    placeholder="Confirm Password" type="password" value="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-md-8 col-lg-8">
+            <div class="form-group"><label>NIC</label>
+              <input [(ngModel)]="nic" formControlName="nic" class="form-control border-input"
+                placeholder="{{current_user?.nic}}" type="text">
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-md-8 col-lg-8">
+            <div class="form-group"><label>Telephone Number</label>
+              <input [(ngModel)]="telephone" formControlName="telephone" class="form-control border-input"
+                placeholder="{{current_user?.telephone}}" type="text">
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-md-8 col-lg-8">
+            <div class="form-group"><label>Address</label>
+              <input [(ngModel)]="line1" formControlName="line1" class="form-control border-input"
+                placeholder="{{current_user?.line1}}" type="text">
+            </div>
+            <div class="form-group">
+              <input [(ngModel)]="line2" formControlName="line2" class="form-control border-input"
+                placeholder="{{current_user?.line2}}" type="text">
+            </div>
+            <div class="form-group">
+              <input [(ngModel)]="line3" formControlName="line3" class="form-control border-input"
+                placeholder="{{current_user?.line3}}" type="text">
+            </div>
+
+            <div class="row">
+              <div class="social-description text-center">
+                <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/customerprofile">Back</a>
+              </div>
+              <div class="social-description text-center ">
+                <a class="btn btn-primary btn-lg btn-round" (click)="updateUser()">Save</a>
+              </div>
+
+            </div>
+
+
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="https://www.creative-tim.com">
+              Creative Tim
+            </a>
+          </li>
+          <li>
+            <a href="https://www.creative-tim.com/about-us">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="http://blog.creative-tim.com">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+              MIT License
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        &copy;
+        {{data | date: 'yyyy'}}, Designed by
+        <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+      </div>
+    </div>
+  </footer>
+</div>

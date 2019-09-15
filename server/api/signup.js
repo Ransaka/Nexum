@@ -12,7 +12,6 @@ const User = require('../models/User')
  *
  * @body User data model exept id.
  */
-
 router.post('/signup', (req, res, next) => {
     User.find({
         email: req.body.email
@@ -30,6 +29,7 @@ router.post('/signup', (req, res, next) => {
                 } else {
                     const user = new User({
                         _id: new mongoose.Types.ObjectId(),
+                        username: req.body.username,
                         email: req.body.email,
                         password: hash
                     })
@@ -37,6 +37,7 @@ router.post('/signup', (req, res, next) => {
                             res.status(201).json({
                                 message: 'User created'
                             })
+                            console.log(user)
                         })
                         .catch(err => {
                             console.log(err)
