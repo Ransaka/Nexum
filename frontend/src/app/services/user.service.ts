@@ -26,17 +26,6 @@ export class UserService {
     );
   }
 
-  //Update current user
-  updatetUser(user: User) {
-    const headers = new HttpHeaders().set(
-      'uid',
-      localStorage.getItem('current_user')
-    );
-    return this.http.put<any>('http://localhost:3000/user/edit', user, {
-      headers
-    });
-  }
-
   removeCurrent() {
     this.removeUser();
   }
@@ -57,7 +46,7 @@ export class UserService {
   }
 
   private setUser(response: User) {
-    localStorage.setItem('current_user', response._id);
+    localStorage.setItem('current_user', JSON.stringify(response));
   }
 
   private removeUser() {

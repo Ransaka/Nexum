@@ -1,10 +1,8 @@
 {
-
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-
     "now-ui-kit-angular": {
       "root": "",
       "sourceRoot": "src",
@@ -30,7 +28,6 @@
             "scripts": [
               "node_modules/rellax/rellax.min.js"
             ]
-            
           },
           "configurations": {
             "production": {
@@ -63,7 +60,6 @@
             }
           }
         },
-      
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
@@ -79,9 +75,6 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
               "node_modules/rellax/rellax.min.js"
-            
-                
-              
             ],
             "styles": [
               "src/styles.scss",
@@ -140,6 +133,4 @@
       "prefix": "app"
     }
   }
-  
-  
 }

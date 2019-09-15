@@ -2,8 +2,7 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-var request = require('request')
-const verify = require('../auth/verify')
+var request = require('request');
 
 
 const User = require('../models/User')
@@ -46,12 +45,11 @@ async function getTags(textMessage) {
 router.put('/new', (req, res, next) => {
     getTags("I want DELL laptop")
     User.findById(
-            req.headers.uid
+            req.body._id
         )
         .then((user) => {
             const broadcast = new Broadcast({
                 product: req.body.product,
-                category: req.body.category,
                 tags: req.body.textMessage
             })
             return user.updateOne({
@@ -97,28 +95,25 @@ router.post('/remove', function (req, res) {
     })
 })
 
-
 /**
- * Get all the elements of broadcast array reversed
+ * User get user broadcasts by id endpoint.
  *
- * 
+ * Get the user broadcasts for the given user id.
  *
- * @role User
- * @response User of the authenicated user
+ * @param id
+ * @role Admin
+ * @response User of the given id
  */
-router.get('/all', verify.decodeToken, function (req, res) {
-    User.findById(req.uid).exec((err, user) => {
-        if (err) {
+router.get('/:id', checkAuth, function (req, res) {
+    User.findById(req.params['id']).exec((err, user) => {
+        if (err || user == null) {
             return res.status(500).send({
-                message: 'Error retrieving User with id: ' + req.uid
+                message: 'Error retrieving User with id:' + req.params['id']
             })
         }
         // Remove password attribute from the user
         user.password = undefined
-        var broadcast = {
-            broadcast: user.broadcasts.reverse()
-        }
-        res.status(200).send(broadcast)
+        res.status(200).send(user.broadcasts)
     })
 })
 

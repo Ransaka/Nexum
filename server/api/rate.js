@@ -20,14 +20,14 @@ router.put('/create', (req, res, next) => {
             req.body._id
         )
         .then((user) => {
-            var _rate = new Rate({
+            const rate = new Rate({
                 rate: req.body.rate,
                 review: req.body.review,
                 date: Date()
             })
             return user.updateOne({
                 $addToSet: {
-                    ratings: _rate
+                    ratings: rate
                 }
             }).then(() => {
                 res.status(200).send({
