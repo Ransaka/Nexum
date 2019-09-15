@@ -6,14 +6,16 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 const rateSchema = new Schema({
+    
     _id: {
         type: mongoose.Schema.Types.ObjectId,
         createIndex: true,
         required: true,
         auto: true
     },
+     
     rate: Number,
-    content: String,
+    review: String,
     date: Date
 })
 module.exports = mongoose.model('Rating', rateSchema, 'rate')
