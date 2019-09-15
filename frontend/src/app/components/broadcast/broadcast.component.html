@@ -1,6 +1,6 @@
 
 <div class="page-header" filter-color="orange">
-    <div class="page-header-image" style="background-image:url(assets/img/login.jpg)"></div>
+    <div class="page-header-image" style="background-image:url(assets/img/bg7.jpg)"></div>
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
@@ -19,40 +19,15 @@
                         </div>
                     </div>
 
-                    <div ngbDropdown>
-                        <button class="btn btn-primary btn-simple btn-round btn-neutral" id="dropdownBasic1"
-                            type="button" ngbDropdownToggle>
-                            <i class="now-ui-icons users_single-02"></i> Price Range
-                        </button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                            <button ngbDropdownItem>0 - 10000</button>
-                            <button ngbDropdownItem>10000 - 45000</button>
-                            <button ngbDropdownItem>45000 - 100000</button>
-                            <button ngbDropdownItem>100000+</button>
-                        </div>
-                    </div>
-
-                    <div ngbDropdown >
-                            <button class="btn btn-primary btn-simple btn-round btn-neutral" id="dropdownBasic1"
-                                type="button" ngbDropdownToggle>
-                                <i class="now-ui-icons users_single-02"></i> Brand Name
-                            </button>
-                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                <button ngbDropdownItem>Asus</button>
-                                <button ngbDropdownItem>Dell</button>
-                                <button ngbDropdownItem>HP</button>
-                                <button ngbDropdownItem>Other</button>
-                            </div>
-                        </div>
-
-
                     <div class="header header-primary text-center">
                     </div>
 
-                      <div class="form-check form-check-radio black">
-                          
-                      </div>
+                    <div class="form-check form-check-radio black">     
+                    </div>
                     
+                    <div>
+                        <input type="file" (change)="getTheImage($event)" class="btn btn-primary btn-round btn-neutral btn-simple btn-small" >
+                    </div>
   
                     <div class="content">
                       <div class="input-group form-group-no-border input-lg" [ngClass]="{'input-group-focus':focus===true}">

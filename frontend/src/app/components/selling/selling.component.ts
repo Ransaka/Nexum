@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-selling',
@@ -8,7 +10,8 @@ import { FormGroup, FormControl, FormBuilder, Validators, FormArray} from '@angu
 })
 export class SellingComponent implements OnInit {
   employeeForm: FormGroup;
-  constructor(private fb : FormBuilder) { }
+  selectedFile : File = null;
+  constructor(private fb : FormBuilder, private http : HttpClient) { }
 
   ngOnInit() {
     this.employeeForm = this.fb.group({
@@ -20,48 +23,15 @@ export class SellingComponent implements OnInit {
     })
   }
 
-  selectTheType (typeOFTheProduct : string) {
-    if (typeOFTheProduct === 'Laptops' || typeOFTheProduct === 'Televisions'){
-      (<FormArray>this.employeeForm.get('Laptops')).push(this.typeLaptopOrTelevision())
-    }if (typeOFTheProduct === 'Vehicles'){
-      (<FormArray>this.employeeForm.get('Vehicles')).push(this.typeVehicle())
-    }
+  getTheImage (event){
+    this.selectedFile = event.target.files[0];
+    // console.log(event);
   }
 
-  typeLaptopOrTelevision (){
-    return this.fb.group({
-      BrandName : ['', Validators.required],
-      ModelName : ['', Validators.required],
-      Price : ['', Validators.required],
-      User : ['', Validators.required],
-      Performance : ['', Validators.required],
-      OtherFeatures : ['', Validators.required]
+  toUploadTheImage (){
+    const fd = new FormData();
+    this.http.post('currentUrl/upload', fd).subscribe(res => {
+      console.log(res);
     })
   }
-
-  typeTelevision (){
-    console.log("Hello kavinda");
-  }
-
-  typeHometheatre (){
-
-  }
-
-  typeVehicle (){
-    return this.fb.group({
-      BrandName : ['', Validators.required],
-      Model : ['', Validators.required],
-      Price : ['', Validators.required],
-      User : ['', Validators.required],
-      EngineCapasity : ['', Validators.required],
-      OtherFeatures : ['', Validators.required]
-    })
-  }
-
-  typeOther (){
-
-  }
-
-
-
 }

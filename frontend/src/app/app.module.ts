@@ -25,7 +25,7 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
     UserprofileComponent,
     BroadcastComponent,
     CustomerprofileComponent,
-    SellerprofileComponent
+    SellerprofileComponent,
   ],
   imports: [
     BrowserAnimationsModule,
