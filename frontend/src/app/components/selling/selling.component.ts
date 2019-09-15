@@ -1,6 +1,7 @@
 import { BroadcastService } from './../../services/broadcast.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./selling.component.scss']
 })
 export class SellingComponent implements OnInit {
+
   constructor(
     private _formbuilder: FormBuilder,
     private _broadcast: BroadcastService,
