@@ -22,7 +22,8 @@ export class SellerprofileComponent implements OnInit {
   starTwoPer: number;
   starOnePer: number;
   review:string;
-  date:Date;
+  reviewlist:any=[];
+  datelist:any=[];
   textAreasList:any = [];
    
     addTextarea(){        
@@ -39,7 +40,8 @@ export class SellerprofileComponent implements OnInit {
     this.starTwoPer = 0;
     this.starOnePer = 0; 
      this.review=null;
-     this.date;
+     this.reviewlist=[];
+     this.datelist=[];
   }
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
@@ -93,6 +95,7 @@ export class SellerprofileComponent implements OnInit {
 
 
       for (let i = 0; i < ratings.length; i++) {
+        
         if (ratings[i]) {
 
           switch (ratings[i].rate) {
@@ -144,9 +147,23 @@ export class SellerprofileComponent implements OnInit {
     }
   }
   viewReview(ratings){
-    for (let j= 0; j < ratings.length; j++) {
-      this.review= ratings[j].review;
-      this.date=ratings[j].date;
+    if (ratings) {
+      let idea = null; 
+      let date;
+      let k=0
+    for (let j= 1; j <= ratings.length; j++) {
+      idea=ratings[j].review;
+      
+      if(idea==null){
+      }else{
+        k++
+      this.reviewlist[k]= idea;
+      date=ratings[j].date;
+      this.datelist[k]=date;
+    }
+      // this.review= ratings[j].review;
+      // this.date[k]=ratings[j].date;
     }
   }
+}
 }
