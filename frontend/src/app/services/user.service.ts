@@ -49,7 +49,7 @@ export class UserService {
   updatetUser(user: User) {
     const headers = new HttpHeaders().set(
       'uid',
-      localStorage.getItem('current_user')
+      localStorage.getItem('user_id')
     );
     return this.http.put<any>('http://localhost:3000/user/edit', user, {
       headers
@@ -58,6 +58,7 @@ export class UserService {
 
   private setUser(response: User) {
     localStorage.setItem('current_user', JSON.stringify(response));
+    localStorage.setItem('user_id', response._id);
   }
 
   private removeUser() {

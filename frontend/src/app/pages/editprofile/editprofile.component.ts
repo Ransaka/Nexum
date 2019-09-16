@@ -81,6 +81,7 @@ export class EditprofileComponent implements OnInit {
 
     this.getUser();
   }
+
   // Get user details
   getUser() {
     return this._userservice
