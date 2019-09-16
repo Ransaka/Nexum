@@ -23,7 +23,7 @@ export class SellerprofileComponent implements OnInit {
   date: Date;
   textAreasList: any = [];
   reviewlist:any=[];
-  datelist:any=[]
+  datelist:any=[];
 
   addTextarea() {
     this.textAreasList.push('text_area' + (this.textAreasList.length + 1));
