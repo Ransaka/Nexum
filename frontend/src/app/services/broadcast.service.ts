@@ -15,9 +15,9 @@ export class BroadcastService {
     return this.http.post('http://localhost:3000/user/broadcast', broadcast);
   }
 
-  getBroadcast(id): Observable<Broadcast[]> {
+  getBroadcast(): Observable<Broadcast[]> {
     return this.http.get<Broadcast[]>(
-      'http://localhost:3000/user/broadcast/' + id
+      'http://localhost:3000/user/broadcast/all'
     );
   }
 }
