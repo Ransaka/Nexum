@@ -1,33 +1,45 @@
-
 <div class="page-header">
-
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
-
+                <h1>Broadcast Form</h1>
                 <form class="form-group" [formGroup]="broadcastForm">
                     <div class="header header-primary text-center"> </div>
-                    <div>
+
+                    <div class="mt-5">
+                        <div class="form-group"><label>Product</label>
+                            <input [(ngModel)]="product" formControlName="product" class="form-control border-input"
+                                placeholder="Enter the product you want" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="mt-5">
                         <p>Select category</p>
                         <select class="btn btn-round btn-neutral custom-select form-control" [(ngModel)]="category"
                             formControlName="category">
                             <option *ngFor="let item of categories">{{item}}</option>
                         </select>
                     </div>
-                    <div class="content">
-                        <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false"
-                            [(ngModel)]="textMessage" formControlName="textMessage">
+
+                    <div class="mt-5">
+                        <div class="content"><label>Product</label>
+                            <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false"
+                                [(ngModel)]="textMessage" formControlName="textMessage">
                         </textarea>
+                        </div>
                     </div>
 
                     <div class="footer text-center">
-                        <a class="btn btn-primary btn-round btn-lg btn-block" (click)="getBroadcast()">Broadcast</a>
+                        <a class="btn btn-primary btn-round btn-lg btn-block" (click)="newBroadcast()">Broadcast</a>
                     </div>
                 </form>
 
- </div>
+            </div>
         </div>
     </div>
+
+
     <footer class="footer">
         <div class="container">
             <nav>
@@ -63,4 +75,3 @@
         </div>
     </footer>
 </div>
-

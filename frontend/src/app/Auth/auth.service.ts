@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, shareReplay, flatMap, map } from 'rxjs/operators';
-import { SignInResponse, SignInRequest, SignUpRequest } from './auth.dto';
+import { SignInResponse, SignInRequest, SignUpRequest,NewComplain } from './auth.dto';
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
 
@@ -24,11 +24,30 @@ export class AuthService {
 
   // Login user auth
   login(request: SignInRequest) {
-    var x = this.http.post<any>('http://localhost:3000/user/login', request);
-    console.log(x);
-    return x;
+    return this.http
+      .post<any>('http://localhost:3000/user/login', request)
+      .pipe(
+        tap(res => this.setSession(res as SignInResponse)),
+        shareReplay(),
+        flatMap(() => this.userService.collectCurrent())
+      );
   }
    
+
+  // Set session
+  private setSession(response: SignInResponse) {
+    //console.log(response.token);
+    const expiresAt = moment().add(response.expiresIn, 'second');
+
+    localStorage.setItem('jwt_token', response.token);
+    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  }
+
+  private getExpiration() {
+    const expiration = localStorage.getItem('expires_at');
+    const expiresAt = JSON.parse(expiration);
+    return moment(expiresAt);
+  }
 
   //Check for the token availability in local storage
   isLogged() {
@@ -39,17 +58,14 @@ export class AuthService {
     return moment().isBefore(this.getExpiration());
   }
 
-  private setSession(response: SignInResponse) {
-    console.log(response.accessToken);
-    const expiresAt = moment().add(response.expiresIn, 'second');
 
-    localStorage.setItem('jwt_token', response.accessToken);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
-  }
+  //make new complain
+  makeComplain(complain:NewComplain){
+    console.log("at service file 1"+ JSON.stringify(complain))
 
-  private getExpiration() {
-    const expiration = localStorage.getItem('expires_at');
-    const expiresAt = JSON.parse(expiration);
-    return moment(expiresAt);
+    return this.http
+    .post('http://localhost:3000/user/rate/create', complain)
+    .pipe(map(res => this.ApiResponse))
   }
+  // eof make new complain
 }
