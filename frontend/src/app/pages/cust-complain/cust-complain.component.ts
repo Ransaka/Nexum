@@ -32,10 +32,10 @@ export class CustComplainComponent implements OnInit {
 
  makeComplain(){
   var current_user = JSON.parse(localStorage.getItem("current_user"));
-   this.auth.makeComplain({
-     id:current_user.id,
-    complain: this.complainform.controls['complain'].value,
-   }).subscribe();
+  //  this.auth.makeComplain({
+  //    id:current_user.id,
+  //   complain: this.complainform.controls['complain'].value,
+  //  }).subscribe();
    console.log(this.complain);
  }
 
