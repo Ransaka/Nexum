@@ -26,7 +26,8 @@ import { RatingformComponent } from './ratingform/ratingform.component';
     AdminprofileComponent,
     EditprofileComponent,
     ComplainsComponent,
-    CustComplainComponent
+    CustComplainComponent,
+    FileUploadModule
   ],
   imports: [
     CommonModule,
