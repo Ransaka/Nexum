@@ -21,7 +21,7 @@ import { RatingformComponent } from './ratingform/ratingform.component';
     UserprofileComponent,
     SellerprofileComponent,
     CustomerprofileComponent,    
-    RatingformComponent
+    RatingformComponent,
     CustomerprofileComponent,
     AdminprofileComponent,
     EditprofileComponent,
