@@ -36,7 +36,8 @@ const routes: Routes = [
   { path: 'userprofile/selling', component: SellingComponent },
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },
   { path: 'userprofile/admin', component: AdminprofileComponent },
-  { path: 'userprofile/edit', component: EditprofileComponent }
+  { path: 'userprofile/edit', component: EditprofileComponent },
+  { path: '**', component: UserprofileComponent }
 ];
 
 @NgModule({

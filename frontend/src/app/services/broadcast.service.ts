@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Broadcast } from './broadcast.dto';
@@ -11,8 +11,16 @@ export class BroadcastService {
 
   //Sending broadcast message to the backend
   sendBroadcast(broadcast: Broadcast) {
+    const headers = new HttpHeaders().set(
+      'uid',
+      localStorage.getItem('user_id')
+    );
     console.log(broadcast);
-    return this.http.post('http://localhost:3000/user/broadcast', broadcast);
+    return this.http.put(
+      'http://localhost:3000/user/broadcast/new',
+      broadcast,
+      { headers }
+    );
   }
 
   getBroadcast(): Observable<Broadcast[]> {
