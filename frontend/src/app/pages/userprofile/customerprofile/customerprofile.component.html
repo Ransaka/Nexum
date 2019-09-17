@@ -42,12 +42,16 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h3>Recent Broadcasts</h3>
-          <form>
-            <div class="form-group form-inline">
-              Search <input class="form-control ml-2" type="text" name="searchTerm">
+          <div class="row">
+            <div class="">
+              <h3>Recent Broadcasts</h3>
             </div>
-            <!-- <table class="table table-striped">
+            <div class="ml-auto">
+              <a class="btn btn-sm btn-primary btn-lg btn-round" routerLink="/userprofile/admin">View More</a>
+            </div>
+          </div>
+          <form>
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">ID</th>
@@ -60,7 +64,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let x of broadcastArray.broadcast.slice(0,5)">
+                <tr *ngFor="let x of broadcastArray?.broadcast.slice(0,5)">
                   <td>{{x._id | slice:-4}}</td>
                   <td>{{x.product}}</td>
                   <td scope="row">{{x.tags}}</td>
@@ -71,7 +75,7 @@
                   </td>
                   <td scope="row">
                     <div class="social-description">
-                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i _ngcontent-c3=""
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
                           class="now-ui-icons ui-1_simple-remove"></i></a>
                     </div>
                   </td>
@@ -82,21 +86,10 @@
                   </td>
                 </tr>
               </tbody>
-            </table> -->
-
+            </table>
             <div class="d-flex justify-content-between p-2">
-
-
-              <!-- <select class="custom-select" style="width: auto" name="pageSize"
-                                    [(ngModel)]="service.pageSize">
-                                    <option [ngValue]="2">2 items per page</option>
-                                    <option [ngValue]="4">4 items per page</option>
-                                    <option [ngValue]="6">6 items per page</option>
-                                </select> -->
             </div>
-
           </form>
-
         </div>
         <div class="social-description">
           <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/admin">Admin profile test</a>
