@@ -7,6 +7,7 @@ export interface SignInResponse {
   auth: boolean;
   token: string;
   expiresIn: string;
+  user_id: string;
 }
 
 export interface SignUpRequest {

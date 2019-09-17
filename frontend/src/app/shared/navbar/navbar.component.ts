@@ -34,6 +34,7 @@ export class NavbarComponent implements OnInit {
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
   }
 
+  // Logout
   logout() {
     this._auth.signOut();
     this.currentUser = null;
@@ -81,7 +82,7 @@ export class NavbarComponent implements OnInit {
     if (this.sidebarVisible === false) {
       this.sidebarOpen();
     } else {
-      //this.sidebarClose();
+      this.sidebarClose();
     }
   }
 
