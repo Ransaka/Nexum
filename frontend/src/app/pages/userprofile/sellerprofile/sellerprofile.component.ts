@@ -19,12 +19,11 @@ export class SellerprofileComponent implements OnInit {
   starThreePer: number;
   starTwoPer: number;
   starOnePer: number;
-  review: string;
-  date: Date;
   textAreasList: any = [];
   reviewlist:any=[];
   datelist:any=[];
-
+  buttonClicked: boolean;
+  idlist:any=[];
   addTextarea() {
     this.textAreasList.push('text_area' + (this.textAreasList.length + 1));
   }
@@ -37,13 +36,12 @@ export class SellerprofileComponent implements OnInit {
     this.starThreePer = 0;
     this.starTwoPer = 0;
     this.starOnePer = 0; 
-     this.review=null;
      this.reviewlist=[];
      this.datelist=[];
     this.starOnePer = 0;
-    this.review = null;
-    this.date;
-
+     
+    this.buttonClicked = false;
+    this.idlist=[];
   }
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
@@ -70,8 +68,8 @@ export class SellerprofileComponent implements OnInit {
   }
 
   getRatings() {
-    let currentUser = JSON.parse(localStorage.getItem('current_user'));
-    this.rateing.getRatings(currentUser._id).subscribe(
+    let currentUser = localStorage.getItem('current_user');
+    this.rateing.getRatings(currentUser).subscribe(
       res => {
         console.log(res);
         this.calcRatings(res);
@@ -142,25 +140,36 @@ export class SellerprofileComponent implements OnInit {
     }
   }
 
-   viewReview(ratings){
-     if (ratings) {
-       let idea = null; 
-       let date;
-       let k=0;
-    for (let j= 1; j <= ratings.length; j++) {
-             idea=ratings[j].review;
-      
-       if(idea==null){
-       }else{
-        k++;
-      this.reviewlist[k]= idea;
-       date=ratings[j].date;
-       this.datelist[k]=date;
+  viewReview(ratings){
+    if (ratings) {
+      let idea = null; 
+      let day;
+      let no;
+      let k=0;
+   for (let j= 1; j <= ratings.length; j++) {
+            idea=ratings[j].review;
+            day=ratings[j].date;
+            no=ratings[j]._id;
+     if(k==5) {
+       break;
      }
+     else{      
+      if(idea==null){
+      }else{
+       k++;
+     this.reviewlist[k]= idea;
+     this.datelist[k]=day;
+     this.idlist[k]=no; 
+    }}
        // this.review= ratings[j].review;
        // this.date[k]=ratings[j].date;
      }
   }
+
+ }
+
+ onLinkClicked(){
+   this.buttonClicked = true;
  }
 }
   // viewReview(ratings) {
