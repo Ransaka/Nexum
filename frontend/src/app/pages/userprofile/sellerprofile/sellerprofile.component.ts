@@ -19,14 +19,13 @@ export class SellerprofileComponent implements OnInit {
   starThreePer: number;
   starTwoPer: number;
   starOnePer: number;
-  textAreasList: any = [];
+  id:number;
+  NIC:number; 
   reviewlist:any=[];
   datelist:any=[];
   buttonClicked: boolean;
   idlist:any=[];
-  addTextarea() {
-    this.textAreasList.push('text_area' + (this.textAreasList.length + 1));
-  }
+   
 
   constructor(private http: HttpClient, private rateing: RatingformService) {
     this.highestRate = 0;
@@ -39,9 +38,9 @@ export class SellerprofileComponent implements OnInit {
      this.reviewlist=[];
      this.datelist=[];
     this.starOnePer = 0;
-     
     this.buttonClicked = false;
     this.idlist=[];
+     
   }
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
@@ -169,13 +168,9 @@ export class SellerprofileComponent implements OnInit {
  }
 
  onLinkClicked(){
-   this.buttonClicked = true;
+   if(this.NIC==this.id){
+   this.buttonClicked = true;}
+   
  }
 }
-  // viewReview(ratings) {
-  //   for (let j = 0; j < ratings.length; j++) {
-  //     this.review = ratings[j].review;
-  //     this.date = ratings[j].date;
-  //   }
-  // }
-
+   
