@@ -132,7 +132,7 @@
               </div>
             </div>
           </div>
-          
+          <form novalidate [formGroup]="replyForm" (ngSubmit)="submitreplyForm()">
               <div *ngFor="let review of this.reviewlist | slice:1;let index= index  " >
                   <div class="card card-inner">
                       <div class="card-body">
@@ -154,12 +154,15 @@
 
               <a class="float-right btn btn-outline-primary ml-2"name="NIC" NIC="index+1"(click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
                 
-              <textarea *ngIf="buttonClicked == index+1" name="{{id}}"rows="4" id="index+1" cols="50"[(ngModel)] = "str" ></textarea>
-              <!-- <div class="row">
-                  <div class="col-12 p-0">
-                      <button mat-raised-button color="accent" (click)="onSubmit(inputTexts[i])">Submit</button>
-                  </div>
-              </div> -->
+              <textarea *ngIf="buttonClicked == index+1" formControlName ="reply" rows="4" id="index+1" cols="50"[(ngModel)] = "str" ></textarea>
+               <div class="row">
+                  <div class="footer text-center">
+                      <a *ngIf="buttonClicked == index+1" class="btn btn-primary btn-round btn-lg btn-block" (click)="sendreply()">Submit </a>
+                    </div>
+                  <!-- <div class="col-12 p-0">
+                      <button *ngIf="buttonClicked == index+1"  mat-raised-button color="accent" (click)="onSubmit(textarea)">Submit</button>
+                  </div> -->
+              </div> 
               </div>
               
 
@@ -178,6 +181,7 @@
           
 
           </div>
+        </form>
         </div>
       </div>
     </div>

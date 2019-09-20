@@ -21,6 +21,11 @@
 <a class="float-right btn btn-outline-primary ml-2" (click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
   
 <textarea *ngIf="buttonClicked== index+1" name="{{textarea}}"rows="4" cols="50"[(ngModel)] = "str" ></textarea>
+<div class="row">
+  <div class="col-12 p-0">
+      <button *ngIf="buttonClicked == index+1"  mat-raised-button color="accent" (click)="onSubmit(inputTexts[i])">Submit</button>
+  </div>
+</div> 
 <!-- <br>
 
    <button (click)="addTextarea()">Add Textarea</button>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms'; 
 import { RatingformService } from 'app/services/ratingform.service';
 declare const feather: any;
 export interface Message {
@@ -21,11 +22,12 @@ export class SellerprofileComponent implements OnInit {
   starOnePer: number;
   reviewlist:any=[];
   datelist:any=[];
-  buttonClicked: boolean;
+  buttonClicked:number;
   idlist:any=[];
+  replyForm: FormGroup; 
    
 
-  constructor(private http: HttpClient, private rateing: RatingformService) {
+  constructor(private http: HttpClient , private rateing: RatingformService,private formBuilder: FormBuilder) {
     this.highestRate = 0;
     this.totalRates = 0;
     this.starFivePer = 0;
@@ -36,7 +38,7 @@ export class SellerprofileComponent implements OnInit {
      this.reviewlist=[];
      this.datelist=[];
     this.starOnePer = 0;
-    this.buttonClicked = false;
+    this.buttonClicked ;
     this.idlist=[];
      
   }
@@ -62,6 +64,14 @@ export class SellerprofileComponent implements OnInit {
   ngOnInit() {
     feather.replace();
     this.getRatings();
+    var current_user = localStorage.getItem("current_user");
+
+      this.replyForm =  this.formBuilder.group({
+        _id: current_user, 
+        nom:[''],
+        reply:['']
+      });
+
   }
 
   getRatings() {
@@ -170,5 +180,22 @@ export class SellerprofileComponent implements OnInit {
    this.buttonClicked = NIC;
    
  }
+ submitreplyForm() {
+  console.log(this.replyForm.value);
+} 
+sendreply() {
+      
+  var current_user = localStorage.getItem("current_user");
+  const request = {
+    _id: current_user,
+    nom: this.buttonClicked,
+    reply: this.replyForm.controls['reply'].value
+  }
+   
+
+}  
+ 
+  
+ 
 }
    
