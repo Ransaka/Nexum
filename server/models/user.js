@@ -35,7 +35,8 @@ const userSchema = new Schema({
     selling: [],
 
     overallrate: Number,
-    ratings: []
+    ratings: [],
+    replying:[],
 
 })
 module.exports = mongoose.model('User', userSchema, 'user')

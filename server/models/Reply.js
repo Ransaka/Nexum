@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
  */
 
 const Schema = mongoose.Schema
-const rateSchema = new Schema({
+const replySchema = new Schema({
     
     _id: {
         type: mongoose.Schema.Types.ObjectId,

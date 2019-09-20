@@ -59,12 +59,7 @@ router.post('/remove', function (req, res) {
                 message: 'Error removing reply'
             })
         }
-        /*Rate.remove({
-                _id: req.body.rate_id
-            })
-            .exec().then(result => {
-                res.status(200).json(result)
-            })*/
+         
         user.update({
             _id: req.body._id
         }, {

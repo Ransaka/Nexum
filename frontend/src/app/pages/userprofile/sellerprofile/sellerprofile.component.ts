@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms'; 
 import { RatingformService } from 'app/services/ratingform.service';
+import {ReplyformService } from 'app/services/reply.service';
+import { Router } from '@angular/router';
 declare const feather: any;
 export interface Message {
   text: string;
@@ -27,7 +29,7 @@ export class SellerprofileComponent implements OnInit {
   replyForm: FormGroup; 
    
 
-  constructor(private http: HttpClient , private rateing: RatingformService,private formBuilder: FormBuilder) {
+  constructor(private http: HttpClient , private rateing: RatingformService,private formBuilder: FormBuilder,private replying:ReplyformService  , private router: Router) {
     this.highestRate = 0;
     this.totalRates = 0;
     this.starFivePer = 0;
@@ -191,7 +193,9 @@ sendreply() {
     nom: this.buttonClicked,
     reply: this.replyForm.controls['reply'].value
   }
-   
+  this.replying.sendreply(request).subscribe(res => {
+    this.router.navigateByUrl('/userprofile/customerprofile')
+  }) 
 
 }  
  

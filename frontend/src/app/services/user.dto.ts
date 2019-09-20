@@ -10,4 +10,5 @@ export interface User {
   selling?: Array<Object>;
   overallrating?: Number;
   ratings?: Array<Object>;
+  replying?:Array<object>;
 }
