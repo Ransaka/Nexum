@@ -18,9 +18,9 @@
   {{index+1}} {{review}}<br>
 
 
-<a class="float-right btn btn-outline-primary ml-2" (click)="onLinkClicked()" > <i class="fa fa-reply"></i> Reply</a>
+<a class="float-right btn btn-outline-primary ml-2" (click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
   
-<textarea *ngIf="buttonClicked" name="{{textarea}}"rows="4" cols="50"[(ngModel)] = "str" ></textarea>
+<textarea *ngIf="buttonClicked== index+1" name="{{textarea}}"rows="4" cols="50"[(ngModel)] = "str" ></textarea>
 <!-- <br>
 
    <button (click)="addTextarea()">Add Textarea</button>

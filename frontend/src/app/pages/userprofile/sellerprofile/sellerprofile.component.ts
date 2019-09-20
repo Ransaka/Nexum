@@ -19,8 +19,6 @@ export class SellerprofileComponent implements OnInit {
   starThreePer: number;
   starTwoPer: number;
   starOnePer: number;
-  id:number;
-  NIC:number; 
   reviewlist:any=[];
   datelist:any=[];
   buttonClicked: boolean;
@@ -167,9 +165,9 @@ export class SellerprofileComponent implements OnInit {
 
  }
 
- onLinkClicked(){
-   if(this.NIC==this.id){
-   this.buttonClicked = true;}
+ onLinkClicked(NIC){
+  //  if(NIC==id){
+   this.buttonClicked = NIC;
    
  }
 }

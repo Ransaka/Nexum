@@ -83,7 +83,7 @@ export class RatingsComponent implements OnInit {
      }
   }
  }
- onLinkClicked(){
-  this.buttonClicked = true;
+ onLinkClicked(NIC){
+  this.buttonClicked = NIC;
 }
 }
