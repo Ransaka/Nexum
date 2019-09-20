@@ -9,6 +9,7 @@ const checkAuth = require('../auth/check-auth')
 
 
 
+//submit a complain 
 
 router.post("/",(req, res) => {
   
@@ -26,25 +27,33 @@ router.post("/",(req, res) => {
   }).catch(err=>{
     res.json({message: err})
   });
-  //  const complain = new Complain({
-
-  //   complain: req.body.complain
-  //  });
-  //  try{
-  //    const saved = await complain.save()
-  //    res.json(saved);
-  //  }catch(error){
-  //    res.json({message: error})
-  //  }
-
-    // var myData = new Complain(req.body);
-    // myData.save()
-    //   .then(item => {
-    //     res.send("item saved to database");
-    //   })
-    //   .catch(err => {
-    //     res.status(400).send("unable to save to database");
-    //   });
   });
+
+
+
+  //list all the complains
+
+
+  router.get('/get', async(req, res)=>{
+    try{
+      const Complain = await complain.find();
+      res.json(Complain);
+    }catch(err){
+      res.json({message: err});
+    }
+  });
+
+
+
+  //specific compalin
+router.get('/:ComplainId', async (req, res)=>{
+  try{
+    const Complain = await complain.findById(req.params.ComplainId);
+    res.json(Complain)
+  }catch (err){
+    res.json({message: err});
+  }
+
+});
 
 module.exports = router
