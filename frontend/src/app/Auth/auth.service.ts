@@ -6,6 +6,7 @@ import { tap, shareReplay, flatMap, map } from 'rxjs/operators';
 import { SignInResponse, SignInRequest, SignUpRequest,NewComplain } from './auth.dto';
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -66,12 +67,17 @@ export class AuthService {
 
 
   //make new complain
-  makeComplain(complain:NewComplain){
+  makeComplain(complain:NewComplain): Observable<any>{
     console.log("at service file 1"+ JSON.stringify(complain))
 
-    return this.http
-    .post('http://localhost:3000/user/rate/create', complain)
-    .pipe(map(res => this.ApiResponse))
+    return this.http.post<any>('http://localhost:3000/user/complain', complain);
+    // .pipe(map(res => this.ApiResponse))
   }
   // eof make new complain
+  // makeComplain(complain:NewComplain): Observable<any> {
+  //   return this.http.post('http://localhost:3000/user/complain', complain, )
+  //     .pipe(
+  //       catchError(this.handleError)
+  //     );
+  // }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{Http} from '@angular/http';
+import { Router } from '@angular/router';
 import { AuthService } from '../../Auth/auth.service';
 import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 
@@ -11,6 +12,8 @@ import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 export class CustComplainComponent implements OnInit {
 
   complainform: FormGroup;
+  selectControlSeller:FormControl = new FormControl()
+  selectControlItem:FormControl = new FormControl()
 
 
   constructor(
@@ -19,7 +22,8 @@ export class CustComplainComponent implements OnInit {
       this.complainform = new FormGroup({
         complain: new FormControl(),
         seller : new FormControl(),
-        item : new  FormControl()
+        item : new  FormControl(),
+        
      });
     }
 
@@ -35,8 +39,11 @@ export class CustComplainComponent implements OnInit {
    this.auth.makeComplain({
      id:current_user.id,
     complain: this.complainform.controls['complain'].value,
+    //seller: this.selectControlSeller.value,
+    //item: this.selectControlItem.value,
+    
    }).subscribe();
-   console.log(this.complain);
+   //console.log(this.complain);
  }
 
 }

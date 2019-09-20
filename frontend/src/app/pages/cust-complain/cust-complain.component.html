@@ -3,26 +3,26 @@
     <div class="col-md-4 content-center">
       <div class="card card-login card-plain">
 
-        <form class="form-group" [formGroup]="complainform">
+        <form class="form-group" [formGroup]="complainform" method="post">
             <h2>Add your Complain Here</h2>
           <div class="header header-primary text-center"> </div>
           <div>
             <p>Select category</p>
             <select class="btn btn-round btn-neutral custom-select form-control" [(ngModel)]="item"
-              formControlName="item">
-              <option *ngFor="let item of categories">{{item}}</option>
+              formControlName="item" [formControl]="selectControlItem">
+              <option *ngFor="let items of item">{{items}}</option>
             </select>
           </div>
           <div>
             <p>Select Seller</p>
             <select class="btn btn-round btn-neutral custom-select form-control" [(ngModel)]="seller"
-              formControlName="seller">
-              <option *ngFor="let item of categories">{{seller}}</option>
+              formControlName="seller" [formControl]="selectControlSeller">
+              <option *ngFor="let sellers of seller">{{sellers}}</option>
             </select>
           </div>
           <div class="content">
-            <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false"
-            [(ngModel)]="complain" [formGroup]="complainform" formControlName="complain" >
+            <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="true"
+            [(ngModel)]="complain" [formGroup]="complainform" formControlName="complain" placeholder="Describe your complain here...">
                         </textarea>
           </div>
 

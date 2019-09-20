@@ -4,15 +4,20 @@ const mongoose = require('mongoose')
  * Data model for Rates.
  */
 
-const Schema = mongoose.Schema
-const complainschema = new Schema({
-    id: {
-        type: mongoose.Schema.Types.ObjectId,
-        createIndex: true,
-        required: true,
-        auto: true
+const complainschema = mongoose.Schema({
+    complain:{
+        type: String,
+        //required: true
     },
-    Complain:String,
-    // date: Date
-})
-module.exports = mongoose.model('complain', complainschema, 'Complain')
+    id:{
+        type: String,
+        //required: true
+    },
+    seller:{
+        type: String,
+    },
+    item:{
+        type: String
+    }
+});
+module.exports = mongoose.model('complains', complainschema)
