@@ -141,7 +141,7 @@
               <div class="col-md-2">
                 <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
                  <p class="text-secondary text-center">
-                    {{datelist[index+1]}} 
+                    {{datelist[index+1]}}  
                 
               </div>
 
@@ -150,8 +150,7 @@
                 
                 
                 {{index+1}} {{review}}<br>
-            
-
+                  
               <a class="float-right btn btn-outline-primary ml-2"name="NIC" NIC="index+1"(click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
                 
               <textarea *ngIf="buttonClicked == index+1" formControlName ="reply" rows="4" id="index+1" cols="50"[(ngModel)] = "str" ></textarea>
@@ -159,9 +158,7 @@
                   <div class="footer text-center">
                       <a *ngIf="buttonClicked == index+1" class="btn btn-primary btn-round btn-lg btn-block" (click)="sendreply()">Submit </a>
                     </div>
-                  <!-- <div class="col-12 p-0">
-                      <button *ngIf="buttonClicked == index+1"  mat-raised-button color="accent" (click)="onSubmit(textarea)">Submit</button>
-                  </div> -->
+                   
               </div> 
               </div>
               
@@ -170,12 +167,33 @@
               </div>
             </div>
           </div>
-                <!-- <li *ngFor="let rating of Ratings"> {{rating[i].review}}</li><br><br> -->
-                 <!-- {{this.review}}<br> -->
-                <!-- <p>
-                  <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-                </p> -->
-                 <!-- wenas karanna -->
+           
+          <!-- <div *ngFor="let num of this.numlist | slice:1;let i = index  " >
+            <div *ngIf="i+1 == index+1">
+              <div class="card card-inner">
+                <div class="card-body">
+                <div class="card-body col-xs-10 col-md-10">  
+      <div class="row">
+        <div class="col-md-2">
+          <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
+           <p class="text-secondary text-center">
+              {{timelist[i+1]}} 
+          
+        </div>
+
+        <div class="col-md-10">
+          <div class="clearfix"></div>
+          
+          
+           {{replylist[i+1]}}<br>
+            </div>
+            </div>
+            </div>
+                </div>
+              </div>
+          </div>
+          </div> -->
+                 
                 
                
           

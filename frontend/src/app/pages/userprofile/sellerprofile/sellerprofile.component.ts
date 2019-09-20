@@ -27,7 +27,9 @@ export class SellerprofileComponent implements OnInit {
   buttonClicked:number;
   idlist:any=[];
   replyForm: FormGroup; 
-   
+  numlist:any=[] ;
+  replylist:any=[];
+  timelist:any=[];
 
   constructor(private http: HttpClient , private rateing: RatingformService,private formBuilder: FormBuilder,private replying:ReplyformService  , private router: Router) {
     this.highestRate = 0;
@@ -42,7 +44,9 @@ export class SellerprofileComponent implements OnInit {
     this.starOnePer = 0;
     this.buttonClicked ;
     this.idlist=[];
-     
+    this.numlist=[];
+     this.timelist=[];
+     this.replylist=[];
   }
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
@@ -83,6 +87,16 @@ export class SellerprofileComponent implements OnInit {
         console.log(res);
         this.calcRatings(res);
         this.viewReview(res);
+      },
+      err => {}
+    );
+  }
+  getreply() {
+    let currentUser = localStorage.getItem('current_user');
+    this.replying.getreply(currentUser).subscribe(
+      res => {
+        console.log(res);
+        this.viewReply(res);
       },
       err => {}
     );
@@ -198,8 +212,27 @@ sendreply() {
   }) 
 
 }  
- 
+viewReply(replying){
+   
+  let k=0; 
+  let my;  
+ for (let j= 1; j <= replying.length; j++) {
+   my=replying[j].reply;
+   if(k==5) {
+     break;
+   }
+   else{      
+      k++;
+   this.replylist[k]= my;
+   this.timelist[j]=replying[j].date;
+   this.numlist[j]=replying[j].nom; 
+  }}
+     // this.review= ratings[j].review;
+     // this.date[k]=ratings[j].date;
+   }
+}
+
   
  
-}
+
    
