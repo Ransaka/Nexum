@@ -1,56 +1,73 @@
 <div class="col-md-12">
-<div *ngFor="let review of this.reviewlist| slice:1 ;let index= index  " >
-    <div class="card card-inner">
-        <div class="card-body">
-        <div class="card-body col-xs-10 col-md-10">  
-<div class="row">
-<div class="col-md-2">
-  <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
-   <p class="text-secondary text-center">
-     {{datelist[index+1]}}
-  
-</div>
+    <form novalidate [formGroup]="replyForm" (ngSubmit)="submitreplyForm()">
+        <div *ngFor="let review of this.reviewlist | slice:1;let index= index  " >
+            <div class="card card-inner">
+                <div class="card-body">
+                <div class="card-body col-xs-10 col-md-10">  
+      <div class="row">
+        <div class="col-md-2">
+          <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
+           <p class="text-secondary text-center">
+              {{datelist[index+1]}}  
+          
+        </div>
 
-<div class="col-md-10">
-  <div class="clearfix"></div>
-  
-  
-  {{index+1}} {{review}}<br>
-
-
-<a class="float-right btn btn-outline-primary ml-2" (click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
-  
-<textarea *ngIf="buttonClicked== index+1" name="{{textarea}}"rows="4" cols="50"[(ngModel)] = "str" ></textarea>
-<div class="row">
-  <div class="col-12 p-0">
-      <button *ngIf="buttonClicked == index+1"  mat-raised-button color="accent" (click)="onSubmit(inputTexts[i])">Submit</button>
-  </div>
-</div> 
-<!-- <br>
-
-   <button (click)="addTextarea()">Add Textarea</button>
-<form>
-     
-        <textarea name="{{textarea}}"rows="4" cols="50"[(ngModel)] = "str" ></textarea>
+        <div class="col-md-10">
+          <div class="clearfix"></div>
+          
+          
+          {{index+1}} {{review}}<br>
+             
+        <a class="float-right btn btn-outline-primary ml-2"name="NIC" NIC="index+1"(click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
+          
+        <textarea *ngIf="buttonClicked == index+1" formControlName ="reply" rows="4" id="index+1" cols="50"[(ngModel)] = "str" ></textarea>
+         <div class="row">
+            <div class="footer text-center">
+                <a *ngIf="buttonClicked == index+1" class="btn btn-primary btn-round btn-lg btn-block" (click)="sendreply()">Submit </a>
+              </div>
+             
+        </div> 
+        </div>
         
-</form> 
-  <br><br> -->
-</div>
 
-</div>
-</div>
-</div>
-</div>
-</div>
-  <!-- <li *ngFor="let rating of Ratings"> {{rating[i].review}}</li><br><br> -->
-   <!-- {{this.review}}<br> -->
-  <!-- <p>
-    <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-  </p> -->
-   <!-- wenas karanna -->
-  
+        </div>
+        </div>
+      </div>
+    </div>
+     
+     <div *ngFor="let time of this.timelist | slice:1;let i = index  " >
+      <div *ngIf="index+1 == numlist[i+1]">
+          <div class="col-md-7"    >
+        <div class="card card-inner">
+          <div class="card-body">
+          <div class="card-body col-xs-10 col-md-10">  
+<div class="row">
+  <div class="col-md-4">
+    <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
+     <p class="text-secondary text-center">
+        {{time}} 
+    
+  </div>
+
+  <div class="col-md-6">
+    <div class="clearfix"></div>
+    
+    
+     {{replylist[i+1]}}<br>
+      </div>
+      </div>
+      </div>
+          </div>
+        </div>
+    </div>
+    </div> 
+    </div>       
+          
+         
+    
+
+    </div>
+  </form>
+  </div>
  
-
-
-</div>
  

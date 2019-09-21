@@ -12,7 +12,7 @@ export class ReplyformService {
     return this.http.put('http://localhost:3000/user/reply/create' ,request);
   }
   getreply(userId) {
-    return this.http.get<any>(`http://localhost:3000/user/reply${userId}`);
+    return this.http.get<any>(`http://localhost:3000/user/reply/${userId}`);
   }
   
 }

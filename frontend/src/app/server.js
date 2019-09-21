@@ -20,7 +20,7 @@ app.post('/messages', (req, res) => {
     score: result.score,
   };
   try {
-    pusher.trigger(['chat', 'rate'], 'message', data);
+    pusher.trigger(['chat', 'rate','reply'], 'message', data);
   } catch (e) {}
   res.json(data);
 });

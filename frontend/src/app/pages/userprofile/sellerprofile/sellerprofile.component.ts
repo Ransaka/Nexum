@@ -70,6 +70,7 @@ export class SellerprofileComponent implements OnInit {
   ngOnInit() {
     feather.replace();
     this.getRatings();
+    this.getreply();
     var current_user = localStorage.getItem("current_user");
 
       this.replyForm =  this.formBuilder.group({
@@ -169,11 +170,11 @@ export class SellerprofileComponent implements OnInit {
       let day;
       let no;
       let k=0;
-   for (let j= 1; j <= ratings.length; j++) {
+   for (let j= 0; j < ratings.length; j++) {
             idea=ratings[j].review;
             day=ratings[j].date;
             no=ratings[j]._id;
-     if(k==5) {
+     if(k==3) {
        break;
      }
      else{      
@@ -215,22 +216,19 @@ sendreply() {
 viewReply(replying){
    
   let k=0; 
-  let my;  
- for (let j= 1; j <= replying.length; j++) {
-   my=replying[j].reply;
-   if(k==5) {
-     break;
-   }
-   else{      
+  let my;
+  let numb;  
+ for (let j= 0; j < replying.length; j++) {
+   
       k++;
-   this.replylist[k]= my;
-   this.timelist[j]=replying[j].date;
-   this.numlist[j]=replying[j].nom; 
+   this.replylist[k]=replying[j].reply; 
+   this.timelist[k]=replying[j].date;
+   this.numlist[k]=replying[j].nom; 
   }}
      // this.review= ratings[j].review;
      // this.date[k]=ratings[j].date;
    }
-}
+
 
   
  

@@ -150,7 +150,7 @@
                 
                 
                 {{index+1}} {{review}}<br>
-                  
+                   
               <a class="float-right btn btn-outline-primary ml-2"name="NIC" NIC="index+1"(click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
                 
               <textarea *ngIf="buttonClicked == index+1" formControlName ="reply" rows="4" id="index+1" cols="50"[(ngModel)] = "str" ></textarea>
@@ -168,20 +168,21 @@
             </div>
           </div>
            
-          <!-- <div *ngFor="let num of this.numlist | slice:1;let i = index  " >
-            <div *ngIf="i+1 == index+1">
+           <div *ngFor="let time of this.timelist | slice:1;let i = index  " >
+            <div *ngIf="index+1 == numlist[i+1]">
+                <div class="col-md-7"    >
               <div class="card card-inner">
                 <div class="card-body">
                 <div class="card-body col-xs-10 col-md-10">  
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-4">
           <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
            <p class="text-secondary text-center">
-              {{timelist[i+1]}} 
+              {{time}} 
           
         </div>
 
-        <div class="col-md-10">
+        <div class="col-md-6">
           <div class="clearfix"></div>
           
           
@@ -192,8 +193,8 @@
                 </div>
               </div>
           </div>
-          </div> -->
-                 
+          </div> 
+          </div>       
                 
                
           

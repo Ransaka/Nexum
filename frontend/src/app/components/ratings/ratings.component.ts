@@ -1,6 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RatingformService } from 'app/services/ratingform.service';
+import {ReplyformService } from 'app/services/reply.service';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms'; 
 declare const feather: any;
 export interface Message {
   text: string;
@@ -15,13 +18,21 @@ export interface Message {
 export class RatingsComponent implements OnInit {
   reviewlist:any=[];
   datelist:any=[];
-  buttonClicked: boolean;
+  buttonClicked: number;
   idlist:any=[];
-  constructor(private http: HttpClient, private rateing: RatingformService) { 
+  numlist:any=[] ;
+  replylist:any=[];
+  timelist:any=[];
+  replyForm: FormGroup; 
+  
+  constructor(private http: HttpClient, private rateing: RatingformService,private formBuilder: FormBuilder,private replying:ReplyformService  , private router: Router) { 
     this.reviewlist=[];
      this.datelist=[];
-     this.buttonClicked = false
+     this.buttonClicked;
      this.idlist=[];
+     this.numlist=[];
+     this.timelist=[];
+     this.replylist=[];
   }
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
@@ -48,6 +59,15 @@ export class RatingsComponent implements OnInit {
   ngOnInit() {
     feather.replace();
     this.getRatings();
+    this.getreply();
+    var current_user = localStorage.getItem("current_user");
+
+      this.replyForm =  this.formBuilder.group({
+        _id: current_user, 
+        nom:[''],
+        reply:['']
+      });
+
   }
   getRatings() {
     let currentUser = localStorage.getItem('current_user');
@@ -59,7 +79,16 @@ export class RatingsComponent implements OnInit {
       err => {}
     );
   }
-   
+  getreply() {
+    let currentUser = localStorage.getItem('current_user');
+    this.replying.getreply(currentUser).subscribe(
+      res => {
+        console.log(res);
+        this.viewReply(res);
+      },
+      err => {}
+    );
+  }
 
    viewReview(ratings){
      if (ratings) {
@@ -86,4 +115,32 @@ export class RatingsComponent implements OnInit {
  onLinkClicked(NIC){
   this.buttonClicked = NIC;
 }
+submitreplyForm() {
+  console.log(this.replyForm.value);
+} 
+sendreply() {
+      
+  var current_user = localStorage.getItem("current_user");
+  const request = {
+    _id: current_user,
+    nom: this.buttonClicked,
+    reply: this.replyForm.controls['reply'].value
+  }
+  this.replying.sendreply(request).subscribe(res => {
+    this.router.navigateByUrl('/userprofile/customerprofile')
+  }) 
+
+}  
+viewReply(replying){
+   
+  let k=0; 
+  let my;
+  let numb;  
+ for (let j= 0; j < replying.length; j++) {
+   
+      k++;
+   this.replylist[k]=replying[j].reply; 
+   this.timelist[k]=replying[j].date;
+   this.numlist[k]=replying[j].nom; 
+  }}
 }
