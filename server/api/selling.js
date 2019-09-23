@@ -16,13 +16,15 @@ const checkAuth = require('../auth/check-auth')
  * @body 
  * @response 
  */
-router.put('/addselling', checkAuth, (req, res, next) => {
+router.put('/new', (req, res, next) => {
     User.findById(
-            req.body._id
+            req.headers.uid
         )
         .then(async (user) => {
             const sell = new Selling({
-                name: req.body.item
+                product: req.body.item,
+                category: req.body.item,
+                tags: req.body.item
             })
             return user.updateOne({
                 $addToSet: {
