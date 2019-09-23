@@ -96,7 +96,7 @@ export class RatingsComponent implements OnInit {
        let day;
        let k=0;
        let no;
-    for (let j= 1; j <= ratings.length; j++) {
+    for (let j= 0; j < ratings.length; j++) {
              idea=ratings[j].review;
             day=ratings[j].date;
             no=ratings[j]._id;
