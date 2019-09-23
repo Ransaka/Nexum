@@ -1,3 +1,5 @@
+import { SellerviewComponent } from './pages/sellerview/sellerview.component';
+import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
@@ -39,6 +41,8 @@ const routes: Routes = [
   { path: 'userprofile/admin', component: AdminprofileComponent },
   { path: 'userprofile/edit', component: EditprofileComponent },
   { path: 'userprofile/purchasehistory', component: PurchasehistoryComponent },
+  { path: 'userprofile/sellerreply', component: SellerreplyComponent },
+  { path: 'userprofile/sellerview', component: SellerviewComponent },
   { path: '**', component: UserprofileComponent }
 ];
 

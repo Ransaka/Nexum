@@ -11,6 +11,7 @@ import { AdminprofileComponent } from './userprofile/adminprofile/adminprofile.c
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { BroadcastviewComponent } from './broadcastview/broadcastview.component';
 import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.component';
+import { SellerviewComponent } from './sellerview/sellerview.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.comp
     AdminprofileComponent,
     EditprofileComponent,
     BroadcastviewComponent,
-    PurchasehistoryComponent
+    PurchasehistoryComponent,
+    SellerviewComponent
   ],
   imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
 })

@@ -57,7 +57,7 @@
                   <th scope="col">ID</th>
                   <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
                   <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
-                  <th scope="col">Finalize</th>
+                  <th scope="col">Replies</th>
                   <th scope="col">Remove</th>
                   <th scope="col">Report</th>
 
@@ -70,7 +70,8 @@
                   <td scope="row">{{x.tags}}</td>
                   <td scope="row">
                     <div class="social-description">
-                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm">A</a>
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
+                        routerLink="/userprofile/sellerreply">A</a>
                     </div>
                   </td>
                   <td scope="row">
@@ -93,6 +94,7 @@
         </div>
         <div class="social-description">
           <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/admin">Admin profile test</a>
+          <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/sellerview">Seller view test</a>
         </div>
       </div>
     </div>
