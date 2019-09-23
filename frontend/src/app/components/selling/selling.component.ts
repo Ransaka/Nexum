@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./selling.component.scss']
 })
 export class SellingComponent implements OnInit {
-
   constructor(
     private _formbuilder: FormBuilder,
     private _broadcast: BroadcastService,
@@ -24,7 +23,8 @@ export class SellingComponent implements OnInit {
   ngOnInit() {
     this.sellingForm = this._formbuilder.group({
       category: ['', Validators.required],
-      textMessage: ['', Validators.required]
+      textMessage: ['', Validators.required],
+      product: ['', Validators.required]
     });
   }
 }
