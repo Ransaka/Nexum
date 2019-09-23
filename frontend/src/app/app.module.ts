@@ -18,6 +18,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
+import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminpro
     CustomerprofileComponent,
     SellerprofileComponent,
     AdminprofileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    PurchasehistoryComponent
   ],
   imports: [
     BrowserAnimationsModule,

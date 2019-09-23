@@ -1,3 +1,4 @@
+import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },
   { path: 'userprofile/admin', component: AdminprofileComponent },
   { path: 'userprofile/edit', component: EditprofileComponent },
+  { path: 'userprofile/purchasehistory', component: PurchasehistoryComponent },
   { path: '**', component: UserprofileComponent }
 ];
 
