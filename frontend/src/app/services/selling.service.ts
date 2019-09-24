@@ -20,4 +20,14 @@ export class SellingService {
       headers
     });
   }
+
+  getSelling(): Observable<Selling[]> {
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('jwt_token')
+    );
+    return this.http.get<Selling[]>('http://localhost:3000/user/selling/all', {
+      headers
+    });
+  }
 }

@@ -15,7 +15,7 @@
               src="assets/img/ryan.jpg">
           </div>
           <!--/Profile Image-->
-          <h3 class="title">Seller</h3>
+          <h2>{{current_user?.username}}</h2>
         </div>
         <div class="row justify-content-center">
           <div class="social-description">
@@ -45,22 +45,145 @@
     </div>
   </div>
 
+  <!-- Selling -->
   <div class="mt-5">
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-2">
           <div class="card text-center" style=" width: 70rem;">
-            <h3>Broadcasts</h3>
             <div class="col-md-12">
-              <div class="row">
-              </div>
+              <!-- Broadcast Table -->
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="container">
+                      <div class="row">
+                        <h3>Recent Broadcasts Received</h3>
+                        <div class="ml-auto">
+                          <a class="btn btn-sm btn-primary btn-lg btn-round" routerLink="/userprofile/broadcast">View
+                            More</a>
+                        </div>
+                      </div>
+                    </div>
+                    <form>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col" sortable="name" (sort)="onSort($event)">Shop Name</th>
+                            <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
+                            <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
+                            <th scope="col">Finalize</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let x of sellingArray?.selling.slice(0,5)">
+                            <td>{{x._id | slice:-4}}</td>
+                            <td>{{x.product}}</td>
+                            <td scope="row">{{x.tags}}</td>
+                            <td scope="row">
+                              <div class="social-description">
+                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
+                                  routerLink="/userprofile/sellerreply">A</a>
+                              </div>
+                            </td>
+                            <td scope="row">
+                              <div class="social-description">
+                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
+                                    class="now-ui-icons ui-1_simple-remove"></i></a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="social-description">
+                                <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">C</a>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
 
+                  </div>
+                </div>
+              </div>
+              <!-- /Broadcast Table -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-2">
+          <div class="card text-center" style=" width: 70rem;">
+            <div class="col-md-12">
+              <!-- Broadcast Table -->
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="container">
+                      <div class="row">
+                        <h3>Selling</h3>
+                        <div class="ml-auto">
+                          <a class="btn btn-sm btn-primary btn-lg btn-round" routerLink="/userprofile/broadcast">View
+                            More</a>
+                        </div>
+                      </div>
+                    </div>
+                    <form>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col" sortable="name" (sort)="onSort($event)">Shop Name</th>
+                            <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
+                            <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
+                            <th scope="col">Finalize</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let x of sellingArray?.selling.slice(0,5)">
+                            <td>{{x._id | slice:-4}}</td>
+                            <td>{{x.product}}</td>
+                            <td scope="row">{{x.tags}}</td>
+                            <td scope="row">
+                              <div class="social-description">
+                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
+                                  routerLink="/userprofile/sellerreply">A</a>
+                              </div>
+                            </td>
+                            <td scope="row">
+                              <div class="social-description">
+                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
+                                    class="now-ui-icons ui-1_simple-remove"></i></a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="social-description">
+                                <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">C</a>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+              <!-- /Broadcast Table -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="mt-5">
     <div class="container">
@@ -104,18 +227,6 @@
                           </tr>
                         </tbody>
                       </table>
-
-                      <div class="d-flex justify-content-between p-2">
-
-
-                        <!-- <select class="custom-select" style="width: auto" name="pageSize"
-                                    [(ngModel)]="service.pageSize">
-                                    <option [ngValue]="2">2 items per page</option>
-                                    <option [ngValue]="4">4 items per page</option>
-                                    <option [ngValue]="6">6 items per page</option>
-                                </select> -->
-                      </div>
-
                     </form>
 
                   </div>

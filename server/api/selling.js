@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const verify = require('../auth/verify')
 
 const User = require('../models/User')
 const Selling = require('../models/Selling')
@@ -22,9 +23,9 @@ router.put('/new', (req, res, next) => {
         )
         .then(async (user) => {
             const sell = new Selling({
-                product: req.body.item,
-                category: req.body.item,
-                tags: req.body.item
+                product: req.body.product,
+                category: req.body.category,
+                tags: req.body.textMessage
             })
             return user.updateOne({
                 $addToSet: {
@@ -51,16 +52,19 @@ router.put('/new', (req, res, next) => {
  * @role Admin
  * @response User of the given id
  */
-router.get('/:id', checkAuth, function (req, res) {
-    User.findById(req.params['id']).exec((err, user) => {
-        if (err || user == null) {
+router.get('/all', verify.decodeToken, function (req, res) {
+    User.findById(req.uid).exec((err, user) => {
+        if (err) {
             return res.status(500).send({
-                message: 'Error retrieving User with id:' + req.params['id']
+                message: 'Error retrieving User with id:' + req.uid
             })
         }
         // Remove password attribute from the user
         user.password = undefined
-        res.status(200).send(user.selling)
+        var selling = {
+            selling: user.selling.reverse()
+        }
+        res.status(200).send(selling)
     })
 })
 
