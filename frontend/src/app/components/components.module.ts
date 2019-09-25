@@ -16,7 +16,7 @@ import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
 import { SellingComponent } from './selling/selling.component';
 import { RatingsComponent } from './ratings/ratings.component';
-import { SellerreplyComponent } from './sellerreply/sellerreply.component';
+//import { SellerreplyComponent } from './sellerreply/sellerreply.component';
 //import { BroadcastComponent } from './broadcast/broadcast.component';
 
 @NgModule({
@@ -39,8 +39,8 @@ import { SellerreplyComponent } from './sellerreply/sellerreply.component';
     NgbdModalBasic,
     SigninComponent,
     SellingComponent,
-    RatingsComponent,
-    SellerreplyComponent
+    RatingsComponent
+    //SellerreplyComponent
     //BroadcastComponent
   ],
   exports: [ComponentsComponent]

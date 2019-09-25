@@ -1,3 +1,4 @@
+import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
 import { SellerviewComponent } from './pages/sellerview/sellerview.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AuthGuard } from './Auth/auth.guard';
@@ -32,7 +33,8 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     AdminprofileComponent,
     EditprofileComponent,
     PurchasehistoryComponent,
-    SellerviewComponent
+    SellerviewComponent,
+    SellerreplyComponent
   ],
   imports: [
     BrowserAnimationsModule,
