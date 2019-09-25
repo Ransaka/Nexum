@@ -1,3 +1,6 @@
+import { SellerviewComponent } from './pages/sellerview/sellerview.component';
+import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
+import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
@@ -37,6 +40,11 @@ const routes: Routes = [
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },
   { path: 'userprofile/admin', component: AdminprofileComponent },
   { path: 'userprofile/edit', component: EditprofileComponent },
+  { path: 'userprofile/purchasehistory', component: PurchasehistoryComponent },
+  { path: 'userprofile/sellerreply', component: SellerreplyComponent },
+  { path: 'userprofile/sellerview', component: SellerviewComponent },
+  { path: 'userprofile/search/:username', component: SellerviewComponent },
+  { path: 'userprofile/sellerreply/:id', component: SellerreplyComponent },
   { path: '**', component: UserprofileComponent }
 ];
 

@@ -1,3 +1,5 @@
+import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
+import { SellerviewComponent } from './pages/sellerview/sellerview.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { BroadcastComponent } from './components/broadcast/broadcast.component';
@@ -18,6 +20,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
+import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminpro
     CustomerprofileComponent,
     SellerprofileComponent,
     AdminprofileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    PurchasehistoryComponent,
+    SellerviewComponent,
+    SellerreplyComponent
   ],
   imports: [
     BrowserAnimationsModule,

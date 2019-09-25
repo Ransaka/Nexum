@@ -24,8 +24,15 @@ export class BroadcastService {
   }
 
   getBroadcast(): Observable<Broadcast[]> {
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('jwt_token')
+    );
     return this.http.get<Broadcast[]>(
-      'http://localhost:3000/user/broadcast/all'
+      'http://localhost:3000/user/broadcast/all',
+      {
+        headers
+      }
     );
   }
 }

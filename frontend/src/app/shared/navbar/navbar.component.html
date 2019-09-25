@@ -17,6 +17,20 @@
         <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
             <ul class="navbar-nav ml-auto">
 
+
+                <!-- Search. -->
+                <form [formGroup]="searchButton" class="form-inline ng-untouched ng-pristine ng-valid">
+                    <div class="form-group">
+                        <input class="form-control mr-sm-2 no-border" [(ngModel)]="search" formControlName="search"
+                            placeholder="Search" type="text">
+                    </div>
+                    <button class="btn btn-primary btn-just-icon btn-round" type="submit" (click)="searchUser()">
+                        <i class="ui-1_zoom-bold"></i></button>
+                </form>
+                <!-- Search. -->
+
+
+
                 <div class="col">
                     <div ngbDropdown class="d-inline-block">
                         <button class="btn btn-primary btn-round" id="dropdownBasic1" type="button" ngbDropdownToggle>

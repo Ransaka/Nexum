@@ -10,3 +10,18 @@ export interface User {
   overallrating?: Number;
   ratings?: Array<Object>;
 }
+
+export interface UserView {
+  _id: string;
+  email: string;
+  username: string;
+  firstname: string;
+  lastname: string;
+  telephone: string;
+  line1: string;
+  line2: string;
+}
+
+export interface Username {
+  username: string;
+}
