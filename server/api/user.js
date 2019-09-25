@@ -210,4 +210,40 @@ router.post('/upload', upload.single('profilePic'), function (req, res, next) {
     })
 })
 
+
+/**
+ * Users get user by username endpoint.
+ *
+ * 
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.get('/search/:username', verify.decodeToken, function (req, res) {
+    User.find({
+        username: req.params.username
+    }).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+        // Remove password attribute from the user
+        user[0].password = undefined
+        var details = {
+            _id: user[0]._id,
+            firstname: user[0].firstname,
+            lastname: user[0].lastname,
+            username: user[0].username,
+            email: user[0].email,
+            telephone: user[0].telephone,
+            line1: user[0].line1,
+            line2: user[0].line2,
+            line3: user[0].line3
+        }
+        console.log(details)
+        res.status(200).send(details)
+    })
+})
+
 module.exports = router

@@ -17,6 +17,7 @@ export class CustomerprofileComponent implements OnInit {
 
   broadcastArray: Broadcast[];
   current_user: User;
+  searchUsername: string;
 
   ngOnInit() {
     this.getUser();

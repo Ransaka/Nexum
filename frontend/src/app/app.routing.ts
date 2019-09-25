@@ -43,6 +43,7 @@ const routes: Routes = [
   { path: 'userprofile/purchasehistory', component: PurchasehistoryComponent },
   { path: 'userprofile/sellerreply', component: SellerreplyComponent },
   { path: 'userprofile/sellerview', component: SellerviewComponent },
+  { path: 'userprofile/search/:username', component: SellerviewComponent },
   { path: '**', component: UserprofileComponent }
 ];
 

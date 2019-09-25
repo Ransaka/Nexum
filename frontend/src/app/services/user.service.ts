@@ -6,7 +6,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, first, tap } from 'rxjs/operators';
-import { User } from './user.dto';
+import { User, UserView, Username } from './user.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +42,23 @@ export class UserService {
         first(),
         map(res => res as User),
         tap(user => this.setUser(user))
+      );
+  }
+
+  // search a user
+  search(username: string): Observable<UserView> {
+    const headers = new HttpHeaders().set(
+      'x-access-token',
+      localStorage.getItem('jwt_token')
+    );
+    console.log(username);
+    return this.http
+      .get('http://localhost:3000/user/search/' + username, {
+        headers
+      })
+      .pipe(
+        first(),
+        map(res => res as UserView)
       );
   }
 
