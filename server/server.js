@@ -12,6 +12,8 @@ const usersRouter = require('./api/user')
 const broadcastRouter = require('./api/broadcast')
 const sellingRouter = require('./api/selling')
 const rateRouter = require('./api/rate')
+const getRecentBroadcastRouter = require('./api/getRecentBroadcast')
+
 
 
 // Initialize the app
@@ -31,6 +33,7 @@ app.use('/user', usersRouter)
 app.use('/user/broadcast', broadcastRouter)
 app.use('/user/selling', sellingRouter)
 app.use('/user/rate', rateRouter)
+app.use('/user/getRecentBroadcasts', getRecentBroadcastRouter)
 
 app.get('/', function (req, res) {
     res.send("Hello")
