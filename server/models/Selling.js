@@ -12,7 +12,8 @@ const SellingItemSchema = new Schema({
         required: true,
         auto: true
     },
-    name: String,
-    date: Date
+    product: String,
+    category: String,
+    tags: String
 })
 module.exports = mongoose.model('SellingItem', SellingItemSchema, 'sellingItem')

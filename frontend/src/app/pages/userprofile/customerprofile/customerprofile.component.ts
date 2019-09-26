@@ -3,7 +3,6 @@ import { BroadcastService } from './../../../services/broadcast.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from './../../../services/user.dto';
 import { Broadcast } from './../../../services/broadcast.dto';
-import { SelectMultipleControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-customerprofile',
@@ -18,6 +17,7 @@ export class CustomerprofileComponent implements OnInit {
 
   broadcastArray: Broadcast[];
   current_user: User;
+  searchUsername: string;
 
   ngOnInit() {
     this.getUser();

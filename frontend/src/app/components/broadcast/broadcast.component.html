@@ -1,80 +1,91 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('assets/img/bg5.jpg');">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4 ml-auto mr-auto mt-5">
+                    <div class="info info-horizontal">
+                        <div class="icon icon-primary">
+                            <i class="now-ui-icons media-2_sound-wave"></i>
+                        </div>
+                        <div class="description">
+                            <h5 class="info-title">Marketing</h5>
+                            <p class="description">
+                                We've created the marketing campaign of the website. It was a very interesting
+                                collaboration.
+                            </p>
+                        </div>
+                    </div>
 
-<div class="page-header">
-    <div class="container">
-        <div class="col-md-4 content-center">
-            <div class="card card-login card-plain">
-                <h1>Broadcast Form</h1>
-                <form class="form-group" [formGroup]="broadcastForm">
-                    <div class="header header-primary text-center"> </div>
-
-                    <div class="mt-5">
-                        <div class="form-group"><label>Product</label>
-                            <input [(ngModel)]="product" formControlName="product" class="form-control border-input"
-                                placeholder="Enter the product you want" type="text">
+                    <div class="info info-horizontal">
+                        <div class="icon icon-primary">
+                            <i class="now-ui-icons media-1_button-pause"></i>
+                        </div>
+                        <div class="description">
+                            <h5 class="info-title">Fully Coded in HTML5</h5>
+                            <p class="description">
+                                We've developed the website with HTML5 and CSS3. The client has access to the code using
+                                GitHub.
+                            </p>
                         </div>
 
                     </div>
 
-                    <div class="mt-5">
-                        <p>Select category</p>
-                        <select class="btn btn-round btn-neutral custom-select form-control" [(ngModel)]="category"
-                            formControlName="category">
-                            <option *ngFor="let item of categories">{{item}}</option>
-                        </select>
-                    </div>
-
-                    <div class="mt-5">
-                        <div class="content"><label>Product</label>
-                            <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false"
-                                [(ngModel)]="textMessage" formControlName="textMessage">
-                        </textarea>
+                    <div class="info info-horizontal">
+                        <div class="icon icon-info">
+                            <i class="now-ui-icons users_single-02"></i>
+                        </div>
+                        <div class="description">
+                            <h5 class="info-title">Built Audience</h5>
+                            <p class="description">
+                                There is also a Fully Customizable CMS Admin Dashboard for this product.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="footer text-center">
-                        <a class="btn btn-primary btn-round btn-lg btn-block" (click)="newBroadcast()">Broadcast</a>
+                    <div class="social-description text-center">
+                        <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/customerprofile">Back</a>
                     </div>
-                    
-                </form>
+                </div>
+                <div class="col-md-4 mr-auto mt-5">
+                    <div class="card" style=" width: 30rem;">
+                        <div class="mt-2">
+                            <h3 class="card-title">Broadcast Form</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form-group" [formGroup]="broadcastForm">
+                                <div class="mt-2">
+                                    <div class="form-group"><label>Product</label>
+                                        <input [(ngModel)]="product" formControlName="product"
+                                            class="form-control border-input" placeholder="Enter the product you want"
+                                            type="text">
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <label>Select category</label>
+                                    <select class="btn btn-round btn-neutral custom-select form-control"
+                                        [(ngModel)]="category" formControlName="category">
+                                        <option *ngFor="let item of categories">{{item}}</option>
+                                    </select>
+                                </div>
 
+                                <div class="mt-3">
+                                    <div class="content"><label>Product</label>
+                                        <textarea _ngcontent-c15="" class="form-control" cols="80" rows="2"
+                                            spellcheck="false" [(ngModel)]="textMessage" formControlName="textMessage">
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                                <div class="footer text-center">
+                                    <a class="btn btn-primary btn-round btn-lg btn-block"
+                                        (click)="getBroadcast()">Broadcast</a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
-    <footer class="footer">
-        <div class="container">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="https://www.creative-tim.com">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.creative-tim.com/about-us">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://blog.creative-tim.com">
-                            Blog
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
-                            MIT License
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="copyright">
-                &copy;
-                {{data | date: 'yyyy'}}, Designed by
-                <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-            </div>
-        </div>
-        <!-- commented -->
-    </footer>
 </div>

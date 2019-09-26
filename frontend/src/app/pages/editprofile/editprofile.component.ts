@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { FileUploader, FileSelectDirective } from 'ng2-file-upload';
+//import { FileUploader, FileSelectDirective } from 'ng2-file-upload';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'app/services/user.service';
 import { User } from './../../services/user.dto';
@@ -13,9 +13,9 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./editprofile.component.scss']
 })
 export class EditprofileComponent implements OnInit {
-  uploader: FileUploader = new FileUploader({
+  /*uploader: FileUploader = new FileUploader({
     url: 'http://localhost:3000/user/upload'
-  });
+  });*/
 
   editForm: FormGroup;
   constructor(
@@ -81,6 +81,7 @@ export class EditprofileComponent implements OnInit {
 
     this.getUser();
   }
+
   // Get user details
   getUser() {
     return this._userservice

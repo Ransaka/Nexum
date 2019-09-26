@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 var request = require('request')
 const verify = require('../auth/verify')
+const mongoose = require('mongoose')
+
 
 
 const User = require('../models/User')
@@ -119,6 +121,34 @@ router.get('/all', verify.decodeToken, function (req, res) {
             broadcast: user.broadcasts.reverse()
         }
         res.status(200).send(broadcast)
+    })
+})
+
+/**
+ * Get broadcast by id endpoint.
+ *
+ * 
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.get('/:id', verify.decodeToken, function (req, res) {
+
+    User.findOne({
+        _id: req.headers.uid
+    }, {
+        broadcasts: {
+            $elemMatch: {
+                "_id": mongoose.Types.ObjectId(req.params.id)
+            }
+        }
+    }).exec((err, broadcast) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+        res.status(200).send(broadcast.broadcasts)
     })
 })
 

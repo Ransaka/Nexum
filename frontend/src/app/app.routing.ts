@@ -1,4 +1,6 @@
-import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
+import { SellerviewComponent } from './pages/sellerview/sellerview.component';
+import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
+import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
@@ -16,12 +18,6 @@ import { UserprofileComponent } from './pages/userprofile/userprofile.component'
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 
-import { RatingformComponent } from './pages/ratingform/ratingform.component';
-
-import { ComplainsComponent } from './pages/complains/complains.component';
-import { CustComplainComponent } from './pages/cust-complain/cust-complain.component';
-import { PurchasehistoryComponent } from './components/purchasehistory/purchasehistory.component';
-
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: ComponentsComponent },
@@ -33,30 +29,23 @@ const routes: Routes = [
         path: 'customerprofile',
         component: CustomerprofileComponent
       },
-      { path: 'broadcast', component: BroadcastComponent },
       {
         path: 'sellerprofile',
         component: SellerprofileComponent
-      },
-      {
-        path: 'userprofile/sellerprofile/ratingform',
-        component: RatingformComponent
       }
     ]
   },
-
+  { path: 'userprofile/broadcast', component: BroadcastComponent },
   { path: 'userprofile/selling', component: SellingComponent },
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },
-  {
-    path: 'userprofile/sellerprofile/ratingform',
-    component: RatingformComponent
-  },
   { path: 'userprofile/admin', component: AdminprofileComponent },
   { path: 'userprofile/edit', component: EditprofileComponent },
-  { path: 'pages/complains', component: ComplainsComponent },
-  { path: 'pages/newcomplain', component: CustComplainComponent },
   { path: 'userprofile/purchasehistory', component: PurchasehistoryComponent },
-  { path: 'userprofile/bookmarks', component: BookmarksComponent }
+  { path: 'userprofile/sellerreply', component: SellerreplyComponent },
+  { path: 'userprofile/sellerview', component: SellerviewComponent },
+  { path: 'userprofile/search/:username', component: SellerviewComponent },
+  { path: 'userprofile/sellerreply/:id', component: SellerreplyComponent },
+  { path: '**', component: UserprofileComponent }
 ];
 
 @NgModule({

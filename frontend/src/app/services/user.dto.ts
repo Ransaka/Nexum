@@ -5,9 +5,23 @@ export interface User {
   username?: string;
   firstname?: string;
   lastname?: string;
-  telephone?: string;
   broadcast?: Array<Object>;
   selling?: Array<Object>;
   overallrating?: Number;
   ratings?: Array<Object>;
+}
+
+export interface UserView {
+  _id: string;
+  email: string;
+  username: string;
+  firstname: string;
+  lastname: string;
+  telephone: string;
+  line1: string;
+  line2: string;
+}
+
+export interface Username {
+  username: string;
 }

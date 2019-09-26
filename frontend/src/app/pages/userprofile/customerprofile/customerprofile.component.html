@@ -6,19 +6,16 @@
       style="background-image: url('assets/img/bg5.jpg') ;">
     </div>
 
-
     <div class="container">
       <div class="content-center">
-        <div>
-
+        <div class="mt-5">
           <!--Profile Image-->
           <div class="photo-container">
             <img _ngcontent-c6="" alt="Thumbnail Image" class="rounded-circle img-raised  w-25 p-3"
               src="assets/img/ryan.jpg">
           </div>
           <!--/Profile Image-->
-
-          <h3 class="title">{{current_user?.username}}</h3>
+          <h2>{{current_user?.username}}</h2>
         </div>
 
         <div class="row justify-content-center">
@@ -32,8 +29,8 @@
           <div class="social-description">
             <a href="#button" class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/bookmarks">Bookmarks</a>
           </div>
-
         </div>
+
       </div>
     </div>
   </div>
@@ -44,37 +41,41 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h3>Recent Broadcasts</h3>
-          <form>
-            <div class="form-group form-inline">
-              Search <input class="form-control ml-2" type="text" name="searchTerm">
+          <div class="row">
+            <div class="">
+              <h3>Recent Broadcasts</h3>
             </div>
+            <div class="ml-auto">
+              <a class="btn btn-sm btn-primary btn-lg btn-round" routerLink="/userprofile/broadcast">View More</a>
+            </div>
+          </div>
+          <form>
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
                   <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
-                  <th scope="col">Finalize</th>
+                  <th scope="col">Replies</th>
                   <th scope="col">Remove</th>
                   <th scope="col">Report</th>
 
-                  <!-- current_user?.broadcasts -->
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let x of broadcastArray.broadcast.slice(0,5)">
+                <tr *ngFor="let x of broadcastArray?.broadcast.slice(0,5)">
                   <td>{{x._id | slice:-4}}</td>
                   <td>{{x.product}}</td>
                   <td scope="row">{{x.tags}}</td>
                   <td scope="row">
                     <div class="social-description">
-                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm">A</a>
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
+                        routerLink="/userprofile/sellerreply/{{x._id}}">R</a>
                     </div>
                   </td>
                   <td scope="row">
                     <div class="social-description">
-                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i _ngcontent-c3=""
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
                           class="now-ui-icons ui-1_simple-remove"></i></a>
                     </div>
                   </td>
@@ -86,23 +87,13 @@
                 </tr>
               </tbody>
             </table>
-
             <div class="d-flex justify-content-between p-2">
-
-
-              <!-- <select class="custom-select" style="width: auto" name="pageSize"
-                                    [(ngModel)]="service.pageSize">
-                                    <option [ngValue]="2">2 items per page</option>
-                                    <option [ngValue]="4">4 items per page</option>
-                                    <option [ngValue]="6">6 items per page</option>
-                                </select> -->
             </div>
-
           </form>
-
         </div>
         <div class="social-description">
           <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/admin">Admin profile test</a>
+          <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/sellerview">Seller view test</a>
         </div>
       </div>
     </div>

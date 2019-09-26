@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, shareReplay, flatMap, map } from 'rxjs/operators';
-import { SignInResponse, SignInRequest, SignUpRequest,NewComplain } from './auth.dto';
+import { SignInResponse, SignInRequest, SignUpRequest } from './auth.dto';
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
 
@@ -32,13 +32,11 @@ export class AuthService {
         flatMap(() => this.userService.collectCurrent())
       );
   }
-   
 
   // Set session
   private setSession(response: SignInResponse) {
-    //console.log(response.token);
     const expiresAt = moment().add(response.expiresIn, 'second');
-
+    localStorage.setItem('user_id', response.user_id);
     localStorage.setItem('jwt_token', response.token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
   }
@@ -58,14 +56,20 @@ export class AuthService {
     return moment().isBefore(this.getExpiration());
   }
 
+  signOut() {
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    this.userService.removeCurrent();
+  }
 
   //make new complain
-  makeComplain(complain:NewComplain){
-    console.log("at service file 1"+ JSON.stringify(complain))
+  // makeComplain(complain: NewComplain) {
+  //   console.log('at service file 1' + JSON.stringify(complain));
 
-    return this.http
-    .post('http://localhost:3000/user/rate/create', complain)
-    .pipe(map(res => this.ApiResponse))
-  }
+  //   return this.http
+  //     .post('http://localhost:3000/user/rate/create', complain)
+  //     .pipe(map(res => this.ApiResponse));
+  // }
   // eof make new complain
 }
