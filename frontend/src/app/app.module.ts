@@ -1,3 +1,5 @@
+import { SellingComponent } from './components/selling/selling.component';
+import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
 import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
 import { SellerviewComponent } from './pages/sellerview/sellerview.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
@@ -34,7 +36,9 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     EditprofileComponent,
     PurchasehistoryComponent,
     SellerviewComponent,
-    SellerreplyComponent
+    SellerreplyComponent,
+    FinalizingformComponent,
+    SellingComponent
   ],
   imports: [
     BrowserAnimationsModule,

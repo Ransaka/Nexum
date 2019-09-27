@@ -14,8 +14,10 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
-import { SellingComponent } from './selling/selling.component';
+//import { SellingComponent } from './selling/selling.component';
 import { RatingsComponent } from './ratings/ratings.component';
+import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
+//import { FinalizingformComponent } from './finalizingform/finalizingform.component';
 //import { SellerreplyComponent } from './sellerreply/sellerreply.component';
 //import { BroadcastComponent } from './broadcast/broadcast.component';
 
@@ -38,8 +40,10 @@ import { RatingsComponent } from './ratings/ratings.component';
     NotificationComponent,
     NgbdModalBasic,
     SigninComponent,
-    SellingComponent,
-    RatingsComponent
+    //SellingComponent,
+    RatingsComponent,
+    SellerreplyformComponent
+    //FinalizingformComponent
     //SellerreplyComponent
     //BroadcastComponent
   ],

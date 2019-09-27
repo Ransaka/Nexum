@@ -12,16 +12,15 @@
       </div>
     </div>
   </div>
-
   <div class="mt-5">
     <div class="container">
       <div class="row">
         <div class="col-md-2 col-sm-2">
           <div class="card text-center" style=" width: 70rem;">
-            <h5>Product</h5>
-            <h5>Product_id</h5>
-            <h5>Description</h5>
-            <h5>category</h5>
+            <h5>{{broadcastData?.broadcasts[0]._id}}</h5>
+            <h5>{{broadcastData?.broadcasts[0].product}}</h5>
+            <h5>{{broadcastData?.broadcasts[0].category}}</h5>
+            <h5>{{broadcastData?.broadcasts[0].tags}}</h5>
             <div class="col-md-12">
               <div class="row">
               </div>
@@ -29,6 +28,7 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
+                      <th scope="col">Star</th>
                       <th scope="col">Product ID</th>
                       <th scope="col" sortable="area" (sort)="onSort($event)">Seller</th>
                       <th scope="col" sortable="message" (sort)="onSort($event)">Seller Message</th>
@@ -40,12 +40,14 @@
                   </thead>
                   <tbody>
                     <tr>
+                      <td>*</td>
                       <td>a</td>
                       <td>a</td>
                       <td scope="row">a</td>
                       <td scope="row">
                         <div class="social-description">
-                          <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm">A</a>
+                          <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
+                            routerLink="/userprofile/finalizingform">A</a>
                         </div>
                       </td>
                       <td scope="row">

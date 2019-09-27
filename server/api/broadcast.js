@@ -133,13 +133,12 @@ router.get('/all', verify.decodeToken, function (req, res) {
  * @response User of the authenicated user
  */
 router.get('/:id', verify.decodeToken, function (req, res) {
-
     User.findOne({
         _id: req.headers.uid
     }, {
         broadcasts: {
             $elemMatch: {
-                "_id": mongoose.Types.ObjectId(req.params.id)
+                _id: mongoose.Types.ObjectId(req.params.id)
             }
         }
     }).exec((err, broadcast) => {
@@ -148,7 +147,10 @@ router.get('/:id', verify.decodeToken, function (req, res) {
                 message: 'Error retrieving User with id: '
             })
         }
-        res.status(200).send(broadcast.broadcasts)
+        var item = {
+            item: broadcast.broadcasts
+        }
+        res.status(200).send(broadcast)
     })
 })
 

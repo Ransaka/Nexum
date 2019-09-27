@@ -1,3 +1,4 @@
+import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
 import { SellerviewComponent } from './pages/sellerview/sellerview.component';
 import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
@@ -45,6 +46,8 @@ const routes: Routes = [
   { path: 'userprofile/sellerview', component: SellerviewComponent },
   { path: 'userprofile/search/:username', component: SellerviewComponent },
   { path: 'userprofile/sellerreply/:id', component: SellerreplyComponent },
+  { path: 'userprofile/finalizingform', component: FinalizingformComponent },
+
   { path: '**', component: UserprofileComponent }
 ];
 
