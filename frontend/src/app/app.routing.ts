@@ -1,3 +1,4 @@
+import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
 import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
 import { SellerviewComponent } from './pages/sellerview/sellerview.component';
 import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
@@ -47,7 +48,7 @@ const routes: Routes = [
   { path: 'userprofile/search/:username', component: SellerviewComponent },
   { path: 'userprofile/sellerreply/:id', component: SellerreplyComponent },
   { path: 'userprofile/finalizingform', component: FinalizingformComponent },
-
+  { path: 'userprofile/bookmarks', component: BookmarksviewComponent },
   { path: '**', component: UserprofileComponent }
 ];
 

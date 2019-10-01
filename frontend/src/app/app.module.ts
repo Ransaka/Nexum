@@ -1,3 +1,4 @@
+import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
 import { SellingComponent } from './components/selling/selling.component';
 import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
 import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
@@ -38,7 +39,8 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     SellerviewComponent,
     SellerreplyComponent,
     FinalizingformComponent,
-    SellingComponent
+    SellingComponent,
+    BookmarksviewComponent
   ],
   imports: [
     BrowserAnimationsModule,

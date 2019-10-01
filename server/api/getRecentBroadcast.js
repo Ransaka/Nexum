@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 const verify = require('../auth/verify')
 const mongoose = require('mongoose')
 
-
+mongoose.Promise = global.Promise;
 const User = require('../models/User')
 const Selling = require('../models/Selling')
 const checkAuth = require('../auth/check-auth')
@@ -65,10 +65,10 @@ router.get('/all', verify.decodeToken, function (req, res) {
 })
 
 ///////////////////////////////////////////////////////////////////////////////////////
-retArray = new Array()
-router.get('/test', verify.decodeToken, function (req, res) {
+
+router.get('/test', verify.decodeToken, async function (req, res) {
     array = new Array()
-    User.findById({
+    await User.findById({
         _id: req.headers.uid
     }).exec((err, user) => {
         if (err) {
@@ -86,31 +86,37 @@ router.get('/test', verify.decodeToken, function (req, res) {
         for (i = 0; i < items.selling.length; i++) {
             // Finding the related broadcasts
             array.push(items.selling[i].product)
-        }
-        ///////////////////////////////
-
-        for (i = 0; i < array.length; i++) {
-            User.find({
-                broadcasts: {
-                    $elemMatch: {
-                        "product": array[i]
-                    }
-                }
-            }).exec((err, user) => {
-                if (err) {
-                    return res.status(500).send({
-                        message: 'Error retrieving User with id: '
-                    })
-                }
-                retArray.unshift(user)
-                console.log(retArray)
-                //res.status(200).send(user)
-            })
+            console.log('here' + i)
 
         }
-        res.status(200).send(retArray)
     })
+    ///////////////////////////////
+    retArray = new Array()
+    console.log('here1')
+    for (i = 0; i < array.length; i++) {
+        User.find({
+            broadcasts: {
+                $elemMatch: {
+                    "product": array[i]
+                }
+            }
+        }).exec((err, user) => {
+            if (err) {
+                return res.status(500).send({
+                    message: 'Error retrieving User with id: '
+                })
+            }
+            retArray.i = user
+            console.log(user)
+
+        })
+
+    }
+    console.log('here2')
+    res.status(200).send(retArray)
 })
+
+
 
 
 module.exports = router

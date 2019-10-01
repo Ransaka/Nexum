@@ -17,11 +17,20 @@
           </div>
           <!--/Profile Image-->
           <h2>{{ user?.username }}</h2>
+          <button *ngIf="[(bookmarkAdded)] == 'true'" class="btn btn-primary btn-sm btn-round" type="button"
+            (click)="addBookmark()"><i class="now-ui-icons ui-1_bell-53"></i> Remove
+            from
+            Bookmarks
+          </button>
+          <button *ngIf="[(bookmarkAdded)] == 'false'" class="btn btn-primary btn-sm btn-round" type="button"
+            (click)="addBookmark()"><i class="now-ui-icons ui-1_bell-53"></i> Add
+            to
+            Bookmarks
+          </button>
         </div>
       </div>
     </div>
   </div>
-
   <div class="mt-5">
     <div class="container">
       <div class="row">

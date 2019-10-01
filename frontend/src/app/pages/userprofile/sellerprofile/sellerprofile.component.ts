@@ -21,6 +21,7 @@ export class SellerprofileComponent implements OnInit {
   ngOnInit() {
     this.getUser();
     this.getSelling();
+    this.getAllBroad();
   }
 
   // Get user details
@@ -35,5 +36,22 @@ export class SellerprofileComponent implements OnInit {
     this._sellingservice
       .getSelling()
       .subscribe(data => (this.sellingArray = data as Selling[]));
+  }
+
+  a = new Array();
+  // Get all selling
+  async getBroadcasts() {
+    await this._sellingservice
+      .getBroadcasts()
+      .subscribe(data => this.a.push(data));
+  }
+
+  private async getAllBroad() {
+    const d = await this.getBroadcasts().then(() => {
+      console.log(this.a.length);
+      for (let i = 0; i < this.a.length; i++) {
+        console.log('val ' + i);
+      }
+    });
   }
 }
