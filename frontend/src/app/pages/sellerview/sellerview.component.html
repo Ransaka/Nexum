@@ -18,7 +18,7 @@
           <!--/Profile Image-->
           <h2>{{ user?.username }}</h2>
           <button *ngIf="[(bookmarkAdded)] == 'true'" class="btn btn-primary btn-sm btn-round" type="button"
-            (click)="addBookmark()"><i class="now-ui-icons ui-1_bell-53"></i> Remove
+            (click)="removeBookmark()"><i class="now-ui-icons ui-1_bell-53"></i> Remove
             from
             Bookmarks
           </button>

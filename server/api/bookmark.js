@@ -99,4 +99,34 @@ router.get('/getBookmarks', function (req, res) {
     })
 })
 
+/**
+ * Cars delete endpoint.
+ *
+ * Delete the car referenced to the given car id which is owned by authenticated user.
+ *
+ * @param id
+ * @role User
+ */
+router.post('/delete/:id', function (req, res) {
+    console.log('asd' + req.headers.uid)
+    User.update({
+        "_id": req.headers.uid
+    }, {
+        $pull: {
+            bookmarks: {
+                userID: req.params.id
+            }
+        }
+    }).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error removing bookmark'
+            })
+        }
+        return res.status(200).send(
+            user
+        )
+    })
+})
+
 module.exports = router

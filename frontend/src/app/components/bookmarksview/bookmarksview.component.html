@@ -27,7 +27,6 @@
                       <th scope="col">UserId</th>
                       <th scope="col">Username</th>
                       <th scope="col" sortable="area" (sort)="onSort($event)">View User Profile</th>
-                      <th scope="col" sortable="message" (sort)="onSort($event)">Remove Bookmark</th>
 
                     </tr>
                   </thead>
@@ -37,13 +36,8 @@
                       <td>{{x.username}}</td>
                       <td scope="row">
                         <div class="social-description">
-                          <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm">V</a>
-                        </div>
-                      </td>
-                      <td scope="row">
-                        <div class="social-description">
-                          <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
-                              class="now-ui-icons ui-1_simple-remove"></i></a>
+                          <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
+                            routerLink="/userprofile/search/{{x.username}}">V</a>
                         </div>
                       </td>
                     </tr>

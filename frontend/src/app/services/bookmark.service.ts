@@ -47,4 +47,19 @@ export class BookmarkService {
       }
     );
   }
+
+  //Find if bookmarked
+  removeBookmark(userID: any): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'uid',
+      localStorage.getItem('user_id')
+    );
+    return this.http.post(
+      'http://localhost:3000/user/bookmark/delete/' + userID,
+      userID,
+      {
+        headers
+      }
+    );
+  }
 }

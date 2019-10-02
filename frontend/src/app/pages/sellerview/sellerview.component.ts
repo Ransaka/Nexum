@@ -68,6 +68,13 @@ export class SellerviewComponent implements OnInit {
       .subscribe(() => this.bookmarkAdded);
   }
 
+  removeBookmark() {
+    this.bookmarkAdded = false;
+    return this._bookmarkService
+      .removeBookmark(this.user._id)
+      .subscribe(() => console.log('removed'));
+  }
+
   // Find if bookmarked
   isBookmaked() {
     const request = {

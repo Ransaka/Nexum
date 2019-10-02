@@ -11,12 +11,12 @@ export class BookmarksviewComponent implements OnInit {
   constructor(private _bookmarkService: BookmarkService) {}
 
   ngOnInit() {
-    this.getBroadcasts();
+    this.getBookmarks();
   }
 
   BookmarkArray: Bookmark[];
   // Get all broadcasts
-  getBroadcasts() {
+  getBookmarks() {
     this._bookmarkService
       .getBookmarks()
       .subscribe(data => (this.BookmarkArray = data as Bookmark[]));
