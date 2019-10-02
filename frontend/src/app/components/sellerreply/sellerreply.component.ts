@@ -1,5 +1,7 @@
+import { BroadcastService } from './../../services/broadcast.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Broadcast } from './../../services/broadcast.dto';
 
 @Component({
   selector: 'app-sellerreply',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sellerreply.component.scss']
 })
 export class SellerreplyComponent implements OnInit {
-  constructor(private _activatedRoute: ActivatedRoute) {}
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _broadcastService: BroadcastService
+  ) {}
 
   id: string;
   ngOnInit() {
@@ -19,5 +24,15 @@ export class SellerreplyComponent implements OnInit {
       }
     });
     console.log('seller :' + this.id);
+    this.getBroadcasts();
+  }
+
+  broadcastData: any;
+
+  // Get all broadcasts
+  getBroadcasts() {
+    this._broadcastService
+      .getBroadcastById(this.id)
+      .subscribe(data => (this.broadcastData = data));
   }
 }

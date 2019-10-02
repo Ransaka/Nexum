@@ -23,6 +23,7 @@ export class BroadcastService {
     );
   }
 
+  // Get all broadcasts
   getBroadcast(): Observable<Broadcast[]> {
     const headers = new HttpHeaders().set(
       'x-access-token',
@@ -30,6 +31,20 @@ export class BroadcastService {
     );
     return this.http.get<Broadcast[]>(
       'http://localhost:3000/user/broadcast/all',
+      {
+        headers
+      }
+    );
+  }
+
+  // Get a broadcast by id
+  getBroadcastById(id: string): Observable<Broadcast> {
+    console.log(id);
+    const headers = new HttpHeaders()
+      .set('x-access-token', localStorage.getItem('jwt_token'))
+      .set('uid', localStorage.getItem('user_id'));
+    return this.http.get<Broadcast>(
+      'http://localhost:3000/user/broadcast/' + id,
       {
         headers
       }

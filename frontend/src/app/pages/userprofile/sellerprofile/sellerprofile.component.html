@@ -69,34 +69,41 @@
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th scope="col">Number</th>
-                            <th scope="col" sortable="name" (sort)="onSort($event)">Shop Name</th>
+                            <th scope="col">ID</th>
+                            <th scope="col" sortable="name" (sort)="onSort($event)">Username</th>
                             <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
+                            <th scope="col" sortable="message" (sort)="onSort($event)">Category</th>
                             <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
-                            <th scope="col">Finalize</th>
-                            <th scope="col">Action</th>
+                            <th scope="col" sortable="message" (sort)="onSort($event)">Reply</th>
+                            <th scope="col">View User</th>
+                            <th scope="col">Remove</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr *ngFor="let x of sellingArray?.selling.slice(0,5)">
-                            <td>{{x._id | slice:-4}}</td>
-                            <td>{{x.product}}</td>
-                            <td scope="row">{{x.tags}}</td>
+                            <td>aaa</td>
+                            <td>aaa</td>
+                            <td scope="row">aaa</td>
                             <td scope="row">
-                              <div class="social-description">
-                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
-                                  routerLink="/userprofile/sellerreply">A</a>
-                              </div>
+                              aaa
                             </td>
                             <td scope="row">
+                              aaa
+                            </td>
+                            <td>
                               <div class="social-description">
-                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
-                                    class="now-ui-icons ui-1_simple-remove"></i></a>
+                                <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">R</a>
                               </div>
                             </td>
                             <td>
                               <div class="social-description">
-                                <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">C</a>
+                                <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">U</a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="social-description">
+                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
+                                    class="now-ui-icons ui-1_simple-remove"></i></a>
                               </div>
                             </td>
                           </tr>

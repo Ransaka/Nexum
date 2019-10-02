@@ -6,16 +6,16 @@ import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 
-import { BasicelementsComponent } from './basicelements/basicelements.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { TypographyComponent } from './typography/typography.component';
-import { NucleoiconsComponent } from './nucleoicons/nucleoicons.component';
 import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
-import { SellingComponent } from './selling/selling.component';
+//import { SellingComponent } from './selling/selling.component';
 import { RatingsComponent } from './ratings/ratings.component';
+import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
+//import { BookmarksviewComponent } from './bookmarksview/bookmarksview.component';
+//import { FinalizingformComponent } from './finalizingform/finalizingform.component';
 //import { SellerreplyComponent } from './sellerreply/sellerreply.component';
 //import { BroadcastComponent } from './broadcast/broadcast.component';
 
@@ -31,15 +31,15 @@ import { RatingsComponent } from './ratings/ratings.component';
   ],
   declarations: [
     ComponentsComponent,
-    BasicelementsComponent,
-    NavigationComponent,
     TypographyComponent,
-    NucleoiconsComponent,
     NotificationComponent,
     NgbdModalBasic,
     SigninComponent,
-    SellingComponent,
-    RatingsComponent
+    //SellingComponent,
+    RatingsComponent,
+    SellerreplyformComponent
+    //BookmarksviewComponent
+    //FinalizingformComponent
     //SellerreplyComponent
     //BroadcastComponent
   ],

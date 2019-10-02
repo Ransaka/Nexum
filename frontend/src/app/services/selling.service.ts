@@ -30,4 +30,16 @@ export class SellingService {
       headers
     });
   }
+
+  getBroadcasts() {
+    const headers = new HttpHeaders()
+      .set('x-access-token', localStorage.getItem('jwt_token'))
+      .set('uid', localStorage.getItem('user_id'));
+    return this.http.get<any>(
+      'http://localhost:3000/user/getRecentBroadcasts/test',
+      {
+        headers
+      }
+    );
+  }
 }

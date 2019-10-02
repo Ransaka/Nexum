@@ -6,7 +6,7 @@
       <div class="row">
         <div class=" col-md-12 col-sm-12">
           <div class="mt-5">
-            <h3>Replies</h3>
+            <h3>Bookmarks</h3>
           </div>
         </div>
       </div>
@@ -17,10 +17,6 @@
       <div class="row">
         <div class="col-md-2 col-sm-2">
           <div class="card text-center" style=" width: 70rem;">
-            <h5>{{broadcastData?.broadcasts[0]._id}}</h5>
-            <h5>{{broadcastData?.broadcasts[0].product}}</h5>
-            <h5>{{broadcastData?.broadcasts[0].category}}</h5>
-            <h5>{{broadcastData?.broadcasts[0].tags}}</h5>
             <div class="col-md-12">
               <div class="row">
               </div>
@@ -28,37 +24,20 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th scope="col">Star</th>
-                      <th scope="col">Product ID</th>
-                      <th scope="col" sortable="area" (sort)="onSort($event)">Seller</th>
-                      <th scope="col" sortable="message" (sort)="onSort($event)">Seller Message</th>
-                      <th scope="col">Finalize</th>
-                      <th scope="col">Remove</th>
-                      <th scope="col">Report</th>
+                      <th scope="col">UserId</th>
+                      <th scope="col">Username</th>
+                      <th scope="col" sortable="area" (sort)="onSort($event)">View User Profile</th>
 
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>*</td>
-                      <td>a</td>
-                      <td>a</td>
-                      <td scope="row">a</td>
+                    <tr *ngFor="let x of BookmarkArray?.bookmark">
+                      <td>{{x.userID | slice:-4}}</td>
+                      <td>{{x.username}}</td>
                       <td scope="row">
                         <div class="social-description">
                           <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
-                            routerLink="/userprofile/finalizingform">A</a>
-                        </div>
-                      </td>
-                      <td scope="row">
-                        <div class="social-description">
-                          <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
-                              class="now-ui-icons ui-1_simple-remove"></i></a>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="social-description">
-                          <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">C</a>
+                            routerLink="/userprofile/search/{{x.username}}">V</a>
                         </div>
                       </td>
                     </tr>
