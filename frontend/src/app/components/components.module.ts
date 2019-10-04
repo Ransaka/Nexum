@@ -13,7 +13,8 @@ import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
 //import { SellingComponent } from './selling/selling.component';
 import { RatingsComponent } from './ratings/ratings.component';
-import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
+//import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
+import { NonRegisteredComponent } from './non-registered/non-registered.component';
 //import { BookmarksviewComponent } from './bookmarksview/bookmarksview.component';
 //import { FinalizingformComponent } from './finalizingform/finalizingform.component';
 //import { SellerreplyComponent } from './sellerreply/sellerreply.component';
@@ -37,7 +38,8 @@ import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.comp
     SigninComponent,
     //SellingComponent,
     RatingsComponent,
-    SellerreplyformComponent
+    //SellerreplyformComponent,
+    NonRegisteredComponent
     //BookmarksviewComponent
     //FinalizingformComponent
     //SellerreplyComponent

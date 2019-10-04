@@ -76,6 +76,7 @@
                             <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
                             <th scope="col" sortable="message" (sort)="onSort($event)">Reply</th>
                             <th scope="col">View User</th>
+                            <th scope="col">Finalize</th>
                             <th scope="col">Remove</th>
                           </tr>
                         </thead>
@@ -92,12 +93,19 @@
                             </td>
                             <td>
                               <div class="social-description">
-                                <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">R</a>
+                                <a class="btn btn-primary btn-lg btn-round btn-sm"
+                                  routerLink="/userprofile/sellerreplyform/{{x._id}}">R</a>
                               </div>
                             </td>
                             <td>
                               <div class="social-description">
                                 <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">U</a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="social-description">
+                                <a class="btn btn-primary btn-lg btn-round btn-sm"
+                                  routerLink="/userprofile/finalizingform/{{x._id}}">F</a>
                               </div>
                             </td>
                             <td>

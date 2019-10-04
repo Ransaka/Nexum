@@ -4,6 +4,7 @@ import { UserService } from 'app/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { UserView, Username } from './../../services/user.dto';
 import { Observable } from 'rxjs';
+import { AgmCoreModule } from '@agm/core';
 
 @Component({
   selector: 'app-sellerview',
@@ -17,6 +18,9 @@ export class SellerviewComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _bookmarkService: BookmarkService
   ) {}
+
+  lat = 51.678418;
+  lng = 7.809007;
 
   bookmarkAdded: boolean;
   error: string;

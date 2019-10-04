@@ -34,6 +34,7 @@ const userSchema = new Schema({
     broadcasts: [],
     selling: [],
     bookmarks: [],
+    sellerReply: [],
 
     overallrate: Number,
     ratings: []
