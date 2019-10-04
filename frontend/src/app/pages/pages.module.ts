@@ -12,6 +12,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { BroadcastviewComponent } from './broadcastview/broadcastview.component';
 import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.component';
 import { SellerviewComponent } from './sellerview/sellerview.component';
+import { NonRegisteredSellerViewComponent } from './non-registered-seller-view/non-registered-seller-view.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SellerviewComponent } from './sellerview/sellerview.component';
     EditprofileComponent,
     BroadcastviewComponent,
     PurchasehistoryComponent,
-    SellerviewComponent
+    SellerviewComponent,
+    NonRegisteredSellerViewComponent
   ],
   imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
 })

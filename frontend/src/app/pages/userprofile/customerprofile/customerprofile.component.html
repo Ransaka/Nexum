@@ -57,6 +57,7 @@
                   <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
                   <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
                   <th scope="col">Replies</th>
+                  <th scope="col">Finalizing Forms</th>
                   <th scope="col">Remove</th>
 
                 </tr>
@@ -70,6 +71,12 @@
                     <div class="social-description">
                       <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
                         routerLink="/userprofile/sellerreply/{{x._id}}">R</a>
+                    </div>
+                  </td>
+                  <td scope="row">
+                    <div class="social-description">
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
+                        routerLink="/userprofile/sellerreply/{{x._id}}">F</a>
                     </div>
                   </td>
                   <td scope="row">
@@ -93,6 +100,7 @@
     </div>
   </div>
   <!-- /Broadcast Table -->
+
 
 
   <!-- Recent Table -->

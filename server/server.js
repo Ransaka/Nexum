@@ -14,6 +14,7 @@ const sellingRouter = require('./api/selling')
 const rateRouter = require('./api/rate')
 const getRecentBroadcastRouter = require('./api/getRecentBroadcast')
 const bookmarksRouter = require('./api/bookmark')
+const sellerReplyRouter = require('./api/sellerReply')
 
 
 
@@ -37,6 +38,7 @@ app.use('/user/selling', sellingRouter)
 app.use('/user/rate', rateRouter)
 app.use('/user/getRecentBroadcasts', getRecentBroadcastRouter)
 app.use('/user/bookmark', bookmarksRouter)
+app.use('/user/sellerReply', sellerReplyRouter)
 
 app.get('/', function (req, res) {
     res.send("Hello")

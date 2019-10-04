@@ -246,4 +246,23 @@ router.get('/search/:username', verify.decodeToken, function (req, res) {
     })
 })
 
+/**
+ * Get all users endpoint.
+ *
+ * 
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.get('/all', verify.decodeToken, function (req, res) {
+    User.find().exec((err, users) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+        res.status(200).send(users)
+    })
+})
+
 module.exports = router

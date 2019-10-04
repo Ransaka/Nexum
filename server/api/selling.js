@@ -7,6 +7,7 @@ const verify = require('../auth/verify')
 const User = require('../models/User')
 const Selling = require('../models/Selling')
 const checkAuth = require('../auth/check-auth')
+const SellerReply = require('../models/SellerReply')
 
 
 /**

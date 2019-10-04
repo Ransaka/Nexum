@@ -66,7 +66,8 @@ router.get('/all', verify.decodeToken, function (req, res) {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-router.get('/test', verify.decodeToken, async function (req, res) {
+
+async function a(req, res) {
     array = new Array()
     await User.findById({
         _id: req.headers.uid
@@ -86,35 +87,38 @@ router.get('/test', verify.decodeToken, async function (req, res) {
         for (i = 0; i < items.selling.length; i++) {
             // Finding the related broadcasts
             array.push(items.selling[i].product)
-            console.log('here' + i)
-
+            console.log(items.selling[i].product)
         }
     })
-    ///////////////////////////////
+}
+
+async function b(req, res) {
     retArray = new Array()
-    console.log('here1')
-    for (i = 0; i < array.length; i++) {
-        User.find({
-            broadcasts: {
-                $elemMatch: {
-                    "product": array[i]
+    await array.forEach(element => {
+        {
+            User.find({
+                broadcasts: {
+                    $elemMatch: {
+                        "product": element
+                    }
                 }
-            }
-        }).exec((err, user) => {
-            if (err) {
-                return res.status(500).send({
-                    message: 'Error retrieving User with id: '
-                })
-            }
-            retArray.i = user
-            console.log(user)
+            }).exec((err, user) => {
+                if (err) {
+                    return res.status(500).send({
+                        message: 'Error retrieving User with id: '
+                    })
+                }
+                retArray.i = user
+                console.log(user)
 
-        })
+            })
 
-    }
-    console.log('here2')
+        }
+    });
     res.status(200).send(retArray)
-})
+}
+
+
 
 
 
