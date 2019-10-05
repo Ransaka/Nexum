@@ -1,3 +1,4 @@
+import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
 import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
 import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'userprofile/sellerreplyform/:id',
     component: SellerreplyformComponent
+  },
+  {
+    path: 'userprofile/finalizingformview',
+    component: FinalizingformviewComponent
   },
   { path: '**', component: UserprofileComponent }
 ];
