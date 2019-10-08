@@ -15,6 +15,7 @@ const rateRouter = require('./api/rate')
 const getRecentBroadcastRouter = require('./api/getRecentBroadcast')
 const bookmarksRouter = require('./api/bookmark')
 const sellerReplyRouter = require('./api/sellerReply')
+const forgotPasswordMailRouter = require('./api/forgotPasswordMail')
 
 
 
@@ -39,6 +40,7 @@ app.use('/user/rate', rateRouter)
 app.use('/user/getRecentBroadcast', getRecentBroadcastRouter)
 app.use('/user/bookmark', bookmarksRouter)
 app.use('/user/sellerReply', sellerReplyRouter)
+app.use('/forgotPasswordMail', forgotPasswordMailRouter)
 
 app.get('/', function (req, res) {
     res.send("Hello")

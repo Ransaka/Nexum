@@ -15,6 +15,7 @@ import { SigninComponent } from './signin/signin.component';
 import { RatingsComponent } from './ratings/ratings.component';
 //import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
 import { NonRegisteredComponent } from './non-registered/non-registered.component';
+import { RecoverAccountComponent } from './recover-account/recover-account.component';
 //import { FinalizingformviewComponent } from './finalizingformview/finalizingformview.component';
 //import { BookmarksviewComponent } from './bookmarksview/bookmarksview.component';
 //import { FinalizingformComponent } from './finalizingform/finalizingform.component';
@@ -40,7 +41,8 @@ import { NonRegisteredComponent } from './non-registered/non-registered.componen
     //SellingComponent,
     RatingsComponent,
     //SellerreplyformComponent,
-    NonRegisteredComponent
+    NonRegisteredComponent,
+    RecoverAccountComponent
     //FinalizingformviewComponent
     //BookmarksviewComponent
     //FinalizingformComponent

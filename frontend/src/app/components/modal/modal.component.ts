@@ -39,7 +39,7 @@ export class NgbdModalBasic {
     this.signupForm = this.formbuilder.group({
       email: ['', Validators.required],
       username: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(5)]],
       confirmpassword: ['', Validators.required]
     });
   }
