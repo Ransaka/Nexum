@@ -126,4 +126,26 @@ router.post('/test1', function (req, res) {
 
 })
 
+router.post('/getFinalizingForms', function (req, res) {
+    User.findById({
+        _id: req.headers.uid
+    }).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id:' + req.uid
+            })
+        }
+        // Remove password attribute from the user
+        user.password = undefined
+
+        var forms = {
+            form: user.sellerReply
+        }
+
+        res.status(200).send(forms)
+    })
+
+
+})
+
 module.exports = router
