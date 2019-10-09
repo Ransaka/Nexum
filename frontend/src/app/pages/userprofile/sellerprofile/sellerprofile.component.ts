@@ -21,7 +21,6 @@ export class SellerprofileComponent implements OnInit {
   ngOnInit() {
     this.getUser();
     this.getSelling();
-    this.getAllBroad();
   }
 
   // Get user details
@@ -41,17 +40,30 @@ export class SellerprofileComponent implements OnInit {
   a = new Array();
   // Get all selling
   async getBroadcasts() {
-    await this._sellingservice
-      .getBroadcasts()
-      .subscribe(data => this.a.push(data));
+    this._sellingservice.getBroadcasts().subscribe(data => this.a.push(data));
   }
 
-  private async getAllBroad() {
-    const d = await this.getBroadcasts().then(() => {
-      console.log(this.a.length);
-      for (let i = 0; i < this.a.length; i++) {
-        console.log('val ' + i);
-      }
+  sellingItems: String[];
+  // Get all selling
+  async test() {
+    await this._sellingservice
+      .getItems()
+      .subscribe(data => (this.sellingItems = data));
+  }
+
+  async test1(item: String) {
+    await this._sellingservice
+      .getUsers(item)
+      .subscribe(data => console.log(data));
+  }
+
+  async getAllBroad() {
+    await this.test().then(() => {
+      console.log(this.sellingItems);
+      // this.sellingItems.forEach(element => {
+      //   this.test1(element);
+      //   console.log(element);
+      // });
     });
   }
 }

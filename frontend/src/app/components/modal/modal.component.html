@@ -53,17 +53,14 @@
                         </div>
                         <div class="justify-content-center">
                             <div class="mt-5 ">
-
-                                <div class="pull-left">
-                                    <h6>
-                                        <a href="#pablo" class="link">Create Account</a>
-                                    </h6>
-                                </div>
-                                <div class="pull-right">
-                                    <h6>
-                                        <a href="#pablo" class="link">Forgot Password?</a>
-                                    </h6>
-                                </div>
+                                <h6>
+                                    <a class="btn btn-link btn-primary" (click)="[open(signuppop,'' , '')]">Create
+                                        Account</a>
+                                </h6>
+                                <h6>
+                                    <a class="btn btn-link btn-primary" routerLink="/recoverAccount">Forgot
+                                        Password?</a>
+                                </h6>
                                 <!-- /Button -->
                             </div>
 
@@ -84,7 +81,7 @@
 
 
 <!--SignUp-->
-
+&nbsp;
 <button class="btn btn-primary btn-lg btn-simple btn-round" (click)="[open(signuppop,'' , '')]">SignUp</button>
 <ng-template #signuppop let-c="close" let-d="dismiss">
 
@@ -99,7 +96,7 @@
     <!-- /Head -->
 
     <div class="container">
-        <div class="col-md-12 content-center">
+        <div class="col-md-12">
             <div class="card card-signup card-plain">
                 <form class="form" method="" action="" [formGroup]="signupForm">
                     <div class="content">
@@ -137,9 +134,13 @@
                                 <input [(ngModel)]="password" formControlName="password"
                                     class="form-control border-input" placeholder="Password" type="password"
                                     [ngClass]="{'is-invalid':signupForm.get('password').touched && signupForm.get('password').invalid}">
-                                <div class="invalid-feedback">
+                                <div class="invalid-feedback" *ngIf="signupForm.get('password').errors.required">
                                     <div>Password is required</div>
                                 </div>
+                                <div class="invalid-feedback" *ngIf="signupForm.get('password').errors.minlength">
+                                    <div>Password should contain atleast 5 characters</div>
+                                </div>
+
                             </div>
                         </div>
                         <!-- /Password -->

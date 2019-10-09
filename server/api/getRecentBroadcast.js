@@ -66,8 +66,7 @@ router.get('/all', verify.decodeToken, function (req, res) {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-
-async function a(req, res) {
+router.get('/test', async function (req, res) {
     array = new Array()
     await User.findById({
         _id: req.headers.uid
@@ -89,38 +88,64 @@ async function a(req, res) {
             array.push(items.selling[i].product)
             console.log(items.selling[i].product)
         }
+
+        res.status(200).send(array)
     })
-}
 
-async function b(req, res) {
+
+})
+
+router.post('/test1', function (req, res) {
     retArray = new Array()
-    await array.forEach(element => {
-        {
-            User.find({
-                broadcasts: {
-                    $elemMatch: {
-                        "product": element
-                    }
-                }
-            }).exec((err, user) => {
-                if (err) {
-                    return res.status(500).send({
-                        message: 'Error retrieving User with id: '
-                    })
-                }
-                retArray.i = user
-                console.log(user)
-
-            })
-
+    User.find({
+        broadcasts: {
+            $elemMatch: {
+                "product": req.body.element
+            }
         }
-    });
-    res.status(200).send(retArray)
-}
+    }).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+
+        array = new Array()
+
+        user.forEach(element => {
+            var response = {
+                userID: element._id,
+                username: element.username
+            }
+            array.push(response)
+        })
+
+        res.status(200).send(array)
+    })
 
 
+})
+
+router.post('/getFinalizingForms', function (req, res) {
+    User.findById({
+        _id: req.headers.uid
+    }).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id:' + req.uid
+            })
+        }
+        // Remove password attribute from the user
+        user.password = undefined
+
+        var forms = {
+            form: user.sellerReply
+        }
+
+        res.status(200).send(forms)
+    })
 
 
-
+})
 
 module.exports = router

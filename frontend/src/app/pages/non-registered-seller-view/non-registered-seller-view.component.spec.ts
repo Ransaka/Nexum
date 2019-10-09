@@ -8,9 +8,8 @@ describe('NonRegisteredSellerViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NonRegisteredSellerViewComponent ]
-    })
-    .compileComponents();
+      declarations: [NonRegisteredSellerViewComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('NonRegisteredSellerViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });

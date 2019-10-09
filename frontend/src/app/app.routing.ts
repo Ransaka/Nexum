@@ -1,3 +1,4 @@
+import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
 import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
 import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
@@ -20,6 +21,7 @@ import { ComponentsComponent } from './components/components.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
+import { RecoverAccountComponent } from './components/recover-account/recover-account.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -56,6 +58,14 @@ const routes: Routes = [
   {
     path: 'userprofile/sellerreplyform/:id',
     component: SellerreplyformComponent
+  },
+  {
+    path: 'userprofile/finalizingformview',
+    component: FinalizingformviewComponent
+  },
+  {
+    path: 'recoverAccount',
+    component: RecoverAccountComponent
   },
   { path: '**', component: UserprofileComponent }
 ];

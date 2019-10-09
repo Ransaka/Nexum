@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminprofileComponent } from './adminprofile.component';
+import { FinalizingformviewComponent } from './finalizingformview.component';
 
-describe('AdminprofileComponent', () => {
-  let component: AdminprofileComponent;
-  let fixture: ComponentFixture<AdminprofileComponent>;
+describe('FinalizingformviewComponent', () => {
+  let component: FinalizingformviewComponent;
+  let fixture: ComponentFixture<FinalizingformviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AdminprofileComponent]
+      declarations: [FinalizingformviewComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminprofileComponent);
+    fixture = TestBed.createComponent(FinalizingformviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
