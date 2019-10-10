@@ -96,6 +96,7 @@ router.get('/test', async function (req, res) {
 })
 
 router.post('/test1', function (req, res) {
+    console.log(req.body.element)
     retArray = new Array()
     User.find({
         broadcasts: {
@@ -111,7 +112,6 @@ router.post('/test1', function (req, res) {
         }
 
         array = new Array()
-
         user.forEach(element => {
             var response = {
                 userID: element._id,
@@ -119,8 +119,13 @@ router.post('/test1', function (req, res) {
             }
             array.push(response)
         })
+        if (array.length > 0) {
+            res.status(200).send(array)
+        } else {
+            array.push('empty')
+            res.status(200).send(array)
+        }
 
-        res.status(200).send(array)
     })
 
 

@@ -21,7 +21,7 @@ router.post('/login', (req, res, next) => {
         })
         .exec()
         .then(user => {
-            if (user.length < 1) {
+            if (user == null || user.length < 1) {
                 return res.status(401).json({
                     message: 'Auth failed'
                 })

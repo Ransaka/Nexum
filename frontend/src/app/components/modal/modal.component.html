@@ -46,6 +46,22 @@
 
                         <div class="mt-5">
                             <!-- Buttons -->
+
+                            <div *ngIf="error">
+                                <ngb-alert class="alert alert-danger" role="alert">
+                                    <!---->
+                                    <div class="container">
+                                        <div class="alert-wrapper">
+                                            <div class="message">
+                                                <div class="alert-icon"><i class="now-ui-icons ui-1_simple-remove"></i>
+                                                </div>Invalid username or password
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ngb-alert>
+                            </div>
+
+
                             <div class="text-center">
                                 <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal"
                                     (click)="login()">LogIn</a>
@@ -54,11 +70,13 @@
                         <div class="justify-content-center">
                             <div class="mt-5 ">
                                 <h6>
-                                    <a class="btn btn-link btn-primary" (click)="[open(signuppop,'' , '')]">Create
+                                    <a class="btn btn-link btn-primary"
+                                        (click)="[open(signuppop,'' , ''),d('Cross click')]">Create
                                         Account</a>
                                 </h6>
                                 <h6>
-                                    <a class="btn btn-link btn-primary" routerLink="/recoverAccount">Forgot
+                                    <a class="btn btn-link btn-primary" (click)="[d('Cross click')]"
+                                        routerLink="/recoverAccount">Forgot
                                         Password?</a>
                                 </h6>
                                 <!-- /Button -->

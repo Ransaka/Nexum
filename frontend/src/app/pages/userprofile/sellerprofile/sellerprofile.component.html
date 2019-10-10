@@ -65,6 +65,7 @@
                         </div>
                       </div>
                     </div>
+
                     <form>
                       <table class="table table-striped">
                         <thead>
@@ -81,9 +82,9 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let x of sellingArray?.selling.slice(0,5)">
-                            <td>aaa</td>
-                            <td>aaa</td>
+                          <tr *ngFor="let x of recievedBroadcasts">
+                            <td>{{x[0].userID}}</td>
+                            <td>{{x[0].username}}</td>
                             <td scope="row">aaa</td>
                             <td scope="row">
                               aaa

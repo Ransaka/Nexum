@@ -12,6 +12,7 @@ export class NgbdModalBasic {
   closeResult: string;
   loginForm: FormGroup;
   signupForm: FormGroup;
+
   constructor(
     private modalService: NgbModal,
     private auth: AuthService,
@@ -76,6 +77,7 @@ export class NgbdModalBasic {
         .subscribe(
           () => {
             this.router.navigate(['/userprofile/customerprofile']);
+            this.modalService.dismissAll();
           },
           err => {
             console.log(err);
@@ -99,11 +101,13 @@ export class NgbdModalBasic {
     this.auth.login(request).subscribe(
       res => {
         this.router.navigateByUrl('/userprofile/customerprofile');
+        this.modalService.dismissAll();
       },
       err => {
         console.log(err);
         if (err.error.message) {
           this.error = err.error.message;
+          console.log(this.error);
         }
       }
     );

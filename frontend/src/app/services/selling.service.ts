@@ -1,4 +1,4 @@
-import { Selling } from './selling.dto';
+import { Selling, Product } from './selling.dto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -55,12 +55,12 @@ export class SellingService {
     );
   }
 
-  getUsers(item: String): Observable<String[]> {
+  getUsers(item: Product): Observable<String[]> {
     const headers = new HttpHeaders()
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
     return this.http.post<String[]>(
-      'http://localhost:3000/user/getRecentBroadcast/test2',
+      'http://localhost:3000/user/getRecentBroadcast/test1',
       item,
       {
         headers

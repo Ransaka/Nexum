@@ -1,4 +1,4 @@
-import { Selling } from './../../../services/selling.dto';
+import { Selling, Product } from './../../../services/selling.dto';
 import { SellingService } from './../../../services/selling.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'app/services/user.service';
@@ -17,10 +17,12 @@ export class SellerprofileComponent implements OnInit {
 
   current_user: User;
   sellingArray: Selling[];
+  recievedBroadcasts: any[] = [];
 
   ngOnInit() {
     this.getUser();
     this.getSelling();
+    this.getRecentBroadcasts();
   }
 
   // Get user details
@@ -37,33 +39,23 @@ export class SellerprofileComponent implements OnInit {
       .subscribe(data => (this.sellingArray = data as Selling[]));
   }
 
-  a = new Array();
-  // Get all selling
-  async getBroadcasts() {
-    this._sellingservice.getBroadcasts().subscribe(data => this.a.push(data));
-  }
-
-  sellingItems: String[];
-  // Get all selling
-  async test() {
-    await this._sellingservice
-      .getItems()
-      .subscribe(data => (this.sellingItems = data));
-  }
-
-  async test1(item: String) {
-    await this._sellingservice
-      .getUsers(item)
-      .subscribe(data => console.log(data));
-  }
-
-  async getAllBroad() {
-    await this.test().then(() => {
-      console.log(this.sellingItems);
-      // this.sellingItems.forEach(element => {
-      //   this.test1(element);
-      //   console.log(element);
-      // });
+  getRecentBroadcasts() {
+    let promise = new Promise((resolve, reject) => {
+      this._sellingservice
+        .getItems()
+        .toPromise()
+        .then(res => {
+          res.forEach(item => {
+            console.log(item);
+            const request = {
+              element: item
+            };
+            this._sellingservice
+              .getUsers(request as Product)
+              .subscribe(data => this.recievedBroadcasts.push(data));
+          });
+        });
     });
+    return promise;
   }
 }
