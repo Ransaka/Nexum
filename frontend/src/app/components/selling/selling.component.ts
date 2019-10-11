@@ -41,7 +41,7 @@ export class SellingComponent implements OnInit {
       })
       .subscribe(
         () => {
-          this.router.navigate(['/userprofile/customerprofile']);
+          this.router.navigate(['/userprofile/sellerprofile']);
         },
         err => {
           console.log(err);
