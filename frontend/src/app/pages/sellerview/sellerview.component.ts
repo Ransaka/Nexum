@@ -1,3 +1,4 @@
+import { BroadcastService } from './../../services/broadcast.service';
 import { BookmarkService } from './../../services/bookmark.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'app/services/user.service';
@@ -16,7 +17,8 @@ export class SellerviewComponent implements OnInit {
     private _userservice: UserService,
     private router: Router,
     private _activatedRoute: ActivatedRoute,
-    private _bookmarkService: BookmarkService
+    private _bookmarkService: BookmarkService,
+    private _broadcastService: BroadcastService
   ) {}
 
   lat = 51.678418;

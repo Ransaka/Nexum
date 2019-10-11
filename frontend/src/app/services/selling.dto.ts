@@ -11,3 +11,7 @@ export interface SellerRelpy {
   price: number;
   textMessage?: string;
 }
+
+export interface Product {
+  element: string;
+}

@@ -11,8 +11,13 @@
         <div class="mt-5">
           <!--Profile Image-->
           <div class="photo-container">
-            <img _ngcontent-c6="" alt="Thumbnail Image" class="rounded-circle img-raised  w-25 p-3"
-              src="assets/img/ryan.jpg">
+            <img *ngIf="current_user?.profileImage" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
+              (click)="[open(changeProfPic,'' , '')]" src="http://localhost:3000/{{current_user?.profileImage}}">
+          </div>
+          <div class="photo-container">
+            <img *ngIf="!current_user?.profileImage" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
+              (click)="[open(changeProfPic,'' , '')]"
+              src="https://avatarsed1.serversdev.getgo.com/2205256774854474505_medium.jpg">
           </div>
           <!--/Profile Image-->
           <h2>{{current_user?.username}}</h2>
@@ -65,6 +70,7 @@
                         </div>
                       </div>
                     </div>
+
                     <form>
                       <table class="table table-striped">
                         <thead>
@@ -81,9 +87,9 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let x of sellingArray?.selling.slice(0,5)">
-                            <td>aaa</td>
-                            <td>aaa</td>
+                          <tr *ngFor="let x of recievedBroadcasts">
+                            <td>{{x[0].userID}}</td>
+                            <td>{{x[0].username}}</td>
                             <td scope="row">aaa</td>
                             <td scope="row">
                               aaa

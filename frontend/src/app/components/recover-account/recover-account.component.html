@@ -16,6 +16,7 @@
               placeholder="Enter you email correctly" type="text" value="">
             <button class="btn btn-primary btn-sm btn-round btn-block" type="button" (click)="send()"><i
                 class="now-ui-icons ui-1_send"></i>&nbsp;&nbsp;&nbsp;Send</button>
+            <button class="btn btn-primary btn-sm btn-round btn-block" routerLink="/" type="button">Back</button>
           </div>
         </form>
         <p *ngIf="isUserAvailable == 'true'">User Available</p>
