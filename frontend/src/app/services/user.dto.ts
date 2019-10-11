@@ -9,6 +9,7 @@ export interface User {
   selling?: Array<Object>;
   overallrating?: Number;
   ratings?: Array<Object>;
+  profileImage?: string;
 }
 
 export interface UserView {
