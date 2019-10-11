@@ -52,19 +52,14 @@ const routes: Routes = [
   { path: 'userprofile/search/:username', component: SellerviewComponent },
   { path: 'userprofile/sellerreply/:id', component: SellerreplyComponent },
   { path: 'userprofile/sellingitem/:id', component: SellingitemComponent },
-
   {
-    path: 'userprofile/finalizingform/:id',
+    path: 'userprofile/finalizingform/:id/:custid',
     component: FinalizingformComponent
   },
   { path: 'userprofile/bookmarks', component: BookmarksviewComponent },
   {
     path: 'userprofile/sellerreplyform/:id',
     component: SellerreplyformComponent
-  },
-  {
-    path: 'userprofile/finalizingformview',
-    component: FinalizingformviewComponent
   },
   {
     path: 'recoverAccount',

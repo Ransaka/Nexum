@@ -1,4 +1,4 @@
-import { Selling, Product } from './selling.dto';
+import { Selling, Product, Finalizing } from './selling.dto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -75,6 +75,22 @@ export class SellingService {
       .set('uid', localStorage.getItem('user_id'));
     return this.http.get<String>(
       'http://localhost:3000/user/selling/' + request,
+      {
+        headers
+      }
+    );
+  }
+
+  //Sending new finalizing form to the backend
+  sendFinalizing(finalizing: Finalizing) {
+    const headers = new HttpHeaders().set(
+      'uid',
+      localStorage.getItem('user_id')
+    );
+    console.log(finalizing);
+    return this.http.put(
+      'http://localhost:3000/user/selling/newfinalizing',
+      finalizing,
       {
         headers
       }

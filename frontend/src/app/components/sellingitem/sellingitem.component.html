@@ -8,66 +8,8 @@
           <div class="mt-5">
             <h5>Product Name : {{itemDetails?.item[0].product}}</h5>
             <h5>Product Id : {{itemDetails?.item[0]._id}}</h5>
+            <h5>Product Category : {{itemDetails?.item[0].category}}</h5>
             <h5>Product Tags : {{itemDetails?.item[0].tags}}</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="mt-5">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2 col-sm-2">
-          <div class="card text-center" style=" width: 70rem;">
-            <h5>A</h5>
-            <div class="col-md-12">
-              <div class="row">
-              </div>
-              <form>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">Star</th>
-                      <th scope="col">Product ID</th>
-                      <th scope="col" sortable="area" (sort)="onSort($event)">Seller</th>
-                      <th scope="col" sortable="message" (sort)="onSort($event)">Seller Message</th>
-                      <th scope="col">Finalize</th>
-                      <th scope="col">Remove</th>
-                      <th scope="col">Report</th>
-
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>*</td>
-                      <td>a</td>
-                      <td>a</td>
-                      <td scope="row">a</td>
-                      <td scope="row">
-                        <div class="social-description">
-                          <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
-                            routerLink="/userprofile/finalizingform">A</a>
-                        </div>
-                      </td>
-                      <td scope="row">
-                        <div class="social-description">
-                          <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
-                              class="now-ui-icons ui-1_simple-remove"></i></a>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="social-description">
-                          <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">C</a>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="d-flex justify-content-between p-2">
-                </div>
-              </form>
-            </div>
           </div>
         </div>
       </div>
@@ -101,11 +43,6 @@
                           <tr>
                             <th scope="col">ID</th>
                             <th scope="col" sortable="name" (sort)="onSort($event)">Username</th>
-                            <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
-                            <th scope="col" sortable="message" (sort)="onSort($event)">Category</th>
-                            <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
-                            <th scope="col" sortable="message" (sort)="onSort($event)">Reply</th>
-                            <th scope="col">View User</th>
                             <th scope="col">Finalize</th>
                             <th scope="col">Remove</th>
                           </tr>
@@ -113,34 +50,18 @@
                         <tbody>
                           <tr *ngFor="let x of recievedBroadcasts">
                             <td>{{x.userID}}</td>
-                            <td>{{x.username}}</td>
-                            <td scope="row">aaa</td>
-                            <td scope="row">
-                              aaa
-                            </td>
-                            <td scope="row">
-                              aaa
-                            </td>
+                            <a routerLink="/userprofile/search/{{x.username}}">
+                              <td>{{x.username}}</td>
+                            </a>
                             <td>
                               <div class="social-description">
-                                <a class="btn btn-primary btn-lg btn-round btn-sm"
-                                  routerLink="/userprofile/sellerreplyform/{{x._id}}">R</a>
+                                <a class="btn btn-primary btn-sm"
+                                  routerLink="/userprofile/finalizingform/{{itemId}}/{{x.userID}}">F</a>
                               </div>
                             </td>
                             <td>
                               <div class="social-description">
-                                <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">U</a>
-                              </div>
-                            </td>
-                            <td>
-                              <div class="social-description">
-                                <a class="btn btn-primary btn-lg btn-round btn-sm"
-                                  routerLink="/userprofile/finalizingform/{{x._id}}">F</a>
-                              </div>
-                            </td>
-                            <td>
-                              <div class="social-description">
-                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
+                                <a href="#button" class="btn btn-primary btn-sm"><i
                                     class="now-ui-icons ui-1_simple-remove"></i></a>
                               </div>
                             </td>

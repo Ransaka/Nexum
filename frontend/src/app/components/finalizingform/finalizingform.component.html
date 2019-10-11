@@ -11,10 +11,11 @@
               <h3 class="card-title">Finalizing Form</h3>
             </div>
             <div class="data">
-              <h5>User ID : {{broadcastData?.broadcasts[0]._id}}</h5>
-              <h5>Product : {{broadcastData?.broadcasts[0].product}}</h5>
-              <h5>Category: {{broadcastData?.broadcasts[0].category}}</h5>
-              <h5>Tags : {{broadcastData?.broadcasts[0].tags}}</h5>
+              <h5>Product Name : {{itemDetails?.item[0].product}}</h5>
+              <h5>Product Id : {{itemDetails?.item[0]._id}}</h5>
+              <h5>Product Category : {{itemDetails?.item[0].category}}</h5>
+              <h5>Product Tags : {{itemDetails?.item[0].tags}}</h5>
+              <h5>User Id : {{custId}}</h5>
             </div>
 
             <div class="card-body">
@@ -34,7 +35,7 @@
                 </div>
 
                 <div class="footer text-center">
-                  <a class="btn btn-primary btn-round btn-lg btn-block" (click)="sendBroadcast()">Send</a>
+                  <a class="btn btn-primary btn-round btn-lg btn-block" (click)="sendFinalizingForm()">Send</a>
                 </div>
 
               </form>
