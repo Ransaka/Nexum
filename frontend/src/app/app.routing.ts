@@ -1,3 +1,4 @@
+import { SellingitemComponent } from './components/sellingitem/sellingitem.component';
 import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
 import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
@@ -50,6 +51,8 @@ const routes: Routes = [
   { path: 'userprofile/sellerview', component: SellerviewComponent },
   { path: 'userprofile/search/:username', component: SellerviewComponent },
   { path: 'userprofile/sellerreply/:id', component: SellerreplyComponent },
+  { path: 'userprofile/sellingitem/:id', component: SellingitemComponent },
+
   {
     path: 'userprofile/finalizingform/:id',
     component: FinalizingformComponent

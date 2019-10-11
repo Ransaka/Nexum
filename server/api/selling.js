@@ -8,6 +8,8 @@ const User = require('../models/User')
 const Selling = require('../models/Selling')
 const checkAuth = require('../auth/check-auth')
 const SellerReply = require('../models/SellerReply')
+const mongoose = require('mongoose')
+
 
 
 /**
@@ -15,8 +17,9 @@ const SellerReply = require('../models/SellerReply')
  *
  * Publish new selling message.
  *
- * @body 
- * @response 
+ * @header uid
+ * @body product,category,textMessage
+ * @response message
  */
 router.put('/new', (req, res, next) => {
     User.findById(
@@ -34,7 +37,7 @@ router.put('/new', (req, res, next) => {
                 }
             }).then(() => {
                 res.status(200).send({
-                    message: 'Item added to selling'
+                    message: 'Item added to selling array'
                 })
             })
         }).catch(() => {
@@ -66,6 +69,37 @@ router.get('/all', verify.decodeToken, function (req, res) {
             selling: user.selling.reverse()
         }
         res.status(200).send(selling)
+    })
+})
+
+/**
+ * Get a selling item endpoint.
+ *
+ * by id.
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.get('/:id', verify.decodeToken, function (req, res) {
+    User.findOne({
+        _id: req.headers.uid
+    }, {
+        selling: {
+            $elemMatch: {
+                _id: mongoose.Types.ObjectId(req.params.id)
+            }
+        }
+    }).exec((err, item) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+        var itemDetails = {
+            item: item.selling
+        }
+        res.status(200).send(itemDetails)
     })
 })
 

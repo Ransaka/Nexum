@@ -67,4 +67,17 @@ export class SellingService {
       }
     );
   }
+
+  // Get selling item details
+  getItem(request: String): Observable<String> {
+    const headers = new HttpHeaders()
+      .set('x-access-token', localStorage.getItem('jwt_token'))
+      .set('uid', localStorage.getItem('user_id'));
+    return this.http.get<String>(
+      'http://localhost:3000/user/selling/' + request,
+      {
+        headers
+      }
+    );
+  }
 }

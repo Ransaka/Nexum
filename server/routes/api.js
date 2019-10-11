@@ -5,10 +5,7 @@ const mongoose = require('mongoose')
 const db = "mongodb+srv://nexumuser:" + "nexumuser" + "@nexum-deulb.mongodb.net/test?retryWrites=true&w=majority"
 
 // Connect to mongodb server
-mongoose.connect(db, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, err => {
+mongoose.connect(db, err => {
     if (err) {
         console.error('Error!' + err)
     } else {

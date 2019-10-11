@@ -14,6 +14,7 @@ const SellingItemSchema = new Schema({
     },
     product: String,
     category: String,
-    tags: String
+    tags: String,
+    date: Date
 })
 module.exports = mongoose.model('SellingItem', SellingItemSchema, 'sellingItem')
