@@ -26,17 +26,19 @@ export class EditprofileComponent implements OnInit {
     private modalService: NgbModal
   ) {}
 
+  selectedFile: File = null;
+
   onFileSelected(event) {
-    console.log(event);
-    this.selectedFile = event.target.files[0];
+    this.selectedFile = <File>event.target.files[0];
+    console.log(this.selectedFile);
   }
 
-  selectedFile: File = null;
   onUpload() {
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name);
+    console.log(this.selectedFile);
     this.http
-      .post('http://localhost:3000/user/upload', fd)
+      .post('http://localhost:3000/user/upload', this.selectedFile)
       .subscribe(res => console.log(res));
   }
 
@@ -107,6 +109,4 @@ export class EditprofileComponent implements OnInit {
       .updatetUser(request)
       .subscribe(() => this.router.navigate(['/userprofile/customerprofile']));
   }
-
-  //Set user details
 }

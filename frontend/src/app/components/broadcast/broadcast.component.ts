@@ -16,6 +16,7 @@ export class BroadcastComponent implements OnInit {
   ) {}
 
   broadcastForm: FormGroup;
+
   ngOnInit() {
     this.broadcastForm = this._formbuilder.group({
       category: ['', Validators.required],
@@ -23,13 +24,15 @@ export class BroadcastComponent implements OnInit {
       textMessage: ['']
     });
   }
+
   error: string;
   category: string;
   product: String;
   textMessage: string;
   categories = ['Electronics', 'Vehicles', 'Books', 'Other'];
 
-  getBroadcast() {
+  // Send a new broadcast to the system
+  sendBroadcast() {
     this._broadcast
       .sendBroadcast({
         category: this.broadcastForm.controls['category'].value,

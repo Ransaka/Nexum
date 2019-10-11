@@ -12,6 +12,7 @@ export class NgbdModalBasic {
   closeResult: string;
   loginForm: FormGroup;
   signupForm: FormGroup;
+
   constructor(
     private modalService: NgbModal,
     private auth: AuthService,
@@ -32,14 +33,14 @@ export class NgbdModalBasic {
 
   ngOnInit() {
     this.loginForm = this.formbuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      log_email: ['', Validators.required],
+      log_password: ['', Validators.required]
     });
 
     this.signupForm = this.formbuilder.group({
       email: ['', Validators.required],
       username: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(5)]],
       confirmpassword: ['', Validators.required]
     });
   }
@@ -55,11 +56,16 @@ export class NgbdModalBasic {
   }
 
   error: string;
+  signupError: string;
+  conPass: string;
 
   email: String;
   username: String;
   password: String;
   confirmpassword: String;
+
+  log_email: String;
+  log_password: String;
 
   //Signup
   signup() {
@@ -75,35 +81,53 @@ export class NgbdModalBasic {
         })
         .subscribe(
           () => {
-            this.router.navigate(['/userprofile/customerprofile']);
+            this.modalService.dismissAll();
+            const request = {
+              email: this.signupForm.controls['email'].value,
+              password: this.signupForm.controls['password'].value
+            };
+            this.auth.login(request).subscribe(
+              res => {
+                this.router.navigateByUrl('/userprofile/customerprofile');
+                this.modalService.dismissAll();
+              },
+              err => {
+                console.log(err);
+                if (err.error.message) {
+                  this.error = err.error.message;
+                  console.log(this.error);
+                }
+              }
+            );
           },
           err => {
             console.log(err);
             if (err.error.message) {
-              this.error = err.error.message;
-              window.alert(this.error);
+              this.signupError = err.error.message;
             }
           }
         );
     } else {
-      window.alert('Unable to confirm the passwords');
+      this.conPass = 'True';
     }
   }
 
   //Login
   login() {
     const request = {
-      email: this.loginForm.controls['email'].value,
-      password: this.loginForm.controls['password'].value
+      email: this.loginForm.controls['log_email'].value,
+      password: this.loginForm.controls['log_password'].value
     };
     this.auth.login(request).subscribe(
       res => {
         this.router.navigateByUrl('/userprofile/customerprofile');
+        this.modalService.dismissAll();
       },
       err => {
         console.log(err);
         if (err.error.message) {
           this.error = err.error.message;
+          console.log(this.error);
         }
       }
     );
@@ -113,6 +137,7 @@ export class NgbdModalBasic {
   signOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('current_user');
+
     //this.user.removeCurrent();
   }
 }

@@ -21,9 +21,9 @@
                         <!-- Email -->
                         <div class="mt-5">
                             <div class="form-group"><label>Email</label>
-                                <input [(ngModel)]="email" formControlName="email" class="form-control border-input"
-                                    placeholder="email" type="email"
-                                    [ngClass]="{'is-invalid':loginForm.get('email').touched && loginForm.get('email').invalid}">
+                                <input [(ngModel)]="log_email" formControlName="log_email"
+                                    class="form-control border-input" placeholder="email" type="email"
+                                    [ngClass]="{'is-invalid':loginForm.get('log_email').touched && loginForm.get('log_email').invalid}">
                                 <div class="invalid-feedback">
                                     <div>Email is required</div>
                                 </div>
@@ -34,9 +34,9 @@
                         <!-- Password -->
                         <div class="mt-5">
                             <div class="form-group"><label>Password</label>
-                                <input [(ngModel)]="password" formControlName="password"
+                                <input [(ngModel)]="log_password" formControlName="log_password"
                                     class="form-control border-input" placeholder="Password" type="password"
-                                    [ngClass]="{'is-invalid':loginForm.get('password').touched && loginForm.get('password').invalid}">
+                                    [ngClass]="{'is-invalid':loginForm.get('log_password').touched && loginForm.get('log_password').invalid}">
                                 <div class="invalid-feedback">
                                     <div>Password is required</div>
                                 </div>
@@ -46,6 +46,22 @@
 
                         <div class="mt-5">
                             <!-- Buttons -->
+
+                            <div *ngIf="error">
+                                <ngb-alert class="alert alert-danger" role="alert">
+                                    <!---->
+                                    <div class="container">
+                                        <div class="alert-wrapper">
+                                            <div class="message">
+                                                <div class="alert-icon"><i class="now-ui-icons ui-1_simple-remove"></i>
+                                                </div>Invalid username or password
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ngb-alert>
+                            </div>
+
+
                             <div class="text-center">
                                 <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal"
                                     (click)="login()">LogIn</a>
@@ -53,17 +69,16 @@
                         </div>
                         <div class="justify-content-center">
                             <div class="mt-5 ">
-
-                                <div class="pull-left">
-                                    <h6>
-                                        <a href="#pablo" class="link">Create Account</a>
-                                    </h6>
-                                </div>
-                                <div class="pull-right">
-                                    <h6>
-                                        <a href="#pablo" class="link">Forgot Password?</a>
-                                    </h6>
-                                </div>
+                                <h6>
+                                    <a class="btn btn-link btn-primary"
+                                        (click)="[open(signuppop,'' , ''),d('Cross click')]">Create
+                                        Account</a>
+                                </h6>
+                                <h6>
+                                    <a class="btn btn-link btn-primary" (click)="[d('Cross click')]"
+                                        routerLink="/recoverAccount">Forgot
+                                        Password?</a>
+                                </h6>
                                 <!-- /Button -->
                             </div>
 
@@ -84,7 +99,7 @@
 
 
 <!--SignUp-->
-
+&nbsp;
 <button class="btn btn-primary btn-lg btn-simple btn-round" (click)="[open(signuppop,'' , '')]">SignUp</button>
 <ng-template #signuppop let-c="close" let-d="dismiss">
 
@@ -99,7 +114,7 @@
     <!-- /Head -->
 
     <div class="container">
-        <div class="col-md-12 content-center">
+        <div class="col-md-12">
             <div class="card card-signup card-plain">
                 <form class="form" method="" action="" [formGroup]="signupForm">
                     <div class="content">
@@ -137,9 +152,13 @@
                                 <input [(ngModel)]="password" formControlName="password"
                                     class="form-control border-input" placeholder="Password" type="password"
                                     [ngClass]="{'is-invalid':signupForm.get('password').touched && signupForm.get('password').invalid}">
-                                <div class="invalid-feedback">
+                                <div class="invalid-feedback" *ngIf="signupForm.get('password').errors?.required">
                                     <div>Password is required</div>
                                 </div>
+                                <div class="invalid-feedback" *ngIf="signupForm.get('password').errors?.minlength">
+                                    <div>Password should contain atleast 5 characters</div>
+                                </div>
+
                             </div>
                         </div>
                         <!-- /Password -->
@@ -156,6 +175,34 @@
                             </div>
                         </div>
                         <!-- /Confirm Password -->
+
+                        <div *ngIf="signupError">
+                            <ngb-alert class="alert alert-danger" role="alert">
+                                <!---->
+                                <div class="container">
+                                    <div class="alert-wrapper">
+                                        <div class="message">
+                                            <div class="alert-icon"><i class="now-ui-icons ui-1_simple-remove"></i>
+                                            </div>Email or Username already exists
+                                        </div>
+                                    </div>
+                                </div>
+                            </ngb-alert>
+                        </div>
+
+                        <div *ngIf="conPass">
+                            <ngb-alert class="alert alert-danger" role="alert">
+                                <!---->
+                                <div class="container">
+                                    <div class="alert-wrapper">
+                                        <div class="message">
+                                            <div class="alert-icon"><i class="now-ui-icons ui-1_simple-remove"></i>
+                                            </div>Confirm password
+                                        </div>
+                                    </div>
+                                </div>
+                            </ngb-alert>
+                        </div>
 
                         <div class="mt-5">
                             <!-- Buttons -->

@@ -12,6 +12,12 @@ const usersRouter = require('./api/user')
 const broadcastRouter = require('./api/broadcast')
 const sellingRouter = require('./api/selling')
 const rateRouter = require('./api/rate')
+const getRecentBroadcastRouter = require('./api/getRecentBroadcast')
+const bookmarksRouter = require('./api/bookmark')
+const sellerReplyRouter = require('./api/sellerReply')
+const forgotPasswordMailRouter = require('./api/forgotPasswordMail')
+
+
 
 
 // Initialize the app
@@ -21,6 +27,7 @@ const app = express()
 app.use(cors())
 app.use(logger('dev'))
 app.use(bodyParser.json())
+app.use('/upload', express.static('upload'))
 
 
 // Setup router to the endpoints
@@ -31,6 +38,10 @@ app.use('/user', usersRouter)
 app.use('/user/broadcast', broadcastRouter)
 app.use('/user/selling', sellingRouter)
 app.use('/user/rate', rateRouter)
+app.use('/user/getRecentBroadcast', getRecentBroadcastRouter)
+app.use('/user/bookmark', bookmarksRouter)
+app.use('/user/sellerReply', sellerReplyRouter)
+app.use('/forgotPasswordMail', forgotPasswordMailRouter)
 
 app.get('/', function (req, res) {
     res.send("Hello")

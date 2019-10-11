@@ -1,0 +1,52 @@
+<div class="wrapper">
+  <div class="page-header clear-filter" filter-color="orange">
+    <div class="page-header-image rellax-header" data-rellax-speed="-7"
+      style="background-image: url('assets/img/header.jpg');">
+    </div>
+
+    <!--Logo and Name-->
+    <div class="container">
+      <div class="content-center brand">
+        <img class="n-logo" src="assets/img/now-logo.png" alt="">
+        <h1 class="h1-seo">Nexum</h1>
+        <h4>Forgot password</h4>
+        <form class="form-group" [formGroup]="recoverAccountForm">
+          <div class="mail mx-auto col-md-12 mt-5 " style="width: 500px;">
+            <input class="form-control" [(ngModel)]="email" formControlName="email"
+              placeholder="Enter you email correctly" type="text" value="">
+            <button class="btn btn-primary btn-sm btn-round btn-block" type="button" (click)="send()"><i
+                class="now-ui-icons ui-1_send"></i>&nbsp;&nbsp;&nbsp;Send</button>
+            <button class="btn btn-primary btn-sm btn-round btn-block" routerLink="/" type="button">Back</button>
+          </div>
+        </form>
+        <p *ngIf="isUserAvailable == 'true'">User Available</p>
+        <p *ngIf="isUserAvailable == 'false'">User not Available</p>
+      </div>
+    </div>
+    <!--/Logo and Name-->
+  </div>
+
+  <div class="main">
+
+    <!--Footer-->
+    <footer class="footer" data-background-color="black">
+      <div class="container">
+        <nav>
+          <ul>
+            <li>
+              <a href="https://www.creative-tim.com/about-us">
+                About Nexum
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright">
+          &copy;
+          {{data | date: 'yyyy'}}, Designed by
+          <a href="https://www.invisionapp.com" target="_blank">Nexum</a>
+        </div>
+      </div>
+    </footer>
+
+    <!--/Footer-->
+  </div>

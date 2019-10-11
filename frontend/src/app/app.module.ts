@@ -1,3 +1,8 @@
+import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
+import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
+import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
+import { SellingComponent } from './components/selling/selling.component';
+import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
 import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
 import { SellerviewComponent } from './pages/sellerview/sellerview.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
@@ -14,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -34,7 +40,12 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     EditprofileComponent,
     PurchasehistoryComponent,
     SellerviewComponent,
-    SellerreplyComponent
+    SellerreplyComponent,
+    FinalizingformComponent,
+    SellingComponent,
+    BookmarksviewComponent,
+    SellerreplyformComponent,
+    FinalizingformviewComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -45,7 +56,10 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     AppRoutingModule,
     ComponentsModule,
     ExamplesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDU2U5KdAzMj0ZP6584UzKlZH0tGFT9feg'
+    })
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

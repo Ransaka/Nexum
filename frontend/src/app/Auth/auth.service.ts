@@ -33,7 +33,7 @@ export class AuthService {
       );
   }
 
-  // Set session
+  // Set local variables
   private setSession(response: SignInResponse) {
     const expiresAt = moment().add(response.expiresIn, 'second');
     localStorage.setItem('user_id', response.user_id);

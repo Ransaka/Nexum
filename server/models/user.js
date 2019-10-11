@@ -33,9 +33,13 @@ const userSchema = new Schema({
 
     broadcasts: [],
     selling: [],
+    bookmarks: [],
+    sellerReply: [],
 
     overallrate: Number,
-    ratings: []
+    ratings: [],
+
+    profileImage: String
 
 })
 module.exports = mongoose.model('User', userSchema, 'user')

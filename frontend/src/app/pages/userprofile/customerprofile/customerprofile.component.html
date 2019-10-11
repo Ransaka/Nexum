@@ -3,7 +3,7 @@
 
     <!-- Profile Banner -->
     <div class="page-header-image rellax-header" data-rellax-speed="-8"
-      style="background-image: url('assets/img/bg5.jpg') ;">
+      style="background-image: url(assets/img/bg5.jpg) ;">
     </div>
 
     <div class="container">
@@ -11,8 +11,13 @@
         <div class="mt-5">
           <!--Profile Image-->
           <div class="photo-container">
-            <img _ngcontent-c6="" alt="Thumbnail Image" class="rounded-circle img-raised  w-25 p-3"
-              src="assets/img/ryan.jpg">
+            <img *ngIf="current_user?.profileImage" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
+              (click)="[open(changeProfPic,'' , '')]" src="http://localhost:3000/{{current_user?.profileImage}}">
+          </div>
+          <div class="photo-container">
+            <img *ngIf="!current_user?.profileImage" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
+              (click)="[open(changeProfPic,'' , '')]"
+              src="https://avatarsed1.serversdev.getgo.com/2205256774854474505_medium.jpg">
           </div>
           <!--/Profile Image-->
           <h2>{{current_user?.username}}</h2>
@@ -21,11 +26,11 @@
         <div class="row justify-content-center">
           <div class="social-description">
             <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/broadcast">Broadcast</a>
-          </div>
+          </div>&nbsp;
           <div class="social-description">
             <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/purchasehistory">Purchase
               History</a>
-          </div>
+          </div>&nbsp;
           <div class="social-description">
             <a href="#button" class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/bookmarks">Bookmarks</a>
           </div>
@@ -57,8 +62,8 @@
                   <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
                   <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
                   <th scope="col">Replies</th>
+                  <th scope="col">Finalizing Forms</th>
                   <th scope="col">Remove</th>
-                  <th scope="col">Report</th>
 
                 </tr>
               </thead>
@@ -75,13 +80,14 @@
                   </td>
                   <td scope="row">
                     <div class="social-description">
-                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
-                          class="now-ui-icons ui-1_simple-remove"></i></a>
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
+                        routerLink="/userprofile/sellerreply/{{x._id}}">F</a>
                     </div>
                   </td>
-                  <td>
+                  <td scope="row">
                     <div class="social-description">
-                      <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">C</a>
+                      <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
+                          class="now-ui-icons ui-1_simple-remove"></i></a>
                     </div>
                   </td>
                 </tr>
@@ -94,11 +100,13 @@
         <div class="social-description">
           <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/admin">Admin profile test</a>
           <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/sellerview">Seller view test</a>
+
         </div>
       </div>
     </div>
   </div>
   <!-- /Broadcast Table -->
+
 
 
   <!-- Recent Table -->

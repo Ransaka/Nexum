@@ -11,8 +11,13 @@
         <div class="mt-5">
           <!--Profile Image-->
           <div class="photo-container">
-            <img _ngcontent-c6="" alt="Thumbnail Image" class="rounded-circle img-raised  w-25 p-3"
-              src="assets/img/ryan.jpg">
+            <img *ngIf="current_user?.profileImage" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
+              (click)="[open(changeProfPic,'' , '')]" src="http://localhost:3000/{{current_user?.profileImage}}">
+          </div>
+          <div class="photo-container">
+            <img *ngIf="!current_user?.profileImage" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
+              (click)="[open(changeProfPic,'' , '')]"
+              src="https://avatarsed1.serversdev.getgo.com/2205256774854474505_medium.jpg">
           </div>
           <!--/Profile Image-->
           <h2>{{current_user?.username}}</h2>
@@ -37,7 +42,7 @@
             <div class="col-md-12">
               <div class="row">
               </div>
-
+              <a class="btn btn-primary btn-lg btn-round" (click)="getAllBroad()">test</a>
             </div>
           </div>
         </div>
@@ -65,38 +70,54 @@
                         </div>
                       </div>
                     </div>
+
                     <form>
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th scope="col">Number</th>
-                            <th scope="col" sortable="name" (sort)="onSort($event)">Shop Name</th>
+                            <th scope="col">ID</th>
+                            <th scope="col" sortable="name" (sort)="onSort($event)">Username</th>
                             <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
+                            <th scope="col" sortable="message" (sort)="onSort($event)">Category</th>
                             <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
+                            <th scope="col" sortable="message" (sort)="onSort($event)">Reply</th>
+                            <th scope="col">View User</th>
                             <th scope="col">Finalize</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Remove</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let x of sellingArray?.selling.slice(0,5)">
-                            <td>{{x._id | slice:-4}}</td>
-                            <td>{{x.product}}</td>
-                            <td scope="row">{{x.tags}}</td>
+                          <tr *ngFor="let x of recievedBroadcasts">
+                            <td>{{x[0].userID}}</td>
+                            <td>{{x[0].username}}</td>
+                            <td scope="row">aaa</td>
                             <td scope="row">
-                              <div class="social-description">
-                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
-                                  routerLink="/userprofile/sellerreply">A</a>
-                              </div>
+                              aaa
                             </td>
                             <td scope="row">
+                              aaa
+                            </td>
+                            <td>
                               <div class="social-description">
-                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
-                                    class="now-ui-icons ui-1_simple-remove"></i></a>
+                                <a class="btn btn-primary btn-lg btn-round btn-sm"
+                                  routerLink="/userprofile/sellerreplyform/{{x._id}}">R</a>
                               </div>
                             </td>
                             <td>
                               <div class="social-description">
-                                <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">C</a>
+                                <a class="btn btn-primary btn-lg btn-round btn-sm" routerLink="/pages/newcomplain">U</a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="social-description">
+                                <a class="btn btn-primary btn-lg btn-round btn-sm"
+                                  routerLink="/userprofile/finalizingform/{{x._id}}">F</a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="social-description">
+                                <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"><i
+                                    class="now-ui-icons ui-1_simple-remove"></i></a>
                               </div>
                             </td>
                           </tr>

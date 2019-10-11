@@ -11,8 +11,13 @@
         <div>
           <!--Profile Image-->
           <div class="photo-container">
-            <img _ngcontent-c6="" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
-              (click)="[open(changeProfPic,'' , '')]" src="assets/img/ryan.jpg">
+            <img *ngIf="current_user?.profileImage" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
+              (click)="[open(changeProfPic,'' , '')]" src="http://localhost:3000/{{current_user?.profileImage}}">
+          </div>
+          <div class="photo-container">
+            <img *ngIf="!current_user?.profileImage" alt="Thumbnail Image" class="rounded-circle img-raised w-25 p-3"
+              (click)="[open(changeProfPic,'' , '')]"
+              src="https://avatarsed1.serversdev.getgo.com/2205256774854474505_medium.jpg">
           </div>
           <h2>{{current_user?.username}}</h2>
           <!--/Profile Image-->
@@ -40,10 +45,11 @@
                   <div class="form-group">
                     <input type="file" (change)="onFileSelected($event)" name="fileUpload" id="fileUpload">
                   </div>
-                  <img _ngcontent-c6="" alt="Thumbnail Image" class=" w-1000" src="assets/img/ryan.jpg">
+                  <img _ngcontent-c6="" alt="Thumbnail Image" class=" w-1000"
+                    src="http://localhost:3000/{{current_user?.profileImage}}">
 
                   <div class="form-group">
-                    <button class="btn btn-primary" (click)="onpload()">Submit</button>
+                    <button class="btn btn-primary" (click)="onUpload()">Submit</button>
                   </div>
                 </div>
               </div>
