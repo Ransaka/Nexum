@@ -16,6 +16,9 @@ const getRecentBroadcastRouter = require('./api/getRecentBroadcast')
 const bookmarksRouter = require('./api/bookmark')
 const sellerReplyRouter = require('./api/sellerReply')
 const forgotPasswordMailRouter = require('./api/forgotPasswordMail')
+const getFinalizingFormsRouter = require('./api/getFinalizingForms')
+const paypalRouter = require('./api/paypal')
+
 
 
 
@@ -42,6 +45,9 @@ app.use('/user/getRecentBroadcast', getRecentBroadcastRouter)
 app.use('/user/bookmark', bookmarksRouter)
 app.use('/user/sellerReply', sellerReplyRouter)
 app.use('/forgotPasswordMail', forgotPasswordMailRouter)
+app.use('/user/getFinalizingForms', getFinalizingFormsRouter)
+app.use('/user/paypal', paypalRouter)
+
 
 app.get('/', function (req, res) {
     res.send("Hello")

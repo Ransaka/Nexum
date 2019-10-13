@@ -1,3 +1,4 @@
+import { AcceptfinalizingComponent } from './components/acceptfinalizing/acceptfinalizing.component';
 import { SellingitemComponent } from './components/sellingitem/sellingitem.component';
 import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
@@ -47,7 +48,8 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     BookmarksviewComponent,
     SellerreplyformComponent,
     FinalizingformviewComponent,
-    SellingitemComponent
+    SellingitemComponent,
+    AcceptfinalizingComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -16,6 +16,7 @@ import { RatingsComponent } from './ratings/ratings.component';
 //import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
 import { NonRegisteredComponent } from './non-registered/non-registered.component';
 import { RecoverAccountComponent } from './recover-account/recover-account.component';
+//import { AcceptfinalizingComponent } from './acceptfinalizing/acceptfinalizing.component';
 //import { SellingitemComponent } from './sellingitem/sellingitem.component';
 //import { FinalizingformviewComponent } from './finalizingformview/finalizingformview.component';
 //import { BookmarksviewComponent } from './bookmarksview/bookmarksview.component';
@@ -44,6 +45,7 @@ import { RecoverAccountComponent } from './recover-account/recover-account.compo
     //SellerreplyformComponent,
     NonRegisteredComponent,
     RecoverAccountComponent
+    //AcceptfinalizingComponent
     //SellingitemComponent
     //FinalizingformviewComponent
     //BookmarksviewComponent
