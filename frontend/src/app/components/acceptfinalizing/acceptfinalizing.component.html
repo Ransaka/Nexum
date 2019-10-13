@@ -15,7 +15,8 @@
               <h5>Product Id : {{itemDetails?.item[0]._id}}</h5>
               <h5>Product Category : {{itemDetails?.item[0].category}}</h5>
               <h5>Product Tags : {{itemDetails?.item[0].tags}}</h5>
-              <h5>User Id : {{custId}}</h5>
+              <h5>Price : {{itemDetails?.item[0].price}}</h5>
+              <h5>Message : {{itemDetails?.item[0].textMessage}}</h5>
             </div>
 
             <div class="card-body">
@@ -34,6 +35,9 @@
                   </div>
                 </div>
 
+                <div class="footer text-center">
+                  <a class="btn btn-primary btn-round btn-lg btn-block" (click)="pay()">Pay</a>
+                </div>
                 <div class="footer text-center">
                   <a class="btn btn-primary btn-round btn-lg btn-block" (click)="sendFinalizingForm()">Send</a>
                 </div>

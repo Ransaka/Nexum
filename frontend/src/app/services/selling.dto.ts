@@ -15,3 +15,13 @@ export interface SellerRelpy {
 export interface Product {
   element: string;
 }
+
+export interface Finalizing {
+  productId: string;
+  product: string;
+  category: string;
+  customerId: string;
+  price: number;
+  tags: string;
+  textMessage?: string;
+}

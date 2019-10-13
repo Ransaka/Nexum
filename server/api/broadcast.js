@@ -150,7 +150,7 @@ router.get('/:id', verify.decodeToken, function (req, res) {
         var item = {
             item: broadcast.broadcasts
         }
-        res.status(200).send(broadcast)
+        res.status(200).send(item)
     })
 })
 

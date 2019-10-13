@@ -9,6 +9,7 @@ const Selling = require('../models/Selling')
 const checkAuth = require('../auth/check-auth')
 const SellerReply = require('../models/SellerReply')
 const mongoose = require('mongoose')
+const Finalizing = require('../models/Finalizing')
 
 
 
@@ -126,6 +127,46 @@ router.post('/item', checkAuth, function (req, res) {
         })
 
     })
+})
+
+/**
+ * New finalizing form endpoint.
+ *
+ * 
+ *
+ * @header uid
+ * @body product,category,textMessage
+ * @response message
+ */
+router.put('/newfinalizing', (req, res, next) => {
+    User.findById(
+            req.body.customerId
+        )
+        .then(async (user) => {
+            const finalizingData = new Finalizing({
+                productId: req.body.productId,
+                product: req.body.product,
+                category: req.body.category,
+                sellerId: req.headers.uid,
+                price: req.body.price,
+                tags: req.body.tags,
+                textMessage: req.body.textMessage,
+                date: Date()
+            })
+            return user.updateOne({
+                $addToSet: {
+                    finalized: finalizingData
+                }
+            }).then(() => {
+                res.status(200).send({
+                    message: 'Item added to finalized array'
+                })
+            })
+        }).catch(() => {
+            res.status(500).send({
+                message: 'Item adding error.'
+            })
+        })
 })
 
 module.exports = router

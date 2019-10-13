@@ -1,3 +1,4 @@
+import { Finalizing } from './selling.dto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -60,6 +61,40 @@ export class BroadcastService {
       {
         headers
       }
+    );
+  }
+
+  // Get all forms by name
+  getFinalizingForms(): Observable<Finalizing[]> {
+    const headers = new HttpHeaders()
+      .set('x-access-token', localStorage.getItem('jwt_token'))
+      .set('uid', localStorage.getItem('user_id'));
+    return this.http.get<Finalizing[]>(
+      'http://localhost:3000/user/getFinalizingForms/all',
+      {
+        headers
+      }
+    );
+  }
+
+  // Get a form by id
+  getFormById(id: string): Observable<Broadcast> {
+    const headers = new HttpHeaders()
+      .set('x-access-token', localStorage.getItem('jwt_token'))
+      .set('uid', localStorage.getItem('user_id'));
+    return this.http.get<Broadcast>(
+      'http://localhost:3000/user/getFinalizingForms/' + id,
+      {
+        headers
+      }
+    );
+  }
+
+  // Payment
+  payment(request: String): Observable<any> {
+    return this.http.post<any>(
+      'http://localhost:3000/user/paypal/pay',
+      request
     );
   }
 }

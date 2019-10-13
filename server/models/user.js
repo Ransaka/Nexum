@@ -35,6 +35,7 @@ const userSchema = new Schema({
     selling: [],
     bookmarks: [],
     sellerReply: [],
+    finalized: [],
 
     overallrate: Number,
     ratings: [],
