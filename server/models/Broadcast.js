@@ -14,6 +14,6 @@ const broadcastSchema = new Schema({
     },
     product: String,
     category: String,
-    tags: String
+    tags: []
 })
 module.exports = mongoose.model('Broadcast', broadcastSchema, 'broadcast')

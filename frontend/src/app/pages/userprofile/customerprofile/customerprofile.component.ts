@@ -37,4 +37,12 @@ export class CustomerprofileComponent implements OnInit {
       .getBroadcast()
       .subscribe(data => (this.broadcastArray = data as Broadcast[]));
   }
+
+  // remove a broadcast
+  removeBroadcast(id) {
+    console.log(id);
+    this._broadcastservice
+      .removeBroadcast(id as string)
+      .subscribe(data => this.getBroadcasts());
+  }
 }

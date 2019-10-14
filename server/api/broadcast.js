@@ -12,30 +12,65 @@ const User = require('../models/User')
 const Broadcast = require('../models/Broadcast')
 const checkAuth = require('../auth/check-auth')
 
-var arr = []
-async function getTags(textMessage) {
 
-    var options = {
-        port: '3000',
-        method: 'POST',
-        url: 'https://api.textrazor.com/',
-        headers: {
-            'x-textrazor-key': '51283272e5ba478c5f9e10da3b2695082f057f88f06928e825e0d94f'
-        },
-        form: {
-            extractors: 'entities',
-            text: textMessage
-        }
-    };
-    await request(options, function (error, response, body) {
-        if (error) throw new Error(error);
-        const newData = JSON.parse(body).response.entities;
-        for (var i in newData) {
-            arr.push(newData[i].entityId)
-        }
-        return newData
-    })
-}
+// async function getTags(textMessage) {
+//     var options = {
+//         port: '3000',
+//         method: 'POST',
+//         url: 'https://api.textrazor.com/',
+//         headers: {
+//             'x-textrazor-key': '51283272e5ba478c5f9e10da3b2695082f057f88f06928e825e0d94f'
+//         },
+//         form: {
+//             extractors: 'entities',
+//             text: textMessage
+//         }
+//     };
+//     await request(options, function (error, response, body) {
+//         if (error) throw new Error(error);
+//         const newData = JSON.parse(body).response.entities;
+//         for (var i in newData) {
+//             arr.push(newData[i].entityId)
+//         }
+//         return newData
+//     })
+// }
+
+
+function getTags(textMessage) {
+    return new Promise((resolve, reject) => {
+        var arr = []
+        var options = {
+            port: '3000',
+            method: 'POST',
+            url: 'https://api.textrazor.com/',
+            headers: {
+                'x-textrazor-key': '51283272e5ba478c5f9e10da3b2695082f057f88f06928e825e0d94f'
+            },
+            form: {
+                extractors: 'entities',
+                text: textMessage
+            }
+        };
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            const newData = JSON.parse(body).response.entities;
+            for (var i in newData) {
+                arr.push(newData[i].entityId)
+            }
+
+            if (!error) {
+                resolve(arr)
+            } else {
+                reject("Error")
+            }
+        })
+
+
+
+    });
+
+};
 
 /**
  * Set broadcast endpoint.
@@ -45,8 +80,9 @@ async function getTags(textMessage) {
  * @body 
  * @response 
  */
-router.put('/new', (req, res, next) => {
-    getTags("I want DELL laptop")
+router.put('/new', async (req, res, next) => {
+    var x = await getTags(req.body.textMessage)
+    console.log(x)
     User.findById(
             req.headers.uid
         )
@@ -54,7 +90,7 @@ router.put('/new', (req, res, next) => {
             const broadcast = new Broadcast({
                 product: req.body.product,
                 category: req.body.category,
-                tags: req.body.textMessage
+                tags: x
             })
             return user.updateOne({
                 $addToSet: {
@@ -83,18 +119,57 @@ router.put('/new', (req, res, next) => {
  * @role Admin
  * @response User of the given id
  */
-router.post('/remove', function (req, res) {
-    User.findById(req.body._id).exec((err, user) => {
+// router.delete('/remove/:broadcast_id', function (req, res) {
+//     User.findById(req.headers.uid).exec((err, user) => {
+//         if (err || user == null) {
+//             return res.status(500).send({
+//                 message: 'Error removing broadcast'
+//             })
+//         }
+//         console.log(user)
+//         user.remove({
+//             broadcasts: {
+//                 $elemMatch: {
+//                     _id: mongoose.Types.ObjectId(req.params.id)
+//                 }
+//             }
+//         }).exec().then(result => {
+//             res.status(200).json(result)
+//         })
+
+//     })
+// })
+
+
+
+/**
+ * Remove broadcast endpoint.
+ *
+ * Remove broadcast for the given user id.
+ *
+ * _id -> UserId
+ * rate_id -> RateId 
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.delete('/remove/:broadcast_id', function (req, res) {
+    console.log(req.params.broadcast_id)
+    User.update({
+        _id: req.headers.uid
+    }, {
+        $pull: {
+            broadcasts: {
+                _id: mongoose.Types.ObjectId(req.params.broadcast_id)
+            }
+        }
+    }).exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
                 message: 'Error removing broadcast'
             })
         }
-        Broadcast.remove({
-            _id: req.body.broadcast_id
-        }).exec().then(result => {
-            res.status(200).json(result)
-        })
+        res.send(user)
 
     })
 })
