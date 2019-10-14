@@ -109,26 +109,31 @@ router.get('/:id', verify.decodeToken, function (req, res) {
  *
  * Remove selling for the given user id.
  *
+ * _id -> UserId
+ * rate_id -> RateId 
  * @param id
  * @role Admin
  * @response User of the given id
  */
-router.post('/item', checkAuth, function (req, res) {
-    User.findById(req.body._id).exec((err, user) => {
+router.delete('/remove/:selling_id', function (req, res) {
+    User.update({
+        _id: req.headers.uid
+    }, {
+        $pull: {
+            selling: {
+                _id: mongoose.Types.ObjectId(req.params.selling_id)
+            }
+        }
+    }).exec((err, user) => {
         if (err || user == null) {
             return res.status(500).send({
-                message: 'Error removing item:' + req.body.item
+                message: 'Error removing broadcast'
             })
         }
-        Selling.remove({
-            name: req.body.item
-        }).exec().then(result => {
-            res.status(200).json(result)
-        })
+        res.send(user)
 
     })
 })
-
 /**
  * New finalizing form endpoint.
  *

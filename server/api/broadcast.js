@@ -108,38 +108,6 @@ router.put('/new', async (req, res, next) => {
         })
 })
 
-/**
- * Remove broadcast endpoint.
- *
- * Remove broadcast for the given user id.
- *
- * _id -> UserId
- * rate_id -> RateId 
- * @param id
- * @role Admin
- * @response User of the given id
- */
-// router.delete('/remove/:broadcast_id', function (req, res) {
-//     User.findById(req.headers.uid).exec((err, user) => {
-//         if (err || user == null) {
-//             return res.status(500).send({
-//                 message: 'Error removing broadcast'
-//             })
-//         }
-//         console.log(user)
-//         user.remove({
-//             broadcasts: {
-//                 $elemMatch: {
-//                     _id: mongoose.Types.ObjectId(req.params.id)
-//                 }
-//             }
-//         }).exec().then(result => {
-//             res.status(200).json(result)
-//         })
-
-//     })
-// })
-
 
 
 /**

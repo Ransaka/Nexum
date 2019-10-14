@@ -96,7 +96,6 @@ router.get('/test', async function (req, res) {
 })
 
 router.post('/test1', function (req, res) {
-    console.log(req.body.element)
     retArray = new Array()
     User.find({
         broadcasts: {

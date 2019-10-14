@@ -77,8 +77,7 @@
                                   <th scope="col">ID</th>
                                   <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
                                   <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
-                                  <th scope="col">Replies</th>
-                                  <th scope="col">Finalizing Forms</th>
+                                  <th scope="col">View Finalizing Forms</th>
                                   <th scope="col">Remove</th>
 
                                 </tr>
@@ -88,12 +87,6 @@
                                   <td>{{x._id | slice:-4}}</td>
                                   <td>{{x.product}}</td>
                                   <td scope="row">{{x.tags}}</td>
-                                  <td scope="row">
-                                    <div class="social-description">
-                                      <a href="#button" class="btn btn-primary btn-lg  btn-sm"
-                                        routerLink="/userprofile/sellerreply/{{x._id}}">R</a>
-                                    </div>
-                                  </td>
                                   <td scope="row">
                                     <div class="social-description">
                                       <a href="#button" class="btn btn-primary btn-lg btn-sm"

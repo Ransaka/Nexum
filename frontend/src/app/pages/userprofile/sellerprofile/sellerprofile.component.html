@@ -73,10 +73,8 @@
                               <div class="row">
                                 <h3>Selling</h3>
                                 <div class="ml-auto">
-                                  <a class="btn btn-sm btn-primary btn-lg btn-round"
-                                    routerLink="/userprofile/broadcast">View
-                                    More</a>
-                                </div>
+                                  <a class="btn btn-sm btn-primary btn-lg " routerLink="/userprofile/broadcast">View
+                                    More</a> </div>
                               </div>
                             </div>
                             <form>
@@ -87,9 +85,8 @@
                                     <th scope="col">Number</th>
                                     <th scope="col" sortable="name" (sort)="onSort($event)">Product</th>
                                     <th scope="col" sortable="area" (sort)="onSort($event)">Message</th>
-                                    <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
                                     <th scope="col">Finalize</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Remove</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -101,20 +98,14 @@
                                     <td scope="row">{{x.tags}}</td>
                                     <td scope="row">
                                       <div class="social-description">
-                                        <a href="#button" class="btn btn-primary btn-sm btn-round btn-sm"
-                                          routerLink="/userprofile/sellerreply">A</a>
-                                      </div>
-                                    </td>
-                                    <td scope="row">
-                                      <div class="social-description">
-                                        <a href="#button" class="btn btn-primary btn-sm btn-round btn-sm"><i
+                                        <a href="#button" class="btn btn-primary btn-sm  btn-sm"><i
                                             class="now-ui-icons ui-1_simple-remove"></i></a>
                                       </div>
                                     </td>
                                     <td>
                                       <div class="social-description">
-                                        <a class="btn btn-primary btn-lg btn-round btn-sm"
-                                          routerLink="/pages/newcomplain">C</a>
+                                        <a class="btn btn-primary btn-lg  btn-sm" (click)="removeSelling(x._id)"><i
+                                            class="now-ui-icons ui-1_simple-remove"></i></a>
                                       </div>
                                     </td>
                                   </tr>
@@ -461,7 +452,8 @@
                 <div class="clearfix"></div>
                 <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting,
                   remaining
-                  essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+                  essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                  containing
                 </p>
                 <p>
                   <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
@@ -480,7 +472,8 @@
                           Akash</strong></a>
                     </p>
                     <p>
-                      Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
+                      Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                      including
                       versions
                       of Lorem Ipsum.</p>
                     <p>

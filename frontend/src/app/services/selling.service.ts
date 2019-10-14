@@ -96,4 +96,16 @@ export class SellingService {
       }
     );
   }
+
+  removeSelling(selling_id: string): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('x-access-token', localStorage.getItem('jwt_token'))
+      .set('uid', localStorage.getItem('user_id'));
+    return this.http.delete<any>(
+      'http://localhost:3000/user/selling/remove/' + selling_id,
+      {
+        headers
+      }
+    );
+  }
 }
