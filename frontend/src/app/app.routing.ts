@@ -16,6 +16,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { MessagesComponent } from './messages/messages.component';
 
 import { ComponentsComponent } from './components/components.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
       }
     ]
   },
+  { path: 'userprofile/messages', component: MessagesComponent },
   { path: 'userprofile/broadcast', component: BroadcastComponent },
   { path: 'userprofile/selling', component: SellingComponent },
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },

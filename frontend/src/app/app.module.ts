@@ -27,6 +27,7 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     SellingComponent,
     BookmarksviewComponent,
     SellerreplyformComponent,
-    FinalizingformviewComponent
+    FinalizingformviewComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserAnimationsModule,
