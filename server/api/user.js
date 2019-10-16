@@ -6,7 +6,7 @@ const checkAuth = require('../auth/check-auth')
 const verify = require('../auth/verify')
 const bcrypt = require('bcrypt')
 
-const store = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'upload')
     },
@@ -14,11 +14,19 @@ const store = multer.diskStorage({
         cb(null, file.originalname)
     }
 })
+
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpg') {
+        cb(null, true)
+    } else {
+        cb(null, false)
+    }
+}
+
 const upload = multer({
-    storage: store
+    storage: storage,
+    fileFilter: fileFilter
 })
-
-
 
 
 /**
@@ -48,7 +56,8 @@ router.get('/current', verify.decodeToken, function (req, res) {
             telephone: user.telephone,
             line1: user.line1,
             line2: user.line2,
-            line3: user.line3
+            line3: user.line3,
+            profileImage: user.profileImage
         }
         res.status(200).send(details)
     })
@@ -114,14 +123,13 @@ router.delete('/delete/:id', checkAuth, (req, res, next) => {
  * @body User data model exept id, password and isAdmin.
  * @role User
  */
-router.put('/edit', upload.single('profilePic'), function (req, res) {
+router.put('/edit', function (req, res) {
     User.findById(req.headers.uid).exec(async (err, user) => {
         if (err || user == null) {
             return res.status(500).send({
                 message: 'Error updating User with id: ' + req.headers.uid
             })
         }
-        console.log(req.df)
         //Edit firstname
         if (req.body.firstname) {
             user.firstname = req.body.firstname
@@ -156,6 +164,17 @@ router.put('/edit', upload.single('profilePic'), function (req, res) {
                 })
             }
             user.email = req.body.email
+        }
+
+        if (req.body.password) {
+            bcrypt.hash(req.body.password, 10).then((hash) => {
+                user.password = hash
+                user.save().then(() => {
+                    return res.status(200).send({
+                        message: 'Success, Password changed!'
+                    })
+                })
+            })
         }
 
         // Edit NIC
@@ -196,17 +215,85 @@ router.put('/edit', upload.single('profilePic'), function (req, res) {
 })
 
 // Upload a profile image
-router.post('/upload', upload.single('profilePic'), function (req, res, next) {
-    upload(req, res, function (err) {
-        if (err) {
-            return res.status(501).json({
-                error: err
+router.post('/upload', upload.single('image'), function (req, res, next) {
+    console.log(req)
+    User.findById(req.headers.uid).exec(async (err, user) => {
+        if (err || user == null) {
+            return res.status(500).send({
+                message: 'Error updating User with id: ' + req.headers.uid
             })
         }
-        return res.json({
-            originalname: req.file.originalname,
-            uploadname: req.file.filename
+        console.log(user)
+        // Edit Profile image
+        if (req.file) {
+            console.log(req.file.path)
+            user.profileImage = req.file.path
+        }
+
+        user.save().then(() => {
+            res.status(200).send({
+                message: 'Success, User updated!'
+            })
+        }).catch(() => {
+            res.status(500).send({
+                message: 'User update error.'
+            })
         })
+    })
+})
+
+
+/**
+ * Users get user by username endpoint.
+ *
+ * 
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.get('/search/:username', verify.decodeToken, function (req, res) {
+    User.find({
+        username: req.params.username
+    }).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+        // Remove password attribute from the user
+        user[0].password = undefined
+        var details = {
+            _id: user[0]._id,
+            firstname: user[0].firstname,
+            lastname: user[0].lastname,
+            username: user[0].username,
+            email: user[0].email,
+            telephone: user[0].telephone,
+            line1: user[0].line1,
+            line2: user[0].line2,
+            line3: user[0].line3
+        }
+        console.log(details)
+        res.status(200).send(details)
+    })
+})
+
+/**
+ * Get all users endpoint.
+ *
+ * 
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.get('/all', verify.decodeToken, function (req, res) {
+    User.find().exec((err, users) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+        res.status(200).send(users)
     })
 })
 

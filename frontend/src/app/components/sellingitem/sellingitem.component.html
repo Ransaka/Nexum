@@ -1,0 +1,120 @@
+<app-navbar></app-navbar>
+<div class="mt-5"></div>
+<div class="wrapper">
+  <div class="subscribe-line subscribe-line-transparent" style="background-image: url('assets/img/banner.jpg')">
+    <div class=" container">
+      <div class="row">
+        <div class=" col-md-12 col-sm-12">
+          <div class="mt-5">
+            <h5>Product Name : {{itemDetails?.item[0].product}}</h5>
+            <h5>Product Id : {{itemDetails?.item[0]._id}}</h5>
+            <h5>Product Category : {{itemDetails?.item[0].category}}</h5>
+            <h5>Product Tags : {{itemDetails?.item[0].tags}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Selling -->
+  <div class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-2">
+          <div class="card text-center" style=" width: 70rem;">
+            <div class="col-md-12">
+              <!-- Broadcast Table -->
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="container">
+                      <div class="row">
+
+                        <div class="ml-auto">
+                          <a class="btn btn-sm btn-primary btn-lg btn-round" routerLink="/userprofile/broadcast">View
+                            More</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <form>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col" sortable="name" (sort)="onSort($event)">Username</th>
+                            <th scope="col">Finalize</th>
+                            <th scope="col">Remove</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let x of recievedBroadcasts">
+                            <td>{{x.userID}}</td>
+                            <a routerLink="/userprofile/search/{{x.username}}">
+                              <td>{{x.username}}</td>
+                            </a>
+                            <td>
+                              <div class="social-description">
+                                <a class="btn btn-primary btn-sm"
+                                  routerLink="/userprofile/finalizingform/{{itemId}}/{{x.userID}}">F</a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="social-description">
+                                <a href="#button" class="btn btn-primary btn-sm"><i
+                                    class="now-ui-icons ui-1_simple-remove"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+              <!-- /Broadcast Table -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="https://www.creative-tim.com">
+              Creative Tim
+            </a>
+          </li>
+          <li>
+            <a href="https://www.creative-tim.com/about-us">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="http://blog.creative-tim.com">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+              MIT License
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        &copy;
+        {{data | date: 'yyyy'}}, Designed by
+        <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+      </div>
+    </div>
+  </footer>
+</div>

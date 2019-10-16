@@ -12,7 +12,4 @@ mongoose.connect(db, err => {
         console.log('connected to database')
     }
 })
-
-
-
 module.exports = router

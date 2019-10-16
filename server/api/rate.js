@@ -16,18 +16,19 @@ const checkAuth = require('../auth/check-auth')
  * @response 
  */
 router.put('/create', (req, res, next) => {
+    console.log(req.body.review)
     User.findById(
             req.body._id
         )
         .then((user) => {
-            var _rate = new Rate({
+            const rate = new Rate({
                 rate: req.body.rate,
                 review: req.body.review,
                 date: Date()
             })
             return user.updateOne({
                 $addToSet: {
-                    ratings: _rate
+                    ratings: rate
                 }
             }).then(() => {
                 res.status(200).send({

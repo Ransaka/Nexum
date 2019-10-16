@@ -1,6 +1,14 @@
+import { UserService } from 'app/services/user.service';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl
+} from '@angular/forms';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Auth/auth.service';
+import { User, Username } from './../../services/user.dto';
 
 import {
   Location,
@@ -21,19 +29,37 @@ export class NavbarComponent implements OnInit {
     public location: Location,
     private element: ElementRef,
     private router: Router,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private formbuilder: FormBuilder,
+    private _userservice: UserService
   ) {
     this.sidebarVisible = false;
   }
 
   currentUser: String;
+  searchButton: FormGroup;
 
   ngOnInit() {
     this.currentUser = 'customer';
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+
+    this.searchButton = new FormGroup({
+      search: new FormControl()
+    });
   }
 
+  error: string;
+  searchRequest: string;
+  searchName: string;
+
+  // Search
+  searchUser() {
+    this.searchName = this.searchButton.controls['search'].value;
+    this.router.navigate(['/userprofile/search/' + this.searchName]);
+  }
+
+  // Logout
   logout() {
     this._auth.signOut();
     this.currentUser = null;
@@ -81,7 +107,7 @@ export class NavbarComponent implements OnInit {
     if (this.sidebarVisible === false) {
       this.sidebarOpen();
     } else {
-      //this.sidebarClose();
+      this.sidebarClose();
     }
   }
 

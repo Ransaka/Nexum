@@ -1,3 +1,8 @@
+import { Selling, Product } from './../../../services/selling.dto';
+import { SellingService } from './../../../services/selling.service';
+import { UserService } from 'app/services/user.service';
+import { User } from './../../../services/user.dto';
+
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms'; 
@@ -15,6 +20,44 @@ export interface Message {
   styleUrls: ['./sellerprofile.component.scss']
 })
 export class SellerprofileComponent implements OnInit {
+  constructor(
+    private _userservice: UserService,
+    private _sellingservice: SellingService,
+    private rateing: RatingformService,
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private replying:ReplyformService  , 
+    private router: Router
+
+  ) { this.highestRate = 0;
+    this.totalRates = 0;
+    this.starFivePer = 0;
+    this.starFourPer = 0;
+    this.starThreePer = 0;
+    this.starTwoPer = 0;
+    this.starOnePer = 0; 
+     this.reviewlist=[];
+     this.datelist=[];
+    this.starOnePer = 0;
+    this.buttonClicked ;
+    this.idlist=[];
+    this.numlist=[];
+     this.timelist=[];
+     this.replylist=[];}
+
+  current_user: User;
+  sellingArray: Selling[];
+  recievedBroadcasts: any[] = [];
+
+   
+
+  // Get user details
+  getUser() {
+    return this._userservice
+      .collectCurrent()
+      .subscribe(res => (this.current_user = res));
+  }
+
   highestRate: number;
   totalRates: number;
   starFivePer: number;
@@ -31,23 +74,6 @@ export class SellerprofileComponent implements OnInit {
   replylist:any=[];
   timelist:any=[];
 
-  constructor(private http: HttpClient , private rateing: RatingformService,private formBuilder: FormBuilder,private replying:ReplyformService  , private router: Router) {
-    this.highestRate = 0;
-    this.totalRates = 0;
-    this.starFivePer = 0;
-    this.starFourPer = 0;
-    this.starThreePer = 0;
-    this.starTwoPer = 0;
-    this.starOnePer = 0; 
-     this.reviewlist=[];
-     this.datelist=[];
-    this.starOnePer = 0;
-    this.buttonClicked ;
-    this.idlist=[];
-    this.numlist=[];
-     this.timelist=[];
-     this.replylist=[];
-  }
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
     name: '',
@@ -68,10 +94,12 @@ export class SellerprofileComponent implements OnInit {
   }
   messages: Array<Message> = [];
   ngOnInit() {
-    feather.replace();
     this.getRatings();
     this.getreply();
-    var current_user = localStorage.getItem("current_user");
+    this.getUser();
+    this.getSelling();
+    this.getRecentBroadcasts();
+    var current_user = localStorage.getItem("user_id");
 
       this.replyForm =  this.formBuilder.group({
         _id: current_user, 
@@ -103,7 +131,33 @@ export class SellerprofileComponent implements OnInit {
     );
   }
 
-  calcRatings(ratings) {
+  // Get all selling
+  getSelling() {
+    this._sellingservice
+      .getSelling()
+      .subscribe(data => (this.sellingArray = data as Selling[]));
+  }
+
+  getRecentBroadcasts() {
+    let promise = new Promise((resolve, reject) => {
+      this._sellingservice
+        .getItems()
+        .toPromise()
+        .then(res => {
+          res.forEach(item => {
+            console.log(item);
+            const request = {
+              element: item
+            };
+            this._sellingservice
+              .getUsers(request as Product)
+              .subscribe(data => this.recievedBroadcasts.push(data));
+          });
+        });
+    });
+    return promise;
+  }
+    calcRatings(ratings) {
     if (ratings) {
       this.totalRates = ratings.length;
       let one = 0;
@@ -197,9 +251,9 @@ export class SellerprofileComponent implements OnInit {
    this.buttonClicked = NIC;
    
  }
- submitreplyForm() {
-  console.log(this.replyForm.value);
-} 
+//  submitreplyForm() {
+//   console.log(this.replyForm.value);
+// } 
 sendreply() {
       
   var current_user = localStorage.getItem("current_user");
@@ -234,3 +288,4 @@ viewReply(replying){
  
 
    
+  

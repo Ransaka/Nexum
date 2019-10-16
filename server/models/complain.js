@@ -12,7 +12,7 @@ const complainschema = new Schema({
         required: true,
         auto: true
     },
-    Complain:String,
+    Complain: String,
     // date: Date
 })
 module.exports = mongoose.model('complain', complainschema, 'Complain')

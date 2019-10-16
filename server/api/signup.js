@@ -14,11 +14,15 @@ const User = require('../models/User')
  */
 router.post('/signup', (req, res, next) => {
     User.find({
-        email: req.body.email
+        $or: [{
+            email: req.body.email
+        }, {
+            username: req.body.username
+        }]
     }).exec().then(user => {
         if (user.length >= 1) {
             return res.status(409).json({
-                message: 'Email already exists'
+                message: 'Email or username already exists'
             })
         } else {
             bcrypt.hash(req.body.password, 10, (err, hash) => {

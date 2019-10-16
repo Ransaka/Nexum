@@ -1,4 +1,4 @@
- import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Rating } from './ratingform.dto'
 @Injectable({
@@ -11,7 +11,6 @@ export class RatingformService {
   sendRating(request: Rating) {
     return this.http.put('http://localhost:3000/user/rate/create' ,request);
   }
-
   getRatings(userId) {
     return this.http.get<any>(`http://localhost:3000/user/rate/${userId}`);
   }

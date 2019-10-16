@@ -33,9 +33,14 @@ const userSchema = new Schema({
 
     broadcasts: [],
     selling: [],
+    bookmarks: [],
+    sellerReply: [],
+    finalized: [],
 
     overallrate: Number,
     ratings: [],
+
+    profileImage: String,
     replying:[],
 
 })

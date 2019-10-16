@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { FileUploader, FileSelectDirective } from 'ng2-file-upload';
+//import { FileUploader, FileSelectDirective } from 'ng2-file-upload';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'app/services/user.service';
 import { User } from './../../services/user.dto';
@@ -13,9 +13,9 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./editprofile.component.scss']
 })
 export class EditprofileComponent implements OnInit {
-  uploader: FileUploader = new FileUploader({
+  /*uploader: FileUploader = new FileUploader({
     url: 'http://localhost:3000/user/upload'
-  });
+  });*/
 
   editForm: FormGroup;
   constructor(
@@ -26,17 +26,19 @@ export class EditprofileComponent implements OnInit {
     private modalService: NgbModal
   ) {}
 
+  selectedFile: File = null;
+
   onFileSelected(event) {
-    console.log(event);
-    this.selectedFile = event.target.files[0];
+    this.selectedFile = <File>event.target.files[0];
+    console.log(this.selectedFile);
   }
 
-  selectedFile: File = null;
   onUpload() {
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name);
+    console.log(this.selectedFile);
     this.http
-      .post('http://localhost:3000/user/upload', fd)
+      .post('http://localhost:3000/user/upload', this.selectedFile)
       .subscribe(res => console.log(res));
   }
 
@@ -81,6 +83,7 @@ export class EditprofileComponent implements OnInit {
 
     this.getUser();
   }
+
   // Get user details
   getUser() {
     return this._userservice
@@ -106,6 +109,4 @@ export class EditprofileComponent implements OnInit {
       .updatetUser(request)
       .subscribe(() => this.router.navigate(['/userprofile/customerprofile']));
   }
-
-  //Set user details
 }
