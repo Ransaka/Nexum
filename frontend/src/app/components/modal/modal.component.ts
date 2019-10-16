@@ -99,6 +99,7 @@ export class NgbdModalBasic {
                 }
               }
             );
+            this.router.navigate(['/userprofile/customerprofile']);
           },
           err => {
             console.log(err);
@@ -137,7 +138,6 @@ export class NgbdModalBasic {
   signOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('current_user');
-
     //this.user.removeCurrent();
   }
 }

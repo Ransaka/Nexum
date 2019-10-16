@@ -17,11 +17,7 @@ export class BroadcastService {
       localStorage.getItem('user_id')
     );
     console.log(broadcast);
-    return this.http.put(
-      'http://localhost:3000/user/broadcast/new',
-      broadcast,
-      { headers }
-    );
+    return this.http.post('http://localhost:3000/user/broadcast', broadcast);
   }
 
   // Get all broadcasts
@@ -31,10 +27,7 @@ export class BroadcastService {
       localStorage.getItem('jwt_token')
     );
     return this.http.get<Broadcast[]>(
-      'http://localhost:3000/user/broadcast/all',
-      {
-        headers
-      }
+      'http://localhost:3000/user/broadcast/'
     );
   }
 

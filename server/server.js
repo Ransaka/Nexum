@@ -22,6 +22,8 @@ const paypalRouter = require('./api/paypal')
 
 
 
+const replyRouter = require('./api/reply')
+ 
 
 // Initialize the app
 const app = express()
@@ -48,6 +50,7 @@ app.use('/forgotPasswordMail', forgotPasswordMailRouter)
 app.use('/user/getFinalizingForms', getFinalizingFormsRouter)
 app.use('/user/paypal', paypalRouter)
 
+app.use('/user/reply',replyRouter)
 
 app.get('/', function (req, res) {
     res.send("Hello")
