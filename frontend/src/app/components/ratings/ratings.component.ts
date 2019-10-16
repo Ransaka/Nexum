@@ -60,7 +60,7 @@ export class RatingsComponent implements OnInit {
     feather.replace();
     this.getRatings();
     this.getreply();
-    var current_user = localStorage.getItem("current_user");
+    var current_user = localStorage.getItem("user_id");
 
       this.replyForm =  this.formBuilder.group({
         _id: current_user, 
@@ -70,7 +70,7 @@ export class RatingsComponent implements OnInit {
 
   }
   getRatings() {
-    let currentUser = localStorage.getItem('current_user');
+    let currentUser = localStorage.getItem('user_id');
     this.rateing.getRatings(currentUser).subscribe(
       res => {
         console.log(res);
@@ -80,7 +80,7 @@ export class RatingsComponent implements OnInit {
     );
   }
   getreply() {
-    let currentUser = localStorage.getItem('current_user');
+    let currentUser = localStorage.getItem('user_id');
     this.replying.getreply(currentUser).subscribe(
       res => {
         console.log(res);
@@ -120,7 +120,7 @@ submitreplyForm() {
 } 
 sendreply() {
       
-  var current_user = localStorage.getItem("current_user");
+  var current_user = localStorage.getItem("user_id");
   const request = {
     _id: current_user,
     nom: this.buttonClicked,

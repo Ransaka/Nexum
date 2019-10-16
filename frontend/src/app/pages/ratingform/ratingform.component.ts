@@ -19,12 +19,12 @@ export class RatingformComponent implements OnInit {
     constructor(private formBuilder: FormBuilder, private rateing: RatingformService, private router: Router) {
      }
      
-
+     current_user: String;
     ngOnInit() {
-      var current_user = localStorage.getItem("current_user");
+      this.current_user = localStorage.getItem("user_id");
 
       this.ratingForm =  this.formBuilder.group({
-        _id: current_user, 
+        _id: this.current_user, 
         rate:['',Validators.required],
         review:['']
       });
@@ -32,9 +32,9 @@ export class RatingformComponent implements OnInit {
 
     sendrating() {
       
-      var current_user = localStorage.getItem("current_user");
+      var current_user = localStorage.getItem("user_id");
       const request = {
-        _id: current_user,
+        _id: this.current_user,
         rate: this.selectedValue,
         review: this.ratingForm.controls['review'].value
       }

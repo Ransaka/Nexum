@@ -22,7 +22,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { AgmCoreModule } from '@agm/core';
-
+import {RatingformComponent} from './pages/ratingform/ratingform.component'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
@@ -49,7 +49,8 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     SellerreplyformComponent,
     FinalizingformviewComponent,
     SellingitemComponent,
-    AcceptfinalizingComponent
+    AcceptfinalizingComponent,
+    RatingformComponent
   ],
   imports: [
     BrowserAnimationsModule,
