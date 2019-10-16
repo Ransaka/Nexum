@@ -50,7 +50,8 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     FinalizingformviewComponent,
     SellingitemComponent,
     AcceptfinalizingComponent,
-    RatingformComponent
+    RatingformComponent,
+    
   ],
   imports: [
     BrowserAnimationsModule,

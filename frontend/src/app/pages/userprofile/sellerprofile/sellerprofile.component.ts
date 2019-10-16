@@ -110,7 +110,7 @@ export class SellerprofileComponent implements OnInit {
   }
 
   getRatings() {
-    let currentUser = localStorage.getItem('current_user');
+    let currentUser = localStorage.getItem('user_id');
     this.rateing.getRatings(currentUser).subscribe(
       res => {
         console.log(res);
@@ -121,7 +121,7 @@ export class SellerprofileComponent implements OnInit {
     );
   }
   getreply() {
-    let currentUser = localStorage.getItem('current_user');
+    let currentUser = localStorage.getItem('user_id');
     this.replying.getreply(currentUser).subscribe(
       res => {
         console.log(res);
@@ -251,12 +251,12 @@ export class SellerprofileComponent implements OnInit {
    this.buttonClicked = NIC;
    
  }
-//  submitreplyForm() {
-//   console.log(this.replyForm.value);
-// } 
+ submitreplyForm() {
+  console.log(this.replyForm.value);
+} 
 sendreply() {
       
-  var current_user = localStorage.getItem("current_user");
+  var current_user = localStorage.getItem("user_id");
   const request = {
     _id: current_user,
     nom: this.buttonClicked,

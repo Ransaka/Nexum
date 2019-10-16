@@ -26,6 +26,7 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { RecoverAccountComponent } from './components/recover-account/recover-account.component';
 import { RatingformComponent } from './pages/ratingform/ratingform.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: ComponentsComponent },

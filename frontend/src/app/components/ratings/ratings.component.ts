@@ -4,7 +4,7 @@ import { RatingformService } from 'app/services/ratingform.service';
 import {ReplyformService } from 'app/services/reply.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms'; 
-declare const feather: any;
+ 
 export interface Message {
   text: string;
   name: string;
@@ -57,7 +57,7 @@ export class RatingsComponent implements OnInit {
 
   
   ngOnInit() {
-    feather.replace();
+     
     this.getRatings();
     this.getreply();
     var current_user = localStorage.getItem("user_id");
