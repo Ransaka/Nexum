@@ -73,6 +73,9 @@ export class AuthService {
     return this.http.post<any>('http://localhost:3000/user/complain', complain);
     // .pipe(map(res => this.ApiResponse))
   }
+  displayComplain(){
+    return this.http.get('http://localhost:3000/user/complain/get');
+  }
   // eof make new complain
   // makeComplain(complain:NewComplain): Observable<any> {
   //   return this.http.post('http://localhost:3000/user/complain', complain, )

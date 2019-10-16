@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../Auth/auth.service';
 
 @Component({
   selector: 'app-adminprofile',
@@ -77,15 +78,24 @@ export class AdminprofileComponent implements OnInit {
   ];
   data: Date = new Date();
   focus;
+  complains: Object;
   focus1;
 
-  constructor() {}
+  constructor(private auth: AuthService) {}
 
   ngOnInit() {
     var body = document.getElementsByTagName('body')[0];
     body.classList.add('profile-page');
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('navbar-transparent');
+
+    this.auth.displayComplain().subscribe(
+      auth=>{
+        this.complains = auth;
+        console.log(this.auth)
+      },
+      error => console.log(error)
+    )
   }
 
   ngOnDestroy() {
