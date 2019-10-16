@@ -15,7 +15,6 @@ export class SellingService {
       'uid',
       localStorage.getItem('user_id')
     );
-    console.log(selling);
     return this.http.put('http://localhost:3000/user/selling/new', selling, {
       headers
     });
@@ -87,7 +86,6 @@ export class SellingService {
       'uid',
       localStorage.getItem('user_id')
     );
-    console.log(finalizing);
     return this.http.put(
       'http://localhost:3000/user/selling/newfinalizing',
       finalizing,

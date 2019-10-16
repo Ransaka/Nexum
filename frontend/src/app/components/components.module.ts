@@ -6,7 +6,6 @@ import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 
-import { TypographyComponent } from './typography/typography.component';
 import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
@@ -36,7 +35,6 @@ import { RecoverAccountComponent } from './recover-account/recover-account.compo
   ],
   declarations: [
     ComponentsComponent,
-    TypographyComponent,
     NotificationComponent,
     NgbdModalBasic,
     SigninComponent,

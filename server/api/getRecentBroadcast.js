@@ -95,12 +95,66 @@ router.get('/test', async function (req, res) {
 
 })
 
+/**
+ * Get broadcasts by customers endpoint.
+ *
+ * Get the user selling for the given user id.
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
 router.post('/test1', function (req, res) {
     retArray = new Array()
     User.find({
         broadcasts: {
             $elemMatch: {
                 "product": req.body.element
+            }
+        }
+    }).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+
+        array = new Array()
+        user.forEach(element => {
+            var response = {
+                userID: element._id,
+                username: element.username
+            }
+            array.push(response)
+        })
+        if (array.length > 0) {
+            res.status(200).send(array)
+        } else {
+            array.push('empty')
+            res.status(200).send(array)
+        }
+
+    })
+
+
+})
+
+/**
+ * Get broadcasts by customers endpoint.
+ *
+ * Get the user selling for the given user id.
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.post('/getBroadcastsByTags', function (req, res) {
+    retArray = new Array()
+    User.find({
+        broadcasts: {
+            tags: {
+                $elemMatch: "Dell"
+
             }
         }
     }).exec((err, user) => {

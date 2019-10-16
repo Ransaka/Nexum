@@ -45,6 +45,6 @@ export class AcceptfinalizingComponent implements OnInit {
   pay() {
     this._broadcastService
       .payment('hello')
-      .subscribe(data => console.log(JSON.parse(data)));
+      .subscribe(data => console.log(data));
   }
 }
