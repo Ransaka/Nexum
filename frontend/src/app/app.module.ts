@@ -29,6 +29,7 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     SellingitemComponent,
     AcceptfinalizingComponent,
     RatingformComponent,
-    
+    DateAgoPipe,
+     
   ],
   imports: [
     BrowserAnimationsModule,

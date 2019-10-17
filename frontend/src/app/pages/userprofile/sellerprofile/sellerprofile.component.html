@@ -134,21 +134,21 @@
                           </div>
                         </div>
                          
-                        <div class="col-md-12">
+                        <div class="col-md-10">
                             <form novalidate [formGroup]="replyForm" (ngSubmit)="submitreplyForm()">
                                 <div *ngFor="let review of this.reviewlist | slice:1;let index= index  " >
                                     <div class="card card-inner">
                                         <div class="card-body">
-                                        <div class="card-body col-xs-10 col-md-10">  
+                                        <div class="card-body col-xs-8 col-md-8">  
                               <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                   <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
                                    <p class="text-secondary text-center">
-                                      {{datelist[index+1]}}  
+                                      {{datelist[index+1]|dateAgo}}  
                                   
                                 </div>
                         
-                                <div class="col-md-10">
+                                <div class="col-md-8">
                                   <div class="clearfix"></div>
                                 
                                   
@@ -183,7 +183,7 @@
                           <div class="col-md-4">
                             <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
                              <p class="text-secondary text-center">
-                                {{time}} 
+                                {{time| dateAgo}} 
                             
                           </div>
                         
