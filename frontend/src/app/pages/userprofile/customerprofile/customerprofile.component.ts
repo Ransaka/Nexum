@@ -15,13 +15,12 @@ export class CustomerprofileComponent implements OnInit {
     private _userservice: UserService
   ) {}
 
-  broadcastArray: Broadcast[];
+  broadcastArray = [];
   current_user: User;
   searchUsername: string;
 
   ngOnInit() {
     this.getUser();
-    this.getBroadcasts();
   }
 
   // Get user details
@@ -32,10 +31,11 @@ export class CustomerprofileComponent implements OnInit {
   }
 
   // Get all broadcasts
-  getBroadcasts() {
+  private getBroadcasts(id: String) {
     this._broadcastservice
       .getBroadcast()
-      .subscribe(data => (this.broadcastArray = data as Broadcast[]));
+      .subscribe(data => (this.broadcastArray = data));
+    console.log(this.broadcastArray);
   }
 
   // remove a broadcast
@@ -46,3 +46,6 @@ export class CustomerprofileComponent implements OnInit {
       .subscribe(data => this.getBroadcasts());
   }
 }
+
+}
+

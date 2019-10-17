@@ -60,6 +60,53 @@ export class NgbdModalBasic {
   log_email: String;
   log_password: String;
 
+
+  //Signup
+  signup() {
+    if (
+      this.signupForm.controls['password'].value ==
+      this.signupForm.controls['confirmpassword'].value
+    ) {
+      this.auth
+        .signUp({
+          email: this.signupForm.controls['email'].value,
+          username: this.signupForm.controls['username'].value,
+          password: this.signupForm.controls['password'].value
+        })
+        .subscribe(
+          () => {
+            this.modalService.dismissAll();
+            const request = {
+              email: this.signupForm.controls['email'].value,
+              password: this.signupForm.controls['password'].value
+            };
+            this.auth.login(request).subscribe(
+              res => {
+                this.router.navigateByUrl('/userprofile/customerprofile');
+                this.modalService.dismissAll();
+              },
+              err => {
+                console.log(err);
+                if (err.error.message) {
+                  this.error = err.error.message;
+                  console.log(this.error);
+                }
+              }
+            );
+            this.router.navigate(['/userprofile/customerprofile']);
+          },
+          err => {
+            console.log(err);
+            if (err.error.message) {
+              this.signupError = err.error.message;
+            }
+          }
+        );
+    } else {
+      this.conPass = 'True';
+    }
+  }
+
   //Login
   login() {
     const request = {
@@ -85,7 +132,6 @@ export class NgbdModalBasic {
   signOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('current_user');
-
     //this.user.removeCurrent();
   }
 }

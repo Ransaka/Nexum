@@ -83,7 +83,7 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr *ngFor="let x of broadcastArray?.broadcast.slice(0,5)">
+                                <tr *ngFor="let x of broadcastArray?.broadcast">
                                   <td>{{x._id | slice:-4}}</td>
                                   <td>{{x.product}}</td>
                                   <td scope="row">{{x.tags}}</td>
