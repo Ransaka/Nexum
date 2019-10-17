@@ -1,25 +1,26 @@
-import { AuthService } from '../../Auth/auth.service';
-import { Component, Input } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from './../../../Auth/auth.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngbd-modal-component',
-  templateUrl: './modal.component.html'
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class NgbdModalBasic {
-  closeResult: string;
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  signupForm: FormGroup;
+  closeResult: string;
 
   constructor(
+    private formbuilder: FormBuilder,
     private modalService: NgbModal,
     private auth: AuthService,
-    private formbuilder: FormBuilder,
     private router: Router
   ) {}
 
+  // Open popup
   open(content) {
     this.modalService.open(content).result.then(
       result => {
@@ -38,6 +39,10 @@ export class NgbdModalBasic {
     });
   }
 
+  error: string;
+  log_email: String;
+  log_password: String;
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -47,18 +52,6 @@ export class NgbdModalBasic {
       return `with: ${reason}`;
     }
   }
-
-  error: string;
-  signupError: string;
-  conPass: string;
-
-  email: String;
-  username: String;
-  password: String;
-  confirmpassword: String;
-
-  log_email: String;
-  log_password: String;
 
   //Login
   login() {
@@ -80,14 +73,4 @@ export class NgbdModalBasic {
       }
     );
   }
-
-  //Signout
-  signOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('current_user');
-
-    //this.user.removeCurrent();
-  }
 }
-
-export class ModalComponent {}
