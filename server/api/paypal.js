@@ -40,12 +40,15 @@ router.post('/pay', function (req, res) {
             throw error;
         } else {
             console.log(payment);
+            var url;
             for (let i = 0; i < payment.links.length; i++) {
                 if (payment.links[i].rel === 'approval_url') {
-                    var x = String(payment.links[i].href)
-                    res.send(x)
+                    url = String(payment.links[i].href)
                 }
             }
+            res.send({
+                url: url
+            })
         }
     });
 })

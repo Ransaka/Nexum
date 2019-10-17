@@ -15,7 +15,6 @@ export class SellingService {
       'uid',
       localStorage.getItem('user_id')
     );
-    console.log(selling);
     return this.http.put('http://localhost:3000/user/selling/new', selling, {
       headers
     });
@@ -87,10 +86,21 @@ export class SellingService {
       'uid',
       localStorage.getItem('user_id')
     );
-    console.log(finalizing);
     return this.http.put(
       'http://localhost:3000/user/selling/newfinalizing',
       finalizing,
+      {
+        headers
+      }
+    );
+  }
+
+  removeSelling(selling_id: string): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('x-access-token', localStorage.getItem('jwt_token'))
+      .set('uid', localStorage.getItem('user_id'));
+    return this.http.delete<any>(
+      'http://localhost:3000/user/selling/remove/' + selling_id,
       {
         headers
       }

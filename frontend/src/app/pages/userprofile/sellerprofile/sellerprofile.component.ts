@@ -157,6 +157,15 @@ export class SellerprofileComponent implements OnInit {
     });
     return promise;
   }
+
+  // remove a selling
+  removeSelling(id) {
+    console.log(id);
+    this._sellingservice
+      .removeSelling(id as string)
+      .subscribe(data => this.getSelling());
+  }
+}
     calcRatings(ratings) {
     if (ratings) {
       this.totalRates = ratings.length;
@@ -288,4 +297,3 @@ viewReply(replying){
  
 
    
-  

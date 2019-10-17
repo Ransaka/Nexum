@@ -21,7 +21,6 @@ const checkAuth = require('../auth/check-auth')
  * @role User
  */
 router.get('/all', function (req, res) {
-    console.log(req.params.product)
     User.find({
         _id: req.headers.uid
 

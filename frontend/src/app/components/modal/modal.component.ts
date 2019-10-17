@@ -36,13 +36,6 @@ export class NgbdModalBasic {
       log_email: ['', Validators.required],
       log_password: ['', Validators.required]
     });
-
-    this.signupForm = this.formbuilder.group({
-      email: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(5)]],
-      confirmpassword: ['', Validators.required]
-    });
   }
 
   private getDismissReason(reason: any): string {
@@ -66,6 +59,7 @@ export class NgbdModalBasic {
 
   log_email: String;
   log_password: String;
+
 
   //Signup
   signup() {

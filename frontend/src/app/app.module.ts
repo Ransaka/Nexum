@@ -20,7 +20,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import { ExamplesModule } from './examples/examples.module';
 import { AgmCoreModule } from '@agm/core';
 import {RatingformComponent} from './pages/ratingform/ratingform.component'
 import { AppComponent } from './app.component';
@@ -60,7 +59,6 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     RouterModule,
     AppRoutingModule,
     ComponentsModule,
-    ExamplesModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDU2U5KdAzMj0ZP6584UzKlZH0tGFT9feg'

@@ -1,6 +1,6 @@
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { BroadcastService } from './../../services/broadcast.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +12,8 @@ export class AcceptfinalizingComponent implements OnInit {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _broadcastService: BroadcastService,
-    private _formbuilder: FormBuilder
+    private _formbuilder: FormBuilder,
+    private router: Router
   ) {}
 
   itemId: string;
@@ -45,6 +46,6 @@ export class AcceptfinalizingComponent implements OnInit {
   pay() {
     this._broadcastService
       .payment('hello')
-      .subscribe(data => console.log(JSON.parse(data)));
+      .subscribe(data => window.open(data.url, '_blank'));
   }
 }
