@@ -36,59 +36,16 @@
   </div>
 
 
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <form>
-                              <!-- <div class="form-group form-inline">
-                                  Search <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
-                                  <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
-                              </div> -->
-                              <h2>Recent Complains</h2>
-                              <table class="table table-striped">
-                                  <thead>
-                                      <tr>
-                                          <th scope="col">Number</th>
-                                          <th scope="col" sortable="name" (sort)="onSort($event)">Customer Name</th>
-                                          <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
-                                          <th scope="col" sortable="message" (sort)="onSort($event)">Complain</th>
-
-                                      </tr>
-                                  </thead>
-                                  <!-- <tbody>
-                                  <tr *ngFor="let country of countries$ | async">
-                                      <th scope="row">{{ country.id }}</th>
-                                          <td>
-                                              <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-                                              <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
-                                          </td>
-                                      <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight></td>
-                                      <td><ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight></td>
-                                  </tr>
-                                  </tbody> -->
-                              </table>
-                              <div class="d-flex justify-content-between p-2">
-                                  <ngb-pagination
-                                  [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
-                                  </ngb-pagination>
-              
-                                  <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-                                  <option [ngValue]="2">2 items per page</option>
-                                  <option [ngValue]="4">4 items per page</option>
-                                  <option [ngValue]="6">6 items per page</option>
-                                  </select>
-                              </div>
-              
-                              </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div *ngFor="let val of complains">
-    <div>{{val.Complain}}</div>
-  </div>
+ <div *ngFor="let item of complains">
+<table>
+<td *ngIf="(complain.id)!=NULL">
+  {{item.id}}
+</td>
+<td>
+  {{item.complain}}
+</td>
+</table>
+ </div>
   <!-- <div class="section">
     <div class="col">
       <div class="col-md-8 ml-auto mr-auto">

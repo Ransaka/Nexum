@@ -37,7 +37,7 @@ router.post("/",(req, res) => {
   router.get('/get', async(req, res)=>{
     try{
       const Complain = await complain.find();
-      res.json(Complain);
+      res.send(Complain);
     }catch(err){
       res.json({message: err});
     }
