@@ -69,6 +69,7 @@ export class AuthService {
   //make new complain
   makeComplain(complain:NewComplain): Observable<any>{
     console.log("at service file 1"+ JSON.stringify(complain))
+    //console.log("at service file"+JSON.stringify(mydate))
 
     return this.http.post<any>('http://localhost:3000/user/complain', complain);
     // .pipe(map(res => this.ApiResponse))

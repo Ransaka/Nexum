@@ -81,7 +81,17 @@ export class AdminprofileComponent implements OnInit {
   complains: Object | any[];
   focus1;
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService,) {}
+
+  displayComplain(){
+  this.auth.displayComplain().subscribe(
+    auth=>{
+      this.complains = auth;
+      console.log(this.complains)
+    },
+    error => console.log(error)
+  );
+}
 
   ngOnInit() {
     this.auth.displayComplain().subscribe(
@@ -96,8 +106,9 @@ export class AdminprofileComponent implements OnInit {
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('navbar-transparent');
 
-
   }
+
+
 
   ngOnDestroy() {
     var body = document.getElementsByTagName('body')[0];

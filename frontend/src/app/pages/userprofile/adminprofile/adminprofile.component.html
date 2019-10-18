@@ -18,7 +18,7 @@
 
         <div class="row justify-content-center">
           <div class="social-description">
-            <a [routerLink]="['/pages/complains']" routerLinkActive="router-link-active"  class="btn btn-primary btn-lg btn-round">View Messages</a>
+            <a  class="btn btn-primary btn-lg btn-round" (click)="displayComplain()">View Messages</a>
           </div>
           <div class="social-description">
             <a href="#button" class="btn btn-primary btn-lg btn-round">Site Settings</a>
@@ -36,17 +36,59 @@
   </div>
 
 
- <div *ngFor="let item of complains">
-<table>
-<td *ngIf="(complain.id)!=NULL">
-  {{item.id}}
-</td>
-<td>
-  {{item.complain}}
-</td>
-</table>
- </div>
-  <!-- <div class="section">
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!--<form>
+                              <div class="form-group form-inline">
+                                  Search <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
+                                  <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+                              </div>
+              
+                              <table class="table table-striped">
+                                  <thead>
+                                      <tr>
+                                          <th scope="col">Number</th>
+                                          <th scope="col" sortable="name" (sort)="onSort($event)">Customer Name</th>
+                                          <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
+                                          <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
+                                          <th scope="col">Finalize</th>
+                                          <th scope="col">Action</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr *ngFor="let country of countries$ | async">
+                                      <th scope="row">{{ country.id }}</th>
+                                          <td>
+                                              <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
+                                              <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+                                          </td>
+                                      <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight></td>
+                                      <td><ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight></td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+              
+                              <div class="d-flex justify-content-between p-2">
+                                  <ngb-pagination
+                                  [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
+                                  </ngb-pagination>
+              
+                                  <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+                                  <option [ngValue]="2">2 items per page</option>
+                                  <option [ngValue]="4">4 items per page</option>
+                                  <option [ngValue]="6">6 items per page</option>
+                                  </select>
+                              </div>
+              
+                              </form>-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
     <div class="col">
       <div class="col-md-8 ml-auto mr-auto">
         <div class="media-area">
@@ -98,9 +140,9 @@
       </div>
     </div>
 
-  </div> -->
+  </div>
 
-  <!-- <div class="section">
+  <div class="section" *ngFor="let item of complains" align="center">
     <div class="col-md-8 ml-auto mr-auto">
       <div class="media-area">
         <h3>Reviews</h3>
@@ -110,9 +152,7 @@
             <h4>Name</h4>
           </div>
         </div>
-        <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep
-          you posted for the latest news.
-          Don't forget, You're Awesome!</p>
+        <p>{{item.complain}}</p>
       </div>
     </div>
   </div>
@@ -151,4 +191,4 @@
       </div>
     </div>
   </footer>
-</div> -->
+</div>
