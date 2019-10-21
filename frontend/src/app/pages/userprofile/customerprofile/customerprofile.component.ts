@@ -15,7 +15,7 @@ export class CustomerprofileComponent implements OnInit {
     private _userservice: UserService
   ) {}
 
-  broadcastArray = [];
+  broadcastArray = []; // Broadcasts of the user
   current_user: User; //User details of the current user
   searchUsername: string;
 
@@ -40,7 +40,6 @@ export class CustomerprofileComponent implements OnInit {
 
   // remove a broadcast
   removeBroadcast(id) {
-    console.log(id);
     this._broadcastservice
       .removeBroadcast(id as string)
       .subscribe(data => this.getBroadcasts());

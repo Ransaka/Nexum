@@ -8,6 +8,8 @@ import { Broadcast } from './broadcast.dto';
   providedIn: 'root'
 })
 export class BroadcastService {
+  private currentUrl = 'http://localhost:3000/';
+
   constructor(private http: HttpClient) {}
 
   //Sending broadcast message to the backend
@@ -17,7 +19,9 @@ export class BroadcastService {
       localStorage.getItem('user_id')
     );
     console.log(broadcast);
-    return this.http.post('http://localhost:3000/user/broadcast', broadcast);
+    return this.http.post(this.currentUrl + 'user/broadcast', broadcast, {
+      headers
+    });
   }
 
   // Get all broadcasts
@@ -26,10 +30,9 @@ export class BroadcastService {
       'x-access-token',
       localStorage.getItem('jwt_token')
     );
-    return this.http.get<Broadcast[]>(
-      'http://localhost:3000/user/broadcast/all',
-      { headers }
-    );
+    return this.http.get<Broadcast[]>(this.currentUrl + 'user/broadcast/all', {
+      headers
+    });
   }
 
   // Get a broadcast by id
@@ -92,12 +95,13 @@ export class BroadcastService {
     );
   }
 
+  // Remove a broadcast
   removeBroadcast(broadcast_id: string): Observable<any> {
     const headers = new HttpHeaders()
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
     return this.http.delete<any>(
-      'http://localhost:3000/user/broadcast/remove/' + broadcast_id,
+      this.currentUrl + 'user/broadcast/remove/' + broadcast_id,
       {
         headers
       }

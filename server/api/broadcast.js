@@ -122,7 +122,6 @@ router.put('/new', async (req, res, next) => {
  * @response User of the given id
  */
 router.delete('/remove/:broadcast_id', function (req, res) {
-    console.log(req.params.broadcast_id)
     User.update({
         _id: req.headers.uid
     }, {
