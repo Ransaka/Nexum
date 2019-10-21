@@ -27,7 +27,8 @@ export class BroadcastService {
       localStorage.getItem('jwt_token')
     );
     return this.http.get<Broadcast[]>(
-      'http://localhost:3000/user/broadcast/'
+      'http://localhost:3000/user/broadcast/all',
+      { headers }
     );
   }
 

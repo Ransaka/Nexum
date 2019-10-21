@@ -13,7 +13,7 @@ import { User, UserView, Username } from './user.dto';
 })
 export class UserService {
   //Api endpoint
-  private currentUrl = 'http://localhost:3000/user/current';
+  private currentUrl = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {}
 
@@ -30,19 +30,19 @@ export class UserService {
     this.removeUser();
   }
 
-  // Get current user
+  /*
+   * Get current user
+   */
   collectCurrent(): Observable<User> {
     const headers = new HttpHeaders().set(
       'x-access-token',
       localStorage.getItem('jwt_token')
     );
-    return this.http
-      .get('http://localhost:3000/user/current', { headers })
-      .pipe(
-        first(),
-        map(res => res as User),
-        tap(user => this.setUser(user))
-      );
+    return this.http.get(this.currentUrl + 'user/current', { headers }).pipe(
+      first(),
+      map(res => res as User),
+      tap(user => this.setUser(user))
+    );
   }
 
   // search a user
@@ -73,8 +73,10 @@ export class UserService {
     });
   }
 
+  /*
+   * Set user id on the local storage
+   */
   private setUser(response: User) {
-    localStorage.setItem('current_user', JSON.stringify(response));
     localStorage.setItem('user_id', response._id);
   }
 

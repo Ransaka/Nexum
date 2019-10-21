@@ -5,9 +5,15 @@ import { User } from './../../../services/user.dto';
 
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms'; 
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  FormArray,
+  Validators
+} from '@angular/forms';
 import { RatingformService } from 'app/services/ratingform.service';
-import {ReplyformService } from 'app/services/reply.service';
+import { ReplyformService } from 'app/services/reply.service';
 import { Router } from '@angular/router';
 declare const feather: any;
 export interface Message {
@@ -26,30 +32,29 @@ export class SellerprofileComponent implements OnInit {
     private rateing: RatingformService,
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private replying:ReplyformService  , 
+    private replying: ReplyformService,
     private router: Router
-
-  ) { this.highestRate = 0;
+  ) {
+    this.highestRate = 0;
     this.totalRates = 0;
     this.starFivePer = 0;
     this.starFourPer = 0;
     this.starThreePer = 0;
     this.starTwoPer = 0;
-    this.starOnePer = 0; 
-     this.reviewlist=[];
-     this.datelist=[];
     this.starOnePer = 0;
-    this.buttonClicked ;
-    this.idlist=[];
-    this.numlist=[];
-     this.timelist=[];
-     this.replylist=[];}
+    this.reviewlist = [];
+    this.datelist = [];
+    this.starOnePer = 0;
+    this.buttonClicked;
+    this.idlist = [];
+    this.numlist = [];
+    this.timelist = [];
+    this.replylist = [];
+  }
 
   current_user: User;
   sellingArray: Selling[];
   recievedBroadcasts: any[] = [];
-
-   
 
   // Get user details
   getUser() {
@@ -65,14 +70,14 @@ export class SellerprofileComponent implements OnInit {
   starThreePer: number;
   starTwoPer: number;
   starOnePer: number;
-  reviewlist:any=[];
-  datelist:any=[];
-  buttonClicked:number;
-  idlist:any=[];
-  replyForm: FormGroup; 
-  numlist:any=[] ;
-  replylist:any=[];
-  timelist:any=[];
+  reviewlist: any = [];
+  datelist: any = [];
+  buttonClicked: number;
+  idlist: any = [];
+  replyForm: FormGroup;
+  numlist: any = [];
+  replylist: any = [];
+  timelist: any = [];
 
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
@@ -99,14 +104,13 @@ export class SellerprofileComponent implements OnInit {
     this.getUser();
     this.getSelling();
     this.getRecentBroadcasts();
-    var current_user = localStorage.getItem("user_id");
+    var current_user = localStorage.getItem('user_id');
 
-      this.replyForm =  this.formBuilder.group({
-        _id: current_user, 
-        nom:[''],
-        reply:['']
-      });
-
+    this.replyForm = this.formBuilder.group({
+      _id: current_user,
+      nom: [''],
+      reply: ['']
+    });
   }
 
   getRatings() {
@@ -120,6 +124,7 @@ export class SellerprofileComponent implements OnInit {
       err => {}
     );
   }
+
   getreply() {
     let currentUser = localStorage.getItem('current_user');
     this.replying.getreply(currentUser).subscribe(
@@ -165,8 +170,8 @@ export class SellerprofileComponent implements OnInit {
       .removeSelling(id as string)
       .subscribe(data => this.getSelling());
   }
-}
-    calcRatings(ratings) {
+
+  calcRatings(ratings) {
     if (ratings) {
       this.totalRates = ratings.length;
       let one = 0;
@@ -177,7 +182,6 @@ export class SellerprofileComponent implements OnInit {
       let topCount = 0;
 
       for (let i = 0; i < ratings.length; i++) {
-        
         if (ratings[i]) {
           switch (ratings[i].rate) {
             case 1:
@@ -227,73 +231,62 @@ export class SellerprofileComponent implements OnInit {
     }
   }
 
-  viewReview(ratings){
+  viewReview(ratings) {
     if (ratings) {
-      let idea = null; 
+      let idea = null;
       let day;
       let no;
-      let k=0;
-   for (let j= 0; j < ratings.length; j++) {
-            idea=ratings[j].review;
-            day=ratings[j].date;
-            no=ratings[j]._id;
-     if(k==3) {
-       break;
-     }
-     else{      
-      if(idea==null){
-      }else{
-       k++;
-     this.reviewlist[k]= idea;
-     this.datelist[k]=day;
-     this.idlist[k]=no; 
-    }}
-       // this.review= ratings[j].review;
-       // this.date[k]=ratings[j].date;
-     }
+      let k = 0;
+      for (let j = 0; j < ratings.length; j++) {
+        idea = ratings[j].review;
+        day = ratings[j].date;
+        no = ratings[j]._id;
+        if (k == 3) {
+          break;
+        } else {
+          if (idea == null) {
+          } else {
+            k++;
+            this.reviewlist[k] = idea;
+            this.datelist[k] = day;
+            this.idlist[k] = no;
+          }
+        }
+        // this.review= ratings[j].review;
+        // this.date[k]=ratings[j].date;
+      }
+    }
   }
 
- }
-
- onLinkClicked(NIC){
-  //  if(NIC==id){
-   this.buttonClicked = NIC;
-   
- }
-//  submitreplyForm() {
-//   console.log(this.replyForm.value);
-// } 
-sendreply() {
-      
-  var current_user = localStorage.getItem("current_user");
-  const request = {
-    _id: current_user,
-    nom: this.buttonClicked,
-    reply: this.replyForm.controls['reply'].value
+  onLinkClicked(NIC) {
+    //  if(NIC==id){
+    this.buttonClicked = NIC;
   }
-  this.replying.sendreply(request).subscribe(res => {
-    this.router.navigateByUrl('/userprofile/customerprofile')
-  }) 
-
-}  
-viewReply(replying){
-   
-  let k=0; 
-  let my;
-  let numb;  
- for (let j= 0; j < replying.length; j++) {
-   
+  //  submitreplyForm() {
+  //   console.log(this.replyForm.value);
+  // }
+  sendreply() {
+    var current_user = localStorage.getItem('current_user');
+    const request = {
+      _id: current_user,
+      nom: this.buttonClicked,
+      reply: this.replyForm.controls['reply'].value
+    };
+    this.replying.sendreply(request).subscribe(res => {
+      this.router.navigateByUrl('/userprofile/customerprofile');
+    });
+  }
+  viewReply(replying) {
+    let k = 0;
+    let my;
+    let numb;
+    for (let j = 0; j < replying.length; j++) {
       k++;
-   this.replylist[k]=replying[j].reply; 
-   this.timelist[k]=replying[j].date;
-   this.numlist[k]=replying[j].nom; 
-  }}
-     // this.review= ratings[j].review;
-     // this.date[k]=ratings[j].date;
-   }
-
-
-  
- 
-
-   
+      this.replylist[k] = replying[j].reply;
+      this.timelist[k] = replying[j].date;
+      this.numlist[k] = replying[j].nom;
+    }
+  }
+  // this.review= ratings[j].review;
+  // this.date[k]=ratings[j].date;
+}

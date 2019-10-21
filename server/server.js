@@ -7,7 +7,7 @@ const logger = require('morgan')
 const PORT = 3000
 const api = require('./routes/api')
 const signupRoutes = require('./api/signup')
-const loginRoutes = require('./api/login')
+const loginRoutes = require('./api/signup-login/login')
 const usersRouter = require('./api/user')
 const broadcastRouter = require('./api/broadcast')
 const sellingRouter = require('./api/selling')
@@ -23,7 +23,7 @@ const paypalRouter = require('./api/paypal')
 
 
 const replyRouter = require('./api/reply')
- 
+
 
 // Initialize the app
 const app = express()
@@ -50,7 +50,7 @@ app.use('/forgotPasswordMail', forgotPasswordMailRouter)
 app.use('/user/getFinalizingForms', getFinalizingFormsRouter)
 app.use('/user/paypal', paypalRouter)
 
-app.use('/user/reply',replyRouter)
+app.use('/user/reply', replyRouter)
 
 app.get('/', function (req, res) {
     res.send("Hello")

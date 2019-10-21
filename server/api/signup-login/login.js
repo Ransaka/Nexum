@@ -3,8 +3,7 @@ const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
-const User = require('../models/User')
-const Verify = require('../auth/verify')
+const User = require('../../models/User')
 
 
 /**
@@ -35,7 +34,7 @@ router.post('/login', (req, res, next) => {
                 if (result) {
                     const token = jwt.sign({
                         email: user.email,
-                        id: user._id
+                        id: user._id // Use userid and email for the token
                     }, 'secret', {
                         expiresIn: '24h'
                     })

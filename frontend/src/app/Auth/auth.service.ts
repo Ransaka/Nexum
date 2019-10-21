@@ -33,7 +33,6 @@ export class AuthService {
       );
   }
 
-
   // Set local variables
   private setSession(response: SignInResponse) {
     const expiresAt = moment().add(response.expiresIn, 'second');
@@ -74,4 +73,3 @@ export class AuthService {
   // }
   // eof make new complain
 }
-
