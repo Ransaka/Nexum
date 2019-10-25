@@ -12,7 +12,4 @@ mongoose.connect(db,  { useNewUrlParser: true },err => {
         console.log('connected to database')
     }
 })
-
-
-
 module.exports = router

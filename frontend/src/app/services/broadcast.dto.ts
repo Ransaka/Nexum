@@ -1,4 +1,5 @@
 export interface Broadcast {
-  category?: string;
+  category: string;
+  product: string;
   textMessage?: string;
 }

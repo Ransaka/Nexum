@@ -21,3 +21,7 @@ const complainschema = mongoose.Schema({
     }
 });
 module.exports = mongoose.model('complains', complainschema)
+    Complain: String,
+    // date: Date
+})
+module.exports = mongoose.model('complain', complainschema, 'Complain')

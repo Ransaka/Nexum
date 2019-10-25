@@ -1,3 +1,12 @@
+import { AcceptfinalizingComponent } from './components/acceptfinalizing/acceptfinalizing.component';
+import { SellingitemComponent } from './components/sellingitem/sellingitem.component';
+import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
+import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
+import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
+import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
+import { SellerviewComponent } from './pages/sellerview/sellerview.component';
+import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
+import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
@@ -14,8 +23,8 @@ import { ComponentsComponent } from './components/components.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
-import { ComplainsComponent } from './pages/complains/complains.component';
-import {CustComplainComponent} from './pages/cust-complain/cust-complain.component'
+import { RecoverAccountComponent } from './components/recover-account/recover-account.component';
+import { RatingformComponent } from './pages/ratingform/ratingform.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -39,8 +48,36 @@ const routes: Routes = [
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },
   { path: 'userprofile/admin', component: AdminprofileComponent },
   { path: 'userprofile/edit', component: EditprofileComponent },
-  { path: 'pages/complains', component: ComplainsComponent },
-  { path: 'pages/newcomplain', component: CustComplainComponent }
+  { path: 'userprofile/purchasehistory', component: PurchasehistoryComponent },
+  { path: 'userprofile/sellerreply', component: SellerreplyComponent },
+  { path: 'userprofile/sellerview', component: SellerviewComponent },
+  { path: 'userprofile/search/:username', component: SellerviewComponent },
+  { path: 'userprofile/sellerreply/:id', component: SellerreplyComponent },
+  { path: 'userprofile/sellingitem/:id', component: SellingitemComponent },
+  { path: 'userprofile/ratingform' , component: RatingformComponent },
+  {
+    path: 'userprofile/acceptfinalize/:id',
+    component: AcceptfinalizingComponent
+  },
+
+  {
+    path: 'userprofile/finalizingformview/:id',
+    component: FinalizingformviewComponent
+  },
+  {
+    path: 'userprofile/finalizingform/:id/:custid',
+    component: FinalizingformComponent
+  },
+  { path: 'userprofile/bookmarks', component: BookmarksviewComponent },
+  {
+    path: 'userprofile/sellerreplyform/:id',
+    component: SellerreplyformComponent
+  },
+  {
+    path: 'recoverAccount',
+    component: RecoverAccountComponent
+  },
+  { path: '**', component: UserprofileComponent }
 ];
 
 @NgModule({

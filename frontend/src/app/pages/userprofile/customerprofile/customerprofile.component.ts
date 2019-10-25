@@ -2,6 +2,7 @@ import { UserService } from './../../../services/user.service';
 import { BroadcastService } from './../../../services/broadcast.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from './../../../services/user.dto';
+import { Broadcast } from './../../../services/broadcast.dto';
 
 @Component({
   selector: 'app-customerprofile',
@@ -16,6 +17,7 @@ export class CustomerprofileComponent implements OnInit {
 
   broadcastArray = [];
   current_user: User;
+  searchUsername: string;
 
   ngOnInit() {
     this.getUser();
@@ -31,8 +33,19 @@ export class CustomerprofileComponent implements OnInit {
   // Get all broadcasts
   private getBroadcasts(id: String) {
     this._broadcastservice
-      .getBroadcast(id)
+      .getBroadcast()
       .subscribe(data => (this.broadcastArray = data));
     console.log(this.broadcastArray);
   }
+
+  // remove a broadcast
+  removeBroadcast(id) {
+    console.log(id);
+    this._broadcastservice
+      .removeBroadcast(id as string)
+      .subscribe(data => this.getBroadcasts());
+  }
 }
+
+}
+

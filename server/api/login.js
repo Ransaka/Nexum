@@ -21,7 +21,7 @@ router.post('/login', (req, res, next) => {
         })
         .exec()
         .then(user => {
-            if (user.length < 1) {
+            if (user == null || user.length < 1) {
                 return res.status(401).json({
                     message: 'Auth failed'
                 })
@@ -42,7 +42,8 @@ router.post('/login', (req, res, next) => {
                     return res.status(200).json({
                         message: 'Auth Successful',
                         token: token,
-                        user: user
+                        user: user,
+                        user_id: user._id
                     })
                 }
                 return res.status(401).json({
@@ -52,7 +53,7 @@ router.post('/login', (req, res, next) => {
         })
         .catch(err => {
             console.log(err)
-            res.status(500), json({
+            res.status(500).json({
                 error: err
             })
         })
