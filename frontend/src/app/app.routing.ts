@@ -26,8 +26,9 @@ import { ComponentsComponent } from './components/components.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
-import { RecoverAccountComponent } from './components/recover-account/recover-account.component';
+import { RecoverAccountComponent } from './components/AccountRecovery/recover-account/recover-account.component';
 import { RatingformComponent } from './pages/ratingform/ratingform.component';
+import { ResetPasswordComponent } from './components/AccountRecovery/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -62,6 +63,7 @@ const routes: Routes = [
   { path: 'userprofile/sellerreply/:id', component: SellerreplyComponent },
   { path: 'userprofile/sellingitem/:id', component: SellingitemComponent },
   { path: 'userprofile/ratingform', component: RatingformComponent },
+
   {
     path: 'userprofile/acceptfinalize/:id',
     component: AcceptfinalizingComponent
@@ -80,11 +82,16 @@ const routes: Routes = [
     path: 'userprofile/sellerreplyform/:id',
     component: SellerreplyformComponent
   },
+
+  //Account recovery routes
   {
     path: 'recoverAccount',
     component: RecoverAccountComponent
   },
-  { path: '**', component: UserprofileComponent }
+  { path: 'resetPassword', component: ResetPasswordComponent },
+
+  // Default
+  { path: '**', component: CustomerprofileComponent }
 ];
 
 @NgModule({
