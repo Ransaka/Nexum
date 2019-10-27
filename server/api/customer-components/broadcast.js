@@ -3,14 +3,14 @@ const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 var request = require('request')
-const verify = require('../auth/verify')
+const verify = require('../../auth/verify')
 const mongoose = require('mongoose')
 
 
 
-const User = require('../models/User')
-const Broadcast = require('../models/Broadcast')
-const checkAuth = require('../auth/check-auth')
+const User = require('../../models/User')
+const Broadcast = require('../../models/Broadcast')
+const checkAuth = require('../../auth/check-auth')
 
 
 // async function getTags(textMessage) {
