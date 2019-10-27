@@ -1,4 +1,4 @@
-import { BroadcastService } from './../../services/broadcast.service';
+import { BroadcastService } from '../../../services/broadcast.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -18,6 +18,7 @@ export class BroadcastComponent implements OnInit {
   broadcastForm: FormGroup;
 
   ngOnInit() {
+    // Broadcast component
     this.broadcastForm = this._formbuilder.group({
       category: ['', Validators.required],
       product: ['', Validators.required],
@@ -31,7 +32,7 @@ export class BroadcastComponent implements OnInit {
   textMessage: string;
   categories = ['Electronics', 'Vehicles', 'Books', 'Other'];
 
-  // Send a new broadcast to the system
+  // Send a new broadcast
   sendBroadcast() {
     this._broadcast
       .sendBroadcast({
@@ -44,10 +45,8 @@ export class BroadcastComponent implements OnInit {
           this.router.navigate(['/userprofile/customerprofile']);
         },
         err => {
-          console.log(err);
           if (err.error.message) {
             this.error = err.error.message;
-            window.alert(this.error);
           }
         }
       );

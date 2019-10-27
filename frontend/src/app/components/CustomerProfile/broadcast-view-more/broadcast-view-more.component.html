@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+<div class="mt-5"></div>
+<div class="wrapper">
+  <div class="subscribe-line subscribe-line-transparent" style="background-image: url('assets/img/banner.jpg')">
+    <div class="text-center container">
+      <div class="row">
+        <div class=" col-md-12 col-sm-12">
+          <div class="mt-5">
+            <h3>Bookmarks</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-sm-2">
+          <div class="card text-center" style=" width: 70rem;">
+            <div class="col-md-12">
+              <div class="row">
+              </div>
+              <form>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">UserId</th>
+                      <th scope="col">Username</th>
+                      <th scope="col" sortable="area" (sort)="onSort($event)">View User Profile</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let x of BookmarkArray?.bookmark">
+                      <td>{{x.userID | slice:-4}}</td>
+                      <td>{{x.username}}</td>
+                      <td scope="row">
+                        <div class="social-description">
+                          <a href="#button" class="btn btn-primary btn-lg btn-round btn-sm"
+                            routerLink="/userprofile/search/{{x.username}}">V</a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="d-flex justify-content-between p-2">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="https://www.creative-tim.com">
+              Creative Tim
+            </a>
+          </li>
+          <li>
+            <a href="https://www.creative-tim.com/about-us">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="http://blog.creative-tim.com">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+              MIT License
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        &copy;
+        {{data | date: 'yyyy'}}, Designed by
+        <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+      </div>
+    </div>
+  </footer>
+</div>

@@ -18,8 +18,7 @@ export class BroadcastService {
       'uid',
       localStorage.getItem('user_id')
     );
-    console.log(broadcast);
-    return this.http.post(this.currentUrl + 'user/broadcast', broadcast, {
+    return this.http.put(this.currentUrl + 'user/broadcast/new', broadcast, {
       headers
     });
   }
@@ -41,12 +40,9 @@ export class BroadcastService {
     const headers = new HttpHeaders()
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
-    return this.http.get<Broadcast>(
-      'http://localhost:3000/user/broadcast/' + id,
-      {
-        headers
-      }
-    );
+    return this.http.get<Broadcast>(this.currentUrl + 'user/broadcast/' + id, {
+      headers
+    });
   }
 
   getSellingItems(): Observable<String[]> {

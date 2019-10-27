@@ -1,7 +1,7 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
-import { NavbarComponent } from './../../shared/navbar/navbar.component';
+import { NavbarComponent } from '../../../shared/navbar/navbar.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BroadcastService } from './../../services/broadcast.service';
+import { BroadcastService } from '../../../services/broadcast.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';

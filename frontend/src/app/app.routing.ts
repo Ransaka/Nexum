@@ -11,13 +11,16 @@ import { EditprofileComponent } from './pages/editprofile/editprofile.component'
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
 import { SellingComponent } from './components/selling/selling.component';
-import { BroadcastComponent } from './components/broadcast/broadcast.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { ComponentsModule } from './components/components.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+
+// Customer profile components
+import { BroadcastComponent } from './components/CustomerProfile/broadcast/broadcast.component';
+import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 
 import { ComponentsComponent } from './components/components.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
@@ -43,6 +46,10 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'userprofile/customerprofile/broadcast/viewmore',
+    component: BroadcastViewMoreComponent
+  },
   { path: 'userprofile/broadcast', component: BroadcastComponent },
   { path: 'userprofile/selling', component: SellingComponent },
   { path: 'userprofile/RatingsComponent', component: RatingsComponent },
@@ -54,7 +61,7 @@ const routes: Routes = [
   { path: 'userprofile/search/:username', component: SellerviewComponent },
   { path: 'userprofile/sellerreply/:id', component: SellerreplyComponent },
   { path: 'userprofile/sellingitem/:id', component: SellingitemComponent },
-  { path: 'userprofile/ratingform' , component: RatingformComponent },
+  { path: 'userprofile/ratingform', component: RatingformComponent },
   {
     path: 'userprofile/acceptfinalize/:id',
     component: AcceptfinalizingComponent

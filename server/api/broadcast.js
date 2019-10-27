@@ -36,7 +36,11 @@ const checkAuth = require('../auth/check-auth')
 //     })
 // }
 
-
+/**
+ * 
+ * @param textMessage 
+ * @returns tagged textMessage
+ */
 function getTags(textMessage) {
     return new Promise((resolve, reject) => {
         var arr = []
@@ -82,7 +86,6 @@ function getTags(textMessage) {
  */
 router.put('/new', async (req, res, next) => {
     var x = await getTags(req.body.textMessage)
-    console.log(x)
     User.findById(
             req.headers.uid
         )
