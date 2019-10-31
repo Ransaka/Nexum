@@ -9,19 +9,25 @@ const complainschema = mongoose.Schema({
         type: String,
         //required: true
     },
-    id:{
-        type: String,
-        //required: true
-    },
+
     seller:{
         type: String,
     },
-    item:{
-        type: String
+    date:{
+        type: Date,
+        default: Date.now
+    },
+    actionTaken:{
+        type: Boolean,
+        default: 0
+    },
+    warningSent:{
+        type:Boolean,
+        default:0 
     }
 });
-module.exports = mongoose.model('complains', complainschema)
-    Complain: String,
-    // date: Date
-})
+// module.exports = mongoose.model('complains', complainschema)
+//     Complain: String
+//     // date: Date
+// })
 module.exports = mongoose.model('complain', complainschema, 'Complain')

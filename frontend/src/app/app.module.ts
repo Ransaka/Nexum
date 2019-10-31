@@ -28,6 +28,7 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
+import { NewcomplainComponent } from './pages/newcomplain/newcomplain.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     FinalizingformviewComponent,
     SellingitemComponent,
     AcceptfinalizingComponent,
-    RatingformComponent
+    RatingformComponent,
+    NewcomplainComponent
   ],
   imports: [
     BrowserAnimationsModule,

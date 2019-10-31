@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../Auth/auth.service';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-adminprofile',
@@ -7,6 +9,7 @@ import { AuthService } from '../../../Auth/auth.service';
   styleUrls: ['./adminprofile.component.scss']
 })
 export class AdminprofileComponent implements OnInit {
+  public isCollapsed = false;
   zoom: number = 14;
   lat: number = 44.445248;
   lng: number = 26.099672;
@@ -79,19 +82,28 @@ export class AdminprofileComponent implements OnInit {
   data: Date = new Date();
   focus;
   complains: Object | any[];
+  first10: Object | any[];
+  //id: number
   focus1;
+  id: any;
 
-  constructor(private auth: AuthService,) {}
+  constructor(private auth: AuthService) {}
 
   displayComplain(){
   this.auth.displayComplain().subscribe(
     auth=>{
+      this.first10 = auth[5]
       this.complains = auth;
       console.log(this.complains)
     },
     error => console.log(error)
   );
 }
+  deleteComplain(id){
+    console.log(id)
+  }
+  
+
 
   ngOnInit() {
     this.auth.displayComplain().subscribe(

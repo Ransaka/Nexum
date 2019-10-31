@@ -25,6 +25,7 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { RecoverAccountComponent } from './components/recover-account/recover-account.component';
 import { RatingformComponent } from './pages/ratingform/ratingform.component';
+import { NewcomplainComponent } from './pages/newcomplain/newcomplain.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -77,7 +78,18 @@ const routes: Routes = [
     path: 'recoverAccount',
     component: RecoverAccountComponent
   },
+  {
+    path: 'userprofile/makecomplain/:sellerid',
+    component: NewcomplainComponent
+  },
+  {
+    path: 'userprofile/makecomplain',
+    component: NewcomplainComponent
+  },
+
+
   { path: '**', component: UserprofileComponent }
+
 ];
 
 @NgModule({

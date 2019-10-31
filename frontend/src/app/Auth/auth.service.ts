@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, shareReplay, flatMap, map } from 'rxjs/operators';
-import { SignInResponse, SignInRequest, SignUpRequest } from './auth.dto';
+import { SignInResponse, SignInRequest, SignUpRequest, NewComplain } from './auth.dto';
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
@@ -66,15 +66,19 @@ export class AuthService {
   }
 
   //make new complain
-  makeComplain(complain:NewComplain): Observable<any>{
-    console.log("at service file 1"+ JSON.stringify(complain))
+  makeComplain(complianbody:NewComplain): Observable<any>{
+    console.log("at service file complain:"+ JSON.stringify(complianbody))
+    //console.log("at service file username:"+ JSON.stringify(username))
     //console.log("at service file"+JSON.stringify(mydate))
 
-    return this.http.post<any>('http://localhost:3000/user/complain', complain);
+    return this.http.post<any>('http://localhost:3000/user/complain', complianbody);
     // .pipe(map(res => this.ApiResponse))
   }
   displayComplain(){
     return this.http.get('http://localhost:3000/user/complain/get');
+  }
+  deleteComplain(id){
+
   }
   // eof make new complain
   // makeComplain(complain:NewComplain): Observable<any> {

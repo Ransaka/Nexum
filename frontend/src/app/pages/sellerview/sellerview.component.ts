@@ -94,4 +94,10 @@ export class SellerviewComponent implements OnInit {
       console.log('No id');
     }
   }
+  // get userid(){
+  //   return this.user.username
+  // }
+  // makecomplain(){
+  //   this.router.navigate(['./userprofile/newcomplain']);
+  // }
 }

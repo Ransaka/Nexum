@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+    <div class="page-header page-header-small" filter-color="orange">
+        <div class="page-header-image rellax-header" data-rellax-speed="-8"
+            style="background-image: url('assets/img/bg5.jpg') ;">
+        </div>
+        <div class="container">
+                <div class="content-center mt-4">
+                  <div class="mt-5">
+                        <h2>
+                            Compalin Page.
+                           
+                        </h2>
+                        <span>We are here to help you!</span>
+                  </div>
+                  </div>
+                  
+                  </div>
+                  
+                  
+    </div>
+</div>
+<form #userForm = "ngForm" (ngSubmit)="makecomplain()">
+        {{userForm.value| json}}
+        <div class="form-group">
+            <label for="seller">Username</label>
+        <input 
+            [(ngModel)]="userModel.seller"
+            required 
+            name="seller"     
+            id = "seller" 
+            type="text" 
+            class="form-control"
+        >
+        <!-- <div class="alert alert-danger" *ngIf="username.touched && username.invalid">Invalid username</div> -->
+        <!-- <div class="alert alert-danger">Invalid username</div> -->
+        </div>
+        <div class="form-group">
+            <label for="complain">complain</label>
+        <textarea 
+            required 
+            [(ngModel)]= "userModel.complain"
+            name="complain" 
+            placeholder="Enter your complain here" 
+            id="complain" 
+            cols="30" rows="10" 
+            class="form-control">
+        </textarea>
+        <!-- <div class="alert alert-danger" *ngIf="complain.touched && complain.invalid">This field is required</div> -->
+        </div> 
+        <button class="btn btn-primary">Submit</button>
+</form>
+
+

@@ -114,8 +114,8 @@ export class SellerprofileComponent implements OnInit {
     this.rateing.getRatings(currentUser).subscribe(
       res => {
         console.log(res);
-        this.calcRatings(res);
-        this.viewReview(res);
+        //this.calcRatings(res);
+        //this.viewReview(res);
       },
       err => {}
     );
@@ -125,7 +125,7 @@ export class SellerprofileComponent implements OnInit {
     this.replying.getreply(currentUser).subscribe(
       res => {
         console.log(res);
-        this.viewReply(res);
+        //this.viewReply(res);
       },
       err => {}
     );
@@ -166,131 +166,131 @@ export class SellerprofileComponent implements OnInit {
       .subscribe(data => this.getSelling());
   }
 }
-    calcRatings(ratings) {
-    if (ratings) {
-      this.totalRates = ratings.length;
-      let one = 0;
-      let two = 0;
-      let three = 0;
-      let four = 0;
-      let five = 0;
-      let topCount = 0;
+    //calcRatings(ratings) {
+    //if (ratings) {
+      // this.totalRates = ratings.length;
+      // let one = 0;
+      // let two = 0;
+      // let three = 0;
+      // let four = 0;
+      // let five = 0;
+      // let topCount = 0;
 
-      for (let i = 0; i < ratings.length; i++) {
+  //     for (let i = 0; i < ratings.length; i++) {
         
-        if (ratings[i]) {
-          switch (ratings[i].rate) {
-            case 1:
-              one++;
-              this.starOnePer = (one / this.totalRates) * 100;
-              if (topCount < one) {
-                this.highestRate = 1;
-                topCount = one;
-              }
+  //       if (ratings[i]) {
+  //         switch (ratings[i].rate) {
+  //           case 1:
+  //             one++;
+  //             this.starOnePer = (one / this.totalRates) * 100;
+  //             if (topCount < one) {
+  //               this.highestRate = 1;
+  //               topCount = one;
+  //             }
 
-              break;
-            case 2:
-              two++;
-              this.starTwoPer = (two / this.totalRates) * 100;
-              if (topCount < two) {
-                this.highestRate = 2;
-                topCount = two;
-              }
-              break;
-            case 3:
-              three++;
-              this.starThreePer = (three / this.totalRates) * 100;
-              if (topCount < three) {
-                this.highestRate = 3;
-                topCount = three;
-              }
-              break;
-            case 4:
-              four++;
-              this.starFourPer = (four / this.totalRates) * 100;
-              if (topCount < four) {
-                this.highestRate = 4;
-                topCount = four;
-              }
-              break;
-            case 5:
-              five++;
-              this.starFivePer = (five / this.totalRates) * 100;
-              if (topCount < five) {
-                this.highestRate = 5;
-                topCount = five;
-              }
-              break;
-          }
-        }
-      }
-    }
-  }
+  //             break;
+  //           case 2:
+  //             two++;
+  //             this.starTwoPer = (two / this.totalRates) * 100;
+  //             if (topCount < two) {
+  //               this.highestRate = 2;
+  //               topCount = two;
+  //             }
+  //             break;
+  //           case 3:
+  //             three++;
+  //             this.starThreePer = (three / this.totalRates) * 100;
+  //             if (topCount < three) {
+  //               this.highestRate = 3;
+  //               topCount = three;
+  //             }
+  //             break;
+  //           case 4:
+  //             four++;
+  //             this.starFourPer = (four / this.totalRates) * 100;
+  //             if (topCount < four) {
+  //               this.highestRate = 4;
+  //               topCount = four;
+  //             }
+  //             break;
+  //           case 5:
+  //             five++;
+  //             this.starFivePer = (five / this.totalRates) * 100;
+  //             if (topCount < five) {
+  //               this.highestRate = 5;
+  //               topCount = five;
+  //             }
+  //             break;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
-  viewReview(ratings){
-    if (ratings) {
-      let idea = null; 
-      let day;
-      let no;
-      let k=0;
-   for (let j= 0; j < ratings.length; j++) {
-            idea=ratings[j].review;
-            day=ratings[j].date;
-            no=ratings[j]._id;
-     if(k==3) {
-       break;
-     }
-     else{      
-      if(idea==null){
-      }else{
-       k++;
-     this.reviewlist[k]= idea;
-     this.datelist[k]=day;
-     this.idlist[k]=no; 
-    }}
+  // viewReview(ratings){
+  //   if (ratings) {
+  //     let idea = null; 
+  //     let day;
+  //     let no;
+  //     let k=0;
+  //  for (let j= 0; j < ratings.length; j++) {
+  //           idea=ratings[j].review;
+  //           day=ratings[j].date;
+  //           no=ratings[j]._id;
+  //    if(k==3) {
+  //      break;
+  //    }
+  //    else{      
+  //     if(idea==null){
+  //     }else{
+  //      k++;
+  //    this.reviewlist[k]= idea;
+  //    this.datelist[k]=day;
+  //    this.idlist[k]=no; 
+  //   }}
        // this.review= ratings[j].review;
        // this.date[k]=ratings[j].date;
-     }
-  }
+//      }
+//   }
 
- }
+//  }
 
- onLinkClicked(NIC){
-  //  if(NIC==id){
-   this.buttonClicked = NIC;
+//  onLinkClicked(NIC){
+//   //  if(NIC==id){
+//    this.buttonClicked = NIC;
    
- }
-//  submitreplyForm() {
-//   console.log(this.replyForm.value);
-// } 
-sendreply() {
+//  }
+// //  submitreplyForm() {
+// //   console.log(this.replyForm.value);
+// // } 
+// sendreply() {
       
-  var current_user = localStorage.getItem("current_user");
-  const request = {
-    _id: current_user,
-    nom: this.buttonClicked,
-    reply: this.replyForm.controls['reply'].value
-  }
-  this.replying.sendreply(request).subscribe(res => {
-    this.router.navigateByUrl('/userprofile/customerprofile')
-  }) 
+//   var current_user = localStorage.getItem("current_user");
+//   const request = {
+//     _id: current_user,
+//     nom: this.buttonClicked,
+//     reply: this.replyForm.controls['reply'].value
+//   }
+//   this.replying.sendreply(request).subscribe(res => {
+//     this.router.navigateByUrl('/userprofile/customerprofile')
+//   }) 
 
-}  
-viewReply(replying){
+// }  
+// viewReply(replying){
    
-  let k=0; 
-  let my;
-  let numb;  
- for (let j= 0; j < replying.length; j++) {
+//   let k=0; 
+//   let my;
+//   let numb;  
+//  for (let j= 0; j < replying.length; j++) {
    
-      k++;
-   this.replylist[k]=replying[j].reply; 
-   this.timelist[k]=replying[j].date;
-   this.numlist[k]=replying[j].nom; 
-  }}
-     // this.review= ratings[j].review;
-     // this.date[k]=ratings[j].date;
-   }
+//       k++;
+//    this.replylist[k]=replying[j].reply; 
+//    this.timelist[k]=replying[j].date;
+//    this.numlist[k]=replying[j].nom; 
+//   }}
+//      // this.review= ratings[j].review;
+//      // this.date[k]=ratings[j].date;
+//    }
 
 
   

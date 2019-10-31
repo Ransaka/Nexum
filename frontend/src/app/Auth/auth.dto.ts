@@ -20,8 +20,9 @@ export interface SignUpRequest {
 }
 
 export interface NewComplain {
-  id:string;
+  seller: string;
   complain:string;
+  
  // seller: string;
  // item: string;
 }
