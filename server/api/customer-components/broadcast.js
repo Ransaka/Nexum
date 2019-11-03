@@ -58,7 +58,14 @@ function getTags(textMessage) {
         };
         request(options, function (error, response, body) {
             if (error) throw new Error(error);
-            const newData = JSON.parse(body).response.entities;
+            var newData;
+            // For undefined response
+            if (JSON.parse(body).response == undefined) {
+                newData = 'undefined'
+            } else {
+                newData = JSON.parse(body).response.entities;
+            }
+
             for (var i in newData) {
                 arr.push(newData[i].entityId)
             }

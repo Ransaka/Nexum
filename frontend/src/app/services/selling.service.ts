@@ -7,15 +7,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SellingService {
+  private currentUrl = 'http://localhost:3000/';
+
   constructor(private http: HttpClient) {}
 
-  //Sending selling message to the backend
+  //Set new selling item
   sendSelling(selling: Selling) {
     const headers = new HttpHeaders().set(
       'uid',
       localStorage.getItem('user_id')
     );
-    return this.http.put('http://localhost:3000/user/selling/new', selling, {
+    return this.http.put(this.currentUrl + 'user/selling/new', selling, {
       headers
     });
   }

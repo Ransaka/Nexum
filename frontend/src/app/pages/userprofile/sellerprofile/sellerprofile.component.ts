@@ -98,6 +98,7 @@ export class SellerprofileComponent implements OnInit {
     }
   }
   messages: Array<Message> = [];
+
   ngOnInit() {
     this.getRatings();
     this.getreply();

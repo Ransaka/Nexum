@@ -1,4 +1,4 @@
-import { SellingService } from './../../services/selling.service';
+import { SellingService } from '../../../services/selling.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';

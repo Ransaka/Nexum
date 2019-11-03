@@ -3,7 +3,7 @@ import { SellingitemComponent } from './components/sellingitem/sellingitem.compo
 import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
 import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
-import { SellingComponent } from './components/selling/selling.component';
+import { SellingComponent } from './components/SellerProfile/selling/selling.component';
 import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
 import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
 import { SellerviewComponent } from './pages/sellerview/sellerview.component';
@@ -33,6 +33,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 // Customer profile components
 import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 
+//Seller profile components
+import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +58,8 @@ import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadca
     AcceptfinalizingComponent,
     RatingformComponent,
     FooterComponent,
-    BroadcastViewMoreComponent
+    BroadcastViewMoreComponent,
+    MoreSellingComponent
   ],
   imports: [
     BrowserAnimationsModule,

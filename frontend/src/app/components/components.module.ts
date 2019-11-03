@@ -18,6 +18,7 @@ import { NonRegisteredComponent } from './non-registered/non-registered.componen
 import { RecoverAccountComponent } from './AccountRecovery/recover-account/recover-account.component';
 import { SignupComponent } from './modal/signup/signup.component';
 import { LoginComponent } from './modal/login/login.component';
+//import { MoreSellingComponent } from './SellerProfile/more-selling/more-selling.component';
 //import { BroadcastViewMoreComponent } from './CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 //import { AcceptfinalizingComponent } from './acceptfinalizing/acceptfinalizing.component';
 //import { SellingitemComponent } from './sellingitem/sellingitem.component';
@@ -58,6 +59,7 @@ import { LoginComponent } from './modal/login/login.component';
     //SellerreplyComponent
     //BroadcastComponent
     ResetPasswordComponent
+    //MoreSellingComponent
   ],
   exports: [ComponentsComponent]
 })

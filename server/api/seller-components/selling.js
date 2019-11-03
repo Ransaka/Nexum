@@ -2,21 +2,21 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const verify = require('../auth/verify')
+const verify = require('../../auth/verify')
 
-const User = require('../models/User')
-const Selling = require('../models/Selling')
-const checkAuth = require('../auth/check-auth')
-const SellerReply = require('../models/SellerReply')
+const User = require('../../models/User')
+const Selling = require('../../models/Selling')
+const checkAuth = require('../../auth/check-auth')
+const SellerReply = require('../../models/SellerReply')
 const mongoose = require('mongoose')
-const Finalizing = require('../models/Finalizing')
+const Finalizing = require('../../models/Finalizing')
 
 
 
 /**
  * Set selling endpoint.
  *
- * Publish new selling message.
+ * Publish new selling item.
  *
  * @header uid
  * @body product,category,textMessage

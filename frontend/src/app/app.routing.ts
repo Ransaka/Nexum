@@ -10,7 +10,7 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
-import { SellingComponent } from './components/selling/selling.component';
+import { SellingComponent } from './components/SellerProfile/selling/selling.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { ComponentsModule } from './components/components.module';
 import { NgModule } from '@angular/core';
@@ -29,6 +29,7 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { RecoverAccountComponent } from './components/AccountRecovery/recover-account/recover-account.component';
 import { RatingformComponent } from './pages/ratingform/ratingform.component';
 import { ResetPasswordComponent } from './components/AccountRecovery/reset-password/reset-password.component';
+import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -82,6 +83,9 @@ const routes: Routes = [
     path: 'userprofile/sellerreplyform/:id',
     component: SellerreplyformComponent
   },
+
+  // Seller profile routes
+  { path: 'userprofile/moreselling', component: MoreSellingComponent },
 
   //Account recovery routes
   {
