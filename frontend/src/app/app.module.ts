@@ -28,6 +28,7 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 import { MessagesComponent } from './messages/messages.component';
+import { SellermessageComponent } from './sellermessage/sellermessage.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { MessagesComponent } from './messages/messages.component';
     BookmarksviewComponent,
     SellerreplyformComponent,
     FinalizingformviewComponent,
-    MessagesComponent
+    MessagesComponent,
+    SellermessageComponent
   ],
   imports: [
     BrowserAnimationsModule,

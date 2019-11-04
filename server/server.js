@@ -17,6 +17,7 @@ const bookmarksRouter = require('./api/bookmark')
 const sellerReplyRouter = require('./api/sellerReply')
 const forgotPasswordMailRouter = require('./api/forgotPasswordMail')
 const messageRouter = require('./api/message')
+const sellerMessageRouter = require('./api/sellermessage')
 
 
 // Initialize the app
@@ -42,6 +43,7 @@ app.use('/user/bookmark', bookmarksRouter)
 app.use('/user/sellerReply', sellerReplyRouter)
 app.use('/forgotPasswordMail', forgotPasswordMailRouter)
 app.use('/user/message', messageRouter)
+app.use('/user/sellermessage', sellerMessageRouter)
 
 app.get('/', function (req, res) {
     res.send("Hello")

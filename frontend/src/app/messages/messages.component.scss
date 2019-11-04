@@ -1,204 +1,224 @@
 .App {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    border: 1px solid #ccc;
-    color: #333;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-    margin: 0;
-  }
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  border: 1px solid #ccc;
+  color: #333;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  margin: 0;
+}
 
-  h4 {
-    margin-bottom: 10px;
-  }
+h4 {
+  margin-bottom: 10px;
+}
 
-  ul {
-    list-style: none;
-  }
+h5 {
+  font-family: 'Times New Roman';
+}
 
-  form {
-    margin-bottom: 0;
-  }
+button {
+  border: 2px solid #f96535;
+  border-radius:40%;
+  color: #f96535;
+  background-color: #ffffff;
+  margin:10px;
+}
 
-  input[type="text"] {
-    color: #333;
-    border-radius: 0;
-  }
+ul {
+  list-style: none;
+}
 
-  .sidebar {
-    flex-basis: 15%;
-    flex-shrink: 0;
-    flex-grow: 0;
-    background-color: #300d4f;
-    color: #fff;
-    padding: 10px 10px;
-  }
+li {
+  font-size: 20px;
+}
 
-  .left-sidebar section {
-    margin-bottom: 20px;
-  }
+form {
+  margin-bottom: 0;
+}
 
-  .left-sidebar {
-    display: flex;
-    flex-direction: column;
-  }
+input[type="text"] {
+  color: #333;
+  border-radius: 0;
+}
 
-  .room-members {
-    flex-grow: 1;
-  }
+.sidebar {
+  flex-basis: 15%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  background-color: #f96535;
+  color: #fff;
+  padding: 10px 10px;
+}
 
-  .right-sidebar .room {
-    display: flex;
-  }
+.left-sidebar section {
+  margin-bottom: 20px;
+}
 
-  .newUser-input {
-    margin-bottom: 0;
-  }
+.left-sidebar {
+  display: flex;
+  flex-direction: column;
+}
 
-  .right-sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left: 0;
-    padding-right: 0;
-  }
+.room-members {
+  flex-grow: 1;
+}
 
-  .room {
-    padding: 5px 10px;
-    cursor: pointer;
-  }
+.right-sidebar .room {
+  display: flex;
+}
 
-  .room:hover {
-    background-color: goldenrod;
-    color: #333;
-  }
+.newUser-input {
+  margin-bottom: 0;
+}
 
-  .room.active {
-    background-color: #11D771;
-    color: #333;
-  }
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 0;
+  padding-right: 0;
+}
 
-  .room-name {
-    display: inline-block;
-    margin-left: 10px;
-  }
+.room {
+  padding: 5px 10px;
+  cursor: pointer;
+}
 
-  .user-list li {
-    margin-bottom: 10px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-  }
+.room:hover {
+  background-color: goldenrod;
+  color: #333;
+}
 
-  .presence {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    margin-right: 10px;
-    border-radius: 50%;
-  }
+.room.active {
+  background-color: #11D771;
+  color: #333;
+}
 
-  .presence.online {
-    background-color: green;
-  }
+.room-name {
+  display: inline-block;
+  margin-left: 10px;
+}
 
-  .chat-window {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.user-list li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
 
-  .chat-header, .chat-footer {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-  }
+.presence {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  margin-right: 10px;
+  border-radius: 50%;
+}
 
-  .chat-header {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 20px;
-    height: 40px;
-  }
+.presence.online {
+  background-color: green;
+}
 
-  .chat-header h4 {
-    margin-bottom: 0;
-  }
+.chat-window {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .chat-session {
-    flex-grow: 1;
-    padding: 10px 20px;
-    overflow-y: auto;
-  }
+.chat-header, .chat-footer {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
-  .message-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
+.chat-header {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+  height: 40px;
+}
 
-  .user-message {
-    margin-top: 10px;
-  }
+.chat-header h4 {
+  margin-bottom: 0;
+}
 
-  .user-message span {
-    display: block;
-  }
+.chat-session {
+  flex-grow: 1;
+  padding: 10px 20px;
+  overflow-y: auto;
+}
 
-  .user-id {
-    font-weight: bold;
-  }
+.message-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
-  .chat-footer {
-    padding: 0;
-    border-top: 1px solid #ccc;
-    height: 50px;
-  }
+.user-message {
+  margin-top: 10px;
+}
 
-  .message-form {
-    width: 100%;
-    height: 100%;
-  }
+.user-message span {
+  display: block;
+}
 
-  .message-input {
-    width: 100%;
-    border: none;
-    margin-bottom: 0;
-    height: 100%;
-  }
+.user-id {
+  font-weight: bold;
+}
 
-  .message-input:focus {
-    border: none;
-  }
+.userId {
+  font-weight: bold;
+}
 
-  .send-message {
-    background-color: #300d4f;
-    color: #fff;
-    border: 1px solid #300d4f;
-    padding: 10px;
-  }
+.chat-footer {
+  padding: 0;
+  border-top: 1px solid #ccc;
+  height: 50px;
+}
 
-  .create-room {
-    padding: 0 10px;
-  }
+.message-form {
+  width: 100%;
+  height: 100%;
+}
 
-  .create-room button {
-    display: block;
-  }
+.message-input {
+  width: 100%;
+  border: none;
+  margin-bottom: 0;
+  height: 100%;
+}
 
-  input[type="checkbox"] {
-    margin-bottom: 0;
-    display: inline-block;
-    margin-right: 5px;
-  }
+.message-input:focus {
+  border: none;
+}
 
-  .is-private {
-    display: flex;
-    align-items: center;
-  }
+.send-message {
+  background-color: #300d4f;
+  color: #fff;
+  border: 1px solid #300d4f;
+  padding: 10px;
+}
 
-  .user-rooms h4, .joinable-rooms h4 {
-    padding-left: 10px;
-  }
+.create-room {
+  padding: 0 10px;
+}
+
+.create-room button {
+  display: block;
+}
+
+input[type="checkbox"] {
+  margin-bottom: 0;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.is-private {
+  display: flex;
+  align-items: center;
+}
+
+.user-rooms h4, .joinable-rooms h4 {
+  padding-left: 10px;
+}

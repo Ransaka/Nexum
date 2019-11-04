@@ -297,4 +297,28 @@ router.get('/all', verify.decodeToken, function (req, res) {
     })
 })
 
+/**
+ * User get user name by id
+ *
+ * 
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.post('/username', function (req, res) {
+    
+    User.findById(req.body.uid).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+        // console.log('users.username');
+        console.log(user.username);
+        res.status(200).send(user.username)
+    })
+})
+
+
 module.exports = router

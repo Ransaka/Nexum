@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Chatkit from '@pusher/chatkit-client';
 import axios from 'axios';
+import { UserService } from '../services/user.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-messages',
@@ -8,7 +10,8 @@ import axios from 'axios';
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent {
-  userId = '';
+  userDetails : UserService[];
+  userId : any;
   currentUser = <any>{};
   messages = [];
   currentRoom = <any>{};
@@ -21,6 +24,10 @@ export class MessagesComponent {
   };
   joinableRooms = [];
   newUser = '';
+
+  constructor (private userService : UserService, private messageService : MessageService){
+     this.userId = localStorage.getItem('user_name');
+  }
 
   addUserToRoom() {
         const { newUser, currentUser, currentRoom } = this;
@@ -119,10 +126,10 @@ export class MessagesComponent {
 
   addUser() {
     const { userId } = this;
-    axios.post('http://localhost:5200/users', { userId })
+    axios.post('http://localhost:5000/users', { userId })
       .then(() => {
         const tokenProvider = new Chatkit.TokenProvider({
-          url: 'http://localhost:5200/authenticate'
+          url: 'http://localhost:5000/authenticate'
         });
 
         const chatManager = new Chatkit.ChatManager({
@@ -141,7 +148,7 @@ export class MessagesComponent {
           })
           .then(currentUser => {
             this.currentUser = currentUser;
-            this.connectToRoom('9d9396b1-3d4a-4b6a-903b-57ad09b70214');
+            this.connectToRoom('8bff1151-0660-438e-81a4-c7276f887137');
             this.getJoinableRooms();
           });
       })

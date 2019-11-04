@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '.env' });
+require('dotenv').config({ path: 'sellermessage.env' });
 
     const express = require('express');
     const router = express.Router()
@@ -45,13 +45,12 @@ require('dotenv').config({ path: '.env' });
       res.status(authData.status).send(authData.body);
     });
 
-    app.set('port', process.env.PORT || 5200);
+    app.set('port', process.env.PORT2 || 5000);
     const server = app.listen(app.get('port'), () => {
       console.log(`Express running → PORT ${server.address().port}`);
     });
 
-    router.get('/get', (req, res) => {
+    app.get('/userprofile/search/:id', (req, res) => {
     });
-
 
     module.exports = router

@@ -1,0 +1,77 @@
+<div class="App">
+  <aside class="sidebar left-sidebar">
+    <section *ngIf="flag === 0" class="room-members">
+      <h4>Room Users</h4>
+      <ul class="user-list">
+        <li *ngFor="let user of roomUsers">
+          <span class="presence {{ user.presence.state }}"></span>
+          <span>{{ user.name }}</span>
+        </li>
+      </ul>
+    </section>
+    <section *ngIf="flag === 1" class="room-members">
+      <h4>{{ userId }}</h4>
+    </section>
+  </aside>
+
+  <main class="chat-window">
+    <header class="chat-header">
+      <section *ngIf="!currentRoom.name ; else roomName">
+        <h4>Welcome to nexum messaging</h4>
+      </section>
+      <ng-template #roomName>
+        <section *ngIf="currentRoom.name === 'Testing_Room' ; else printRoom">
+          <h4>Guides</h4>
+        </section>
+      </ng-template>
+      <ng-template #printRoom>
+        <h4>{{ currentRoom.name }}</h4>
+      </ng-template>
+      <span class="participants"></span>
+    </header>
+    <section class="chat-session">
+      <ul class="message-list">
+        <li class="user-message" *ngFor="let message of messages">
+          <span class="user-id">{{ message.senderId }}</span>
+          <span>{{ message.text }}</span>
+        </li>
+      </ul>
+    </section>
+    <section class="chat-session" *ngIf="currentRoom.name === 'Testing_Room'">
+      <ol>
+        <li>Create a suitable chat name and click on 'Continue'</li>
+        <li>Start the chat by pressing 'Start'</li>
+        <li>Send the messages using 'Send'</li>
+      </ol>  
+    </section>
+    <footer *ngIf="flag === 0" class="chat-footer">
+      <form class="message-form" (ngSubmit)='sendMessage()'>
+        <label>
+          <input class="message-input" placeholder="Type a message......" type="text" name="message" [(ngModel)]="newMessage" />
+        </label>
+        <!-- <input type="button" value="send" style="float: right; margin: .5%;" (click)="sendMessage()"> -->
+        <button style="float: right; margin: .5%;" (click)="sendMessage()">send</button>
+        <!-- <section>
+          <input class="message-input" placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="newMessage" />
+        <button >send</button> -->
+      </form>
+    </footer>
+  </main>
+
+  <aside class="sidebar right-sidebar">
+    <section *ngIf="currentUser.id">
+      <section *ngIf="newRoom.name" class="create-room">
+        <form>
+          <label for="is-private"> Default Chat Name : </label>
+          <input type="text" [(ngModel)]="newRoom.name" name="room-name" id="room-name" placeholder="Create a room">
+          <button (click)="createRoom()">Continue</button>
+        </form>
+      </section>
+      <section *ngIf="!newRoom.name" class="create-room">
+        <form>
+          <button (click)="addUserToRoom()">Start</button>
+        </form>    
+      </section>
+    </section>
+  </aside>
+</div>

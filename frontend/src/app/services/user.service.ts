@@ -52,6 +52,8 @@ export class UserService {
       localStorage.getItem('jwt_token')
     );
     console.log(username);
+    localStorage.setItem('searched_user', username);
+    
     return this.http
       .get('http://localhost:3000/user/search/' + username, {
         headers
@@ -60,6 +62,7 @@ export class UserService {
         first(),
         map(res => res as UserView)
       );
+      
   }
 
   //Update current user
@@ -76,6 +79,7 @@ export class UserService {
   private setUser(response: User) {
     localStorage.setItem('current_user', JSON.stringify(response));
     localStorage.setItem('user_id', response._id);
+    localStorage.setItem('user_name', response.username);
   }
 
   private removeUser() {
