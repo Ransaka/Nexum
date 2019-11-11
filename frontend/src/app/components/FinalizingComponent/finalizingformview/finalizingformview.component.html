@@ -51,9 +51,9 @@
 
                           <tr *ngFor="let x of finalizingForms?.item">
                             <ng-template [ngIf]="x.product == itemDetails?.item[0].product">
-                              <td>{{x.productId}}</td>
+                              <td>{{x.sellerId}}</td>
                               <a routerLink="/userprofile/search/{{x.username}}">
-                                <td>{{x.product}}</td>
+                                <td>{{x.sellerId}}</td>
                               </a>
                               <td>
                                 <div class="social-description">

@@ -1,10 +1,10 @@
 import { AcceptfinalizingComponent } from './components/acceptfinalizing/acceptfinalizing.component';
-import { SellingitemComponent } from './components/sellingitem/sellingitem.component';
-import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
+import { SellingitemComponent } from './components/SellerProfile/sellingitem/sellingitem.component';
+import { FinalizingformviewComponent } from './components/FinalizingComponent/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
 import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
 import { SellingComponent } from './components/SellerProfile/selling/selling.component';
-import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
+import { FinalizingformComponent } from './components/FinalizingComponent/finalizingform/finalizingform.component';
 import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
 import { SellerviewComponent } from './pages/sellerview/sellerview.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';

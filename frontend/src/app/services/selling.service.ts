@@ -44,24 +44,26 @@ export class SellingService {
     );
   }
 
+  //Get each selling item
   getItems(): Observable<String[]> {
     const headers = new HttpHeaders()
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
     return this.http.get<String[]>(
-      'http://localhost:3000/user/getRecentBroadcast/test',
+      this.currentUrl + 'user/getRecentBroadcast/getsellingitem',
       {
         headers
       }
     );
   }
 
+  //Get users who has broadcasts the product
   getUsers(item: Product): Observable<String[]> {
     const headers = new HttpHeaders()
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
     return this.http.post<String[]>(
-      'http://localhost:3000/user/getRecentBroadcast/test1',
+      this.currentUrl + 'user/getRecentBroadcast/userdata',
       item,
       {
         headers
@@ -89,7 +91,7 @@ export class SellingService {
       localStorage.getItem('user_id')
     );
     return this.http.put(
-      'http://localhost:3000/user/selling/newfinalizing',
+      this.currentUrl + 'user/selling/newfinalizing',
       finalizing,
       {
         headers

@@ -63,7 +63,7 @@ export class BroadcastService {
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
     return this.http.get<Finalizing[]>(
-      'http://localhost:3000/user/getFinalizingForms/all',
+      this.currentUrl + 'user/getFinalizingForms/all',
       {
         headers
       }
@@ -76,7 +76,7 @@ export class BroadcastService {
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
     return this.http.get<Broadcast>(
-      'http://localhost:3000/user/getFinalizingForms/' + id,
+      this.currentUrl + 'user/getFinalizingForms/' + id,
       {
         headers
       }

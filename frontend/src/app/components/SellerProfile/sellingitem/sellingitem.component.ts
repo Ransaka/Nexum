@@ -1,5 +1,5 @@
-import { Product } from './../../services/selling.dto';
-import { SellingService } from './../../services/selling.service';
+import { Product } from '../../../services/selling.dto';
+import { SellingService } from '../../../services/selling.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -42,6 +42,7 @@ export class SellingitemComponent implements OnInit {
       .subscribe(data => this.recievedBroadcasts.push(data));
   }
 
+  // Get details of the related broadcasts
   getRecentBroadcasts() {
     let promise = new Promise((resolve, reject) => {
       this._sellingService

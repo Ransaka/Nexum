@@ -21,7 +21,7 @@ export class UserService {
   getUser(id) {
     return this.http.get('http://localhost:3000/user/' + id).pipe(
       first(),
-      map(res => res as User),
+      map(res => res as any),
       tap(user => this.setUser(user))
     );
   }
@@ -40,7 +40,7 @@ export class UserService {
     );
     return this.http.get(this.currentUrl + 'user/current', { headers }).pipe(
       first(),
-      map(res => res as User),
+      map(res => res as any),
       tap(user => this.setUser(user))
     );
   }
@@ -58,7 +58,7 @@ export class UserService {
       })
       .pipe(
         first(),
-        map(res => res as UserView)
+        map(res => res as any)
       );
   }
 
@@ -69,6 +69,17 @@ export class UserService {
       localStorage.getItem('user_id')
     );
     return this.http.put<any>('http://localhost:3000/user/edit', user, {
+      headers
+    });
+  }
+
+  //get user by id
+  gettUserById(_id: any) {
+    const headers = new HttpHeaders().set(
+      'uid',
+      localStorage.getItem('user_id')
+    );
+    return this.http.post('http://localhost:3000/user/userbyid', _id, {
       headers
     });
   }

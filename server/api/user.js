@@ -327,4 +327,28 @@ router.put('/changePassword', function (req, res) {
     })
 })
 
+/**
+ * Get user by Id endpoint.
+ *
+ * 
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.post('/userbyid', function (req, res) {
+    console.log(req.body._id)
+    User.findById(req.body._id).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+        var details = {
+            username: user.username,
+            email: user.email
+        }
+        res.status(200).send(details)
+    })
+})
+
 module.exports = router

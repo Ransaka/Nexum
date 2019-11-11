@@ -153,6 +153,7 @@ router.put('/newfinalizing', (req, res, next) => {
                 product: req.body.product,
                 category: req.body.category,
                 sellerId: req.headers.uid,
+                sellerName: req.body.sellerName,
                 price: req.body.price,
                 tags: req.body.tags,
                 textMessage: req.body.textMessage,

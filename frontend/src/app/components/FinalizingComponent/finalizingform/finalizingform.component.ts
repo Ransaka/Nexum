@@ -1,6 +1,7 @@
-import { Finalizing } from './../../services/selling.dto';
-import { SellingService } from './../../services/selling.service';
-import { BroadcastService } from './../../services/broadcast.service';
+import { UserService } from 'app/services/user.service';
+import { Finalizing } from '../../../services/selling.dto';
+import { SellingService } from '../../../services/selling.service';
+import { BroadcastService } from '../../../services/broadcast.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,8 @@ export class FinalizingformComponent implements OnInit {
     private router: Router,
     private _activatedRoute: ActivatedRoute,
     private _broadcastService: BroadcastService,
-    private _sellingService: SellingService
+    private _sellingService: SellingService,
+    private _userService: UserService
   ) {}
 
   itemId: string;
@@ -25,6 +27,7 @@ export class FinalizingformComponent implements OnInit {
   itemDetails: any;
   broadcastData: any;
   error: string;
+  sellerName: string;
 
   ngOnInit() {
     this.finalizingForm = this._formbuilder.group({
@@ -39,6 +42,11 @@ export class FinalizingformComponent implements OnInit {
       ) {
         this.itemId = params['id'];
         this.custId = params['custid'];
+        this._userService
+          .gettUserById({
+            _id: localStorage.getItem('user_id')
+          })
+          .subscribe(data => (this.sellerName = JSON.stringify(data.username)));
       } else {
         this.itemId = '';
         this.custId = '';
@@ -55,6 +63,7 @@ export class FinalizingformComponent implements OnInit {
       .subscribe(data => (this.itemDetails = data));
   }
 
+  //Forward the finalizing component to the customer
   sendFinalizingForm() {
     this._sellingService
       .sendFinalizing({
@@ -62,7 +71,8 @@ export class FinalizingformComponent implements OnInit {
         product: this.itemDetails.item[0].product,
         category: this.itemDetails.item[0].category,
         tags: this.itemDetails.item[0].tags,
-        customerId: this.custId,
+        sellerId: this.custId,
+        sellerName: this.sellerName,
         price: this.finalizingForm.controls['price'].value,
         textMessage: this.finalizingForm.controls['textMessage'].value
       })
