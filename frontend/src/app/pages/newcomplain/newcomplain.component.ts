@@ -12,7 +12,8 @@ import { from } from 'rxjs';
 export class NewcomplainComponent implements OnInit {
   userModel = new User('','');
   constructor(
-     private auth: AuthService
+     private auth: AuthService,
+     private router: Router,
   ) {}
 
 
@@ -24,6 +25,7 @@ export class NewcomplainComponent implements OnInit {
      this.auth.makeComplain(this.userModel).subscribe(response=>{
        this.userModel.complain = response.complain;
        this.userModel.seller = response.seller;
+       this.router.navigate(['./userprofile/customerprofile'])
      });
   }
 

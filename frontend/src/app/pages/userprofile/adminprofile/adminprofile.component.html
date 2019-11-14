@@ -50,10 +50,11 @@
                   {{item.seller}}
                 </p>
                 <a class="btn btn-danger" (click)="deleteComplain(item._id)">Delete User</a>
-                <a href="" class="btn btn-warning">Send Warning</a>
+                <a class="btn btn-warning" (click)="sendEmail()">Send Warning</a>
                 <a href="" class="btn btn-default">Delete Complain</a>
               </div>
             </div>
+            <span>Warning Sent={{item.warningSent}}</span>
           </div>
         </div>       
       </div>

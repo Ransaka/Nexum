@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SendwarningService } from 'app/services/sendwarning.service'
 import { AuthService } from '../../../Auth/auth.service';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-adminprofile',
@@ -87,18 +90,36 @@ export class AdminprofileComponent implements OnInit {
   focus1;
   id: any;
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService,private _sendWarning: SendwarningService,private router: Router) {}
 
   displayComplain(){
-  this.auth.displayComplain().subscribe(
-    auth=>{
-      this.first10 = auth[5]
-      this.complains = auth;
-      console.log(this.complains)
-    },
-    error => console.log(error)
-  );
-}
+    this.auth.displayComplain().subscribe(
+      auth=>{
+        this.first10 = auth[5]
+        this.complains = auth;
+        console.log(this.complains)
+      },
+      error => console.log(error)
+    );
+  }
+  sendEmail() {
+    this._sendWarning
+      .sendMail({
+        email:'ransakaravihara@gmail.com'
+      })
+      .subscribe(
+        res => {
+          this.router.navigateByUrl('/');
+        },
+        err => {
+          console.log(err);
+          if (err.error.message) {
+            error =>err.error.message;
+          }
+        }
+      );
+  }
+
   deleteComplain(id){
     console.log(id)
   }
