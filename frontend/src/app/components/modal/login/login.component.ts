@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   closeResult: string;
+  user: any;
 
   constructor(
     private formbuilder: FormBuilder,
