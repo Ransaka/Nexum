@@ -37,9 +37,9 @@ describe('BroadcastComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have Broadcast in h3', () => {
-    expect(de.query(By.css('h3')).nativeElement.innerText).toBe(
-      'Broadcast Form'
-    );
-  });
+  // it('should have Broadcast in h3', () => {
+  //   expect(de.query(By.css('h3')).nativeElement.innerText).toBe(
+  //     'Broadcast Form'
+  //   );
+  // });
 });

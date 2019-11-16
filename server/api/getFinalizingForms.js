@@ -13,7 +13,7 @@ const Broadcast = require('../models/Broadcast')
 const checkAuth = require('../auth/check-auth')
 
 /**
- * Cars delete endpoint.
+ * Get all finalizing forms
  *
  * Delete the car referenced to the given car id which is owned by authenticated user.
  *

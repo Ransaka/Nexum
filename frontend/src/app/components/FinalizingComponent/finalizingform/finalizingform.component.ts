@@ -46,7 +46,7 @@ export class FinalizingformComponent implements OnInit {
           .gettUserById({
             _id: localStorage.getItem('user_id')
           })
-          .subscribe(data => (this.sellerName = JSON.stringify(data.username)));
+          .subscribe(data => console.log(data));
       } else {
         this.itemId = '';
         this.custId = '';
@@ -71,7 +71,7 @@ export class FinalizingformComponent implements OnInit {
         product: this.itemDetails.item[0].product,
         category: this.itemDetails.item[0].category,
         tags: this.itemDetails.item[0].tags,
-        sellerId: this.custId,
+        customerId: this.custId,
         sellerName: this.sellerName,
         price: this.finalizingForm.controls['price'].value,
         textMessage: this.finalizingForm.controls['textMessage'].value

@@ -86,6 +86,7 @@ export class SellingService {
 
   //Sending new finalizing form to the backend
   sendFinalizing(finalizing: Finalizing) {
+    console.log(finalizing);
     const headers = new HttpHeaders().set(
       'uid',
       localStorage.getItem('user_id')
