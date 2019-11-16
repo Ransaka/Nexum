@@ -1,3 +1,7 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+<div class="row" style="padding-top: 10%">
+
 <div class="col-md-12">
     <form novalidate [formGroup]="replyForm" (ngSubmit)="submitreplyForm()">
         <div *ngFor="let review of this.reviewlist | slice:1;let index= index  " >
@@ -8,7 +12,7 @@
         <div class="col-md-2">
           <img src="https://images.unsplash.com/photo-1439402702863-6434b61e6392?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Avatar" class="avatar" >
            <p class="text-secondary text-center">
-              {{datelist[index+1]|date}}  
+              {{datelist[index+1]|dateAgo}}  
           
         </div>
 
@@ -16,7 +20,7 @@
           <div class="clearfix"></div>
         
           
-          {{index+1}} {{review}}<br>
+          {{index+1}})   {{review}}<br>
              
         <a class="float-right btn btn-outline-primary ml-2"name="NIC" NIC="index+1"(click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
           
@@ -47,7 +51,7 @@
   <div class="col-md-4">
     <img src="https://images.unsplash.com/photo-1492581654245-5a258fbbecce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Avatar" class="avatar" >
      <p class="text-secondary text-center">
-        {{time | date}} 
+        {{time | dateAgo}} 
     
   </div>
 
@@ -72,5 +76,5 @@
     </div>
   </form>
   </div>
- 
- 
+ </div>
+ </div>

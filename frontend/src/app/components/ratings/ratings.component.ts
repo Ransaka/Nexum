@@ -4,7 +4,8 @@ import { RatingformService } from 'app/services/ratingform.service';
 import {ReplyformService } from 'app/services/reply.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms'; 
- 
+import { Pipe, PipeTransform } from '@angular/core';
+import { DateAgoPipe } from 'app/pipes/date-ago.pipe';
 export interface Message {
   text: string;
   name: string;

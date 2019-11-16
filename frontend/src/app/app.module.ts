@@ -30,7 +30,7 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
-
+import { RatingsComponent } from './components/ratings/ratings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +53,7 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
     AcceptfinalizingComponent,
     RatingformComponent,
     DateAgoPipe,
-     
+    RatingsComponent 
   ],
   imports: [
     BrowserAnimationsModule,
