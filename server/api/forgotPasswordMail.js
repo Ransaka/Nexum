@@ -35,7 +35,7 @@ router.post('/sendEmail', async function (req, res) {
         html: `
         <h4>Forgot Account Password?</h4>
         Hi, we received a request to reset your Nexum password.If you did not request a password reset, ignore this email and take no further action.
-        If you 've forgotten your Nexum password please change your password using <b>http://localhost:4200/userprofile/edit</b>
+        If you 've forgotten your Nexum password please change your password using <b>http://localhost:4200/resetPassword</b>
         <br>
         <h2>Nexum</h2>
         `

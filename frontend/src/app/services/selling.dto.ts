@@ -21,6 +21,8 @@ export interface Finalizing {
   product: string;
   category: string;
   customerId: string;
+  sellerName: string;
+  sellerUsername?: string;
   price: number;
   tags: string;
   textMessage?: string;

@@ -1,3 +1,4 @@
+import { ResetPasswordComponent } from './AccountRecovery/reset-password/reset-password.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,9 +15,11 @@ import { SigninComponent } from './signin/signin.component';
 import { RatingsComponent } from './ratings/ratings.component';
 //import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
 import { NonRegisteredComponent } from './non-registered/non-registered.component';
-import { RecoverAccountComponent } from './recover-account/recover-account.component';
+import { RecoverAccountComponent } from './AccountRecovery/recover-account/recover-account.component';
 import { SignupComponent } from './modal/signup/signup.component';
 import { LoginComponent } from './modal/login/login.component';
+//import { MoreSellingComponent } from './SellerProfile/more-selling/more-selling.component';
+//import { BroadcastViewMoreComponent } from './CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 //import { AcceptfinalizingComponent } from './acceptfinalizing/acceptfinalizing.component';
 //import { SellingitemComponent } from './sellingitem/sellingitem.component';
 //import { FinalizingformviewComponent } from './finalizingformview/finalizingformview.component';
@@ -46,7 +49,8 @@ import { LoginComponent } from './modal/login/login.component';
     NonRegisteredComponent,
     RecoverAccountComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    //BroadcastViewMoreComponent
     //AcceptfinalizingComponent
     //SellingitemComponent
     //FinalizingformviewComponent
@@ -54,6 +58,8 @@ import { LoginComponent } from './modal/login/login.component';
     //FinalizingformComponent
     //SellerreplyComponent
     //BroadcastComponent
+    ResetPasswordComponent
+    //MoreSellingComponent
   ],
   exports: [ComponentsComponent]
 })

@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   closeResult: string;
+  user: any;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -40,8 +41,8 @@ export class LoginComponent implements OnInit {
   }
 
   error: string;
-  log_email: String;
-  log_password: String;
+  log_email: String; // User email
+  log_password: String; // User password
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -53,7 +54,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  //Login
+  // Login
   login() {
     const request = {
       email: this.loginForm.controls['log_email'].value,
@@ -65,7 +66,6 @@ export class LoginComponent implements OnInit {
         this.modalService.dismissAll();
       },
       err => {
-        console.log(err);
         if (err.error.message) {
           this.error = err.error.message;
           console.log(this.error);

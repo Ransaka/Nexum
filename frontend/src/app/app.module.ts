@@ -1,15 +1,15 @@
 import { AcceptfinalizingComponent } from './components/acceptfinalizing/acceptfinalizing.component';
-import { SellingitemComponent } from './components/sellingitem/sellingitem.component';
-import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
+import { SellingitemComponent } from './components/SellerProfile/sellingitem/sellingitem.component';
+import { FinalizingformviewComponent } from './components/FinalizingComponent/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
 import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
-import { SellingComponent } from './components/selling/selling.component';
-import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
+import { SellingComponent } from './components/SellerProfile/selling/selling.component';
+import { FinalizingformComponent } from './components/FinalizingComponent/finalizingform/finalizingform.component';
 import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
 import { SellerviewComponent } from './pages/sellerview/sellerview.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AuthGuard } from './Auth/auth.guard';
-import { BroadcastComponent } from './components/broadcast/broadcast.component';
+import { BroadcastComponent } from './components/CustomerProfile/broadcast/broadcast.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { AuthService } from './Auth/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
@@ -21,13 +21,20 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AgmCoreModule } from '@agm/core';
-import {RatingformComponent} from './pages/ratingform/ratingform.component'
+import { RatingformComponent } from './pages/ratingform/ratingform.component';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
+import { FooterComponent } from './shared/footer/footer.component';
+
+// Customer profile components
+import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadcast-view-more/broadcast-view-more.component';
+
+//Seller profile components
+import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +56,10 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
     FinalizingformviewComponent,
     SellingitemComponent,
     AcceptfinalizingComponent,
-    RatingformComponent
+    RatingformComponent,
+    FooterComponent,
+    BroadcastViewMoreComponent,
+    MoreSellingComponent
   ],
   imports: [
     BrowserAnimationsModule,
