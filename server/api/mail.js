@@ -7,6 +7,7 @@ const verify = require('../auth/verify')
 const mongoose = require('mongoose')
 const nodemailer = require('nodemailer');
 const User = require('../models/User')
+const complains = require('../models/complain')
 
 
 
@@ -31,7 +32,7 @@ router.post('/sendEmail', async function (req, res) {
     let info = await transporter.sendMail({
         from: '"Nexum" <gamincrunch@gmail.com>', // sender address
         to: req.body.email, // list of receivers
-        subject: 'Forgot Password', // Subject line
+        subject: 'User report!!', // Subject line
         //text: 'Hello world?', // plain text body
         html: `
         <h4>User report warning!!</h4>
@@ -83,6 +84,18 @@ router.post('/isavailable', function (req, res) {
 
     })
 })
+
+router.patch('/:id',async (req,res)=>{
+    try{
+        const updatedComplain = await complains.updateOne(
+            {_id: req.params.id},
+            {$set: {warningSent: true}}
+        );
+        res.json(updatedComplain);
+    }catch(err){
+        res.json({message:err});
+    }
+});
 
 
 module.exports = router

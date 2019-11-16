@@ -34,7 +34,5 @@ class User{
   constructor(
     public seller: string,
     public complain: string,
-  ){
-
-  }
+  ){}
 }

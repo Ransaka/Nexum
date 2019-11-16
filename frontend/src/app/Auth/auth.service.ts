@@ -7,6 +7,7 @@ import { SignInResponse, SignInRequest, SignUpRequest, NewComplain } from './aut
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { async } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -78,8 +79,12 @@ export class AuthService {
     return this.http.get('http://localhost:3000/user/complain/get');
   }
   deleteComplain(id){
-
   }
+  updateComplain(body){
+    console.log(JSON.stringify(body))
+    return this.http.put<any>('http://localhost:3000/user/complain/update',body)
+  }
+  
   // eof make new complain
   // makeComplain(complain:NewComplain): Observable<any> {
   //   return this.http.post('http://localhost:3000/user/complain', complain, )

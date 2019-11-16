@@ -38,5 +38,18 @@ router.post("/", async (req,res)=>{
          });
      }
  });
+ router.put('/update',async (req,res,next)=>{
+     complain.findById(req.body.ref,(err,complain)=>{
+        if(err)
+            res.status(500).json({message: err});
+        complain.warningSent= true;
+        complain.save((err,complain)=>{
+             if(err)
+                res.status(500).json({message: err})
+                res.status(200).json({msg: complain});
+        });
+     });
+});
+
  
  module.exports = router

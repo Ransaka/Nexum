@@ -53,6 +53,7 @@ app.use('/forgotPasswordMail', forgotPasswordMailRouter)
 app.use('/user/getFinalizingForms', getFinalizingFormsRouter)
 app.use('/user/paypal', paypalRouter)
 app.use('/user/mail', sendWarningMailRouter)
+app.use('/user/complain/',sendWarningMailRouter)
 
 app.use('/user/reply',replyRouter)
 

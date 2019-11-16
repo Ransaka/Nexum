@@ -14,6 +14,9 @@ export class SendwarningService {
       body
     );
   }
+  updateComplain(body){
+    return this.http.patch('http://localhost:3000/user/complains/:id',body)
+  }
 }
 //
 

@@ -5,6 +5,8 @@ import { AuthService } from '../../../Auth/auth.service';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { from } from 'rxjs';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { error } from 'util';
 
 @Component({
   selector: 'app-adminprofile',
@@ -102,10 +104,10 @@ export class AdminprofileComponent implements OnInit {
       error => console.log(error)
     );
   }
-  sendEmail() {
+  sendEmail(adress) {
     this._sendWarning
       .sendMail({
-        email:'ransakaravihara@gmail.com'
+        email:adress
       })
       .subscribe(
         res => {
@@ -118,6 +120,23 @@ export class AdminprofileComponent implements OnInit {
           }
         }
       );
+  }
+  updateCompalin(id){
+    this.auth.updateComplain({
+      ref:id
+    }).subscribe(
+      res=>{
+        //this.router.navigateByUrl('/');
+        this.router.navigate(["./userprofile/admin"])
+      },
+      err=>{
+        console.log(err);
+        if(err.error.message){
+          error=>err.error.message;
+        }
+      }
+    );
+    //this.router.navigate(['./userprofile/admin'])
   }
 
   deleteComplain(id){
