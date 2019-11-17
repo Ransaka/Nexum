@@ -84,7 +84,8 @@ export class BroadcastService {
   }
 
   // Payment
-  payment(request: String): Observable<any> {
+  payment(request: any): Observable<any> {
+    console.log(request);
     return this.http.post<any>(
       'http://localhost:3000/user/paypal/pay',
       request

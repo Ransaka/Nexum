@@ -1,4 +1,4 @@
-import { AcceptfinalizingComponent } from './components/acceptfinalizing/acceptfinalizing.component';
+import { AcceptfinalizingComponent } from './components/FinalizingComponent/acceptfinalizing/acceptfinalizing.component';
 import { SellingitemComponent } from './components/SellerProfile/sellingitem/sellingitem.component';
 import { FinalizingformviewComponent } from './components/FinalizingComponent/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';

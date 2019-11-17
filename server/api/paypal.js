@@ -9,21 +9,22 @@ paypal.configure({
 });
 
 router.post('/pay', function (req, res) {
-    const create_payment_json = {
+    const amount = toString(req.body.amount)
+    var create_payment_json = {
         "intent": "sale",
         "payer": {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:3000/success",
-            "cancel_url": "http://localhost:3000/cancel"
+            "return_url": "http://localhost:3000/user/paypal/success",
+            "cancel_url": "http://localhost:3000/user/paypal/cancel"
         },
         "transactions": [{
             "item_list": {
                 "items": [{
                     "name": "item",
                     "sku": "item",
-                    "price": "1.00",
+                    "price": "15.00",
                     "currency": "USD",
                     "quantity": 1
                 }]
@@ -39,7 +40,6 @@ router.post('/pay', function (req, res) {
         if (error) {
             throw error;
         } else {
-            console.log(payment);
             var url;
             for (let i = 0; i < payment.links.length; i++) {
                 if (payment.links[i].rel === 'approval_url') {
@@ -52,5 +52,33 @@ router.post('/pay', function (req, res) {
         }
     });
 })
+
+router.get('/success', (req, res) => {
+    const payerId = req.query.PayerID;
+    const paymentId = req.query.paymentId;
+
+    var execute_payment_json = {
+        "payer_id": payerId,
+        "transactions": [{
+            "amount": {
+                "currency": "USD",
+                "total": "1.00"
+            }
+        }]
+    }
+
+    paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+        if (error) {
+            console.log(error.response);
+            throw error;
+        } else {
+            console.log(JSON.stringify(payment));
+            //res.send('Success');
+            return res.redirect('localhost:4200/userprofile/acceptfinalize');
+        }
+    });
+})
+
+router.get('/cancel', (req, res) => res.send('Cancelled'));
 
 module.exports = router

@@ -28,6 +28,7 @@ export class FinalizingformComponent implements OnInit {
   broadcastData: any;
   error: string;
   sellerName: string;
+  sellerId: string;
 
   ngOnInit() {
     this.finalizingForm = this._formbuilder.group({
@@ -54,6 +55,7 @@ export class FinalizingformComponent implements OnInit {
     });
 
     this.getItem();
+    this.getName();
   }
 
   // Get item details
@@ -61,6 +63,12 @@ export class FinalizingformComponent implements OnInit {
     this._sellingService
       .getItem(this.itemId)
       .subscribe(data => (this.itemDetails = data));
+  }
+
+  getName() {
+    this._userService
+      .collectCurrent()
+      .subscribe(data => (this.sellerName = data.username));
   }
 
   //Forward the finalizing component to the customer
