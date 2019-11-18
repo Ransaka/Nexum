@@ -11,10 +11,7 @@ export class NgbdModalBasic {
   loginForm: FormGroup;
   signupForm: FormGroup;
 
-  constructor(
-    private modalService: NgbModal,
-    private formbuilder: FormBuilder
-  ) {}
+  constructor(private modalService: NgbModal) {}
 
   // Open Popup
   open(content) {

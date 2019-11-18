@@ -1,3 +1,4 @@
+import { FooterComponent } from './../shared/footer/footer.component';
 import { ResetPasswordComponent } from './AccountRecovery/reset-password/reset-password.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -6,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -18,6 +20,7 @@ import { NonRegisteredComponent } from './non-registered/non-registered.componen
 import { RecoverAccountComponent } from './AccountRecovery/recover-account/recover-account.component';
 import { SignupComponent } from './modal/signup/signup.component';
 import { LoginComponent } from './modal/login/login.component';
+import { HomepageComponent } from './homepage/homepage.component';
 //import { MoreSellingComponent } from './SellerProfile/more-selling/more-selling.component';
 //import { BroadcastViewMoreComponent } from './CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 //import { AcceptfinalizingComponent } from './acceptfinalizing/acceptfinalizing.component';
@@ -36,7 +39,8 @@ import { LoginComponent } from './modal/login/login.component';
     NouisliderModule,
     RouterModule,
     JwBootstrapSwitchNg2Module,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollToModule.forRoot()
   ],
   declarations: [
     ComponentsComponent,
@@ -58,8 +62,10 @@ import { LoginComponent } from './modal/login/login.component';
     //FinalizingformComponent
     //SellerreplyComponent
     //BroadcastComponent
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    HomepageComponent,
     //MoreSellingComponent
+    FooterComponent
   ],
   exports: [ComponentsComponent]
 })

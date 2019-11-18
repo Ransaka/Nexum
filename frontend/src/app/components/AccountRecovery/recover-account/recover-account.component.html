@@ -14,9 +14,9 @@
           <div class="mail mx-auto col-md-12 mt-5 " style="width: 500px;">
             <input class="form-control" [(ngModel)]="email" formControlName="email"
               placeholder="Enter you email correctly" type="text" value="">
-            <button class="btn btn-primary btn-sm btn-round btn-block" type="button" (click)="send()"><i
+            <button class="btn btn-primary btn-sm btn-block" type="button" (click)="send()"><i
                 class="now-ui-icons ui-1_send"></i>&nbsp;&nbsp;&nbsp;Send</button>
-            <button class="btn btn-primary btn-sm btn-round btn-block" routerLink="/" type="button">Back</button>
+            <button class="btn btn-primary btn-sm btn-block" routerLink="/" type="button">Back</button>
           </div>
         </form>
         <p *ngIf="isUserAvailable == 'true'">User Available</p>
