@@ -63,9 +63,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     //SellerreplyComponent
     //BroadcastComponent
     ResetPasswordComponent,
-    HomepageComponent,
+    HomepageComponent
     //MoreSellingComponent
-    FooterComponent
   ],
   exports: [ComponentsComponent]
 })

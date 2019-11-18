@@ -45,8 +45,8 @@ export class BroadcastComponent implements OnInit {
           this.router.navigate(['/userprofile/customerprofile']);
         },
         err => {
-          if (err.error.message) {
-            this.error = err.error.message;
+          if (err.error) {
+            this.error = err.error;
           }
         }
       );

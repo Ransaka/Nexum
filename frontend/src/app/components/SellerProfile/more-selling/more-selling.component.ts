@@ -22,4 +22,12 @@ export class MoreSellingComponent implements OnInit {
       .getSelling()
       .subscribe(data => (this.sellingArray = data as Selling[]));
   }
+
+  // remove a selling
+  removeSelling(id) {
+    console.log(id);
+    this._sellingservice
+      .removeSelling(id as string)
+      .subscribe(data => this.getSelling());
+  }
 }

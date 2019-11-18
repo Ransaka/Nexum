@@ -1,3 +1,4 @@
+import { FooterComponent } from './shared/footer/footer.component';
 import { AcceptfinalizingComponent } from './components/FinalizingComponent/acceptfinalizing/acceptfinalizing.component';
 import { SellingitemComponent } from './components/SellerProfile/sellingitem/sellingitem.component';
 import { FinalizingformviewComponent } from './components/FinalizingComponent/finalizingformview/finalizingformview.component';
@@ -60,7 +61,8 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     AcceptfinalizingComponent,
     RatingformComponent,
     BroadcastViewMoreComponent,
-    MoreSellingComponent
+    MoreSellingComponent,
+    FooterComponent
   ],
   imports: [
     BrowserAnimationsModule,

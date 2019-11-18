@@ -1,3 +1,4 @@
+import { FooterComponent } from './../../shared/footer/footer.component';
 import { NavbarComponent } from './../../shared/navbar/navbar.component';
 import { Component, OnInit } from '@angular/core';
 import { Inject, Renderer, ElementRef, ViewChild } from '@angular/core';
@@ -15,6 +16,7 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 export class UserprofileComponent implements OnInit {
   private _router: Subscription;
   @ViewChild(NavbarComponent) navbar: NavbarComponent;
+  @ViewChild(FooterComponent) footer: FooterComponent;
 
   constructor(
     private renderer: Renderer,
