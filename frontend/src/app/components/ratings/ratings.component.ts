@@ -22,6 +22,7 @@ export class RatingsComponent implements OnInit {
   buttonClicked: number;
   idlist:any=[];
   numlist:any=[] ;
+  namelist:any=[];
   replylist:any=[];
   timelist:any=[];
   replyForm: FormGroup; 
@@ -33,6 +34,7 @@ export class RatingsComponent implements OnInit {
      this.idlist=[];
      this.numlist=[];
      this.timelist=[];
+     this.namelist=[];
      this.replylist=[];
   }
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
@@ -66,6 +68,7 @@ export class RatingsComponent implements OnInit {
       this.replyForm =  this.formBuilder.group({
         _id: current_user, 
         nom:[''],
+        name:[''],
         reply:['']
       });
 
@@ -98,6 +101,7 @@ export class RatingsComponent implements OnInit {
        let k=0;
        let no;
     for (let j= 0; j < ratings.length; j++) {
+             
              idea=ratings[j].review;
             day=ratings[j].date;
             no=ratings[j]._id;
@@ -125,6 +129,7 @@ sendreply() {
   const request = {
     _id: current_user,
     nom: this.buttonClicked,
+    name: this.replyForm.controls['name'].value ,
     reply: this.replyForm.controls['reply'].value
   }
   this.replying.sendreply(request).subscribe(res => {
@@ -136,10 +141,12 @@ viewReply(replying){
    
   let k=0; 
   let my;
+  let nic ;
   let numb;  
  for (let j= 0; j < replying.length; j++) {
    
       k++;
+   this.namelist[k]=replying[j].name;
    this.replylist[k]=replying[j].reply; 
    this.timelist[k]=replying[j].date;
    this.numlist[k]=replying[j].nom; 

@@ -22,6 +22,7 @@ router.put('/create', (req, res, next) => {
         .then((user) => {
             var _reply = new Reply({
                 nom: req.body.nom,
+                name: req.body.name,
                 reply: req.body.reply,
                 date: Date()
             })

@@ -15,6 +15,7 @@ const replySchema = new Schema({
     },
      
     nom: Number,
+    name: String,
     reply: String,
     date: Date
 })

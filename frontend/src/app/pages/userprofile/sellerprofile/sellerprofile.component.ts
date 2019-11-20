@@ -43,7 +43,9 @@ export class SellerprofileComponent implements OnInit {
     this.idlist=[];
     this.numlist=[];
      this.timelist=[];
-     this.replylist=[];}
+     this.replylist=[];
+    this.namelist=[];
+    }
 
   current_user: User;
   sellingArray: Selling[];
@@ -73,7 +75,7 @@ export class SellerprofileComponent implements OnInit {
   numlist:any=[] ;
   replylist:any=[];
   timelist:any=[];
-
+ namelist:any=[];
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
     name: '',
@@ -104,6 +106,7 @@ export class SellerprofileComponent implements OnInit {
       this.replyForm =  this.formBuilder.group({
         _id: current_user, 
         nom:[''],
+        name:[''],
         reply:['']
       });
 
@@ -260,6 +263,7 @@ sendreply() {
   const request = {
     _id: current_user,
     nom: this.buttonClicked,
+    name: this.replyForm.controls['name'].value,
     reply: this.replyForm.controls['reply'].value
   }
   this.replying.sendreply(request).subscribe(res => {
@@ -271,10 +275,11 @@ viewReply(replying){
    
   let k=0; 
   let my;
-  let numb;  
+  let numb; 
  for (let j= 0; j < replying.length; j++) {
    
       k++;
+   this.namelist[k]=replying[j].name;
    this.replylist[k]=replying[j].reply; 
    this.timelist[k]=replying[j].date;
    this.numlist[k]=replying[j].nom; 

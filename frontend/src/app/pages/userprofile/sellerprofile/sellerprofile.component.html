@@ -155,14 +155,22 @@
                                   {{index+1}})   {{review}}<br>
                                      
                                 <a class="float-right btn btn-outline-primary ml-2"name="NIC" NIC="index+1"(click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
-                                  
-                                <textarea *ngIf="buttonClicked == index+1" formControlName ="reply" rows="4" id="index+1" cols="50"[(ngModel)] = "str" ></textarea>
-                                 <div class="row">
-                                    <div class="footer text-center">
-                                        <a *ngIf="buttonClicked == index+1" class="btn btn-primary btn-round btn-lg btn-block" (click)="sendreply()">Submit </a>
-                                      </div>
-                                     
-                                </div> 
+                                <div  *ngIf="buttonClicked == index+1">
+                                  <br>
+                                    Enter your name :- 
+                                    <br>
+                                    <textarea  formControlName ="name" value="name" rows="1" cols="50" ></textarea>
+                                    <br>
+                                    Enter your reply :- 
+                                    <br>
+                                    <textarea  formControlName ="reply" value="reply" rows="4" cols="50" ></textarea>
+                                     <div class="row">
+                                        <div class="footer text-center">
+                                            <a  class="btn btn-primary btn-round btn-lg btn-block" (click)="sendreply()">Submit </a>
+                                          </div>
+                                        </div>    
+                                    </div> 
+                                 
                                 </div>
                                 
                         
@@ -190,7 +198,7 @@
                           <div class="col-md-6">
                             <div class="clearfix"></div>
                             
-                            
+                            <h5>  {{namelist[i+1]}}</h5><br>
                              {{replylist[i+1]}}<br>
                               </div>
                               </div>
