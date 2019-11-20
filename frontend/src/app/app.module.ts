@@ -63,7 +63,7 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     AcceptfinalizingComponent,
     RatingformComponent,
     DateAgoPipe,
-    RatingsComponent 
+    RatingsComponent, 
     BroadcastViewMoreComponent,
     MoreSellingComponent,
     FooterComponent
