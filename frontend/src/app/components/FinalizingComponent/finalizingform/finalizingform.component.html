@@ -1,23 +1,68 @@
 <app-navbar></app-navbar>
+
 <div class="wrapper">
   <div class="page-header" style="background-image: url('assets/img/bg5.jpg');">
-    <div class="container mt-5">
-      <div class="row">
+    <div class="row">
+      <div class="mt-5"></div>
+    </div>
+    <div class="container">
+      <div class="mt-5">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="card bg-dark text-white card-details text-center a">
+              <i class=" now-ui-icons emoticons_satisfied"></i>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="card bg-dark text-white card-details">
+              <div class=" container">
+                <div class="row">
+                  <div class=" col-md-12 col-sm-12">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col" colspan="2" class="">Product Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Product Name</th>
+                          <td>{{itemDetails?.item[0].product}}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Product Id</th>
+                          <td>{{itemDetails?.item[0]._id}}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Product Category</th>
+                          <td>{{itemDetails?.item[0].category}}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Product Tags</th>
+                          <td>{{itemDetails?.item[0].tags}}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">User Id</th>
+                          <td>{{custId}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+
+      <div class="row">
         <!-- Finalizing form -->
-        <div class="col-md-4 mr-auto mt-5">
-          <div class="card" style=" width: 70rem;">
+        <div class="col-md-12">
+          <div class="card">
             <div class="mt-2">
               <h3 class="card-title">Finalizing Form</h3>
             </div>
-            <div class="data">
-              <h5>Product Name : {{itemDetails?.item[0].product}}</h5>
-              <h5>Product Id : {{itemDetails?.item[0]._id}}</h5>
-              <h5>Product Category : {{itemDetails?.item[0].category}}</h5>
-              <h5>Product Tags : {{itemDetails?.item[0].tags}}</h5>
-              <h5>User Id : {{custId}}</h5>
-            </div>
-
             <div class="card-body">
               <form class="form-group" [formGroup]="finalizingForm">
                 <div class="mt-2">
@@ -30,7 +75,7 @@
                   <div class="content"><label>Message</label>
                     <textarea _ngcontent-c15="" class="form-control" cols="80" rows="2" spellcheck="false"
                       [(ngModel)]="textMessage" formControlName="textMessage">
-                    </textarea>
+                        </textarea>
                   </div>
                 </div>
 
@@ -43,9 +88,8 @@
           </div>
         </div>
         <!-- /Finalizing form -->
-
-
       </div>
+
     </div>
   </div>
 </div>

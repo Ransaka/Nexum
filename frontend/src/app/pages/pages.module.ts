@@ -26,8 +26,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     SellerviewComponent,
     NonRegisteredSellerViewComponent,
     EditprofileComponent
-    
   ],
-  imports: [CommonModule, RouterModule, NouisliderModule, NgbModule,ReactiveFormsModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    NouisliderModule,
+    NgbModule,
+    ReactiveFormsModule
+  ]
 })
 export class PagesModule {}

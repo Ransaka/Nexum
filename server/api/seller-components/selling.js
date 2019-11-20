@@ -144,7 +144,6 @@ router.delete('/remove/:selling_id', function (req, res) {
  * @response message
  */
 router.put('/newfinalizing', (req, res, next) => {
-    console.log(req.body.customerId)
     User.findById(
             req.body.customerId
         )

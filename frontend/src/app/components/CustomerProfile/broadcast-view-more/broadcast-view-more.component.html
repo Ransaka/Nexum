@@ -6,7 +6,7 @@
       <div class="row">
         <div class=" col-md-12 col-sm-12">
           <div class="mt-5">
-            <h3>Bookmarks</h3>
+            <h3>Broadcasts</h3>
           </div>
         </div>
       </div>
@@ -16,13 +16,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2 col-sm-2">
-          <div class="card text-center" style=" width: 70rem;">
+          <div class="card" style=" width: 70rem;">
             <div class="col-md-12">
+              <div class="">
+                <div class="social-description">
+                  <a class="btn btn-primary btn-sm" routerLink="/userprofile/customerprofile">Back</a>
+                </div>
+              </div>
               <div class="row">
               </div>
               <form>
-                <table class="table table-striped">
-                  <thead>
+                <table class="table table-striped text-center table-hover">
+                  <thead class="thead-dark">
                     <tr>
                       <th scope="col">ID</th>
                       <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
@@ -40,7 +45,8 @@
                       <td scope="row">
                         <div class="social-description">
                           <a href="#button" class="btn btn-primary btn-lg btn-sm"
-                            routerLink="/userprofile/finalizingformview/{{x._id}}">F</a>
+                            routerLink="/userprofile/finalizingformview/{{x._id}}"><i
+                              class="now-ui-icons files_single-copy-04"></i></a>
                         </div>
                       </td>
                       <td scope="row">

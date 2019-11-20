@@ -31,7 +31,6 @@ export class FinalizingformviewComponent implements OnInit {
     });
     this.getBroadcast();
     this.getFinalizingForms();
-    this.test();
   }
 
   getBroadcast() {
@@ -45,37 +44,5 @@ export class FinalizingformviewComponent implements OnInit {
     this._broadcastService
       .getFinalizingForms()
       .subscribe(data => (this.finalizingForms = data));
-  }
-
-  // Get seller by id
-  getSeller() {
-    this.finalizingForms.forEach(product => {
-      console.log(product);
-    });
-
-    // this._userService
-    //   .gettUserById(_id)
-    //   .subscribe(data => ());
-  }
-
-  // Get details of the related broadcasts
-  test() {
-    let promise = new Promise((resolve, reject) => {
-      this._broadcastService
-        .getFinalizingForms()
-        .toPromise()
-        .then(data => {
-          this.finalizingForms = data;
-          console.log(data);
-          console.log(data.length);
-          // data.forEach(obj => {
-          //   console.log(obj);
-          //   this._userService
-          //     .gettUserById(obj.sellerId)
-          //     .subscribe(data => console.log(data));
-          // });
-        });
-    });
-    return promise;
   }
 }

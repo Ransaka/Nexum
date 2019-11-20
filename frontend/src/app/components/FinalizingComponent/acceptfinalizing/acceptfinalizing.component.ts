@@ -1,5 +1,5 @@
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { BroadcastService } from './../../services/broadcast.service';
+import { BroadcastService } from '../../../services/broadcast.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -40,12 +40,15 @@ export class AcceptfinalizingComponent implements OnInit {
   getBroadcast() {
     this._broadcastService
       .getFormById(this.itemId)
-      .subscribe(data => (this.itemDetails = data));
+      .subscribe(data => ((this.itemDetails = data), console.log(data)));
   }
 
   pay() {
     this._broadcastService
-      .payment('hello')
-      .subscribe(data => window.open(data.url, '_blank'));
+      .payment({
+        amount: this.itemDetails.item[0].price,
+        seller: this.itemDetails.item[0].sellerName
+      })
+      .subscribe(data => window.location.replace(data.url));
   }
 }

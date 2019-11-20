@@ -1,4 +1,5 @@
-import { AcceptfinalizingComponent } from './components/acceptfinalizing/acceptfinalizing.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { AcceptfinalizingComponent } from './components/FinalizingComponent/acceptfinalizing/acceptfinalizing.component';
 import { SellingitemComponent } from './components/SellerProfile/sellingitem/sellingitem.component';
 import { FinalizingformviewComponent } from './components/FinalizingComponent/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
@@ -28,13 +29,15 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
-import { FooterComponent } from './shared/footer/footer.component';
 
 // Customer profile components
 import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 
 //Seller profile components
 import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
+
+//Other imports
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 @NgModule({
   declarations: [
@@ -57,9 +60,9 @@ import { MoreSellingComponent } from './components/SellerProfile/more-selling/mo
     SellingitemComponent,
     AcceptfinalizingComponent,
     RatingformComponent,
-    FooterComponent,
     BroadcastViewMoreComponent,
-    MoreSellingComponent
+    MoreSellingComponent,
+    FooterComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -72,7 +75,8 @@ import { MoreSellingComponent } from './components/SellerProfile/more-selling/mo
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDU2U5KdAzMj0ZP6584UzKlZH0tGFT9feg'
-    })
+    }),
+    ScrollToModule.forRoot()
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
