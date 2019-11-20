@@ -16,6 +16,7 @@ const finalizingSchema = new Schema({
     product: String,
     category: String,
     sellerId: String,
+    sellerName: String,
     price: Number,
     tags: String,
     textMessage: String,

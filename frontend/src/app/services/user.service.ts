@@ -13,7 +13,7 @@ import { User, UserView, Username } from './user.dto';
 })
 export class UserService {
   //Api endpoint
-  private currentUrl = 'http://localhost:3000/user/current';
+  private currentUrl = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +21,7 @@ export class UserService {
   getUser(id) {
     return this.http.get('http://localhost:3000/user/' + id).pipe(
       first(),
-      map(res => res as User),
+      map(res => res as any),
       tap(user => this.setUser(user))
     );
   }
@@ -30,19 +30,19 @@ export class UserService {
     this.removeUser();
   }
 
-  // Get current user
+  /*
+   * Get current user
+   */
   collectCurrent(): Observable<User> {
     const headers = new HttpHeaders().set(
       'x-access-token',
       localStorage.getItem('jwt_token')
     );
-    return this.http
-      .get('http://localhost:3000/user/current', { headers })
-      .pipe(
-        first(),
-        map(res => res as User),
-        tap(user => this.setUser(user))
-      );
+    return this.http.get(this.currentUrl + 'user/current', { headers }).pipe(
+      first(),
+      map(res => res as any),
+      tap(user => this.setUser(user))
+    );
   }
 
   // search a user
@@ -58,7 +58,7 @@ export class UserService {
       })
       .pipe(
         first(),
-        map(res => res as UserView)
+        map(res => res as any)
       );
   }
 
@@ -73,8 +73,21 @@ export class UserService {
     });
   }
 
+  //get user by id
+  gettUserById(_id: any) {
+    const headers = new HttpHeaders().set(
+      'uid',
+      localStorage.getItem('user_id')
+    );
+    return this.http.post('http://localhost:3000/user/userbyid', _id, {
+      headers
+    });
+  }
+
+  /*
+   * Set user id on the local storage
+   */
   private setUser(response: User) {
-    localStorage.setItem('current_user', JSON.stringify(response));
     localStorage.setItem('user_id', response._id);
   }
 
