@@ -1,15 +1,16 @@
-import { AcceptfinalizingComponent } from './components/acceptfinalizing/acceptfinalizing.component';
-import { SellingitemComponent } from './components/sellingitem/sellingitem.component';
-import { FinalizingformviewComponent } from './components/finalizingformview/finalizingformview.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { AcceptfinalizingComponent } from './components/FinalizingComponent/acceptfinalizing/acceptfinalizing.component';
+import { SellingitemComponent } from './components/SellerProfile/sellingitem/sellingitem.component';
+import { FinalizingformviewComponent } from './components/FinalizingComponent/finalizingformview/finalizingformview.component';
 import { SellerreplyformComponent } from './components/sellerreplyform/sellerreplyform.component';
 import { BookmarksviewComponent } from './components/bookmarksview/bookmarksview.component';
-import { SellingComponent } from './components/selling/selling.component';
-import { FinalizingformComponent } from './components/finalizingform/finalizingform.component';
+import { SellingComponent } from './components/SellerProfile/selling/selling.component';
+import { FinalizingformComponent } from './components/FinalizingComponent/finalizingform/finalizingform.component';
 import { SellerreplyComponent } from './components/sellerreply/sellerreply.component';
 import { SellerviewComponent } from './pages/sellerview/sellerview.component';
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AuthGuard } from './Auth/auth.guard';
-import { BroadcastComponent } from './components/broadcast/broadcast.component';
+import { BroadcastComponent } from './components/CustomerProfile/broadcast/broadcast.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { AuthService } from './Auth/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
@@ -20,9 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import { ExamplesModule } from './examples/examples.module';
 import { AgmCoreModule } from '@agm/core';
-import {RatingformComponent} from './pages/ratingform/ratingform.component'
+import { RatingformComponent } from './pages/ratingform/ratingform.component';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
@@ -31,6 +31,16 @@ import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminpro
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { RatingsComponent } from './components/ratings/ratings.component';
+
+// Customer profile components
+import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadcast-view-more/broadcast-view-more.component';
+
+//Seller profile components
+import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
+
+//Other imports
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +64,9 @@ import { RatingsComponent } from './components/ratings/ratings.component';
     RatingformComponent,
     DateAgoPipe,
     RatingsComponent 
+    BroadcastViewMoreComponent,
+    MoreSellingComponent,
+    FooterComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -63,11 +76,11 @@ import { RatingsComponent } from './components/ratings/ratings.component';
     RouterModule,
     AppRoutingModule,
     ComponentsModule,
-    ExamplesModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDU2U5KdAzMj0ZP6584UzKlZH0tGFT9feg'
-    })
+    }),
+    ScrollToModule.forRoot()
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

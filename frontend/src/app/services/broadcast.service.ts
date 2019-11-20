@@ -8,6 +8,8 @@ import { Broadcast } from './broadcast.dto';
   providedIn: 'root'
 })
 export class BroadcastService {
+  private currentUrl = 'http://localhost:3000/';
+
   constructor(private http: HttpClient) {}
 
   //Sending broadcast message to the backend
@@ -16,8 +18,9 @@ export class BroadcastService {
       'uid',
       localStorage.getItem('user_id')
     );
-    console.log(broadcast);
-    return this.http.post('http://localhost:3000/user/broadcast', broadcast);
+    return this.http.put(this.currentUrl + 'user/broadcast/new', broadcast, {
+      headers
+    });
   }
 
   // Get all broadcasts
@@ -26,9 +29,9 @@ export class BroadcastService {
       'x-access-token',
       localStorage.getItem('jwt_token')
     );
-    return this.http.get<Broadcast[]>(
-      'http://localhost:3000/user/broadcast/'
-    );
+    return this.http.get<Broadcast[]>(this.currentUrl + 'user/broadcast/all', {
+      headers
+    });
   }
 
   // Get a broadcast by id
@@ -37,12 +40,9 @@ export class BroadcastService {
     const headers = new HttpHeaders()
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
-    return this.http.get<Broadcast>(
-      'http://localhost:3000/user/broadcast/' + id,
-      {
-        headers
-      }
-    );
+    return this.http.get<Broadcast>(this.currentUrl + 'user/broadcast/' + id, {
+      headers
+    });
   }
 
   getSellingItems(): Observable<String[]> {
@@ -63,7 +63,7 @@ export class BroadcastService {
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
     return this.http.get<Finalizing[]>(
-      'http://localhost:3000/user/getFinalizingForms/all',
+      this.currentUrl + 'user/getFinalizingForms/all',
       {
         headers
       }
@@ -76,7 +76,7 @@ export class BroadcastService {
       .set('x-access-token', localStorage.getItem('jwt_token'))
       .set('uid', localStorage.getItem('user_id'));
     return this.http.get<Broadcast>(
-      'http://localhost:3000/user/getFinalizingForms/' + id,
+      this.currentUrl + 'user/getFinalizingForms/' + id,
       {
         headers
       }
@@ -84,10 +84,24 @@ export class BroadcastService {
   }
 
   // Payment
-  payment(request: String): Observable<any> {
+  payment(request: any): Observable<any> {
+    console.log(request);
     return this.http.post<any>(
       'http://localhost:3000/user/paypal/pay',
       request
+    );
+  }
+
+  // Remove a broadcast
+  removeBroadcast(broadcast_id: string): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('x-access-token', localStorage.getItem('jwt_token'))
+      .set('uid', localStorage.getItem('user_id'));
+    return this.http.delete<any>(
+      this.currentUrl + 'user/broadcast/remove/' + broadcast_id,
+      {
+        headers
+      }
     );
   }
 }

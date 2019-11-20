@@ -66,7 +66,16 @@ router.get('/all', verify.decodeToken, function (req, res) {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-router.get('/test', async function (req, res) {
+/**
+ * Get selling items of a seller endpoint.
+ *
+ * 
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.get('/getsellingitem', async function (req, res) {
     array = new Array()
     await User.findById({
         _id: req.headers.uid
@@ -95,13 +104,66 @@ router.get('/test', async function (req, res) {
 
 })
 
-router.post('/test1', function (req, res) {
-    console.log(req.body.element)
+/**
+ * Get broadcasts by customers endpoint.
+ *
+ * Get the user selling for the given user id.
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.post('/userdata', function (req, res) {
     retArray = new Array()
     User.find({
         broadcasts: {
             $elemMatch: {
                 "product": req.body.element
+            }
+        }
+    }).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id: '
+            })
+        }
+
+        array = new Array()
+        user.forEach(element => {
+            var response = {
+                userID: element._id,
+                username: element.username
+            }
+            array.push(response)
+        })
+        if (array.length > 0) {
+            res.status(200).send(array)
+        } else {
+            array.push('empty')
+            res.status(200).send(array)
+        }
+
+    })
+
+
+})
+
+/**
+ * Get broadcasts by customers endpoint.
+ *
+ * Get the user selling for the given user id.
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.post('/getBroadcastsByTags', function (req, res) {
+    retArray = new Array()
+    User.find({
+        broadcasts: {
+            tags: {
+                $elemMatch: "Dell"
+
             }
         }
     }).exec((err, user) => {
