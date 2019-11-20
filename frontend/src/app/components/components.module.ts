@@ -14,7 +14,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
 //import { SellingComponent } from './selling/selling.component';
-import { RatingsComponent } from './ratings/ratings.component';
+//import { RatingsComponent } from './ratings/ratings.component';
 //import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
 import { NonRegisteredComponent } from './non-registered/non-registered.component';
 import { RecoverAccountComponent } from './AccountRecovery/recover-account/recover-account.component';
@@ -48,7 +48,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     NgbdModalBasic,
     SigninComponent,
     //SellingComponent,
-    RatingsComponent,
+    //RatingsComponent,
     //SellerreplyformComponent,
     NonRegisteredComponent,
     RecoverAccountComponent,

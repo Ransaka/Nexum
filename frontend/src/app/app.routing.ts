@@ -31,6 +31,7 @@ import { RatingformComponent } from './pages/ratingform/ratingform.component';
 import { ResetPasswordComponent } from './components/AccountRecovery/reset-password/reset-password.component';
 import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: ComponentsComponent },

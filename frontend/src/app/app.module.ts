@@ -29,6 +29,8 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { RatingsComponent } from './components/ratings/ratings.component';
 
 // Customer profile components
 import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadcast-view-more/broadcast-view-more.component';
@@ -60,6 +62,8 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     SellingitemComponent,
     AcceptfinalizingComponent,
     RatingformComponent,
+    DateAgoPipe,
+    RatingsComponent 
     BroadcastViewMoreComponent,
     MoreSellingComponent,
     FooterComponent

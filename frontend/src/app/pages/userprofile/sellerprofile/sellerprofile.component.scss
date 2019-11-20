@@ -1,5 +1,7 @@
 h3 {
+    color: rgb(141, 23, 23);
   color: white;
+
 }
 
 %input {
@@ -16,6 +18,15 @@ h3 {
   &:focus {
     outline: none;
   }
+  .avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+  }
+  .input-area {
+    width: 100%;
+    form {
 }
 
 .input-area {
