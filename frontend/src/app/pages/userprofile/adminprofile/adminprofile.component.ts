@@ -127,7 +127,8 @@ export class AdminprofileComponent implements OnInit {
     }).subscribe(
       res=>{
         //this.router.navigateByUrl('/');
-        this.router.navigate(["./userprofile/admin"])
+        //this.router.navigate(['./userprofile/customerprofile'])
+        this.router.navigate(['./userprofile/admin'])
       },
       err=>{
         console.log(err);
