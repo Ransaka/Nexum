@@ -207,7 +207,7 @@ export class SellermessageComponent {
           })
           .then(currentUser => {
             this.currentUser = currentUser;
-            this.connectToRoom('8bff1151-0660-438e-81a4-c7276f887137');
+            this.connectToRoom('b607951d-3ff5-4ce5-b50d-add69cc51486');
             this.getJoinableRooms();
           });
       })

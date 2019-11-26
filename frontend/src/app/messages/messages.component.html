@@ -1,13 +1,7 @@
 <div class="App">
   <aside class="sidebar left-sidebar">
-    <section *ngIf="!currentUser.id" class="join-chat">
-      <h4>Join Chat</h4>
-      <form (ngSubmit)="addUser()">
-        <input placeholder="Enter your username" type="text" name="userid" [(ngModel)]="userId" />
-      </form>
-    </section>
     <section *ngIf="currentUser.id" class="room-members">
-      <h4>Room Users</h4>
+      <h4>Users</h4>
       <ul class="user-list">
         <li *ngFor="let user of roomUsers">
           <span class="presence {{ user.presence.state }}"></span>
@@ -15,16 +9,19 @@
         </li>
       </ul>
     </section>
-    <form *ngIf="currentRoom.isPrivate" (ngSubmit)="addUserToRoom()">
-      <label for="user-name">Add user to {{ currentRoom.name }}</label>
-      <input type="text" class="newUser-input" [(ngModel)]="newUser" name="user-name" id="user-name" placeholder="Enter username">
-    </form>
   </aside>
 
   <main class="chat-window">
     <header class="chat-header">
-      <h4 *ngIf="!currentRoom.name; else roomName">Chat</h4>
-      <ng-template #roomName>
+      <section *ngIf="!currentRoom.name ; else defRoomName">
+        <h4>Welcome to Nexum Messaging</h4>
+      </section>
+      <ng-template #defRoomName>
+        <section *ngIf="currentRoom.name === 'Testing_Room' ; else printRoomName">
+          <h4>Guides</h4>
+        </section>
+      </ng-template>
+      <ng-template #printRoomName>
         <h4>{{ currentRoom.name }}</h4>
       </ng-template>
       <span class="participants"></span>
@@ -37,11 +34,25 @@
         </li>
       </ul>
     </section>
-    <footer *ngIf="currentUser.id" class="chat-footer">
-      <form class="message-form" (ngSubmit)='sendMessage()'>
-        <input class="message-input" placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="newMessage" />
-      </form>
-    </footer>
+    <section class="chat-session-guides" *ngIf="currentRoom.name === 'Testing_Room'">
+      <ol>
+        <li>Select the chat by clicking </li>
+        <li>Type the message</li>
+        <li>Hit enter or click <u>'Send'</u> button</li>
+      </ol>  
+    </section>
+    <footer class="chat-footer" *ngIf="flag === 0">
+        <form class="message-form" (ngSubmit)='sendMessage()'>
+          <label>
+            <input class="message-input" placeholder="Type a message......" type="text" name="message" [(ngModel)]="newMessage" />
+          </label>
+          <!-- <input type="button" value="send" style="float: right; margin: .5%;" (click)="sendMessage()"> -->
+          <button style="float: right; margin: .5%;" (click)="sendMessage()">send</button>
+          <!-- <section>
+            <input class="message-input" placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="newMessage" />
+          <button >send</button> -->
+        </form>
+      </footer>
   </main>
 
   <aside class="sidebar right-sidebar">
@@ -50,17 +61,14 @@
           <h4>Rooms</h4>
           <ul class="room-list">
             <li *ngFor="let room of userRooms">
-              <div [class.active]="room.id==currentRoom.id" (click)="connectToRoom(room.id)" class="room">
-                <span class="room-status" *ngIf="room.isPrivate; else publicRoom">🔒</span>
-                <ng-template #publicRoom>
-                  <span>🌐</span>
-                </ng-template>
+              <div [class.active]="room.id==currentRoom.id" (click)="connectToRoom(room.id)" class="room" *ngIf="room.isPrivate">
+                <span class="room-status" *ngIf="room.isPrivate">🔒</span>
                 <span class="room-name">{{ room.name }}</span>
               </div>
             </li>
           </ul>
         </section>
-        <section *ngIf="joinableRooms.length > 0" class="joinable-rooms">
+        <!-- <section *ngIf="joinableRooms.length > 0" class="joinable-rooms">
             <h4>Joinable rooms</h4>
             <ul class="room-list">
                 <li *ngFor="let room of joinableRooms">
@@ -73,16 +81,7 @@
                   </div>
                 </li>
               </ul>
-        </section>
-    </section>
-    <section *ngIf="currentUser.id" class="create-room">
-      <form (ngSubmit)="createRoom()">
-        <input type="text" [(ngModel)]="newRoom.name" name="room-name" id="room-name" placeholder="Create a room">
-        <label for="is-private">
-            <input type="checkbox" [(ngModel)]="newRoom.isPrivate" name="is-private" id="is-private">
-            <span>Is this room private?</span>
-        </label>
-      </form>
+        </section> -->
     </section>
   </aside>
 </div>

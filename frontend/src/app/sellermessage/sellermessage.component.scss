@@ -11,6 +11,7 @@
 
   h4 {
     margin-bottom: 10px;
+    font-weight : bold;
   }
 
   h5 {
@@ -18,10 +19,10 @@
   }
 
   button {
-    border: 2px solid #f96535;
+    border: 2px solid #ffffff;
     border-radius:40%;
-    color: #f96535;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #f96535;
     margin:10px;
   }
 
@@ -46,7 +47,7 @@
     flex-basis: 15%;
     flex-shrink: 0;
     flex-grow: 0;
-    background-color: #f96535;
+    background: linear-gradient(#f96535,  #000000);
     color: #fff;
     padding: 10px 10px;
   }
@@ -86,7 +87,7 @@
   }
 
   .room:hover {
-    background-color: goldenrod;
+    background-color: #f9d34f;
     color: #333;
   }
 
@@ -134,9 +135,10 @@
   }
 
   .chat-header {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 20px;
-    height: 40px;
+    border-bottom: 1px solid #000000;
+    padding: 35px 300px;
+    height: 100px;
+    align-self: center;
   }
 
   .chat-header h4 {
@@ -149,6 +151,17 @@
     overflow-y: auto;
   }
 
+  .chat-session li {
+    font-size: 16px;
+  }
+
+  .chat-session-guides {
+    flex-grow: 1;
+    padding: 10px 20px;
+    overflow-y: auto;
+    align-self: center;
+  }
+
   .message-list {
     display: flex;
     flex-direction: column;
@@ -157,6 +170,7 @@
 
   .user-message {
     margin-top: 10px;
+    font-size: 8px;
   }
 
   .user-message span {

@@ -10,6 +10,7 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent {
+  flag = 1;
   userDetails : UserService[];
   userId : any;
   currentUser = <any>{};
@@ -27,6 +28,7 @@ export class MessagesComponent {
 
   constructor (private userService : UserService, private messageService : MessageService){
      this.userId = localStorage.getItem('user_name');
+     this.addUser(localStorage.getItem('user_name'));
   }
 
   addUserToRoom() {
@@ -109,6 +111,8 @@ export class MessagesComponent {
       this.roomUsers = currentRoom.users;
       this.userRooms = currentUser.rooms;
     });
+
+    this.flag = 0;
   }
 
   sendMessage() {
@@ -124,9 +128,9 @@ export class MessagesComponent {
     this.newMessage = '';
   }
 
-  addUser() {
-    const { userId } = this;
-    axios.post('http://localhost:5000/users', { userId })
+  addUser(userName : String) {
+    const userId = userName;
+    axios.post('http://localhost:5000/users', {userId})
       .then(() => {
         const tokenProvider = new Chatkit.TokenProvider({
           url: 'http://localhost:5000/authenticate'
@@ -148,7 +152,7 @@ export class MessagesComponent {
           })
           .then(currentUser => {
             this.currentUser = currentUser;
-            this.connectToRoom('8bff1151-0660-438e-81a4-c7276f887137');
+            this.connectToRoom('b607951d-3ff5-4ce5-b50d-add69cc51486');
             this.getJoinableRooms();
           });
       })

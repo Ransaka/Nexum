@@ -1,7 +1,7 @@
 <div class="App">
   <aside class="sidebar left-sidebar">
     <section *ngIf="flag === 0" class="room-members">
-      <h4>Room Users</h4>
+      <h4>Chat Users</h4>
       <ul class="user-list">
         <li *ngFor="let user of roomUsers">
           <span class="presence {{ user.presence.state }}"></span>
@@ -37,11 +37,11 @@
         </li>
       </ul>
     </section>
-    <section class="chat-session" *ngIf="currentRoom.name === 'Testing_Room'">
+    <section class="chat-session-guides" *ngIf="currentRoom.name === 'Testing_Room'">
       <ol>
-        <li>Create a suitable chat name and click on 'Continue'</li>
-        <li>Start the chat by pressing 'Start'</li>
-        <li>Send the messages using 'Send'</li>
+        <li>Create a suitable chat name and click on <u>'Continue'</u></li>
+        <li>Start the chat by pressing <u>'Start'</u></li>
+        <li>Send the messages using <u>'Send'</u> or hit enter</li>
       </ol>  
     </section>
     <footer *ngIf="flag === 0" class="chat-footer">
@@ -50,7 +50,7 @@
           <input class="message-input" placeholder="Type a message......" type="text" name="message" [(ngModel)]="newMessage" />
         </label>
         <!-- <input type="button" value="send" style="float: right; margin: .5%;" (click)="sendMessage()"> -->
-        <button style="float: right; margin: .5%;" (click)="sendMessage()">send</button>
+        <button class="sendButt" style="float: right; margin: .5%;" (click)="sendMessage()">send</button>
         <!-- <section>
           <input class="message-input" placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="newMessage" />
         <button >send</button> -->
@@ -68,7 +68,7 @@
         </form>
       </section>
       <section *ngIf="!newRoom.name" class="create-room">
-        <form>
+        <form *ngIf="flag === 1">
           <button (click)="addUserToRoom()">Start</button>
         </form>    
       </section>
