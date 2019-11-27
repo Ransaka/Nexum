@@ -1,9 +1,13 @@
 export interface purchase {
     ID: string;
-    Product: string;  	
-    Messages: string;   
-    Replies:string;	 
-    Remove:	string; 
-    Report: string;
+    productId: String;
+    product: String;
+    category: String;
+    sellerId: String;
+    sellerName: String;
+    price: Number;
+    tags: String;
+    textMessage: String;
+    date: Date ;
      
   }

@@ -39,7 +39,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-2">
           <div class="card text-center" style=" width: 70rem;">
-            <h3>Ratings</h3>
+            <!-- <h3>Ratings</h3> -->
             <div class="col-md-12">
               <div class="row">
 
@@ -50,9 +50,11 @@
                       <div class="col-md-12">
                         <div class="row">
                           <h3>Ratings and Reviews</h3>
+                          <br>
                           <a _ngcontent-c2="" class="btn btn-simple btn-primary btn-round ml-lg-auto"
                             routerLink="/userprofile/RatingsComponent">View
                             More</a>
+                            <br>
                         </div>
                         <div class="col-xs-12 col-md-6">
                           <div class="well well-sm">
@@ -148,12 +150,12 @@
                           </div>
                         </div>
                          
-                        <div class="col-md-10">
+                        <div class="col-md-16" >
                             <form novalidate [formGroup]="replyForm" (ngSubmit)="submitreplyForm()">
                                 <div *ngFor="let review of this.reviewlist | slice:1;let index= index  " >
                                     <div class="card card-inner">
                                         <div class="card-body">
-                                        <div class="card-body col-xs-8 col-md-8">  
+                                        <div class="card-body col-xs-8 col-md-10">  
                               <div class="row">
                                 <div class="col-md-3">
                                   <img src="https://media5.picsearch.com/is?9wf5djaQEBRqbffZVNXpU4Oidhoc3jV5TzqeBHIFQI8&height=228" alt="Avatar" class="avatar" >
@@ -162,7 +164,7 @@
                                   
                                 </div>
                         
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                   <div class="clearfix"></div>
                                 
                                   
@@ -170,7 +172,7 @@
                                      
                                 <a class="float-right btn btn-outline-primary ml-2"name="NIC" NIC="index+1"(click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
                                 <div  *ngIf="buttonClicked == index+1">
-                                  <br>
+                                  <br><br><br>
                                     Enter your name :- 
                                     <br>
                                     <textarea  formControlName ="name" value="name" rows="1" cols="50" ></textarea>
@@ -209,7 +211,7 @@
                             
                           </div>
                         
-                          <div class="col-md-6">
+                          <div class="col-md-8">
                             <div class="clearfix"></div>
                             
                             <h5>  {{namelist[i+1]}}</h5><br>
@@ -226,6 +228,7 @@
                             
                             </div>
                           </form>
+                          </div>
                           </div>
                          
                          
