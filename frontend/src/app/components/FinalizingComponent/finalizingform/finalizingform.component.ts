@@ -5,6 +5,7 @@ import { BroadcastService } from '../../../services/broadcast.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-finalizingform',
@@ -22,19 +23,37 @@ export class FinalizingformComponent implements OnInit {
   ) {}
 
   itemId: string;
-  custId: string;
   finalizingForm: FormGroup;
   itemDetails: any;
   broadcastData: any;
   error: string;
+  date: any;
+
+  // Customer details
+  custId: string;
+  custName: any;
+
+  //Seller details
   sellerName: string;
   sellerId: string;
 
+  today: number = Date.now();
+  total: number;
+
   ngOnInit() {
+    this.sellerId = localStorage.getItem('user_id');
     this.finalizingForm = this._formbuilder.group({
       price: ['', Validators.required],
+      quantity: ['', Validators.required],
+      tax: ['', Validators.required],
       textMessage: ['']
     });
+
+    var price = this.finalizingForm.controls['price'].value;
+    var quantity = this.finalizingForm.controls['quantity'].value;
+    var tax = this.finalizingForm.controls['tax'].value;
+
+    this.total = price * quantity + price * quantity * (tax / 100);
 
     this._activatedRoute.params.subscribe(params => {
       if (
@@ -43,11 +62,6 @@ export class FinalizingformComponent implements OnInit {
       ) {
         this.itemId = params['id'];
         this.custId = params['custid'];
-        this._userService
-          .gettUserById({
-            _id: localStorage.getItem('user_id')
-          })
-          .subscribe(data => console.log(data));
       } else {
         this.itemId = '';
         this.custId = '';
@@ -56,6 +70,7 @@ export class FinalizingformComponent implements OnInit {
 
     this.getItem();
     this.getName();
+    this.getCustomer();
   }
 
   // Get item details
@@ -65,14 +80,27 @@ export class FinalizingformComponent implements OnInit {
       .subscribe(data => (this.itemDetails = data));
   }
 
+  // Get seller name
   getName() {
     this._userService
       .collectCurrent()
       .subscribe(data => (this.sellerName = data.username));
   }
 
+  // Get customer name
+  getCustomer() {
+    this._userService
+      .gettUserById({ _id: this.custId })
+      .subscribe(data => (this.custName = data));
+  }
+
   //Forward the finalizing component to the customer
   sendFinalizingForm() {
+    var total_no_tax =
+      this.finalizingForm.controls['price'].value *
+      this.finalizingForm.controls['quantity'].value;
+    var total =
+      total_no_tax * (this.finalizingForm.controls['tax'].value / 100);
     this._sellingService
       .sendFinalizing({
         productId: this.itemId,
@@ -82,7 +110,10 @@ export class FinalizingformComponent implements OnInit {
         customerId: this.custId,
         sellerName: this.sellerName,
         price: this.finalizingForm.controls['price'].value,
-        textMessage: this.finalizingForm.controls['textMessage'].value
+        quantity: this.finalizingForm.controls['quantity'].value,
+        tax: this.finalizingForm.controls['tax'].value,
+        textMessage: this.finalizingForm.controls['textMessage'].value,
+        total: total
       })
       .subscribe(
         () => {

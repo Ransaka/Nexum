@@ -16,7 +16,7 @@ const checkAuth = require('../auth/check-auth')
  * @response 
  */
 router.put('/create', (req, res, next) => {
-    console.log(req.body.review)
+    console.log(req.body._id)
     User.findById(
             req.body._id
         )

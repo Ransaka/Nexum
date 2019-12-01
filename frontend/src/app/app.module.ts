@@ -1,3 +1,4 @@
+import { ReviewsComponent } from './components/RatingsAndReviews/reviews/reviews.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AcceptfinalizingComponent } from './components/FinalizingComponent/acceptfinalizing/acceptfinalizing.component';
 import { SellingitemComponent } from './components/SellerProfile/sellingitem/sellingitem.component';
@@ -37,6 +38,7 @@ import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadca
 
 //Seller profile components
 import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
+import { RatingComponent } from './components/RatingsAndReviews/rating/rating.component';
 
 //Other imports
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
@@ -63,10 +65,12 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     AcceptfinalizingComponent,
     RatingformComponent,
     DateAgoPipe,
-    RatingsComponent 
+    RatingsComponent,
     BroadcastViewMoreComponent,
     MoreSellingComponent,
-    FooterComponent
+    FooterComponent,
+    RatingComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserAnimationsModule,

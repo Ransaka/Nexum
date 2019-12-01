@@ -157,6 +157,10 @@ router.put('/newfinalizing', (req, res, next) => {
                 price: req.body.price,
                 tags: req.body.tags,
                 textMessage: req.body.textMessage,
+                customerId: req.body.customerId,
+                tax: req.body.tax,
+                quantity: req.body.quantity,
+                total: req.body.total,
                 date: Date()
             })
             return user.updateOne({

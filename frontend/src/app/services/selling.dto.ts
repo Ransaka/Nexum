@@ -25,4 +25,7 @@ export interface Finalizing {
   price: number;
   tags: string;
   textMessage?: string;
+  tax: number;
+  quantity: number;
+  total: number;
 }

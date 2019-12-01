@@ -1,37 +1,37 @@
-import { Selling, Product } from './../../../services/selling.dto';
-import { SellingService } from './../../../services/selling.service';
-import { UserService } from 'app/services/user.service';
-import { User } from './../../../services/user.dto';
-
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {
-  FormGroup,
-  FormBuilder,
-  FormControl,
-  FormArray,
-  Validators
-} from '@angular/forms';
-import { RatingformService } from 'app/services/ratingform.service';
-import { ReplyformService } from 'app/services/reply.service';
+import { Message } from './../../ratings/ratings.component';
 import { Router } from '@angular/router';
-declare const feather: any;
-export interface Message {
-  text: string;
-  name: string;
-}
+import { ReplyformService } from './../../../services/reply.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { RatingformService } from './../../../services/ratingform.service';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+
 @Component({
-  selector: 'app-sellerprofile',
-  templateUrl: './sellerprofile.component.html',
-  styleUrls: ['./sellerprofile.component.scss']
+  selector: 'app-rating',
+  templateUrl: './rating.component.html',
+  styleUrls: ['./rating.component.scss']
 })
-export class SellerprofileComponent implements OnInit {
+export class RatingComponent implements OnInit {
+  highestRate: number;
+  totalRates: number;
+  starFivePer: number;
+  starFourPer: number;
+  starThreePer: number;
+  starTwoPer: number;
+  starOnePer: number;
+  reviewlist: any = [];
+  datelist: any = [];
+  buttonClicked: number;
+  idlist: any = [];
+  replyForm: FormGroup;
+  numlist: any = [];
+  replylist: any = [];
+  timelist: any = [];
+  viewReply: any;
+
   constructor(
-    private _userservice: UserService,
-    private _sellingservice: SellingService,
     private rateing: RatingformService,
     private http: HttpClient,
-    private formBuilder: FormBuilder,
     private replying: ReplyformService,
     private router: Router
   ) {
@@ -51,34 +51,6 @@ export class SellerprofileComponent implements OnInit {
     this.timelist = [];
     this.replylist = [];
   }
-
-  current_user: User;
-  sellingArray: Selling[];
-  recievedBroadcasts: any[] = [];
-
-  // Get user details
-  getUser() {
-    return this._userservice
-      .collectCurrent()
-      .subscribe(res => (this.current_user = res));
-  }
-
-  highestRate: number;
-  totalRates: number;
-  starFivePer: number;
-  starFourPer: number;
-  starThreePer: number;
-  starTwoPer: number;
-  starOnePer: number;
-  reviewlist: any = [];
-  datelist: any = [];
-  buttonClicked: number;
-  idlist: any = [];
-  replyForm: FormGroup;
-  numlist: any = [];
-  replylist: any = [];
-  timelist: any = [];
-  viewReply: any;
 
   @Output() onSendMessage: EventEmitter<Message> = new EventEmitter();
   message = {
@@ -103,16 +75,7 @@ export class SellerprofileComponent implements OnInit {
   ngOnInit() {
     this.getRatings();
     this.getreply();
-    this.getUser();
-    this.getSelling();
-    this.getRecentBroadcasts();
     var current_user = localStorage.getItem('user_id');
-
-    this.replyForm = this.formBuilder.group({
-      _id: current_user,
-      nom: [''],
-      reply: ['']
-    });
   }
 
   getRatings() {
@@ -136,41 +99,6 @@ export class SellerprofileComponent implements OnInit {
       },
       err => {}
     );
-  }
-
-  // Get all selling
-  getSelling() {
-    this._sellingservice
-      .getSelling()
-      .subscribe(data => (this.sellingArray = data as Selling[]));
-  }
-
-  getRecentBroadcasts() {
-    let promise = new Promise((resolve, reject) => {
-      this._sellingservice
-        .getItems()
-        .toPromise()
-        .then(res => {
-          res.forEach(item => {
-            console.log(item);
-            const request = {
-              element: item
-            };
-            this._sellingservice
-              .getUsers(request as Product)
-              .subscribe(data => this.recievedBroadcasts.push(data));
-          });
-        });
-    });
-    return promise;
-  }
-
-  // remove a selling
-  removeSelling(id) {
-    console.log(id);
-    this._sellingservice
-      .removeSelling(id as string)
-      .subscribe(data => this.getSelling());
   }
 
   calcRatings(ratings) {
@@ -267,44 +195,5 @@ export class SellerprofileComponent implements OnInit {
 
   submitreplyForm() {
     console.log(this.replyForm.value);
-  }
-  sendreply() {
-    var current_user = localStorage.getItem('user_id');
-    const request = {
-      _id: current_user,
-      nom: this.buttonClicked,
-      reply: this.replyForm.controls['reply'].value,
-      onLinkClicked(NIC) {
-        //  if(NIC==id){
-        this.buttonClicked = NIC;
-      },
-      //  submitreplyForm() {
-      //   console.log(this.replyForm.value);
-      // }
-      sendreply() {
-        var current_user = localStorage.getItem('current_user');
-        const request = {
-          _id: current_user,
-          nom: this.buttonClicked,
-          reply: this.replyForm.controls['reply'].value
-        };
-        this.replying.sendreply(request).subscribe(res => {
-          this.router.navigateByUrl('/userprofile/customerprofile');
-        });
-      },
-      viewReply(replying) {
-        let k = 0;
-        let my;
-        let numb;
-        for (let j = 0; j < replying.length; j++) {
-          k++;
-          this.replylist[k] = replying[j].reply;
-          this.timelist[k] = replying[j].date;
-          this.numlist[k] = replying[j].nom;
-        }
-      }
-      // this.review= ratings[j].review;
-      // this.date[k]=ratings[j].date;
-    };
   }
 }

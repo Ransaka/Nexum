@@ -336,14 +336,19 @@ router.put('/changePassword', function (req, res) {
  * @response User of the authenicated user
  */
 router.post('/userbyid', function (req, res) {
-    console.log(req.body._id)
+    console.log(req.body)
     User.findById(req.body._id).exec((err, user) => {
         if (err) {
             return res.status(500).send({
                 message: 'Error retrieving User with id: '
             })
         }
-        res.status(200).send(user.username)
+        userDetails = {
+            username: user.username,
+            profileImage: user.profileImage,
+            email: user.email
+        }
+        res.status(200).send(userDetails)
     })
 })
 
