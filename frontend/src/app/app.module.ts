@@ -43,6 +43,9 @@ import { RatingComponent } from './components/RatingsAndReviews/rating/rating.co
 //Other imports
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
+//Seller View
+import { RatingviewComponent } from './components/SellerView/ratingview/ratingview.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +73,8 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     MoreSellingComponent,
     FooterComponent,
     RatingComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    RatingviewComponent
   ],
   imports: [
     BrowserAnimationsModule,

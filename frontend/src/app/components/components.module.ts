@@ -22,6 +22,7 @@ import { SignupComponent } from './modal/signup/signup.component';
 import { LoginComponent } from './modal/login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AddratingandreviewComponent } from './RatingsAndReviews/addratingandreview/addratingandreview.component';
+//import { RatingviewComponent } from './SellerView/ratingview/ratingview.component';
 //import { MoreSellingComponent } from './SellerProfile/more-selling/more-selling.component';
 //import { BroadcastViewMoreComponent } from './CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 //import { AcceptfinalizingComponent } from './acceptfinalizing/acceptfinalizing.component';
@@ -66,6 +67,7 @@ import { AddratingandreviewComponent } from './RatingsAndReviews/addratingandrev
     ResetPasswordComponent,
     HomepageComponent,
     AddratingandreviewComponent
+    //RatingviewComponent
     //MoreSellingComponent
   ],
   exports: [ComponentsComponent]
