@@ -1,77 +1,32 @@
-<div class="col-md-10">
-  <form novalidate [formGroup]="replyForm" (ngSubmit)="submitreplyForm()">
-    <div *ngFor="let review of this.reviewlist | slice:1;let index= index  ">
-      <div class="card card-inner">
-        <div class="card-body">
-          <div class="card-body col-xs-8 col-md-8">
-            <div class="row">
-              <div class="col-md-3">
-                <img src="https://media5.picsearch.com/is?9wf5djaQEBRqbffZVNXpU4Oidhoc3jV5TzqeBHIFQI8&height=228"
-                  alt="Avatar" class="avatar">
-                <p class="text-secondary text-center">
-                  {{datelist[index+1]|dateAgo}}
-
-              </div>
-
-              <div class="col-md-8">
-                <div class="clearfix"></div>
-
-
-                {{index+1}}) {{review}}<br>
-
-                <a class="float-right btn btn-outline-primary ml-2" name="NIC" NIC="index+1"
-                  (click)="onLinkClicked(index+1)"> <i class="fa fa-reply"></i> Reply</a>
-
-                <textarea *ngIf="buttonClicked == index+1" formControlName="reply" rows="4" id="index+1" cols="50"
-                  [(ngModel)]="str"></textarea>
-                <div class="row">
-                  <div class="footer text-center">
-                    <a *ngIf="buttonClicked == index+1" class="btn btn-primary btn-round btn-lg btn-block"
-                      (click)="sendreply()">Submit </a>
-                  </div>
-
-                </div>
-              </div>
-
-
-            </div>
-          </div>
+<div class="media"><a class="pull-left" href="javascript:void(0)">
+  </a>
+  <div class="media-body">
+    <!-- <div *ngFor="let x of ratingsArray">{{x.rate}}</div> -->
+    <h5 class="media-heading">{{raterDetails.username}}</h5>
+    <div class="pull-right">
+      <h6 class="text-muted">{{ratingsArray[0]?.date}}</h6>
+    </div>
+    <p>{{ratingsArray[0]?.review}}</p>
+    <div class="row">
+      <div class="ml-auto">
+        <div class="col-md-12">
+          <a class="btn btn-info btn-link pull-right reply" (click)="textboxPop()"><i class="fa fa-reply"></i> Reply</a>
         </div>
       </div>
-
-      <div *ngFor="let time of this.timelist | slice:1;let i = index  ">
-        <div *ngIf="index+1 == numlist[i+1]">
-          <div class="row">
-            <div class="col-md-5"></div>
-            <div class="col-md-7" style="margin-left: 100 px">
-              <div class="card card-inner">
-                <div class="card-body">
-                  <div class="card-body col-xs-10 col-md-10">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <img
-                          src="https://media2.picsearch.com/is?4iPVDhEYWF6aUbmZhcDMXxLOzvwhzFuZYej40EfMBH8&height=320 "
-                          alt="Avatar" class="avatar">
-                        <p class="text-secondary text-center">
-                          {{time| dateAgo}}
-
-                      </div>
-
-                      <div class="col-md-6">
-                        <div class="clearfix"></div>
-
-
-                        {{replylist[i+1]}}<br>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    </div>
+    <div *ngIf="textbox">
+      <textarea class="form-control" cols="80" rows="3" spellcheck="false" [(ngModel)]="textMessage"
+        formControlName="textMessage">
+      </textarea>
+      <div class="row">
+        <div class="ml-auto">
+          <div class="col-md-12">
+            <a class="btn btn-primary btn-block" (click)="sendSelling()">Send</a>
           </div>
         </div>
       </div>
 
     </div>
-  </form>
+  </div>
+
 </div>

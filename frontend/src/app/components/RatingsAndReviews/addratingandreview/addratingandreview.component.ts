@@ -18,7 +18,7 @@ export class AddratingandreviewComponent implements OnInit {
     private _userService: UserService,
     private _activatedRoute: ActivatedRoute,
     private _formBuilder: FormBuilder,
-    private rateing: RatingformService,
+    private rating: RatingformService,
     private router: Router
   ) {}
 
@@ -58,10 +58,10 @@ export class AddratingandreviewComponent implements OnInit {
     const request = {
       _id: this.sellerId,
       rate: this.selectedValue,
-      review: this.ratingForm.controls['review'].value
+      review: this.ratingForm.controls['review'].value,
+      raterId: this.current_user
     };
-    console.log(request);
-    this.rateing.sendRating(request).subscribe(res => {
+    this.rating.sendRating(request).subscribe(res => {
       this.router.navigateByUrl('/userprofile/customerprofile');
     });
   }
