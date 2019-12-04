@@ -343,7 +343,12 @@ router.post('/userbyid', function (req, res) {
                 message: 'Error retrieving User with id: '
             })
         }
-        res.status(200).send(user.username)
+        userDetails = {
+            username: user.username,
+            profileImage: user.profileImage,
+            email: user.email
+        }
+        res.status(200).send(userDetails)
     })
 })
 

@@ -14,6 +14,7 @@ const rateSchema = new Schema({
     },
     rate: Number,
     review: String,
+    raterId: String,
     date: Date
 })
 module.exports = mongoose.model('Rating', rateSchema, 'rate')

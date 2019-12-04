@@ -51,4 +51,6 @@ export class AcceptfinalizingComponent implements OnInit {
       })
       .subscribe(data => window.location.replace(data.url));
   }
+
+  rateAndReview() {}
 }

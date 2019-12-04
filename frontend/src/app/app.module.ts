@@ -1,3 +1,4 @@
+import { ReviewsComponent } from './components/RatingsAndReviews/reviews/reviews.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AcceptfinalizingComponent } from './components/FinalizingComponent/acceptfinalizing/acceptfinalizing.component';
 import { SellingitemComponent } from './components/SellerProfile/sellingitem/sellingitem.component';
@@ -29,15 +30,21 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { RatingsComponent } from './components/ratings/ratings.component';
 
 // Customer profile components
 import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 
 //Seller profile components
 import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
+import { RatingComponent } from './components/RatingsAndReviews/rating/rating.component';
 
 //Other imports
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
+//Seller View
+import { RatingviewComponent } from './components/SellerView/ratingview/ratingview.component';
 
 @NgModule({
   declarations: [
@@ -60,9 +67,14 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     SellingitemComponent,
     AcceptfinalizingComponent,
     RatingformComponent,
+    DateAgoPipe,
+    RatingsComponent,
     BroadcastViewMoreComponent,
     MoreSellingComponent,
-    FooterComponent
+    FooterComponent,
+    RatingComponent,
+    ReviewsComponent,
+    RatingviewComponent
   ],
   imports: [
     BrowserAnimationsModule,

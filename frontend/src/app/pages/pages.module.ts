@@ -13,6 +13,7 @@ import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.comp
 import { SellerviewComponent } from './sellerview/sellerview.component';
 import { NonRegisteredSellerViewComponent } from './non-registered-seller-view/non-registered-seller-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
+//import { RatingviewComponent } from './sellerview/ratingview/ratingview.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SellerviewComponent,
     NonRegisteredSellerViewComponent,
     EditprofileComponent
+    //RatingviewComponent
   ],
   imports: [
     CommonModule,

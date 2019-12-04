@@ -30,6 +30,7 @@ import { RecoverAccountComponent } from './components/AccountRecovery/recover-ac
 import { RatingformComponent } from './pages/ratingform/ratingform.component';
 import { ResetPasswordComponent } from './components/AccountRecovery/reset-password/reset-password.component';
 import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
+import { AddratingandreviewComponent } from './components/RatingsAndReviews/addratingandreview/addratingandreview.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -86,6 +87,10 @@ const routes: Routes = [
 
   // Seller profile routes
   { path: 'userprofile/moreselling', component: MoreSellingComponent },
+  {
+    path: 'userprofile/rateandreview/:seller_id',
+    component: AddratingandreviewComponent
+  },
 
   //Account recovery routes
   {

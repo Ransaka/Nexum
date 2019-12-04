@@ -1,23 +1,74 @@
 <app-navbar></app-navbar>
 <div class="mt-5"></div>
 <div class="wrapper">
+
   <div class="subscribe-line subscribe-line-transparent" style="background-image: url('assets/img/banner.jpg')">
-    <div class=" container">
+    <div class="container">
       <div class="row">
         <div class=" col-md-12 col-sm-12">
-          <div class="mt-5">
-            <h5>Product Name : {{itemDetails?.item[0].product}}</h5>
-            <h5>Product Id : {{itemDetails?.item[0]._id}}</h5>
-            <h5>Product Category : {{itemDetails?.item[0].category}}</h5>
-            <h5>Product Tags : {{itemDetails?.item[0].tags}}</h5>
-          </div>
+          <h3></h3>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Selling -->
   <div class="mt-5">
+    <div class=" container">
+      <div class="row">
+
+        <div class="col-md-2">
+          <div class="card bg-dark text-white card-details text-center a">
+            <i class=" now-ui-icons emoticons_satisfied"></i>
+          </div>
+        </div>
+
+        <div class="col-md-10">
+          <div class="card bg-dark text-white card-details">
+            <div class=" container">
+              <div class="row">
+                <div class=" col-md-12 col-sm-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="2" class="text-center">Product Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Product Name</th>
+                        <td>{{itemDetails?.item[0].product}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Product Id</th>
+                        <td>{{itemDetails?.item[0]._id}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Product Category</th>
+                        <td>{{itemDetails?.item[0].category}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Product Tags</th>
+                        <td>{{itemDetails?.item[0].tags}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Selling -->
+  <div class="mt-2">
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-2">

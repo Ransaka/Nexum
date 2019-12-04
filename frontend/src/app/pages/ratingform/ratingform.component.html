@@ -1,53 +1,48 @@
 <app-navbar></app-navbar>
 <div class="wrapper">
-<div class="row" style="padding-top: 15%;padding-left: 10%"  >
-            
-       <form novalidate [formGroup]="ratingForm" (ngSubmit)="submitFeedbackForm()">
+  <div class="row" style="padding-top: 15%;padding-left: 10%">
 
-           <h2>Rate and Review Form</h2>
-            
-            
-           <!--  -->
-           <div class="stars container">
-             <div class="row" >
-               <div class="col-md-10">
+    <form novalidate [formGroup]="ratingForm" (ngSubmit)="submitFeedbackForm()">
 
-               <div class="mt-5">
-               <h4>Please enter your rating</h4>
-                   <div class="row">
-                       <div class="col-sm-12">
-                           <ul class="list-inline rating-list" 
-                               *ngFor="let star of stars" style="display: inline-block" >
-                                 <li (click)="countStar(star)"
-                                     [ngClass]="{'selected': ( selectedValue >=star)}">
-                                   <i class="fa fa-star"></i>
-                                 </li> 
-                           </ul>
-                       </div>
+      <h2>Rate and Review Form</h2>
+      <div class="stars container">
+        <div class="row">
+          <div class="col-md-10">
 
-                     </div>
-                   </div>
-                   <!--  -->
-                   </div> 
+            <div class="mt-5">
+              <h4>Please enter your rating</h4>
+              <div class="row">
+                <div class="col-sm-12">
+                  <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                    <li (click)="countStar(star)" [ngClass]="{'selected': ( selectedValue >=star)}">
+                      <i class="fa fa-star"></i>
+                    </li>
+                  </ul>
                 </div>
-           </div>
-                   <!--  -->
-                   <h4>Please enter your review</h4>
-                   <div class="content">
-                       <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false"
-                           [(ngModel)]="textMessage" formControlName="review">
+
+              </div>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <h4>Please enter your review</h4>
+      <div class="content">
+        <textarea _ngcontent-c15="" class="form-control" cols="80" rows="4" spellcheck="false" [(ngModel)]="textMessage"
+          formControlName="review">
                        </textarea>
-                   </div>
-                   <div class="row">
-                   <div class="footer text-center">
-                       <a class="btn btn-primary btn-round btn-lg btn-block" (click)="sendrating()">Send</a>
-                     </div>
-                      
-                     <div class="footer text-center">
-                         <a class="btn btn-primary btn-round btn-lg btn-block" (click)="clearForm()">Clear Form</a>
-                     </div>
-                   </div>
-               
-       </form> 
-   </div>
+      </div>
+      <div class="row">
+        <div class="footer text-center">
+          <a class="btn btn-primary btn-round btn-lg btn-block" (click)="sendrating()">Send</a>
+        </div>
+
+        <div class="footer text-center">
+          <a class="btn btn-primary btn-round btn-lg btn-block" (click)="clearForm()">Clear Form</a>
+        </div>
+      </div>
+
+    </form>
+  </div>
 </div>

@@ -14,13 +14,15 @@ import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
 //import { SellingComponent } from './selling/selling.component';
-import { RatingsComponent } from './ratings/ratings.component';
+//import { RatingsComponent } from './ratings/ratings.component';
 //import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
 import { NonRegisteredComponent } from './non-registered/non-registered.component';
 import { RecoverAccountComponent } from './AccountRecovery/recover-account/recover-account.component';
 import { SignupComponent } from './modal/signup/signup.component';
 import { LoginComponent } from './modal/login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AddratingandreviewComponent } from './RatingsAndReviews/addratingandreview/addratingandreview.component';
+//import { RatingviewComponent } from './SellerView/ratingview/ratingview.component';
 //import { MoreSellingComponent } from './SellerProfile/more-selling/more-selling.component';
 //import { BroadcastViewMoreComponent } from './CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 //import { AcceptfinalizingComponent } from './acceptfinalizing/acceptfinalizing.component';
@@ -48,7 +50,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     NgbdModalBasic,
     SigninComponent,
     //SellingComponent,
-    RatingsComponent,
+    //RatingsComponent,
     //SellerreplyformComponent,
     NonRegisteredComponent,
     RecoverAccountComponent,
@@ -63,7 +65,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     //SellerreplyComponent
     //BroadcastComponent
     ResetPasswordComponent,
-    HomepageComponent
+    HomepageComponent,
+    AddratingandreviewComponent
+    //RatingviewComponent
     //MoreSellingComponent
   ],
   exports: [ComponentsComponent]

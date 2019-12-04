@@ -10,7 +10,9 @@ label {
     color: black;
 }
 
-h5 {
+h5,
+h4,
+p {
     color: black;
 }
 
@@ -27,4 +29,19 @@ h5 {
 
 tr {
     height: 40px;
+}
+
+.table {
+    color: black
+}
+
+.category {
+    color: gray
+}
+
+.page-header {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
 }
