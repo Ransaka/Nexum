@@ -10,13 +10,15 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
-import { SellingComponent } from './components/SellerProfile/selling/selling.component';
+import { SellingComponent } from './components/selling/selling.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { ComponentsModule } from './components/components.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { MessagesComponent } from './messages/messages.component';
+import { SellermessageComponent } from './sellermessage/sellermessage.component';
 
 // Customer profile components
 import { BroadcastComponent } from './components/CustomerProfile/broadcast/broadcast.component';
@@ -49,6 +51,8 @@ const routes: Routes = [
       }
     ]
   },
+  { path: 'sellerview/messages', component: SellermessageComponent },
+  { path: 'userprofile/messages', component: MessagesComponent },
   {
     path: 'userprofile/customerprofile/broadcast/viewmore',
     component: BroadcastViewMoreComponent

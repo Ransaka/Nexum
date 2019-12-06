@@ -30,6 +30,8 @@ import { CustomerprofileComponent } from './pages/userprofile/customerprofile/cu
 import { SellerprofileComponent } from './pages/userprofile/sellerprofile/sellerprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistory.component';
+import { MessagesComponent } from './messages/messages.component';
+import { SellermessageComponent } from './sellermessage/sellermessage.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { RatingsComponent } from './components/ratings/ratings.component';
 
@@ -64,6 +66,8 @@ import { RatingviewComponent } from './components/SellerView/ratingview/ratingvi
     BookmarksviewComponent,
     SellerreplyformComponent,
     FinalizingformviewComponent,
+    MessagesComponent,
+    SellermessageComponent,
     SellingitemComponent,
     AcceptfinalizingComponent,
     RatingformComponent,

@@ -294,6 +294,26 @@ router.get('/all', verify.decodeToken, function (req, res) {
     })
 })
 
+/**
+ * User get user name by id
+ *
+ * 
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.post('/username', function (req, res) {
+
+    User.findById(req.body.uid).exec((err, user) => {
+        userDetails = {
+            username: user.username,
+            profileImage: user.profileImage,
+            email: user.email
+        }
+        res.status(200).send(userDetails)
+    })
+})
 
 /**
  * Change user password
@@ -343,13 +363,13 @@ router.post('/userbyid', function (req, res) {
                 message: 'Error retrieving User with id: '
             })
         }
-        userDetails = {
-            username: user.username,
-            profileImage: user.profileImage,
-            email: user.email
-        }
-        res.status(200).send(userDetails)
+        // console.log('users.username');
+        console.log(user.username);
+        res.status(200).send(user.username)
     })
 })
+
+
+
 
 module.exports = router
