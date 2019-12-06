@@ -25,4 +25,5 @@ export interface UserView {
 
 export interface Username {
   username: string;
+  replying?:Array<object>;
 }

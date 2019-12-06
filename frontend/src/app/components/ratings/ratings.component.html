@@ -1,41 +1,80 @@
-<div class="card-body col-xs-10 col-md-10">
-  <div class="row">
-    <div class="col-md-2">
-      <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
-      <p class="text-secondary text-center">15 Minutes Ago</p>
-    </div>
-    <div class="col-md-10">
-      <div class="clearfix"></div>
-      <p>Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting,
-        remaining
-        essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-      </p>
-      <p>
-        <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-      </p>
-    </div>
-  </div>
-  <div class="card card-inner">
-    <div class="card-body">
+<app-navbar></app-navbar>
+<div class="wrapper">
+<div class="row" style="padding-top: 10%">
+
+<div class="col-md-12">
+    <form novalidate [formGroup]="replyForm" (ngSubmit)="submitreplyForm()">
+        <div *ngFor="let review of this.reviewlist | slice:1;let index= index  " >
+            <div class="card card-inner">
+                <div class="card-body">
+                <div class="card-body col-xs-10 col-md-10">  
       <div class="row">
         <div class="col-md-2">
-          <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid">
-          <p class="text-secondary text-center">15 Minutes Ago</p>
+          <img src="https://media5.picsearch.com/is?9wf5djaQEBRqbffZVNXpU4Oidhoc3jV5TzqeBHIFQI8&height=228" alt="Avatar" class="avatar" >
+           <p class="text-secondary text-center">
+              {{datelist[index+1]|dateAgo}}  
+          
         </div>
+
         <div class="col-md-10">
-          <p><a href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Maniruzzaman
-                Akash</strong></a>
-          </p>
-          <p>
-            Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
-            versions
-            of Lorem Ipsum.</p>
-          <p>
-            <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-          </p>
+          <div class="clearfix"></div>
+        
+          
+          {{index+1}})   {{review}}<br>
+             
+        <a class="float-right btn btn-outline-primary ml-2"name="NIC" NIC="index+1"(click)="onLinkClicked(index+1)" > <i class="fa fa-reply"></i> Reply</a>
+          
+        <textarea *ngIf="buttonClicked == index+1" formControlName ="reply" rows="4" id="index+1" cols="50"[(ngModel)] = "str" ></textarea>
+         <div class="row">
+            <div class="footer text-center">
+                <a *ngIf="buttonClicked == index+1" class="btn btn-primary btn-round btn-lg btn-block" (click)="sendreply()">Submit </a>
+              </div>
+             
+        </div> 
+        </div>
+        
+
+        </div>
         </div>
       </div>
     </div>
+     
+     <div *ngFor="let time of this.timelist | slice:1;let i = index  " >
+      <div *ngIf="index+1 == numlist[i+1]">
+          <div class="row">
+              <div class="col-md-5"></div>
+              <div class="col-md-7" style="margin-left: 100 px"  >
+        <div class="card card-inner">
+          <div class="card-body">
+          <div class="card-body col-xs-10 col-md-10">  
+<div class="row">
+  <div class="col-md-4">
+    <img src="https://media2.picsearch.com/is?4iPVDhEYWF6aUbmZhcDMXxLOzvwhzFuZYej40EfMBH8&height=320" alt="Avatar" class="avatar" >
+     <p class="text-secondary text-center">
+        {{time | dateAgo}} 
+    
   </div>
 
-</div>
+  <div class="col-md-6">
+    <div class="clearfix"></div>
+    
+    
+     {{replylist[i+1]}}<br>
+      </div>
+      </div>
+      </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    </div> 
+    </div>       
+          
+         
+    
+
+    </div>
+  </form>
+  </div>
+ </div>
+ </div>

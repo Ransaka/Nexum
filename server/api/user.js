@@ -64,9 +64,6 @@ router.get('/current', verify.decodeToken, function (req, res) {
 })
 
 
-
-
-
 /**
  * User get user by id endpoint.
  *
@@ -307,8 +304,60 @@ router.get('/all', verify.decodeToken, function (req, res) {
  * @response User of the given id
  */
 router.post('/username', function (req, res) {
-    
+
     User.findById(req.body.uid).exec((err, user) => {
+        userDetails = {
+            username: user.username,
+            profileImage: user.profileImage,
+            email: user.email
+        }
+        res.status(200).send(userDetails)
+    })
+})
+
+/**
+ * Change user password
+ *
+ * Update the given attributes of the authenticated user.
+ *
+ * @body User data model exept id, password and isAdmin.
+ * @role User
+ */
+router.put('/changePassword', function (req, res) {
+    User.findOne({
+        email: req.body.email
+    }).exec(async (err, user) => {
+        if (err || user == null) {
+            return res.status(500).send({
+                message: 'Error updating User password'
+            })
+        }
+        if (req.body.password) {
+            bcrypt.hash(req.body.password, 10).then((hash) => {
+                console.log('hello')
+                user.password = hash
+                user.save().then(() => {
+                    return res.status(200).send({
+                        message: 'Success, Password changed!'
+                    })
+                })
+            })
+        }
+
+    })
+})
+
+/**
+ * Get user by Id endpoint.
+ *
+ * 
+ *
+ * @role User
+ * @response User of the authenicated user
+ */
+router.post('/userbyid', function (req, res) {
+    console.log(req.body._id)
+    User.findById(req.body._id).exec((err, user) => {
         if (err) {
             return res.status(500).send({
                 message: 'Error retrieving User with id: '
@@ -319,6 +368,8 @@ router.post('/username', function (req, res) {
         res.status(200).send(user.username)
     })
 })
+
+
 
 
 module.exports = router

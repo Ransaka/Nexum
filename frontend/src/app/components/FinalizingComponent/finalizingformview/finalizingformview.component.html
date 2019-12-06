@@ -1,0 +1,177 @@
+<app-navbar></app-navbar>
+<div class="mt-5"></div>
+<div class="wrapper">
+
+  <div class="subscribe-line subscribe-line-transparent" style="background-image: url('assets/img/banner.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class=" col-md-12 col-sm-12">
+          <h3></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <div class=" container">
+      <div class="row">
+
+        <div class="col-md-2">
+          <div class="card bg-dark text-white card-details text-center a">
+            <i class=" now-ui-icons emoticons_satisfied"></i>
+          </div>
+        </div>
+
+        <div class="col-md-10">
+          <div class="card bg-dark text-white card-details">
+            <div class=" container">
+              <div class="row">
+                <div class=" col-md-12 col-sm-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="2" class="text-center">Product Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Product Name</th>
+                        <td>{{itemDetails?.item[0].product}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Product Id</th>
+                        <td>{{itemDetails?.item[0]._id}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Product Category</th>
+                        <td>{{itemDetails?.item[0].category}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Product Tags</th>
+                        <td>{{itemDetails?.item[0].tags}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Selling -->
+  <div class="mt-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-2">
+          <div class="card text-center" style=" width: 70rem;">
+            <div class="col-md-12">
+              <!-- Broadcast Table -->
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="container">
+                      <div class="row">
+
+                        <div class="ml-auto">
+                          <a class="btn btn-sm btn-primary btn-lg btn-round" routerLink="/userprofile/broadcast">View
+                            More</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <form>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col" sortable="name" (sort)="onSort($event)">Username</th>
+                            <th scope="col">Finalize</th>
+                            <th scope="col">Remove</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <tr *ngFor="let x of finalizingForms?.item">
+                            <ng-template [ngIf]="x.product == itemDetails?.item[0].product">
+                              <td>{{x.sellerId}}</td>
+                              <a routerLink="/userprofile/search/{{x.sellerName}}">
+                                <td>
+                                  {{x.sellerName}}
+                                </td>
+                              </a>
+                              <td>
+                                <div class="social-description">
+                                  <a class="btn btn-primary btn-sm"
+                                    routerLink="/userprofile/acceptfinalize/{{x.productId}}">F</a>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="social-description">
+                                  <a href="#button" class="btn btn-primary btn-sm"><i
+                                      class="now-ui-icons ui-1_simple-remove"></i></a>
+                                </div>
+                              </td>
+                            </ng-template>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+              <!-- /Broadcast Table -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="https://www.creative-tim.com">
+              Creative Tim
+            </a>
+          </li>
+          <li>
+            <a href="https://www.creative-tim.com/about-us">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="http://blog.creative-tim.com">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+              MIT License
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        &copy;
+        {{data | date: 'yyyy'}}, Designed by
+        <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+      </div>
+    </div>
+  </footer>
+</div>

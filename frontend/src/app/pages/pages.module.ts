@@ -2,7 +2,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NouisliderModule } from 'ng2-nouislider';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditDetailsComponent } from './edit-details/edit-details.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RouterModule } from '@angular/router';
 import { SellerprofileComponent } from './userprofile/sellerprofile/sellerprofile.component';
@@ -13,10 +12,11 @@ import { BroadcastviewComponent } from './broadcastview/broadcastview.component'
 import { PurchasehistoryComponent } from './purchasehistory/purchasehistory.component';
 import { SellerviewComponent } from './sellerview/sellerview.component';
 import { NonRegisteredSellerViewComponent } from './non-registered-seller-view/non-registered-seller-view.component';
+import { ReactiveFormsModule } from '@angular/forms';
+//import { RatingviewComponent } from './sellerview/ratingview/ratingview.component';
 
 @NgModule({
   declarations: [
-    EditDetailsComponent,
     UserprofileComponent,
     SellerprofileComponent,
     CustomerprofileComponent,
@@ -25,8 +25,16 @@ import { NonRegisteredSellerViewComponent } from './non-registered-seller-view/n
     BroadcastviewComponent,
     PurchasehistoryComponent,
     SellerviewComponent,
-    NonRegisteredSellerViewComponent
+    NonRegisteredSellerViewComponent,
+    EditprofileComponent
+    //RatingviewComponent
   ],
-  imports: [CommonModule, RouterModule, NouisliderModule, NgbModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    NouisliderModule,
+    NgbModule,
+    ReactiveFormsModule
+  ]
 })
 export class PagesModule {}
