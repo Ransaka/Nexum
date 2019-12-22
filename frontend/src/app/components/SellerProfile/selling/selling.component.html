@@ -53,30 +53,40 @@
             </div>
             <div class="card-body">
               <form class="form-group" [formGroup]="sellingForm">
-                <div class="mt-2">
+                <!-- <div class="mt-2">
                   <div class="form-group"><label>Product</label>
                     <input [(ngModel)]="product" formControlName="product" class="form-control border-input"
                       placeholder="Enter the product you want" type="text">
                   </div>
-                </div>
-                <div class="mt-4">
+                </div> -->
+                <div class="mt-3">
                   <label>Select category</label>
-                  <select class="btn btn-round btn-neutral custom-select form-control" [(ngModel)]="category"
+                  <input (click)="[open(loginpop,'' , '')]" class="form-control border-input" value="{{cat}}"
+                    type="text" placeholder="Select a category" (keydown)="eventHandler($event)"
+                    [ngClass]="{'is-invalid':sellingForm.get('category').touched && sellingForm.get('category').invalid}">
+                  <div class="invalid-feedback">
+                    <div>Category is required</div>
+                  </div>
+                </div>
+
+                <!-- <div class="mt-3">
+                  <label>Select category</label>
+                  <select class="btn btn-neutral custom-select form-control" [(ngModel)]="category"
                     formControlName="category">
                     <option *ngFor="let item of categories">{{item}}</option>
                   </select>
-                </div>
+                </div> -->
 
                 <div class="mt-3">
                   <div class="content"><label>Product</label>
                     <textarea _ngcontent-c15="" class="form-control" cols="80" rows="2" spellcheck="false"
                       [(ngModel)]="textMessage" formControlName="textMessage">
-                                        </textarea>
+                </textarea>
                   </div>
                 </div>
 
                 <div class="footer text-center">
-                  <a class="btn btn-primary btn-round btn-lg btn-block" (click)="sendSelling()">Publish</a>
+                  <a class="btn btn-primary btn-lg btn-block" (click)="sendSelling()">Publish</a>
                 </div>
 
               </form>
@@ -87,3 +97,101 @@
     </div>
   </div>
 </div>
+
+<ng-template #loginpop let-c="close" let-d="dismiss">
+  <!-- Head -->
+  <div class="modal-header justify-content-center">
+    <button type="button" class="close" (click)="d('Cross click')">
+      <i class="now-ui-icons ui-1_simple-remove"></i>
+    </button>
+    <h4 class="title title-up">Select you category</h4>
+  </div>
+  <br>
+  <!-- /Head -->
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Electronics</h6>
+            <tr *ngFor="let x of Electronics">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Fashion</h6>
+            <tr *ngFor="let x of Fashion">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mt-5"></div>
+    <div class="row">
+      <div class="mt-3"></div>
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Health and Beauty</h6>
+            <tr *ngFor="let x of HealthandBeauty">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Motors</h6>
+            <tr *ngFor="let x of Motors">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mt-5"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Collectables</h6>
+            <tr *ngFor="let x of Collectables">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Sports</h6>
+            <tr *ngFor="let x of Sports">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mt-5"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>HomeandGarden</h6>
+            <tr *ngFor="let x of HomeandGarden">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="mt-3"></div>
+
+</ng-template>

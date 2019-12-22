@@ -1,3 +1,4 @@
+import { SellingComponent } from './components/SellerProfile/selling/selling.component';
 import { AcceptfinalizingComponent } from './components/FinalizingComponent/acceptfinalizing/acceptfinalizing.component';
 import { SellingitemComponent } from './components/SellerProfile/sellingitem/sellingitem.component';
 import { FinalizingformviewComponent } from './components/FinalizingComponent/finalizingformview/finalizingformview.component';
@@ -10,7 +11,6 @@ import { PurchasehistoryComponent } from './pages/purchasehistory/purchasehistor
 import { EditprofileComponent } from './pages/editprofile/editprofile.component';
 import { AdminprofileComponent } from './pages/userprofile/adminprofile/adminprofile.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
-import { SellingComponent } from './components/selling/selling.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { ComponentsModule } from './components/components.module';
 import { NgModule } from '@angular/core';
