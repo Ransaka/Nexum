@@ -73,7 +73,7 @@ import { RatingviewComponent } from './components/SellerView/ratingview/ratingvi
     SellingitemComponent,
     AcceptfinalizingComponent,
     RatingformComponent,
-    NewcomplainComponent
+    NewcomplainComponent,
     DateAgoPipe,
     RatingsComponent,
     BroadcastViewMoreComponent,

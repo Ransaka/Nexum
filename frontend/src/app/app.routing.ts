@@ -111,8 +111,7 @@ const routes: Routes = [
     component: NewcomplainComponent
   },
 
-
-  { path: '**', component: UserprofileComponent }
+  { path: '**', component: UserprofileComponent },
 
   { path: 'resetPassword', component: ResetPasswordComponent },
 

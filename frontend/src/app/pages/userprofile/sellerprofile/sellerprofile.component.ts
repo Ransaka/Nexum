@@ -173,7 +173,6 @@ export class SellerprofileComponent implements OnInit {
       .subscribe(data => this.getSelling());
   }
 
-
   calcRatings(ratings) {
     if (ratings) {
       this.totalRates = ratings.length;
@@ -194,8 +193,11 @@ export class SellerprofileComponent implements OnInit {
                 this.highestRate = 1;
                 topCount = one;
               }
-
-
+          }
+        }
+      }
+    }
+  }
 
   viewReview(ratings) {
     if (ratings) {
