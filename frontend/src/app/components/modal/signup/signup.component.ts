@@ -13,15 +13,15 @@ export class SignupComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) {}
 
   signupForm: FormGroup;
   error: string;
   conPass: string;
   signupError: string;
-
-  private modalService: NgbModal;
+  closeResult: string;
 
   ngOnInit() {
     this.signupForm = this._formBuilder.group({
@@ -31,6 +31,28 @@ export class SignupComponent implements OnInit {
       confirmpassword: ['', Validators.required]
     });
   }
+
+  // Open popup
+  // open(content) {
+  //   this.modalService.open(content).result.then(
+  //     result => {
+  //       this.closeResult = `Closed with: ${result}`;
+  //     },
+  //     reason => {
+  //       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  //     }
+  //   );
+  // }
+
+  // private getDismissReason(reason: any): string {
+  //   if (reason === ModalDismissReasons.ESC) {
+  //     return 'by pressing ESC';
+  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+  //     return 'by clicking on a backdrop';
+  //   } else {
+  //     return `with: ${reason}`;
+  //   }
+  // }
 
   //Signup
   signup() {
@@ -45,7 +67,7 @@ export class SignupComponent implements OnInit {
           password: this.signupForm.controls['password'].value
         })
         .subscribe(
-          () => {
+          res => {
             this.modalService.dismissAll();
             const request = {
               email: this.signupForm.controls['email'].value,

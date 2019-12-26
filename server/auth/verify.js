@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 /**
  * Handler to check the availability of email and password
  */
@@ -60,7 +63,7 @@ const decodeToken = (req, res, next) => {
         })
     }
 
-    jwt.verify(token, 'secret', (err, decoded) => {
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
         if (err) {
             return res.status(500).send({
                 auth: false,
@@ -77,19 +80,6 @@ const decodeToken = (req, res, next) => {
     })
 }
 
-/**
- * Handler to verify whether user in a customer or seller
- */
-const checkUser = (req, res, next) => {
-    if (!req.isCust) {
-        return res.status(400).send({
-            auth: false,
-            message: 'Not enough privillages.'
-        })
-    }
-
-    next()
-}
 
 const verify = {}
 verify.decodeToken = decodeToken

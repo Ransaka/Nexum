@@ -1,0 +1,197 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+  <div class="page-header" style="background-image: url('assets/img/bg5.jpg');">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-4 ml-auto mr-auto mt-5">
+          <div class="info info-horizontal">
+            <div class="icon icon-primary">
+              <i class="now-ui-icons media-2_sound-wave"></i>
+            </div>
+            <div class="description">
+              <h5 class="info-title">Marketing</h5>
+              <p class="description">
+                We've created the marketing campaign of the website. It was a very interesting
+                collaboration.
+              </p>
+            </div>
+          </div>
+
+          <div class="info info-horizontal">
+            <div class="icon icon-primary">
+              <i class="now-ui-icons media-1_button-pause"></i>
+            </div>
+            <div class="description">
+              <h5 class="info-title">Fully Coded in HTML5</h5>
+              <p class="description">
+                We've developed the website with HTML5 and CSS3. The client has access to the code using
+                GitHub.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="info info-horizontal">
+            <div class="icon icon-info">
+              <i class="now-ui-icons users_single-02"></i>
+            </div>
+            <div class="description">
+              <h5 class="info-title">Built Audience</h5>
+              <p class="description">
+                There is also a Fully Customizable CMS Admin Dashboard for this product.
+              </p>
+            </div>
+          </div>
+          <div class="social-description text-center">
+            <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/sellerprofile">Back</a>
+          </div>
+        </div>
+        <div class="col-md-4 mr-auto mt-5">
+          <div class="card" style=" width: 30rem;">
+            <div class="mt-2">
+              <h3 class="card-title">Selling Form</h3>
+            </div>
+            <div class="card-body">
+              <form class="form-group" [formGroup]="sellingForm">
+                <!-- <div class="mt-2">
+                  <div class="form-group"><label>Product</label>
+                    <input [(ngModel)]="product" formControlName="product" class="form-control border-input"
+                      placeholder="Enter the product you want" type="text">
+                  </div>
+                </div> -->
+                <div class="mt-3">
+                  <label>Select category</label>
+                  <input (click)="[open(loginpop,'' , '')]" class="form-control border-input" value="{{cat}}"
+                    type="text" placeholder="Select a category" (keydown)="eventHandler($event)"
+                    [ngClass]="{'is-invalid':sellingForm.get('category').touched && sellingForm.get('category').invalid}">
+                  <div class="invalid-feedback">
+                    <div>Category is required</div>
+                  </div>
+                </div>
+
+                <!-- <div class="mt-3">
+                  <label>Select category</label>
+                  <select class="btn btn-neutral custom-select form-control" [(ngModel)]="category"
+                    formControlName="category">
+                    <option *ngFor="let item of categories">{{item}}</option>
+                  </select>
+                </div> -->
+
+                <div class="mt-3">
+                  <div class="content"><label>Product</label>
+                    <textarea _ngcontent-c15="" class="form-control" cols="80" rows="2" spellcheck="false"
+                      [(ngModel)]="textMessage" formControlName="textMessage">
+                </textarea>
+                  </div>
+                </div>
+
+                <div class="footer text-center">
+                  <a class="btn btn-primary btn-lg btn-block" (click)="sendSelling()">Publish</a>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loginpop let-c="close" let-d="dismiss">
+  <!-- Head -->
+  <div class="modal-header justify-content-center">
+    <button type="button" class="close" (click)="d('Cross click')">
+      <i class="now-ui-icons ui-1_simple-remove"></i>
+    </button>
+    <h4 class="title title-up">Select you category</h4>
+  </div>
+  <br>
+  <!-- /Head -->
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Electronics</h6>
+            <tr *ngFor="let x of Electronics">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Fashion</h6>
+            <tr *ngFor="let x of Fashion">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mt-5"></div>
+    <div class="row">
+      <div class="mt-3"></div>
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Health and Beauty</h6>
+            <tr *ngFor="let x of HealthandBeauty">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Motors</h6>
+            <tr *ngFor="let x of Motors">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mt-5"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Collectables</h6>
+            <tr *ngFor="let x of Collectables">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>Sports</h6>
+            <tr *ngFor="let x of Sports">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mt-5"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <table>
+          <tbody>
+            <h6>HomeandGarden</h6>
+            <tr *ngFor="let x of HomeandGarden">
+              <td><a class="cat" (click)="getCat(x)">{{x}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="mt-3"></div>
+
+</ng-template>

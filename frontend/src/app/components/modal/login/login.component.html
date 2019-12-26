@@ -34,7 +34,6 @@
             <!-- Buttons -->
             <div *ngIf="error">
               <ngb-alert class="alert alert-danger" role="alert">
-                <!---->
                 <div class="container">
                   <div class="alert-wrapper">
                     <div class="message">
@@ -46,17 +45,14 @@
               </ngb-alert>
             </div>
 
+            <p>&nbsp;</p>
 
             <div class="text-center">
-              <a class="btn btn-primary btn-round btn-lg btn-block" data-dismiss="modal" (click)="login()">LogIn</a>
+              <a class="btn btn-primary btn-lg btn-block" data-dismiss="modal" (click)="login()">LogIn</a>
             </div>
           </div>
           <div class="justify-content-center">
-            <div class="mt-5 ">
-              <h6>
-                <a class="btn btn-link btn-primary" (click)="[open(signuppop,'' , ''),d('Cross click')]">Create
-                  Account</a>
-              </h6>
+            <div class="mt-2 ">
               <h6>
                 <a class="btn btn-link btn-primary" (click)="[d('Cross click')]" routerLink="/recoverAccount">Forgot
                   Password?</a>

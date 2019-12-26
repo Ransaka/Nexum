@@ -1,0 +1,32 @@
+<div class="media"><a class="pull-left" href="javascript:void(0)">
+  </a>
+  <div class="media-body">
+    <!-- <div *ngFor="let x of ratingsArray">{{x.rate}}</div> -->
+    <h5 *ngIf="raterDetails" class="media-heading">{{raterDetails.username}}</h5>
+    <div class="pull-right">
+      <h6 *ngIf="ratingsArray" class="text-muted">{{ratingsArray[0]?.date}}</h6>
+    </div>
+    <p *ngIf="ratingsArray">{{ratingsArray[0]?.review}}</p>
+    <div class="row">
+      <div class="ml-auto">
+        <div class="col-md-12">
+          <a class="btn btn-info btn-link pull-right reply" (click)="textboxPop()"><i class="fa fa-reply"></i> Reply</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="textbox">
+      <textarea class="form-control" cols="80" rows="3" spellcheck="false" [(ngModel)]="textMessage"
+        formControlName="textMessage">
+      </textarea>
+      <div class="row">
+        <div class="ml-auto">
+          <div class="col-md-12">
+            <a class="btn btn-primary btn-block" (click)="sendSelling()">Send</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

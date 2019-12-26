@@ -66,7 +66,16 @@ router.get('/all', verify.decodeToken, function (req, res) {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-router.get('/test', async function (req, res) {
+/**
+ * Get selling items of a seller endpoint.
+ *
+ * 
+ *
+ * @param id
+ * @role Admin
+ * @response User of the given id
+ */
+router.get('/getsellingitem', async function (req, res) {
     array = new Array()
     await User.findById({
         _id: req.headers.uid
@@ -104,12 +113,12 @@ router.get('/test', async function (req, res) {
  * @role Admin
  * @response User of the given id
  */
-router.post('/test1', function (req, res) {
+router.post('/userdata', function (req, res) {
     retArray = new Array()
     User.find({
         broadcasts: {
             $elemMatch: {
-                "product": req.body.element
+                "category": req.body.element
             }
         }
     }).exec((err, user) => {

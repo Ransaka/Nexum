@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   closeResult: string;
+  user: any;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -21,16 +22,16 @@ export class LoginComponent implements OnInit {
   ) {}
 
   // Open popup
-  open(content) {
-    this.modalService.open(content).result.then(
-      result => {
-        this.closeResult = `Closed with: ${result}`;
-      },
-      reason => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      }
-    );
-  }
+  // open(content) {
+  //   this.modalService.open(content).result.then(
+  //     result => {
+  //       this.closeResult = `Closed with: ${result}`;
+  //     },
+  //     reason => {
+  //       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  //     }
+  //   );
+  // }
 
   ngOnInit() {
     this.loginForm = this.formbuilder.group({
@@ -40,20 +41,20 @@ export class LoginComponent implements OnInit {
   }
 
   error: string;
-  log_email: String;
-  log_password: String;
+  log_email: String; // User email
+  log_password: String; // User password
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
+  // private getDismissReason(reason: any): string {
+  //   if (reason === ModalDismissReasons.ESC) {
+  //     return 'by pressing ESC';
+  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+  //     return 'by clicking on a backdrop';
+  //   } else {
+  //     return `with: ${reason}`;
+  //   }
+  // }
 
-  //Login
+  // Login
   login() {
     const request = {
       email: this.loginForm.controls['log_email'].value,
@@ -65,7 +66,6 @@ export class LoginComponent implements OnInit {
         this.modalService.dismissAll();
       },
       err => {
-        console.log(err);
         if (err.error.message) {
           this.error = err.error.message;
           console.log(this.error);

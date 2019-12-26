@@ -14,6 +14,7 @@ import { SellerviewComponent } from './sellerview/sellerview.component';
 import { NonRegisteredSellerViewComponent } from './non-registered-seller-view/non-registered-seller-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewcomplainComponent } from './newcomplain/newcomplain.component';
+//import { RatingviewComponent } from './sellerview/ratingview/ratingview.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,15 @@ import { NewcomplainComponent } from './newcomplain/newcomplain.component';
     EditprofileComponent,
     NewcomplainComponent
     
+    EditprofileComponent
+    //RatingviewComponent
   ],
-  imports: [CommonModule, RouterModule, NouisliderModule, NgbModule,ReactiveFormsModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    NouisliderModule,
+    NgbModule,
+    ReactiveFormsModule
+  ]
 })
 export class PagesModule {}

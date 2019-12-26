@@ -59,7 +59,7 @@ router.post('/remove', function (req, res) {
                 message: 'Error removing reply'
             })
         }
-         
+
         user.update({
             _id: req.body._id
         }, {
