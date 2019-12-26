@@ -3,6 +3,7 @@ const router = express.Router()
 
 const Rate = require('../models/Rate')
 const User = require('../models/User')
+const complain = require('../models/complain')
 const checkAuth = require('../auth/check-auth')
 
 /**
@@ -122,7 +123,5 @@ router.get('/:id', function (req, res) {
         res.status(200).send(user.ratings)
     })
 })
-
-
 
 module.exports = router

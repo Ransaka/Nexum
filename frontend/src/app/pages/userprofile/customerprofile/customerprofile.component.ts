@@ -38,7 +38,7 @@ export class CustomerprofileComponent implements OnInit {
       .subscribe(data => (this.broadcastArray = data));
   }
 
-  // remove a broadcast
+
   removeBroadcast(id) {
     this._broadcastservice
       .removeBroadcast(id as string)

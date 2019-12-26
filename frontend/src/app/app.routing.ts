@@ -30,6 +30,7 @@ import { SellerprofileComponent } from './pages/userprofile/sellerprofile/seller
 import { CustomerprofileComponent } from './pages/userprofile/customerprofile/customerprofile.component';
 import { RecoverAccountComponent } from './components/AccountRecovery/recover-account/recover-account.component';
 import { RatingformComponent } from './pages/ratingform/ratingform.component';
+import { NewcomplainComponent } from './pages/newcomplain/newcomplain.component';
 import { ResetPasswordComponent } from './components/AccountRecovery/reset-password/reset-password.component';
 import { MoreSellingComponent } from './components/SellerProfile/more-selling/more-selling.component';
 import { AddratingandreviewComponent } from './components/RatingsAndReviews/addratingandreview/addratingandreview.component';
@@ -101,6 +102,18 @@ const routes: Routes = [
     path: 'recoverAccount',
     component: RecoverAccountComponent
   },
+  {
+    path: 'userprofile/makecomplain/:sellerid',
+    component: NewcomplainComponent
+  },
+  {
+    path: 'userprofile/makecomplain',
+    component: NewcomplainComponent
+  },
+
+
+  { path: '**', component: UserprofileComponent }
+
   { path: 'resetPassword', component: ResetPasswordComponent },
 
   // Default

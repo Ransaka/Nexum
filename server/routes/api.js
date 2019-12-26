@@ -6,6 +6,7 @@ const db = "mongodb+srv://nexumuser:" + "nexumuser" + "@nexum-deulb.mongodb.net/
 
 
 // Connect to mongodb server
+
 mongoose.connect(db, {
     useNewUrlParser: true
 }, err => {

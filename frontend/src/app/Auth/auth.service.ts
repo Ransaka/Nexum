@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, shareReplay, flatMap, map } from 'rxjs/operators';
-import { SignInResponse, SignInRequest, SignUpRequest } from './auth.dto';
+import { SignInResponse, SignInRequest, SignUpRequest, NewComplain } from './auth.dto';
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
+import { async } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -64,12 +66,29 @@ export class AuthService {
   }
 
   //make new complain
-  // makeComplain(complain: NewComplain) {
-  //   console.log('at service file 1' + JSON.stringify(complain));
+  makeComplain(complianbody:NewComplain): Observable<any>{
+    console.log("at service file complain:"+ JSON.stringify(complianbody))
+    //console.log("at service file username:"+ JSON.stringify(username))
+    //console.log("at service file"+JSON.stringify(mydate))
 
-  //   return this.http
-  //     .post('http://localhost:3000/user/rate/create', complain)
-  //     .pipe(map(res => this.ApiResponse));
-  // }
+    return this.http.post<any>('http://localhost:3000/user/complain', complianbody);
+    // .pipe(map(res => this.ApiResponse))
+  }
+  displayComplain(){
+    return this.http.get('http://localhost:3000/user/complain/get');
+  }
+  deleteComplain(id){
+  }
+  updateComplain(body){
+    console.log(JSON.stringify(body))
+    return this.http.put<any>('http://localhost:3000/user/complain/update',body)
+  }
+  
   // eof make new complain
+  // makeComplain(complain:NewComplain): Observable<any> {
+  //   return this.http.post('http://localhost:3000/user/complain', complain, )
+  //     .pipe(
+  //       catchError(this.handleError)
+  //     );
+  // }
 }

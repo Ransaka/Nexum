@@ -120,8 +120,8 @@ export class SellerprofileComponent implements OnInit {
     this.rateing.getRatings(currentUser).subscribe(
       res => {
         console.log(res);
-        this.calcRatings(res);
-        this.viewReview(res);
+        //this.calcRatings(res);
+        //this.viewReview(res);
       },
       err => {}
     );
@@ -132,7 +132,7 @@ export class SellerprofileComponent implements OnInit {
     this.replying.getreply(currentUser).subscribe(
       res => {
         console.log(res);
-        this.viewReply(res);
+        //this.viewReply(res);
       },
       err => {}
     );
@@ -173,6 +173,7 @@ export class SellerprofileComponent implements OnInit {
       .subscribe(data => this.getSelling());
   }
 
+
   calcRatings(ratings) {
     if (ratings) {
       this.totalRates = ratings.length;
@@ -194,44 +195,7 @@ export class SellerprofileComponent implements OnInit {
                 topCount = one;
               }
 
-              break;
-            case 2:
-              two++;
-              this.starTwoPer = (two / this.totalRates) * 100;
-              if (topCount < two) {
-                this.highestRate = 2;
-                topCount = two;
-              }
-              break;
-            case 3:
-              three++;
-              this.starThreePer = (three / this.totalRates) * 100;
-              if (topCount < three) {
-                this.highestRate = 3;
-                topCount = three;
-              }
-              break;
-            case 4:
-              four++;
-              this.starFourPer = (four / this.totalRates) * 100;
-              if (topCount < four) {
-                this.highestRate = 4;
-                topCount = four;
-              }
-              break;
-            case 5:
-              five++;
-              this.starFivePer = (five / this.totalRates) * 100;
-              if (topCount < five) {
-                this.highestRate = 5;
-                topCount = five;
-              }
-              break;
-          }
-        }
-      }
-    }
-  }
+
 
   viewReview(ratings) {
     if (ratings) {

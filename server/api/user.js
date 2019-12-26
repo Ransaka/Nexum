@@ -258,7 +258,7 @@ router.get('/search/:username', verify.decodeToken, function (req, res) {
             })
         }
         // Remove password attribute from the user
-        user[0].password = undefined
+        //user[0].password = undefined
         var details = {
             _id: user[0]._id,
             firstname: user[0].firstname,

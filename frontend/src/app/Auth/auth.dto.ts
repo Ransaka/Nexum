@@ -18,3 +18,11 @@ export interface SignUpRequest {
   username: string;
   password: string;
 }
+
+export interface NewComplain {
+  seller: string;
+  complain:string;
+  
+ // seller: string;
+ // item: string;
+}

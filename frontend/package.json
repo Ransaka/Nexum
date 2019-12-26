@@ -44,7 +44,7 @@
     "paypal-rest-sdk": "^1.8.1",
     "popper.js": "1.14.7",
     "rellax": "1.4.0",
-    "rxjs": "^6.4.0",
+    "rxjs": "^6.5.3",
     "rxjs-compat": "6.4.0",
     "tslib": "1.9.3",
     "zone.js": "0.8.29"

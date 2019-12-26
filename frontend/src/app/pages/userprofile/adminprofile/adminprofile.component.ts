@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SendwarningService } from 'app/services/sendwarning.service'
+import { AuthService } from '../../../Auth/auth.service';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { from } from 'rxjs';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { error } from 'util';
 
 @Component({
   selector: 'app-adminprofile',
@@ -6,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./adminprofile.component.scss']
 })
 export class AdminprofileComponent implements OnInit {
+  public isCollapsed = false;
   zoom: number = 14;
   lat: number = 44.445248;
   lng: number = 26.099672;
@@ -77,16 +86,82 @@ export class AdminprofileComponent implements OnInit {
   ];
   data: Date = new Date();
   focus;
+  complains: Object | any[];
+  first10: Object | any[];
+  //id: number
   focus1;
+  id: any;
 
-  constructor() {}
+  constructor(private auth: AuthService,private _sendWarning: SendwarningService,private router: Router) {}
+
+  displayComplain(){
+    this.auth.displayComplain().subscribe(
+      auth=>{
+        this.first10 = auth[5]
+        this.complains = auth;
+        console.log(this.complains)
+      },
+      error => console.log(error)
+    );
+  }
+  sendEmail(adress) {
+    this._sendWarning
+      .sendMail({
+        email:adress
+      })
+      .subscribe(
+        res => {
+          this.router.navigateByUrl('/');
+        },
+        err => {
+          console.log(err);
+          if (err.error.message) {
+            error =>err.error.message;
+          }
+        }
+      );
+  }
+  updateCompalin(id){
+    this.auth.updateComplain({
+      ref:id
+    }).subscribe(
+      res=>{
+        //this.router.navigateByUrl('/');
+        //this.router.navigate(['./userprofile/customerprofile'])
+        this.router.navigate(['./userprofile/admin'])
+      },
+      err=>{
+        console.log(err);
+        if(err.error.message){
+          error=>err.error.message;
+        }
+      }
+    );
+    //this.router.navigate(['./userprofile/admin'])
+  }
+
+  deleteComplain(id){
+    console.log(id)
+  }
+  
+
 
   ngOnInit() {
+    this.auth.displayComplain().subscribe(
+      auth=>{
+        this.complains = auth;
+        console.log(this.complains)
+      },
+      error => console.log(error)
+    );
     var body = document.getElementsByTagName('body')[0];
     body.classList.add('profile-page');
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('navbar-transparent');
+
   }
+
+
 
   ngOnDestroy() {
     var body = document.getElementsByTagName('body')[0];
