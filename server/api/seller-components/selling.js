@@ -83,6 +83,7 @@ router.get('/all', verify.decodeToken, function (req, res) {
  * @response User of the given id
  */
 router.get('/:id', verify.decodeToken, function (req, res) {
+    console.log(req.headers.uid)
     User.findOne({
         _id: req.headers.uid
     }, {

@@ -2,11 +2,11 @@
   </a>
   <div class="media-body">
     <!-- <div *ngFor="let x of ratingsArray">{{x.rate}}</div> -->
-    <h5 class="media-heading">{{raterDetails.username}}</h5>
+    <h5 *ngIf="raterDetails" class="media-heading">{{raterDetails.username}}</h5>
     <div class="pull-right">
-      <h6 class="text-muted">{{ratingsArray[0]?.date}}</h6>
+      <h6 *ngIf="ratingsArray" class="text-muted">{{ratingsArray[0]?.date}}</h6>
     </div>
-    <p>{{ratingsArray[0]?.review}}</p>
+    <p *ngIf="ratingsArray">{{ratingsArray[0]?.review}}</p>
     <div class="row">
       <div class="ml-auto">
         <div class="col-md-12">

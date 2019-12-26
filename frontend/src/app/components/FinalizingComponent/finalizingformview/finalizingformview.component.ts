@@ -43,6 +43,6 @@ export class FinalizingformviewComponent implements OnInit {
   getFinalizingForms() {
     this._broadcastService
       .getFinalizingForms()
-      .subscribe(data => (this.finalizingForms = data));
+      .subscribe(data => ((this.finalizingForms = data), console.log(data)));
   }
 }

@@ -101,7 +101,7 @@
                         <tbody>
 
                           <tr *ngFor="let x of finalizingForms?.item">
-                            <ng-template [ngIf]="x.product == itemDetails?.item[0].product">
+                            <ng-template [ngIf]="x.category == itemDetails?.item[0].category">
                               <td>{{x.sellerId}}</td>
                               <a routerLink="/userprofile/search/{{x.sellerName}}">
                                 <td>

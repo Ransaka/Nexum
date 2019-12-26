@@ -29,18 +29,18 @@ export class SellingitemComponent implements OnInit {
     this.getRecentBroadcasts();
   }
 
-  // Get item details
-  getItem() {
-    return this._sellingService
-      .getItem(this.itemId)
-      .subscribe(res => (this.itemDetails = res));
-  }
+  // // Get item details
+  // getItem() {
+  //   return this._sellingService
+  //     .getItem(this.itemId)
+  //     .subscribe(res => (this.itemDetails = res));
+  // }
 
-  getBroadcasts() {
-    this._sellingService
-      .getUsers(this.itemDetails.product as Product)
-      .subscribe(data => this.recievedBroadcasts.push(data));
-  }
+  // getBroadcasts() {
+  //   this._sellingService
+  //     .getUsers(this.itemDetails.product as Product)
+  //     .subscribe(data => this.recievedBroadcasts.push(data));
+  // }
 
   // Get details of the related broadcasts
   getRecentBroadcasts() {
@@ -51,11 +51,13 @@ export class SellingitemComponent implements OnInit {
         .then(res => {
           this.itemDetails = res;
           const request = {
-            element: this.itemDetails.item[0].product
+            element: this.itemDetails.item[0].category
           };
           this._sellingService
             .getUsers(request as Product)
-            .subscribe(data => (this.recievedBroadcasts = data));
+            .subscribe(
+              data => ((this.recievedBroadcasts = data), console.log(data))
+            );
         });
     });
     return promise;

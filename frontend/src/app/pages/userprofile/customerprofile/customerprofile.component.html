@@ -79,7 +79,7 @@
                             <thead class="thead-dark">
                               <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
+                                <th scope="col" sortable="area" (sort)="onSort($event)">Category</th>
                                 <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
                                 <th scope="col">View Finalizing Forms</th>
                                 <th scope="col">Remove</th>
@@ -89,7 +89,7 @@
                             <tbody>
                               <tr *ngFor="let x of broadcastArray?.broadcast | slice:0:5">
                                 <td>{{x._id | slice:-4}}</td>
-                                <td>{{x.product}}</td>
+                                <td>{{x.category}}</td>
                                 <td scope="row">{{x.tags}}</td>
                                 <td scope="row">
                                   <div class="social-description">

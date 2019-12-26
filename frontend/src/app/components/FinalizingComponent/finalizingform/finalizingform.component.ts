@@ -100,7 +100,9 @@ export class FinalizingformComponent implements OnInit {
       this.finalizingForm.controls['price'].value *
       this.finalizingForm.controls['quantity'].value;
     var total =
+      total_no_tax +
       total_no_tax * (this.finalizingForm.controls['tax'].value / 100);
+    console.log(total);
     this._sellingService
       .sendFinalizing({
         productId: this.itemId,

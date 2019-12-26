@@ -118,7 +118,7 @@ router.post('/userdata', function (req, res) {
     User.find({
         broadcasts: {
             $elemMatch: {
-                "product": req.body.element
+                "category": req.body.element
             }
         }
     }).exec((err, user) => {

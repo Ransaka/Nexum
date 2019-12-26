@@ -115,7 +115,7 @@
 
                                     <tr>
                                       <th scope="col">Number</th>
-                                      <th scope="col" sortable="name" (sort)="onSort($event)">Product</th>
+                                      <th scope="col" sortable="name" (sort)="onSort($event)">Category</th>
                                       <th scope="col" sortable="area" (sort)="onSort($event)">Message</th>
                                       <th scope="col">View Broadcasts</th>
                                       <th scope="col">Remove</th>
@@ -125,7 +125,7 @@
                                     <tr *ngFor="let x of sellingArray?.selling.slice(0,5)">
                                       <td>{{x._id | slice:-4}}</td>
                                       <a routerLink="/userprofile/sellingitem/{{x._id}}">
-                                        <td>{{x.product}}</td>
+                                        <td>{{x.category}}</td>
                                       </a>
                                       <td scope="row">{{x.tags}}</td>
                                       <td scope="row">
