@@ -41,7 +41,9 @@ const userSchema = new Schema({
     ratings: [],
 
     profileImage: String,
-    replying:[],
+    replying: [],
+
+    purchaseHistory: []
 
 })
 module.exports = mongoose.model('User', userSchema, 'user')

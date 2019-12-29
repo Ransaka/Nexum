@@ -5,7 +5,7 @@ const paypal = require('paypal-rest-sdk');
 paypal.configure({
     'mode': 'sandbox', //sandbox or live
     'client_id': 'ActgKaFSDnhzy67WusypR7dqPFwr617TI_jKV8PES94p_3Abt8lOXt53D4m8iNqL8wmE7ilE1i7I9Mtb',
-    'client_secret': 'EJ29fb3Ydv1noKM7MddkFSk5Y-0y7_MzrKEZsmQpQL-d-vbDO6_Q_1rzMCKd5q5vCEXwQ3ryfiLxV8WM'
+    'client_secret': 'EE74HFNq1C2qb_zTkWj9Cn7SYYXCgm3IGoSK4qRvYIoyPJ33rWjKLBPUCVqkCTgsf3ImCVhwa9TgKOjZ'
 });
 
 router.post('/pay', function (req, res) {
@@ -24,7 +24,7 @@ router.post('/pay', function (req, res) {
                 "items": [{
                     "name": "item",
                     "sku": "item",
-                    "price": "15.00",
+                    "price": "1.00",
                     "currency": "USD",
                     "quantity": 1
                 }]
@@ -36,7 +36,10 @@ router.post('/pay', function (req, res) {
             "description": "This is the payment description."
         }]
     };
+
+
     paypal.payment.create(create_payment_json, function (error, payment) {
+        console.log(payment)
         if (error) {
             throw error;
         } else {

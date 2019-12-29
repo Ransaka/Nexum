@@ -23,6 +23,7 @@ const messageRouter = require('./api/message')
 const sellerMessageRouter = require('./api/sellermessage')
 const getFinalizingFormsRouter = require('./api/getFinalizingForms')
 const paypalRouter = require('./api/paypal')
+const historyRouter = require('./api/history/customerHistory')
 
 
 
@@ -58,9 +59,10 @@ app.use('/forgotPasswordMail', forgotPasswordMailRouter)
 app.use('/user/getFinalizingForms', getFinalizingFormsRouter)
 app.use('/user/paypal', paypalRouter)
 app.use('/user/mail', sendWarningMailRouter)
-app.use('/user/complain/',sendWarningMailRouter)
+app.use('/user/complain/', sendWarningMailRouter)
 
 app.use('/user/reply', replyRouter)
+app.use('/user/history', historyRouter)
 
 app.get('/', function (req, res) {
     res.send("Hello")

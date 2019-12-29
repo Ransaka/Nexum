@@ -2,6 +2,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { BroadcastService } from '../../../services/broadcast.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { HistoryService } from 'app/services/history.service';
 
 @Component({
   selector: 'app-acceptfinalizing',
@@ -13,6 +14,7 @@ export class AcceptfinalizingComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _broadcastService: BroadcastService,
     private _formbuilder: FormBuilder,
+    private _history: HistoryService,
     private router: Router
   ) {}
 
@@ -46,10 +48,29 @@ export class AcceptfinalizingComponent implements OnInit {
   pay() {
     this._broadcastService
       .payment({
-        amount: this.itemDetails.item[0].price,
+        amount: this.itemDetails.item[0].total,
         seller: this.itemDetails.item[0].sellerName
       })
       .subscribe(data => window.location.replace(data.url));
+  }
+
+  accept() {
+    var acceptDetails = {
+      sellerName: this.itemDetails.item[0].sellerName,
+      sellerId: this.itemDetails.item[0].sellerId,
+      dateOfIssue: this.itemDetails.item[0].date,
+      productID: this.itemDetails.item[0]._id,
+      category: this.itemDetails.item[0].category,
+      tags: this.itemDetails.item[0].tags,
+      price: this.itemDetails.item[0].price,
+      quantity: this.itemDetails.item[0].quantity,
+      tax: this.itemDetails.item[0].tax,
+      total: this.itemDetails.item[0].total,
+      sellerMessage: this.itemDetails.item[0].textMessage
+    };
+    this._history
+      .sendForm(acceptDetails)
+      .subscribe(() => this.router.navigate(['/userprofile/customerprofile']));
   }
 
   rateAndReview() {}

@@ -33,6 +33,21 @@ export class FinalizingformviewComponent implements OnInit {
     this.getFinalizingForms();
   }
 
+  // Filter the array of Finalizing forms
+  filteredFinalizingForms = [];
+  filtering() {
+    this.filteredFinalizingForms = Object.keys(this.finalizingForms).map(
+      key => ({
+        type: key,
+        value: this.finalizingForms[key]
+      })
+    );
+
+    this.filteredFinalizingForms = this.filteredFinalizingForms[0].value.filter(
+      forms => forms.category == this.itemDetails.item[0].category
+    );
+  }
+
   getBroadcast() {
     this._broadcastService
       .getBroadcastById(this.itemId)
@@ -43,6 +58,6 @@ export class FinalizingformviewComponent implements OnInit {
   getFinalizingForms() {
     this._broadcastService
       .getFinalizingForms()
-      .subscribe(data => ((this.finalizingForms = data), console.log(data)));
+      .subscribe(data => ((this.finalizingForms = data), this.filtering()));
   }
 }

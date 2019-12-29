@@ -28,8 +28,8 @@ import { NewcomplainComponent } from './newcomplain/newcomplain.component';
     SellerviewComponent,
     NonRegisteredSellerViewComponent,
     EditprofileComponent,
-    NewcomplainComponent
-    
+    NewcomplainComponent,
+
     EditprofileComponent
     //RatingviewComponent
   ],

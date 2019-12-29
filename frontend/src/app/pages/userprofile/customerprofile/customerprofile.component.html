@@ -3,7 +3,7 @@
 
     <!-- Profile Banner -->
     <div class="page-header-image rellax-header" data-rellax-speed="-8"
-      style="background-image: url(assets/img/bg5.jpg) ;">
+      style="background-image: url(assets/img/new/homee1.jpg) ;">
     </div>
 
     <div class="container">
@@ -34,10 +34,10 @@
               History</a>
           </div>&nbsp;&nbsp;
           <div class="social-description">
-            <a class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/messages">Messages</a>
+            <a class="btn btn-primary btn-lg" routerLink="/userprofile/messages">Messages</a>
           </div>&nbsp;
           <div class="social-description">
-            <a href="#button" class="btn btn-primary btn-lg btn-round" routerLink="/userprofile/bookmarks">Bookmarks</a>
+            <a href="#button" class="btn btn-primary btn-lg" routerLink="/userprofile/bookmarks">Bookmarks</a>
           </div>
         </div>
 
@@ -63,56 +63,54 @@
           <div class="mt-5">
             <div class="container">
               <div class="row">
-                <div class="col-md-3 col-sm-2">
-                  <div class="card " style=" width: 65rem;">
-                    <div class="col-md-12">
-                      <!-- Broadcast Table -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="ml-auto">
-                            <a class="btn btn-sm btn-primary btn-sm " routerLink="broadcast/viewmore">View
-                              More</a>
-                          </div>
+                <div class="card " style=" width: 65rem;">
+                  <div class="col-md-12">
+                    <!-- Broadcast Table -->
+                    <div class="container">
+                      <div class="row">
+                        <div class="ml-auto">
+                          <a class="btn btn-sm btn-primary btn-sm " routerLink="broadcast/viewmore">View
+                            More</a>
                         </div>
-                        <form>
-                          <table class="table table-striped table-bordered">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col" sortable="area" (sort)="onSort($event)">Category</th>
-                                <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
-                                <th scope="col">View Finalizing Forms</th>
-                                <th scope="col">Remove</th>
-
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr *ngFor="let x of broadcastArray?.broadcast | slice:0:5">
-                                <td>{{x._id | slice:-4}}</td>
-                                <td>{{x.category}}</td>
-                                <td scope="row">{{x.tags}}</td>
-                                <td scope="row">
-                                  <div class="social-description">
-                                    <a href="#button" class="btn btn-primary btn-sm"
-                                      routerLink="/userprofile/finalizingformview/{{x._id}}"><i
-                                        class="now-ui-icons files_single-copy-04"></i></a>
-                                  </div>
-                                </td>
-                                <td scope="row">
-                                  <div class="social-description">
-                                    <a class="btn btn-primary btn-sm" (click)="removeBroadcast(x._id)"><i
-                                        class="now-ui-icons ui-1_simple-remove"></i></a>
-                                  </div>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <div class="d-flex justify-content-between p-2">
-                          </div>
-                        </form>
                       </div>
-                      <!-- /Broadcast Table -->
+                      <form>
+                        <table class="table table-striped table-bordered">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col" sortable="area" (sort)="onSort($event)">Category</th>
+                              <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
+                              <th scope="col">View Finalizing Forms</th>
+                              <th scope="col">Remove</th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let x of broadcastArray?.broadcast | slice:0:5">
+                              <td>{{x._id | slice:-4}}</td>
+                              <td>{{x.category}}</td>
+                              <td scope="row">{{x.tags}}</td>
+                              <td scope="row">
+                                <div class="social-description">
+                                  <a href="#button" class="btn btn-primary btn-sm"
+                                    routerLink="/userprofile/finalizingformview/{{x._id}}"><i
+                                      class="now-ui-icons files_single-copy-04"></i></a>
+                                </div>
+                              </td>
+                              <td scope="row">
+                                <div class="social-description">
+                                  <a class="btn btn-primary btn-sm" (click)="removeBroadcast(x._id)"><i
+                                      class="now-ui-icons ui-1_simple-remove"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="d-flex justify-content-between p-2">
+                        </div>
+                      </form>
                     </div>
+                    <!-- /Broadcast Table -->
                   </div>
                 </div>
               </div>
@@ -139,55 +137,46 @@
           <div class="mt-5">
             <div class="container">
               <div class="row">
-                <div class="col-md-3 col-sm-2">
-                  <div class="card " style=" width: 65rem;">
-                    <div class="col-md-12">
-                      <!-- Broadcast Table -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="ml-auto">
-                            <a class="btn btn-sm btn-primary btn-sm " routerLink="broadcast/viewmore">View
-                              More</a>
-                          </div>
+                <div class="card " style=" width: 65rem;">
+                  <div class="col-md-12">
+                    <!-- Broadcast Table -->
+                    <div class="container">
+                      <div class="row">
+                        <div class="ml-auto">
+                          <a class="btn btn-sm btn-primary btn-sm " routerLink="broadcast/viewmore">View
+                            More</a>
                         </div>
-                        <form>
-                          <table class="table table-striped table-bordered">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col" sortable="area" (sort)="onSort($event)">Product</th>
-                                <th scope="col" sortable="message" (sort)="onSort($event)">Messages</th>
-                                <th scope="col">View Finalizing Forms</th>
-                                <th scope="col">Remove</th>
-
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr *ngFor="let x of broadcastArray?.broadcast | slice:0:5">
-                                <td>{{x._id | slice:-4}}</td>
-                                <td>{{x.product}}</td>
-                                <td scope="row">{{x.tags}}</td>
-                                <td scope="row">
-                                  <div class="social-description">
-                                    <a href="#button" class="btn btn-primary btn-sm"
-                                      routerLink="/userprofile/finalizingformview/{{x._id}}">F</a>
-                                  </div>
-                                </td>
-                                <td scope="row">
-                                  <div class="social-description">
-                                    <a class="btn btn-primary btn-sm" (click)="removeBroadcast(x._id)"><i
-                                        class="now-ui-icons ui-1_simple-remove"></i></a>
-                                  </div>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <div class="d-flex justify-content-between p-2">
-                          </div>
-                        </form>
                       </div>
-                      <!-- /Broadcast Table -->
+                      <form>
+                        <table class="table table-striped table-bordered">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col" sortable="area" (sort)="onSort($event)">Category</th>
+                              <th scope="col" sortable="message" (sort)="onSort($event)">Seller Name</th>
+                              <th scope="col">View</th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let x of purchaseHistory | slice:0:5">
+                              <td>{{x.sellerId| slice:-4}}</td>
+                              <td>{{x.category}}</td>
+                              <td scope="row">{{x.sellerName}}</td>
+                              <td scope="row">
+                                <div class="social-description">
+                                  <a href="#button" class="btn btn-primary btn-sm"
+                                    routerLink="/userprofile/finalizingformview/{{x._id}}">V</a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="d-flex justify-content-between p-2">
+                        </div>
+                      </form>
                     </div>
+                    <!-- /Broadcast Table -->
                   </div>
                 </div>
               </div>

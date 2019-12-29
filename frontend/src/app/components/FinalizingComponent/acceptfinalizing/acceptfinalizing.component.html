@@ -30,8 +30,8 @@
 
               <div class="row">
                 <div class="col-md-4">
-                  <h4 class="title">Username</h4>
-                  <p class="category">Id</p>
+                  <h4 class="title">Customer Username</h4>
+                  <p class="category">Customer Id</p>
                 </div>
                 <div class="col-md-8 ml-auto">
                   <h4 class="title">&nbsp;</h4>
@@ -48,10 +48,6 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th class="category">Product Name</th>
-                        <td>{{itemDetails?.item[0].product}}</td>
-                      </tr>
                       <tr>
                         <th class="category">Product Id</th>
                         <td>{{itemDetails?.item[0]._id}}</td>
@@ -72,6 +68,7 @@
               <div class="row mt-4">
                 <div class="col-md-12">
                   <table class="table border">
+
                     <tbody>
                       <tr>
                         <th class="category">Unit price</th>
@@ -93,6 +90,14 @@
                   </table>
                 </div>
               </div>
+
+
+              <table class="table border">
+                <tbody>
+                  <th class="category">Message from the seller</th>
+                  <td>{{itemDetails?.item[0].textMessage}}</td>
+                </tbody>
+              </table>
 
               <div class="row mt-4">
                 <div class="col-md-6">
