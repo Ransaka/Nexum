@@ -26,10 +26,10 @@ router.post("/", async (req,res)=>{
      }
  });
  //delete complain
- router.delete('/:complainId', async(req,res)=>{
+ router.delete('/:id', async(req,res)=>{
      console.log("complain deleted:")
      try{
-         const removedcomplain = await complain.remove({
+         await complain.deleteOne({
              _id: req.params.complainId
          });
      }catch(err){

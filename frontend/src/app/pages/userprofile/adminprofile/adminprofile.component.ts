@@ -141,7 +141,9 @@ export class AdminprofileComponent implements OnInit {
   }
 
   deleteComplain(id){
-    console.log(id)
+    this.auth.deleteComplain(id).subscribe(res=>{
+      this.router.navigate(['./userprofile/admin'])
+    })
   }
   
 

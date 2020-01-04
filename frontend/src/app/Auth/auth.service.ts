@@ -79,6 +79,7 @@ export class AuthService {
     return this.http.get('http://localhost:3000/user/complain/get');
   }
   deleteComplain(id){
+    return this.http.delete('http://localhost:3000/user/complain',id)
   }
   updateComplain(body){
     console.log(JSON.stringify(body))
