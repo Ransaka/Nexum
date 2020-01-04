@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+  <div class="page-header" style="background-image: url('assets/img/bg5.jpg');">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="mt-5"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="mt-5">
+      </div>
+
+      <div class="row">
+        <!-- Finalizing form -->
+        <div class="col-md-12">
+          <div class="card">
+            <div class="mt-2">
+              <h3 class="card-title">Accepting Form</h3>
+
+            </div>
+            <div class="card-body">
+
+              <div class="row">
+                <div class="col-md-4">
+                  <h4 class="title">{{itemDetails?.item[0].sellerName}}</h4>
+                  <p class="category">{{itemDetails?.item[0].sellerId}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <h4 class="title">Username</h4>
+                  <p class="category">Id</p>
+                </div>
+                <div class="col-md-8 ml-auto">
+                  <h4 class="title">&nbsp;</h4>
+                  <p class="category">{{itemDetails?.item[0].date | date}}</p>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-md-12">
+                  <table class="table border">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="2" class="">Product Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th class="category">Product Name</th>
+                        <td>{{itemDetails?.item[0].product}}</td>
+                      </tr>
+                      <tr>
+                        <th class="category">Product Id</th>
+                        <td>{{itemDetails?.item[0]._id}}</td>
+                      </tr>
+                      <tr>
+                        <th class="category">Product Category</th>
+                        <td>{{itemDetails?.item[0].category}}</td>
+                      </tr>
+                      <tr>
+                        <th class="category">Product Tags</th>
+                        <td>{{itemDetails?.item[0].tags}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-md-12">
+                  <table class="table border">
+                    <tbody>
+                      <tr>
+                        <th class="category">Unit price</th>
+                        <td>{{itemDetails?.item[0].price}} USD</td>
+                      </tr>
+                      <tr>
+                        <th class="category">Quantity</th>
+                        <td>{{itemDetails?.item[0].quantity}}</td>
+                      </tr>
+                      <tr>
+                        <th class="category">Tax %</th>
+                        <td>{{itemDetails?.item[0].tax}}%</td>
+                      </tr>
+                      <tr>
+                        <th class="category">Total Amount</th>
+                        <td>{{itemDetails?.item[0].total}} USD</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <div class="text-center">
+                    <a class="btn btn-primary btn-lg btn-block" (click)="pay()"><i
+                        class="now-ui-icons shopping_cart-simple"></i> Pay</a>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="text-center">
+                    <a class="btn btn-primary btn-lg btn-block"
+                      routerLink="/userprofile/rateandreview/{{itemDetails?.item[0].sellerId}}"><i
+                        class="now-ui-icons ui-2_like"></i>
+                      Rate and Review</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-12">
+                <div class="col-md-12">
+                  <div class="text-center">
+                    <a class="btn btn-primary btn-lg btn-block" (click)="accept()"><i
+                        class="now-ui-icons ui-1_check"></i>
+                      Accept</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

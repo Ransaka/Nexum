@@ -17,7 +17,7 @@ const checkAuth = require('../auth/check-auth')
  * @response 
  */
 router.put('/create', (req, res, next) => {
-    console.log(req.body.review)
+    console.log(req.body._id)
     User.findById(
             req.body._id
         )
@@ -25,6 +25,7 @@ router.put('/create', (req, res, next) => {
             const rate = new Rate({
                 rate: req.body.rate,
                 review: req.body.review,
+                raterId: req.body.raterId,
                 date: Date()
             })
             return user.updateOne({
@@ -78,6 +79,28 @@ router.post('/remove', function (req, res) {
         });
 
 
+    })
+})
+
+/**
+ * Get ratings
+ *
+ * 
+ *
+ * @param id
+ * @role User
+ */
+router.get('/allratings', function (req, res) {
+    User.findById(req.headers.uid).exec((err, user) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Error retrieving User with id:' + req.uid
+            })
+        }
+        // Remove password attribute from the user
+        user.password = undefined
+        var ratings = user.ratings.reverse()
+        res.status(200).send(ratings)
     })
 })
 

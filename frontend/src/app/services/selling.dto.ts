@@ -1,6 +1,5 @@
 export interface Selling {
   category: string;
-  product: string;
   textMessage?: string;
 }
 
@@ -20,8 +19,12 @@ export interface Finalizing {
   productId: string;
   product: string;
   category: string;
+  sellerName: string;
   customerId: string;
   price: number;
   tags: string;
   textMessage?: string;
+  tax: number;
+  quantity: number;
+  total: number;
 }

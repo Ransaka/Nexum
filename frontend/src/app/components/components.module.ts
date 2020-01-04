@@ -1,3 +1,5 @@
+import { FooterComponent } from './../shared/footer/footer.component';
+import { ResetPasswordComponent } from './AccountRecovery/reset-password/reset-password.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -5,18 +7,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { SigninComponent } from './signin/signin.component';
 //import { SellingComponent } from './selling/selling.component';
-import { RatingsComponent } from './ratings/ratings.component';
+//import { RatingsComponent } from './ratings/ratings.component';
 //import { SellerreplyformComponent } from './sellerreplyform/sellerreplyform.component';
 import { NonRegisteredComponent } from './non-registered/non-registered.component';
-import { RecoverAccountComponent } from './recover-account/recover-account.component';
+import { RecoverAccountComponent } from './AccountRecovery/recover-account/recover-account.component';
 import { SignupComponent } from './modal/signup/signup.component';
 import { LoginComponent } from './modal/login/login.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { AddratingandreviewComponent } from './RatingsAndReviews/addratingandreview/addratingandreview.component';
+//import { RatingviewComponent } from './SellerView/ratingview/ratingview.component';
+//import { MoreSellingComponent } from './SellerProfile/more-selling/more-selling.component';
+//import { BroadcastViewMoreComponent } from './CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 //import { AcceptfinalizingComponent } from './acceptfinalizing/acceptfinalizing.component';
 //import { SellingitemComponent } from './sellingitem/sellingitem.component';
 //import { FinalizingformviewComponent } from './finalizingformview/finalizingformview.component';
@@ -33,7 +41,8 @@ import { LoginComponent } from './modal/login/login.component';
     NouisliderModule,
     RouterModule,
     JwBootstrapSwitchNg2Module,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollToModule.forRoot()
   ],
   declarations: [
     ComponentsComponent,
@@ -41,12 +50,13 @@ import { LoginComponent } from './modal/login/login.component';
     NgbdModalBasic,
     SigninComponent,
     //SellingComponent,
-    RatingsComponent,
+    //RatingsComponent,
     //SellerreplyformComponent,
     NonRegisteredComponent,
     RecoverAccountComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    //BroadcastViewMoreComponent
     //AcceptfinalizingComponent
     //SellingitemComponent
     //FinalizingformviewComponent
@@ -54,6 +64,11 @@ import { LoginComponent } from './modal/login/login.component';
     //FinalizingformComponent
     //SellerreplyComponent
     //BroadcastComponent
+    ResetPasswordComponent,
+    HomepageComponent,
+    AddratingandreviewComponent
+    //RatingviewComponent
+    //MoreSellingComponent
   ],
   exports: [ComponentsComponent]
 })

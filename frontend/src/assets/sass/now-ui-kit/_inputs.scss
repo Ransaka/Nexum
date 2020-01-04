@@ -3,7 +3,7 @@
 .form-control {
     background-color: white;
     border: 1px solid gray;
-    border-radius: $btn-round-radius;
+    //border-radius: $btn-round-radius;
     color: $black-color;
     line-height: normal;
     font-size: $font-size-small;
@@ -287,15 +287,18 @@ textarea.form-control {
     resize: none;
     border: none;
     border-bottom: 1px solid $light-gray;
+    border-top: 1px solid $light-gray;
+    border-right: 1px solid $light-gray;
+    border-left: 1px solid $light-gray;
     border-radius: 0;
     line-height: 2;
 
-    &:focus,
-    &:active {
-        border-left: none;
-        border-top: none;
-        border-right: none;
-    }
+    // &:focus,
+    // &:active {
+    //     //border-left: none;
+    //     //border-top: none;
+    //     //border-right: none;
+    // }
 }
 
 .has-success,

@@ -1,0 +1,108 @@
+<app-navbar></app-navbar>
+<div class="mt-5"></div>
+<div class="wrapper">
+  <div class="subscribe-line subscribe-line-transparent" style="background-image: url('assets/img/banner.jpg')">
+    <div class="text-center container">
+      <div class="row">
+        <div class=" col-md-12 col-sm-12">
+          <div class="mt-5">
+            <h3>Bookmarks</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-sm-2">
+          <div class="card" style=" width: 70rem;">
+            <div class="col-md-12">
+              <div class="">
+                <div class="social-description">
+                  <a class="btn btn-primary btn-sm" routerLink="/userprofile/sellerprofile">Back</a>
+                </div>
+              </div>
+              <div class="row">
+              </div>
+              <form>
+                <table class="table table-striped table-hover text-center">
+                  <thead class="thead-dark">
+
+                    <tr>
+                      <th scope="col">Number</th>
+                      <th scope="col" sortable="name" (sort)="onSort($event)">Category</th>
+                      <th scope="col" sortable="area" (sort)="onSort($event)">Message</th>
+                      <th scope="col">View Broadcasts</th>
+                      <th scope="col">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let x of sellingArray?.selling">
+                      <td>{{x._id | slice:-4}}</td>
+                      <a routerLink="/userprofile/sellingitem/{{x._id}}">
+                        <td>{{x.category}}</td>
+                      </a>
+                      <td scope="row">{{x.tags}}</td>
+                      <td scope="row">
+                        <div class="social-description">
+                          <a class="btn btn-primary btn-sm  btn-sm" routerLink="/userprofile/sellingitem/{{x._id}}"><i
+                              class=" now-ui-icons location_world"></i></a>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="social-description">
+                          <a class="btn btn-primary btn-lg  btn-sm" (click)="removeSelling(x._id)"><i
+                              class="now-ui-icons ui-1_simple-remove"></i></a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="d-flex justify-content-between p-2">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="https://www.creative-tim.com">
+              Creative Tim
+            </a>
+          </li>
+          <li>
+            <a href="https://www.creative-tim.com/about-us">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="http://blog.creative-tim.com">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+              MIT License
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        &copy;
+        {{data | date: 'yyyy'}}, Designed by
+        <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+      </div>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,17 @@
+.card-title {
+    color: black;
+}
+
+label {
+    color: black;
+}
+
+.cat {
+    max-width: 800px;
+    margin: 1.75rem auto;
+}
+
+.cat:hover {
+    color: red !important;
+    cursor: pointer;
+}
