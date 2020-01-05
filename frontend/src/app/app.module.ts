@@ -36,7 +36,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { SellermessageComponent } from './sellermessage/sellermessage.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { RatingsComponent } from './components/ratings/ratings.component';
-
+import { FindSellersComponent } from './components/find-sellers/find-sellers.component';
 // Customer profile components
 import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadcast-view-more/broadcast-view-more.component';
 
@@ -81,7 +81,8 @@ import { RatingviewComponent } from './components/SellerView/ratingview/ratingvi
     FooterComponent,
     RatingComponent,
     ReviewsComponent,
-    RatingviewComponent
+    RatingviewComponent,
+    FindSellersComponent
   ],
   imports: [
     BrowserAnimationsModule,

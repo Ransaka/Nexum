@@ -19,7 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { MessagesComponent } from './messages/messages.component';
 import { SellermessageComponent } from './sellermessage/sellermessage.component';
-
+import { FindSellersComponent } from './components/find-sellers/find-sellers.component';
 // Customer profile components
 import { BroadcastComponent } from './components/CustomerProfile/broadcast/broadcast.component';
 import { BroadcastViewMoreComponent } from './components/CustomerProfile/broadcast-view-more/broadcast-view-more.component';
@@ -102,6 +102,11 @@ const routes: Routes = [
     path: 'recoverAccount',
     component: RecoverAccountComponent
   },
+  {
+      path: 'FindSeller',
+      component:FindSellersComponent  
+    },
+  
   {
     path: 'userprofile/makecomplain/:sellerid',
     component: NewcomplainComponent
